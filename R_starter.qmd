@@ -1,1 +1,108 @@
-## Bien démarrer avec R et R studio
+## Bien démarrer avec R et Rstudio
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* comment bien démarrer en R ?
+
+:::
+
+----
+
+![ChatGPT](img/ChatGPT.PNG)
+
+
+Pour bien démarrer en R, suivez ces étapes :
+
+### 1. Installation de R et RStudio
+- **Télécharger et installer R**: Rendez-vous sur le site du [CRAN](https://cran.r-project.org/) et téléchargez la version adaptée à votre système d'exploitation (Windows, macOS, Linux).
+- **Télécharger et installer RStudio**: RStudio est un environnement de développement intégré (IDE) pour R. Téléchargez-le depuis le [site de RStudio](https://rstudio.com/).
+
+### 2. Prise en main de l'interface RStudio
+RStudio comprend plusieurs panneaux :
+- **Console**: pour exécuter des commandes R.
+- **Script Editor**: pour écrire et enregistrer des scripts R.
+- **Environment/History**: pour visualiser les objets chargés en mémoire et l'historique des commandes.
+- **Files/Plots/Packages/Help**: pour naviguer dans les fichiers, visualiser des graphiques, gérer des packages et accéder à l'aide.
+
+### 3. Concepts de base
+#### Variables et types de données
+```r
+x <- 5              # Numérique
+y <- "Bonjour"      # Chaîne de caractères
+z <- TRUE           # Booléen
+vec <- c(1, 2, 3)   # Vecteur
+mat <- matrix(1:6, nrow=2)  # Matrice
+df <- data.frame(a=1:3, b=c("X", "Y", "Z"))  # Data Frame
+```
+
+#### Fonctions de base
+```r
+mean(c(1, 2, 3, 4, 5))  # Calcul de la moyenne
+sum(1:10)               # Somme des nombres de 1 à 10
+```
+
+#### Importation de données
+```r
+data <- read.csv("path/to/file.csv")  # Importer un fichier CSV
+```
+
+### 4. Utilisation de packages
+Les packages sont des bibliothèques qui étendent les fonctionnalités de base de R.
+```r
+install.packages("ggplot2")  # Installation du package ggplot2
+library(ggplot2)             # Chargement du package ggplot2
+```
+
+### 5. Visualisation de données
+```r
+# Création d'un graphique simple avec ggplot2
+ggplot(data=mtcars, aes(x=wt, y=mpg)) +
+  geom_point()
+```
+
+### 6. Ressources pour apprendre
+- **Documentation officielle de R**: [CRAN Documentation](https://cran.r-project.org/other-docs.html)
+- **Cours en ligne**: Des plateformes comme Coursera, edX, et DataCamp proposent des cours sur R.
+- **Livres**: "R for Data Science" par Hadley Wickham est une excellente ressource.
+- **Forums et communautés**: Stack Overflow, Reddit (r/rstats), et RStudio Community.
+
+### 7. Pratique régulière
+La meilleure façon de maîtriser R est de pratiquer régulièrement. Essayez d'analyser vos propres jeux de données ou participez à des projets open source pour mettre en pratique vos compétences.
+
+En suivant ces étapes et en utilisant ces ressources, vous serez bien équipé pour commencer à utiliser R efficacement.
+
+
+
+
+----
+
+![Copilot](img/copilot.PNG)
+
+Pour bien démarrer en R, voici quelques étapes que vous pouvez suivre :
+
+1. **Installer R** : R est disponible en téléchargement sur le site officiel de R¹. La version de R à télécharger dépend de votre système d'exploitation¹.
+
+2. **Installer RStudio** : RStudio est un environnement de développement très populaire pour R¹. Avant de pouvoir installer RStudio, vous devez avoir une version récente de R installée sur votre ordinateur¹.
+
+3. **Découvrir RStudio** : RStudio est un outil flexible qui vous aide à créer des analyses lisibles et garde votre code, images, commentaires et graphiques ensemble au même endroit¹.
+
+4. **Installer les packages tidyverse** : Le tidyverse est une collection de packages R conçus pour la science des données¹. Tous les packages partagent une philosophie de conception sous-jacente, une grammaire commune de manipulation de données et des structures de données interopérables¹.
+
+5. **Charger les packages tidyverse en mémoire**¹.
+
+6. **Obtenir de l'aide sur un package ou une fonction**¹.
+
+7. **Utiliser RStudio Cloud** : RStudio Cloud est une plateforme en ligne qui permet d'exécuter R et RStudio directement dans votre navigateur web¹.
+
+8. **Pratiquer !** : La meilleure façon d'apprendre à programmer est de pratiquer. Essayez de résoudre des problèmes réels que vous rencontrez et de travailler sur des projets qui vous intéressent.
+
+En outre, il existe de nombreuses ressources en ligne pour vous aider à apprendre R. Par exemple, Dataquest propose un tutoriel pour commencer avec R et RStudio¹, et RStudio Education propose des pistes d'apprentissage pour les débutants, les utilisateurs intermédiaires et les experts².
+
+N'oubliez pas que la pratique est la clé de l'apprentissage de la programmation. Bonne chance dans votre voyage d'apprentissage R !
+
+Source : conversation avec Copilot, 13/06/2024
+(1) Tutorial: Getting Started with R and RStudio – Dataquest. https://www.dataquest.io/blog/tutorial-getting-started-with-r-and-rstudio/.
+(2) Finding Your Way To R - RStudio. https://education.rstudio.com/learn/.
+(3) Getting Started with R – Posit Support. https://support.posit.co/hc/en-us/articles/201141096-Getting-Started-with-R.
+(4) RStudio Education. https://education.rstudio.com/learn/beginner/.
