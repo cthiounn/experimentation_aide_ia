@@ -1,5 +1,7 @@
 ## Obtenir la partie entière en R
 
+### Approche naïve
+
 ::: {.callout-note appearance="simple"}
 Prompt : 
 
@@ -58,3 +60,200 @@ print(partie_entiere)
 ```
 
 Dans cet exemple, `floor(7.9)` retournera `7` car `7` est la partie entière de `7.9`. Vous pouvez remplacer `7.9` par n'importe quel nombre pour obtenir sa partie entière.
+
+
+### Spécificité arrow en lazy
+
+
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* J'utilise R pour travailler un fichier parquet dont le chemin est stocké dans une variable "NAME_PARQUET" ouvert avec arrow::open_dataset en lazy, je veux la partie entière d'un nombre actuellement représenté sous format string et nommé "result"
+
+:::
+
+----
+
+![ChatGPT](img/ChatGPT.PNG)
+
+Pour obtenir la partie entière d'un nombre représenté sous forme de chaîne de caractères dans un fichier Parquet ouvert en mode lazy avec `arrow::open_dataset`, vous pouvez utiliser les fonctionnalités de manipulation de colonnes fournies par `dplyr` et `arrow`. Voici un exemple de comment faire cela :
+
+```r
+library(arrow)
+library(dplyr)
+
+# Ouvrir le dataset en mode lazy
+dataset <- open_dataset("path/to/your/parquet/file")
+
+# Transformer la colonne "result" en partie entière
+dataset_transformed <- dataset %>%
+  mutate(result_integer = floor(as.numeric(result)))
+
+# Afficher les premières lignes pour vérifier
+dataset_transformed %>% 
+  select(result, result_integer) %>%
+  collect() %>%
+  head()
+```
+
+Voici une explication étape par étape de ce que fait ce code :
+
+1. **Ouvrir le dataset en mode lazy** :
+   ```r
+   dataset <- open_dataset("path/to/your/parquet/file")
+   ```
+   Cette ligne ouvre votre fichier Parquet en utilisant `arrow::open_dataset`.
+
+2. **Transformer la colonne "result" en partie entière** :
+   ```r
+   dataset_transformed <- dataset %>%
+     mutate(result_integer = floor(as.numeric(result)))
+   ```
+   - `mutate(result_integer = ...)` : Crée une nouvelle colonne `result_integer` qui contiendra les valeurs entières.
+   - `as.numeric(result)` : Convertit la colonne `result` (qui est une chaîne de caractères) en numérique.
+   - `floor(...)` : Prend la partie entière du nombre.
+
+3. **Afficher les premières lignes pour vérifier** :
+   ```r
+   dataset_transformed %>% 
+     select(result, result_integer) %>%
+     collect() %>%
+     head()
+   ```
+   - `select(result, result_integer)` : Sélectionne les colonnes `result` et `result_integer` pour l'affichage.
+   - `collect()` : Évalue les transformations en mode lazy et charge les résultats en mémoire.
+   - `head()` : Affiche les premières lignes pour vérifier le résultat.
+
+Assurez-vous de remplacer `"path/to/your/parquet/file"` par le chemin réel de votre fichier Parquet. Ce script suppose que votre colonne `result` contient des chaînes de caractères qui peuvent être converties en nombres.
+
+
+::: {.callout-note appearance="simple"}
+Suite : 
+
+* cela donne l'erreur suivante : Error: Expression extract_integer_part(result) not supported in Arrow
+Call collect() first to pull data into R.
+
+:::
+
+
+L'erreur indique que l'expression `extract_integer_part(result)` n'est pas supportée par Arrow en mode lazy et qu'il faudrait utiliser `collect()` pour tirer les données en mémoire avant de faire des transformations non supportées par Arrow.
+
+Pour contourner ce problème, vous pouvez d'abord collecter les données dans un DataFrame en mémoire avec `collect()` puis faire les transformations en utilisant `dplyr`. Voici comment faire :
+
+```r
+library(arrow)
+library(dplyr)
+
+# Ouvrir le dataset en mode lazy
+dataset <- open_dataset("path/to/your/parquet/file")
+
+# Collecter les données en mémoire
+collected_data <- dataset %>%
+  select(result) %>%
+  collect()
+
+# Transformer la colonne "result" en partie entière
+collected_data <- collected_data %>%
+  mutate(result_integer = floor(as.numeric(result)))
+
+# Afficher les premières lignes pour vérifier
+head(collected_data)
+```
+
+Voici une explication étape par étape de ce que fait ce code :
+
+1. **Ouvrir le dataset en mode lazy** :
+   ```r
+   dataset <- open_dataset("path/to/your/parquet/file")
+   ```
+   Cette ligne ouvre votre fichier Parquet en utilisant `arrow::open_dataset`.
+
+2. **Collecter les données en mémoire** :
+   ```r
+   collected_data <- dataset %>%
+     select(result) %>%
+     collect()
+   ```
+   - `select(result)` : Sélectionne uniquement la colonne `result` pour réduire la quantité de données collectées.
+   - `collect()` : Charge les données sélectionnées en mémoire sous forme de DataFrame R.
+
+3. **Transformer la colonne "result" en partie entière** :
+   ```r
+   collected_data <- collected_data %>%
+     mutate(result_integer = floor(as.numeric(result)))
+   ```
+   - `mutate(result_integer = ...)` : Crée une nouvelle colonne `result_integer` qui contiendra les valeurs entières.
+   - `as.numeric(result)` : Convertit la colonne `result` (qui est une chaîne de caractères) en numérique.
+   - `floor(...)` : Prend la partie entière du nombre.
+
+4. **Afficher les premières lignes pour vérifier** :
+   ```r
+   head(collected_data)
+   ```
+   - `head(collected_data)` : Affiche les premières lignes du DataFrame pour vérifier le résultat.
+
+Ce script permet de contourner les limitations d'Arrow pour certaines opérations et utilise les fonctionnalités de `dplyr` une fois les données collectées en mémoire. Assurez-vous de remplacer `"path/to/your/parquet/file"` par le chemin réel de votre fichier Parquet.
+
+----
+
+![Copilot](img/copilot.PNG)
+
+
+Pour obtenir la partie entière d'un nombre représenté sous format string dans R, vous pouvez utiliser la fonction `as.integer()`. Cependant, cette fonction convertit le string en un nombre entier seulement si le string est déjà un nombre. Si le string contient des caractères non numériques ou des décimales, vous devez d'abord le convertir en un nombre à virgule flottante avec `as.numeric()` puis utiliser `floor()` pour obtenir la partie entière. Voici comment vous pouvez le faire:
+
+```r
+# Supposons que votre dataset est stocké dans la variable 'data'
+data <- arrow::open_dataset(NAME_PARQUET)
+
+# Convertir la colonne 'result' en nombre à virgule flottante
+data$result <- as.numeric(data$result)
+
+# Obtenir la partie entière
+data$result <- floor(data$result)
+```
+
+Cela convertira la colonne "result" en nombres entiers. Si vous rencontrez des problèmes avec des valeurs non numériques, vous devrez peut-être les gérer séparément. Notez que `as.numeric()` et `floor()` renverront `NA` pour les valeurs non numériques. Vous pouvez utiliser `is.na()` pour identifier ces valeurs.
+
+
+::: {.callout-note appearance="simple"}
+Suite : 
+
+* Error in data$result <- as.numeric(data$result) : 
+  cannot add bindings to a locked environment
+
+:::
+
+
+
+L'erreur que vous rencontrez est due à une tentative de modification d'un environnement verrouillé. Dans R, un "environnement verrouillé" est généralement un environnement qui a été rendu en lecture seule et ne peut pas être modifié.
+
+Lorsque vous utilisez `arrow::open_dataset()`, il renvoie un objet `Dataset` qui est en lecture seule. Vous ne pouvez pas modifier directement les colonnes de cet objet.
+
+Pour résoudre ce problème, vous pouvez créer une copie de la colonne que vous souhaitez modifier dans un nouvel objet, effectuer les modifications sur cet objet, puis ajouter cet objet à votre `Dataset`. Voici comment vous pouvez le faire :
+
+```r
+# Ouvrir le dataset
+data <- arrow::open_dataset(NAME_PARQUET)
+
+# Créer une copie de la colonne 'result' dans un nouvel objet
+result_column <- data$result
+
+# Convertir la colonne 'result' en nombre à virgule flottante
+result_column <- as.numeric(result_column)
+
+# Obtenir la partie entière
+result_column <- floor(result_column)
+
+# Ajouter la colonne modifiée à l'objet 'data'
+data$result <- result_column
+```
+
+Cela devrait résoudre votre problème. Si vous rencontrez toujours des problèmes, n'hésitez pas à me le faire savoir !
+
+
+::: {.callout-important appearance="simple"}
+
+Cela ne marche toujours pas !
+
+:::
