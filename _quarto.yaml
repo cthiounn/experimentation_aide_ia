@@ -23,6 +23,8 @@ website:
         contents:
           - href: R_avancee_openxlsx.qmd
             text: "Exporter des statistiques avec openxlsx"
+          - href: R_avancee_partie_entiere.qmd
+            text: "Partie entière en R"
         
 format:
   html:

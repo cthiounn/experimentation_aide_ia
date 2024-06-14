@@ -1,0 +1,60 @@
+## Obtenir la partie entière en R
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Je souhaite avoir la partie entière en R
+
+:::
+
+----
+
+![ChatGPT](img/ChatGPT.PNG)
+
+En R, vous pouvez obtenir la partie entière d'un nombre (la partie avant la virgule, c'est-à-dire l'entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :
+
+1. **La fonction `floor`** : Elle renvoie la plus grande valeur entière inférieure ou égale à l'argument.
+   ```R
+   floor(3.7)  # Renvoie 3
+   floor(-3.7) # Renvoie -4
+   ```
+
+2. **La fonction `trunc`** : Elle tronque la partie décimale, ce qui équivaut à obtenir la partie entière de la valeur numérique.
+   ```R
+   trunc(3.7)  # Renvoie 3
+   trunc(-3.7) # Renvoie -3
+   ```
+
+3. **La fonction `as.integer`** : Elle convertit une valeur numérique en entier en la tronquant.
+   ```R
+   as.integer(3.7)  # Renvoie 3
+   as.integer(-3.7) # Renvoie -3
+   ```
+
+4. **La fonction `round` avec l'argument `digits` à 0** : Cette fonction arrondit à l'entier le plus proche, mais ce n'est pas exactement la même chose que de prendre la partie entière car elle peut arrondir vers le haut ou vers le bas.
+   ```R
+   round(3.7, digits = 0)  # Renvoie 4
+   round(3.3, digits = 0)  # Renvoie 3
+   ```
+
+Pour obtenir strictement la partie entière, les fonctions `floor` et `trunc` sont les plus adaptées. Si vous voulez absolument obtenir l'entier le plus proche sans prendre en compte la partie décimale, utilisez `trunc`. Si vous souhaitez l'entier inférieur ou égal à la valeur, utilisez `floor`.
+
+
+----
+
+![Copilot](img/copilot.PNG)
+
+En R, la fonction `floor()` est utilisée pour obtenir la partie entière d'un nombre. Voici un exemple de code :
+
+```R
+# Définir un nombre
+nombre <- 7.9
+
+# Obtenir la partie entière
+partie_entiere <- floor(nombre)
+
+# Afficher la partie entière
+print(partie_entiere)
+```
+
+Dans cet exemple, `floor(7.9)` retournera `7` car `7` est la partie entière de `7.9`. Vous pouvez remplacer `7.9` par n'importe quel nombre pour obtenir sa partie entière.
