@@ -1,5 +1,27 @@
 [
   {
+    "objectID": "R_avancee_partie_entiere.html",
+    "href": "R_avancee_partie_entiere.html",
+    "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
+    "section": "",
+    "text": "Prompt :\n\nJe souhaite avoir la partie entière en R\n\n\n\n\n\n\n\n\nChatGPT\n\n\nEn R, vous pouvez obtenir la partie entière d’un nombre (la partie avant la virgule, c’est-à-dire l’entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :\n\nLa fonction floor : Elle renvoie la plus grande valeur entière inférieure ou égale à l’argument.\nfloor(3.7)  # Renvoie 3\nfloor(-3.7) # Renvoie -4\nLa fonction trunc : Elle tronque la partie décimale, ce qui équivaut à obtenir la partie entière de la valeur numérique.\ntrunc(3.7)  # Renvoie 3\ntrunc(-3.7) # Renvoie -3\nLa fonction as.integer : Elle convertit une valeur numérique en entier en la tronquant.\nas.integer(3.7)  # Renvoie 3\nas.integer(-3.7) # Renvoie -3\nLa fonction round avec l’argument digits à 0 : Cette fonction arrondit à l’entier le plus proche, mais ce n’est pas exactement la même chose que de prendre la partie entière car elle peut arrondir vers le haut ou vers le bas.\nround(3.7, digits = 0)  # Renvoie 4\nround(3.3, digits = 0)  # Renvoie 3\n\nPour obtenir strictement la partie entière, les fonctions floor et trunc sont les plus adaptées. Si vous voulez absolument obtenir l’entier le plus proche sans prendre en compte la partie décimale, utilisez trunc. Si vous souhaitez l’entier inférieur ou égal à la valeur, utilisez floor.\n\n\n\n\nCopilot\n\n\nEn R, la fonction floor() est utilisée pour obtenir la partie entière d’un nombre. Voici un exemple de code :\n# Définir un nombre\nnombre &lt;- 7.9\n\n# Obtenir la partie entière\npartie_entiere &lt;- floor(nombre)\n\n# Afficher la partie entière\nprint(partie_entiere)\nDans cet exemple, floor(7.9) retournera 7 car 7 est la partie entière de 7.9. Vous pouvez remplacer 7.9 par n’importe quel nombre pour obtenir sa partie entière.",
+    "crumbs": [
+      "Usage avancé",
+      "Partie entière en R"
+    ]
+  },
+  {
+    "objectID": "R_avancee_partie_entiere.html#obtenir-la-partie-entière-en-r",
+    "href": "R_avancee_partie_entiere.html#obtenir-la-partie-entière-en-r",
+    "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
+    "section": "",
+    "text": "Prompt :\n\nJe souhaite avoir la partie entière en R\n\n\n\n\n\n\n\n\nChatGPT\n\n\nEn R, vous pouvez obtenir la partie entière d’un nombre (la partie avant la virgule, c’est-à-dire l’entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :\n\nLa fonction floor : Elle renvoie la plus grande valeur entière inférieure ou égale à l’argument.\nfloor(3.7)  # Renvoie 3\nfloor(-3.7) # Renvoie -4\nLa fonction trunc : Elle tronque la partie décimale, ce qui équivaut à obtenir la partie entière de la valeur numérique.\ntrunc(3.7)  # Renvoie 3\ntrunc(-3.7) # Renvoie -3\nLa fonction as.integer : Elle convertit une valeur numérique en entier en la tronquant.\nas.integer(3.7)  # Renvoie 3\nas.integer(-3.7) # Renvoie -3\nLa fonction round avec l’argument digits à 0 : Cette fonction arrondit à l’entier le plus proche, mais ce n’est pas exactement la même chose que de prendre la partie entière car elle peut arrondir vers le haut ou vers le bas.\nround(3.7, digits = 0)  # Renvoie 4\nround(3.3, digits = 0)  # Renvoie 3\n\nPour obtenir strictement la partie entière, les fonctions floor et trunc sont les plus adaptées. Si vous voulez absolument obtenir l’entier le plus proche sans prendre en compte la partie décimale, utilisez trunc. Si vous souhaitez l’entier inférieur ou égal à la valeur, utilisez floor.\n\n\n\n\nCopilot\n\n\nEn R, la fonction floor() est utilisée pour obtenir la partie entière d’un nombre. Voici un exemple de code :\n# Définir un nombre\nnombre &lt;- 7.9\n\n# Obtenir la partie entière\npartie_entiere &lt;- floor(nombre)\n\n# Afficher la partie entière\nprint(partie_entiere)\nDans cet exemple, floor(7.9) retournera 7 car 7 est la partie entière de 7.9. Vous pouvez remplacer 7.9 par n’importe quel nombre pour obtenir sa partie entière.",
+    "crumbs": [
+      "Usage avancé",
+      "Partie entière en R"
+    ]
+  },
+  {
     "objectID": "R_starter.html",
     "href": "R_starter.html",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
@@ -19,6 +41,28 @@
     "crumbs": [
       "Usage classique en statistique",
       "Bien commencer avec R et Rstudio"
+    ]
+  },
+  {
+    "objectID": "R_avancee_openxlsx.html",
+    "href": "R_avancee_openxlsx.html",
+    "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
+    "section": "",
+    "text": "Prompt :\n\n\n\n\n\n\n\n\n\n\nChatGPT\n\n\n\n\n\n\nCopilot",
+    "crumbs": [
+      "Usage avancé",
+      "Exporter des statistiques avec openxlsx"
+    ]
+  },
+  {
+    "objectID": "R_avancee_openxlsx.html#exporter-des-résultats-avec-openxlsx",
+    "href": "R_avancee_openxlsx.html#exporter-des-résultats-avec-openxlsx",
+    "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
+    "section": "",
+    "text": "Prompt :\n\n\n\n\n\n\n\n\n\n\nChatGPT\n\n\n\n\n\n\nCopilot",
+    "crumbs": [
+      "Usage avancé",
+      "Exporter des statistiques avec openxlsx"
     ]
   }
 ]
