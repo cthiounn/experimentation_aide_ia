@@ -15,6 +15,8 @@ website:
     align: center
     style: "docked"
     contents:
+      - text: "Accueil"
+        href: index.qmd
       - section: "Usage classique en statistique"
         contents:
           - href: R_starter.qmd
