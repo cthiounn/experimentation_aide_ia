@@ -3,7 +3,8 @@
 ::: {.callout-note appearance="simple"}
 Prompt : 
 
-* 
+* Comment exporter des résultats avec openxlsx ?
+
 
 :::
 
@@ -11,10 +12,141 @@ Prompt :
 
 ![ChatGPT](img/ChatGPT.PNG)
 
+`openxlsx` est un package R très pratique pour créer, lire et modifier des fichiers Excel. Si tu souhaites exporter des résultats vers un fichier Excel avec `openxlsx`, voici comment procéder :
 
+1. **Installation et chargement du package**
+
+   Si tu n’as pas encore installé `openxlsx`, tu peux le faire avec :
+
+   ```r
+   install.packages("openxlsx")
+   ```
+
+   Ensuite, charge le package dans ta session R :
+
+   ```r
+   library(openxlsx)
+   ```
+
+2. **Préparation des données**
+
+   Assure-toi que tes données sont prêtes à être exportées. Par exemple, disons que tu as un dataframe `df` :
+
+   ```r
+   df <- data.frame(
+     Nom = c("Alice", "Bob", "Charlie"),
+     Âge = c(25, 30, 35),
+     Ville = c("Paris", "Londres", "Berlin")
+   )
+   ```
+
+3. **Création d'un fichier Excel**
+
+   Pour créer un fichier Excel avec `openxlsx`, utilise la fonction `write.xlsx`. Voici un exemple de base :
+
+   ```r
+   write.xlsx(df, file = "mon_fichier.xlsx")
+   ```
+
+   Dans cet exemple, `df` est le dataframe que tu souhaites exporter, et `file` spécifie le nom du fichier Excel que tu veux créer.
+
+4. **Ajouter plusieurs feuilles**
+
+   Si tu souhaites ajouter plusieurs feuilles dans le même fichier Excel, tu peux le faire en utilisant l'argument `sheetName` :
+
+   ```r
+   wb <- createWorkbook()  # Crée un nouveau fichier Excel
+   addWorksheet(wb, "Feuille1")  # Ajoute une feuille nommée "Feuille1"
+   addWorksheet(wb, "Feuille2")  # Ajoute une autre feuille nommée "Feuille2"
+
+   writeData(wb, sheet = "Feuille1", x = df)  # Écrit les données dans la première feuille
+   writeData(wb, sheet = "Feuille2", x = df)  # Écrit les mêmes données dans la deuxième feuille
+
+   saveWorkbook(wb, file = "mon_fichier_multifeuilles.xlsx", overwrite = TRUE)
+   ```
+
+   Dans cet exemple, nous avons créé un classeur Excel avec deux feuilles, chacune contenant les données du dataframe `df`.
+
+5. **Personnalisation**
+
+   `openxlsx` offre plusieurs options pour personnaliser le format de tes feuilles Excel, comme ajouter des styles, des formats de cellules, et bien plus. Voici un exemple pour ajouter du style :
+
+   ```r
+   library(openxlsx)
+
+   # Création d'un classeur
+   wb <- createWorkbook()
+
+   # Ajouter une feuille
+   addWorksheet(wb, "Feuille1")
+
+   # Définir un style
+   style <- createStyle(
+     fontSize = 12,
+     fontColour = "#FFFFFF",
+     bgFill = "#4F81BD",
+     halign = "center",
+     valign = "center",
+     textDecoration = "bold"
+   )
+
+   # Écrire des données et appliquer le style
+   writeData(wb, sheet = "Feuille1", x = df, headerStyle = style)
+
+   # Sauvegarder le classeur
+   saveWorkbook(wb, file = "mon_fichier_stylise.xlsx", overwrite = TRUE)
+   ```
+
+Avec ces étapes, tu devrais pouvoir exporter efficacement tes résultats vers un fichier Excel en utilisant `openxlsx`. Si tu as des besoins spécifiques ou des questions supplémentaires, n'hésite pas !
 
 
 ----
 
 ![Copilot](img/copilot.PNG)
+
+Pour exporter des résultats avec le package `openxlsx` en R, vous pouvez suivre les étapes suivantes :
+
+1. Installez et chargez le package `openxlsx` avec les commandes suivantes :
+```r
+install.packages("openxlsx")
+library("openxlsx")
+```
+2. Créez un nouvel objet de classeur avec la fonction `createWorkbook()` :
+```r
+wb <- createWorkbook()
+```
+3. Ajoutez une feuille de calcul à l'objet de classeur avec la fonction `addWorksheet()` :
+```r
+addWorksheet(wb, "Feuille1")
+```
+4. Écrivez des données dans la feuille de calcul avec la fonction `writeData()` :
+```r
+writeData(wb, "Feuille1", x = votre_dataframe)
+```
+5. Enregistrez le classeur avec la fonction `saveWorkbook()` :
+```r
+saveWorkbook(wb, "nom_du_fichier.xlsx", overwrite = TRUE)
+```
+Dans cet exemple, `votre_dataframe` est le dataframe que vous souhaitez exporter et `nom_du_fichier.xlsx` est le nom du fichier Excel que vous souhaitez créer⁴.
+
+Si vous avez plusieurs dataframes à exporter dans des feuilles de calcul différentes d'un même classeur, vous pouvez utiliser une boucle `lapply` pour écrire chaque dataframe dans une nouvelle feuille de calcul⁵. Voici un exemple :
+```r
+# Supposons que 'myList' est une liste de dataframes
+noms_des_feuilles <- names(myList)
+lapply(seq_along(myList), function(i) {
+  addWorksheet(wb, noms_des_feuilles[i])
+  writeData(wb, noms_des_feuilles[i], myList[[i]])
+})
+saveWorkbook(wb, "nom_du_fichier.xlsx", overwrite = TRUE)
+```
+Dans cet exemple, chaque dataframe dans `myList` est écrit dans une nouvelle feuille de calcul. Les noms des feuilles de calcul correspondent aux noms des dataframes dans `myList`⁵.
+
+Source : conversation avec Copilot, 24/07/2024
+(1) xlsx : le meilleur package pour connecter Excel avec le logiciel R - STHDA. http://www.sthda.com/french/wiki/xlsx-le-meilleur-package-pour-connecter-excel-avec-le-logiciel-r.
+(2) Use R and Openxlsx to output a list of dataframes as worksheets in a .... https://stackoverflow.com/questions/43176266/use-r-and-openxlsx-to-output-a-list-of-dataframes-as-worksheets-in-a-single-exce.
+(3) How to use the Openxlsx package. Import, export, and style multiple XLSX files in one workbook.. https://www.youtube.com/watch?v=nI-IlHvf1-c.
+(4) 10 - logiciel R - Exportation de données (écriture dans un fichier). https://www.youtube.com/watch?v=dpJ4CupNqdo.
+(5) Du logiciel R à l'Excel - Exporter des données ou résultats sous format CSV et xlsx (EXCEL). https://www.youtube.com/watch?v=EzthAcCP6-8.
+(6) Comment exporter les résultats d’une requête SQL Server vers Excel. https://bing.com/search?q=Comment+exporter+des+r%c3%a9sultats+avec+openxlsx.
+(7) Comment exporter les résultats d’une requête SQL Server vers Excel. https://axial-sql.com/fr/comment-exporter-les-resultats-dune-requete-sql-server-vers-excel/.
 
