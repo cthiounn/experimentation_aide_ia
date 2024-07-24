@@ -25,6 +25,8 @@ website:
             text: "Exporter des statistiques avec openxlsx"
           - href: R_avancee_partie_entiere.qmd
             text: "Partie entière en R"
+          - href: R_reg_log.qmd
+            text: "Régression logistique en R"
           - href: R_template.qmd
             text: "Template de fiche"
         

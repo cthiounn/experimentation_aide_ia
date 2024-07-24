@@ -1,0 +1,67 @@
+## Régression logistique
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment faire une régression logistique sous R? 
+
+
+:::
+
+----
+
+![ChatGPT](img/ChatGPT.PNG)
+
+
+----
+
+![Copilot](img/copilot.PNG)
+
+La régression logistique est un outil puissant pour analyser des variables binaires en fonction de variables explicatives. Voici comment réaliser une régression logistique sous R:
+
+1. **Préparation des données**:
+   - Supposons que vous ayez une variable binaire (par exemple, 1 pour "oui" et 0 pour "non") que vous souhaitez expliquer en fonction d'une variable explicative quantitative (par exemple, l'âge).
+   - Vous pouvez utiliser la fonction `glm()` (Modèle Linéaire Généralisé) pour estimer un modèle de régression logistique.
+
+2. **Modélisation**:
+   - Voici la formule générale pour la régression logistique:
+     $$ \log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot x $$
+     où:
+     - \(p\) est la probabilité de succès (valeur binaire).
+     - \(\beta_0\) est l'intercept.
+     - \(\beta_1\) est le coefficient associé à la variable explicative \(x\).
+   - La fonction de lien utilisée pour la régression logistique est le logit (ou log-odds).
+
+3. **Exemple de code**:
+   ```R
+   # Chargement des données (x: âge, y: achat d'album de death metal)
+   x <- c(30, 25, 40, ...)  # Âges des personnes
+   y <- c(0, 1, 0, ...)    # 0: Non, 1: Oui (achat d'album)
+
+   # Régression logistique
+   myreg <- glm(y ~ x, family = binomial(link = logit))
+   summary(myreg)  # Affiche les coefficients et les statistiques
+
+   # Transformation inverse pour obtenir les probabilités
+   logit_ypredit <- -0.12 * x + 5.95
+   ypredit <- exp(logit_ypredit) / (1 + exp(logit_ypredit))
+
+   # Tracé de la courbe
+   plot(x, y)
+   points(x, ypredit, col = "red")
+   ```
+   - Dans l'exemple, l'influence négative de l'âge sur l'achat d'albums de death metal est significative au seuil de 5%.
+
+N'hésitez pas si vous avez besoin d'aide supplémentaire ! 😊
+
+Source : conversation avec Copilot, 24/07/2024
+(1) Régression Logistique dans Rstudio. Comment faire la régressionlogistique dans R?. https://www.youtube.com/watch?v=sopRAKHtm3g.
+(2) Regression logistique avec R part2. https://www.youtube.com/watch?v=AekWTxpyjvs.
+(3) Regression logistique avec R part1. https://www.youtube.com/watch?v=6LTHZgYv6Nc.
+(4) Réaliser une régression logistique avec R - R-atique. https://perso.ens-lyon.fr/lise.vaudor/realiser-une-regression-logistique-avec-r/.
+(5) Un guide complet de la régression logistique en R - ICHI.PRO. https://ichi.pro/fr/un-guide-complet-de-la-regression-logistique-en-r-49515274030415.
+(6) 5 Regression logistique | Analyses statistiques avec R - Bookdown. https://bookdown.org/evraloui/lbira2110/regression-logistique.html.
+(7) undefined. https://github.com/alibezzaa/Logistic-regression.git.
+(8) Équation de régression logistique en R : Comprendre la formule avec des .... https://bing.com/search?q=r%c3%a9gression+logistique+R.
+(9) Équation de régression logistique en R : Comprendre la formule avec des .... https://docs.kanaries.net/fr/topics/R/logistic-regression-equation-in-r.
+(10) Régression logistique - Explication simple - DATAtab. https://datatab.fr/tutorial/logistic-regression.
