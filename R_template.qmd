@@ -1,0 +1,19 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* 
+
+
+:::
+
+----
+
+![ChatGPT](img/ChatGPT.PNG)
+
+
+----
+
+![Copilot](img/copilot.PNG)
+
