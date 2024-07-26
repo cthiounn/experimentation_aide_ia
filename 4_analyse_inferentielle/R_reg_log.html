@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_starter – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_reg_log – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,23 +57,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -114,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R_starter.html">Usage classique en statistique</a></li><li class="breadcrumb-item"><a href="./R_starter.html">Bien commencer avec R et Rstudio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Analyses inférentielles</a></li><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Régression logistique en R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
+      <a href="../">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -144,14 +173,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Usage classique en statistique</span></a>
+ <span class="menu-text">Bien démarrer en R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -159,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_starter.html" class="sidebar-item-text sidebar-link active">
+  <a href="../1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bien commencer avec R et Rstudio</span></a>
   </div>
 </li>
@@ -168,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Usage avancé</span></a>
+ <span class="menu-text">Importer des données</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -176,25 +205,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Nettoyage et préparation des données</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyse des données</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyses inférentielles</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Régression logistique en R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interprétation des résultats</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Rédaction du rapport</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Diffusion des résultats</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exporter des statistiques avec openxlsx</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Évaluation et réflexion</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Usage avancé</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Partie entière en R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_reg_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Régression logistique en R</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Template de fiche</span></a>
   </div>
 </li>
@@ -210,16 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bien-démarrer-avec-r-et-rstudio" id="toc-bien-démarrer-avec-r-et-rstudio" class="nav-link active" data-scroll-target="#bien-démarrer-avec-r-et-rstudio">Bien démarrer avec R et Rstudio</a>
-  <ul class="collapse">
-  <li><a href="#installation-de-r-et-rstudio" id="toc-installation-de-r-et-rstudio" class="nav-link" data-scroll-target="#installation-de-r-et-rstudio">1. Installation de R et RStudio</a></li>
-  <li><a href="#prise-en-main-de-linterface-rstudio" id="toc-prise-en-main-de-linterface-rstudio" class="nav-link" data-scroll-target="#prise-en-main-de-linterface-rstudio">2. Prise en main de l’interface RStudio</a></li>
-  <li><a href="#concepts-de-base" id="toc-concepts-de-base" class="nav-link" data-scroll-target="#concepts-de-base">3. Concepts de base</a></li>
-  <li><a href="#utilisation-de-packages" id="toc-utilisation-de-packages" class="nav-link" data-scroll-target="#utilisation-de-packages">4. Utilisation de packages</a></li>
-  <li><a href="#visualisation-de-données" id="toc-visualisation-de-données" class="nav-link" data-scroll-target="#visualisation-de-données">5. Visualisation de données</a></li>
-  <li><a href="#ressources-pour-apprendre" id="toc-ressources-pour-apprendre" class="nav-link" data-scroll-target="#ressources-pour-apprendre">6. Ressources pour apprendre</a></li>
-  <li><a href="#pratique-régulière" id="toc-pratique-régulière" class="nav-link" data-scroll-target="#pratique-régulière">7. Pratique régulière</a></li>
-  </ul></li>
+  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a></li>
   </ul>
 </nav>
     </div>
@@ -229,8 +367,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="bien-démarrer-avec-r-et-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="bien-démarrer-avec-r-et-rstudio">Bien démarrer avec R et Rstudio</h2>
+<section id="régression-logistique" class="level2">
+<h2 class="anchored" data-anchor-id="régression-logistique">Régression logistique</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -239,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>comment bien démarrer en R ?</li>
+<li>Comment faire une régression logistique sous R?</li>
 </ul>
 </div>
 </div>
@@ -247,92 +385,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/ChatGPT.PNG" class="img-fluid figure-img"></p>
+<p><img src="../img/ChatGPT.PNG" class="img-fluid figure-img"></p>
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour bien démarrer en R, suivez ces étapes :</p>
-<section id="installation-de-r-et-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="installation-de-r-et-rstudio">1. Installation de R et RStudio</h3>
-<ul>
-<li><strong>Télécharger et installer R</strong>: Rendez-vous sur le site du <a href="https://cran.r-project.org/">CRAN</a> et téléchargez la version adaptée à votre système d’exploitation (Windows, macOS, Linux).</li>
-<li><strong>Télécharger et installer RStudio</strong>: RStudio est un environnement de développement intégré (IDE) pour R. Téléchargez-le depuis le <a href="https://rstudio.com/">site de RStudio</a>.</li>
-</ul>
-</section>
-<section id="prise-en-main-de-linterface-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="prise-en-main-de-linterface-rstudio">2. Prise en main de l’interface RStudio</h3>
-<p>RStudio comprend plusieurs panneaux : - <strong>Console</strong>: pour exécuter des commandes R. - <strong>Script Editor</strong>: pour écrire et enregistrer des scripts R. - <strong>Environment/History</strong>: pour visualiser les objets chargés en mémoire et l’historique des commandes. - <strong>Files/Plots/Packages/Help</strong>: pour naviguer dans les fichiers, visualiser des graphiques, gérer des packages et accéder à l’aide.</p>
-</section>
-<section id="concepts-de-base" class="level3">
-<h3 class="anchored" data-anchor-id="concepts-de-base">3. Concepts de base</h3>
-<section id="variables-et-types-de-données" class="level4">
-<h4 class="anchored" data-anchor-id="variables-et-types-de-données">Variables et types de données</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>              <span class="co"># Numérique</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"Bonjour"</span>      <span class="co"># Chaîne de caractères</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span>           <span class="co"># Booléen</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)   <span class="co"># Vecteur</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">2</span>)  <span class="co"># Matrice</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b=</span><span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>, <span class="st">"Z"</span>))  <span class="co"># Data Frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="fonctions-de-base" class="level4">
-<h4 class="anchored" data-anchor-id="fonctions-de-base">Fonctions de base</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))  <span class="co"># Calcul de la moyenne</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)               <span class="co"># Somme des nombres de 1 à 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="importation-de-données" class="level4">
-<h4 class="anchored" data-anchor-id="importation-de-données">Importation de données</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path/to/file.csv"</span>)  <span class="co"># Importer un fichier CSV</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="utilisation-de-packages" class="level3">
-<h3 class="anchored" data-anchor-id="utilisation-de-packages">4. Utilisation de packages</h3>
-<p>Les packages sont des bibliothèques qui étendent les fonctionnalités de base de R.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)  <span class="co"># Installation du package ggplot2</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)             <span class="co"># Chargement du package ggplot2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="visualisation-de-données" class="level3">
-<h3 class="anchored" data-anchor-id="visualisation-de-données">5. Visualisation de données</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un graphique simple avec ggplot2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="ressources-pour-apprendre" class="level3">
-<h3 class="anchored" data-anchor-id="ressources-pour-apprendre">6. Ressources pour apprendre</h3>
-<ul>
-<li><strong>Documentation officielle de R</strong>: <a href="https://cran.r-project.org/other-docs.html">CRAN Documentation</a></li>
-<li><strong>Cours en ligne</strong>: Des plateformes comme Coursera, edX, et DataCamp proposent des cours sur R.</li>
-<li><strong>Livres</strong>: “R for Data Science” par Hadley Wickham est une excellente ressource.</li>
-<li><strong>Forums et communautés</strong>: Stack Overflow, Reddit (r/rstats), et RStudio Community.</li>
-</ul>
-</section>
-<section id="pratique-régulière" class="level3">
-<h3 class="anchored" data-anchor-id="pratique-régulière">7. Pratique régulière</h3>
-<p>La meilleure façon de maîtriser R est de pratiquer régulièrement. Essayez d’analyser vos propres jeux de données ou participez à des projets open source pour mettre en pratique vos compétences.</p>
-<p>En suivant ces étapes et en utilisant ces ressources, vous serez bien équipé pour commencer à utiliser R efficacement.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/copilot.PNG" class="img-fluid figure-img"></p>
+<p><img src="../img/copilot.PNG" class="img-fluid figure-img"></p>
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour bien démarrer en R, voici quelques étapes que vous pouvez suivre :</p>
+<p>La régression logistique est un outil puissant pour analyser des variables binaires en fonction de variables explicatives. Voici comment réaliser une régression logistique sous R:</p>
 <ol type="1">
-<li><p><strong>Installer R</strong> : R est disponible en téléchargement sur le site officiel de R¹. La version de R à télécharger dépend de votre système d’exploitation¹.</p></li>
-<li><p><strong>Installer RStudio</strong> : RStudio est un environnement de développement très populaire pour R¹. Avant de pouvoir installer RStudio, vous devez avoir une version récente de R installée sur votre ordinateur¹.</p></li>
-<li><p><strong>Découvrir RStudio</strong> : RStudio est un outil flexible qui vous aide à créer des analyses lisibles et garde votre code, images, commentaires et graphiques ensemble au même endroit¹.</p></li>
-<li><p><strong>Installer les packages tidyverse</strong> : Le tidyverse est une collection de packages R conçus pour la science des données¹. Tous les packages partagent une philosophie de conception sous-jacente, une grammaire commune de manipulation de données et des structures de données interopérables¹.</p></li>
-<li><p><strong>Charger les packages tidyverse en mémoire</strong>¹.</p></li>
-<li><p><strong>Obtenir de l’aide sur un package ou une fonction</strong>¹.</p></li>
-<li><p><strong>Utiliser RStudio Cloud</strong> : RStudio Cloud est une plateforme en ligne qui permet d’exécuter R et RStudio directement dans votre navigateur web¹.</p></li>
-<li><p><strong>Pratiquer !</strong> : La meilleure façon d’apprendre à programmer est de pratiquer. Essayez de résoudre des problèmes réels que vous rencontrez et de travailler sur des projets qui vous intéressent.</p></li>
+<li><p><strong>Préparation des données</strong>:</p>
+<ul>
+<li>Supposons que vous ayez une variable binaire (par exemple, 1 pour “oui” et 0 pour “non”) que vous souhaitez expliquer en fonction d’une variable explicative quantitative (par exemple, l’âge).</li>
+<li>Vous pouvez utiliser la fonction <code>glm()</code> (Modèle Linéaire Généralisé) pour estimer un modèle de régression logistique.</li>
+</ul></li>
+<li><p><strong>Modélisation</strong>:</p>
+<ul>
+<li>Voici la formule générale pour la régression logistique: <span class="math display">\[ \log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot x \]</span> où:
+<ul>
+<li>(p) est la probabilité de succès (valeur binaire).</li>
+<li>(_0) est l’intercept.</li>
+<li>(_1) est le coefficient associé à la variable explicative (x).</li>
+</ul></li>
+<li>La fonction de lien utilisée pour la régression logistique est le logit (ou log-odds).</li>
+</ul></li>
+<li><p><strong>Exemple de code</strong>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (x: âge, y: achat d'album de death metal)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">40</span>, ...)  <span class="co"># Âges des personnes</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, ...)    <span class="co"># 0: Non, 1: Oui (achat d'album)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Régression logistique</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>myreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> logit))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myreg)  <span class="co"># Affiche les coefficients et les statistiques</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformation inverse pour obtenir les probabilités</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>logit_ypredit <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.12</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">5.95</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ypredit <span class="ot">&lt;-</span> <span class="fu">exp</span>(logit_ypredit) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(logit_ypredit))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé de la courbe</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, ypredit, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Dans l’exemple, l’influence négative de l’âge sur l’achat d’albums de death metal est significative au seuil de 5%.</li>
+</ul></li>
 </ol>
-<p>En outre, il existe de nombreuses ressources en ligne pour vous aider à apprendre R. Par exemple, Dataquest propose un tutoriel pour commencer avec R et RStudio¹, et RStudio Education propose des pistes d’apprentissage pour les débutants, les utilisateurs intermédiaires et les experts².</p>
-<p>N’oubliez pas que la pratique est la clé de l’apprentissage de la programmation. Bonne chance dans votre voyage d’apprentissage R !</p>
-<p>Source : conversation avec Copilot, 13/06/2024 (1) Tutorial: Getting Started with R and RStudio – Dataquest. https://www.dataquest.io/blog/tutorial-getting-started-with-r-and-rstudio/. (2) Finding Your Way To R - RStudio. https://education.rstudio.com/learn/. (3) Getting Started with R – Posit Support. https://support.posit.co/hc/en-us/articles/201141096-Getting-Started-with-R. (4) RStudio Education. https://education.rstudio.com/learn/beginner/.</p>
+<p>N’hésitez pas si vous avez besoin d’aide supplémentaire ! 😊</p>
+<p>Source : conversation avec Copilot, 24/07/2024 (1) Régression Logistique dans Rstudio. Comment faire la régressionlogistique dans R?. https://www.youtube.com/watch?v=sopRAKHtm3g. (2) Regression logistique avec R part2. https://www.youtube.com/watch?v=AekWTxpyjvs. (3) Regression logistique avec R part1. https://www.youtube.com/watch?v=6LTHZgYv6Nc. (4) Réaliser une régression logistique avec R - R-atique. https://perso.ens-lyon.fr/lise.vaudor/realiser-une-regression-logistique-avec-r/. (5) Un guide complet de la régression logistique en R - ICHI.PRO. https://ichi.pro/fr/un-guide-complet-de-la-regression-logistique-en-r-49515274030415. (6) 5 Regression logistique | Analyses statistiques avec R - Bookdown. https://bookdown.org/evraloui/lbira2110/regression-logistique.html. (7) undefined. https://github.com/alibezzaa/Logistic-regression.git. (8) Équation de régression logistique en R : Comprendre la formule avec des …. https://bing.com/search?q=r%c3%a9gression+logistique+R. (9) Équation de régression logistique en R : Comprendre la formule avec des …. https://docs.kanaries.net/fr/topics/R/logistic-regression-equation-in-r. (10) Régression logistique - Explication simple - DATAtab. https://datatab.fr/tutorial/logistic-regression.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
