@@ -11,7 +11,7 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+![ChatGPT](../img/ChatGPT.PNG)
 
 En R, vous pouvez obtenir la partie entière d'un nombre (la partie avant la virgule, c'est-à-dire l'entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :
 
@@ -44,7 +44,7 @@ Pour obtenir strictement la partie entière, les fonctions `floor` et `trunc` so
 
 ----
 
-![Copilot](img/copilot.PNG)
+![Copilot](../img/copilot.PNG)
 
 En R, la fonction `floor()` est utilisée pour obtenir la partie entière d'un nombre. Voici un exemple de code :
 

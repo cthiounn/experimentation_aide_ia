@@ -9,7 +9,7 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+![ChatGPT](../img/ChatGPT.PNG)
 
 
 Pour bien démarrer en R, suivez ces étapes :
@@ -77,7 +77,7 @@ En suivant ces étapes et en utilisant ces ressources, vous serez bien équipé 
 
 ----
 
-![Copilot](img/copilot.PNG)
+![Copilot](../img/copilot.PNG)
 
 Pour bien démarrer en R, voici quelques étapes que vous pouvez suivre :
 

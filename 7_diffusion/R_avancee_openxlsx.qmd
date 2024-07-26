@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+![ChatGPT](../img/ChatGPT.PNG)
 
 `openxlsx` est un package R très pratique pour créer, lire et modifier des fichiers Excel. Si tu souhaites exporter des résultats vers un fichier Excel avec `openxlsx`, voici comment procéder :
 
@@ -102,7 +102,7 @@ Avec ces étapes, tu devrais pouvoir exporter efficacement tes résultats vers u
 
 ----
 
-![Copilot](img/copilot.PNG)
+![Copilot](../img/copilot.PNG)
 
 Pour exporter des résultats avec le package `openxlsx` en R, vous pouvez suivre les étapes suivantes :
 

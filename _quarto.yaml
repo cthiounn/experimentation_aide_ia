@@ -17,18 +17,46 @@ website:
     contents:
       - text: "Accueil"
         href: index.qmd
-      - section: "Usage classique en statistique"
+      - section: "Bien démarrer en R"
         contents:
-          - href: R_starter.qmd
+          - href: 1_demarrer/R_starter.qmd
             text: "Bien commencer avec R et Rstudio"
+      - section: "Importer des données"
+        contents:
+          - href: R_template.qmd
+            text: ""
+      - section: "Nettoyage et préparation des données"
+        contents:
+          - href: R_template.qmd
+            text: ""
+      - section: "Analyse des données"
+        contents:
+          - href: R_template.qmd
+            text: ""
+      - section: "Analyses inférentielles"
+        contents:
+          - href: 4_analyse_inferentielle/R_reg_log.qmd
+            text: "Régression logistique en R"
+      - section: "Interprétation des résultats"
+        contents:
+          - href: R_staR_templaterter.qmd
+            text: ""
+      - section: "Rédaction du rapport"
+        contents:
+          - href: R_template.qmd
+            text: ""
+      - section: "Diffusion des résultats"
+        contents:
+          - href: 7_diffusion/R_avancee_openxlsx.qmd
+            text: "Exporter des statistiques avec openxlsx"
+      - section: "Évaluation et réflexion"
+        contents:
+          - href: R_template.qmd
+            text: ""
       - section: "Usage avancé"
         contents:
-          - href: R_avancee_openxlsx.qmd
-            text: "Exporter des statistiques avec openxlsx"
-          - href: R_avancee_partie_entiere.qmd
+          - href: Z_usage_avance/R_avancee_partie_entiere.qmd
             text: "Partie entière en R"
-          - href: R_reg_log.qmd
-            text: "Régression logistique en R"
           - href: R_template.qmd
             text: "Template de fiche"
         

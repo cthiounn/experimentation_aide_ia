@@ -10,12 +10,12 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+![ChatGPT](../img/ChatGPT.PNG)
 
 
 ----
 
-![Copilot](img/copilot.PNG)
+![Copilot](../img/copilot.PNG)
 
 La régression logistique est un outil puissant pour analyser des variables binaires en fonction de variables explicatives. Voici comment réaliser une régression logistique sous R:
 
