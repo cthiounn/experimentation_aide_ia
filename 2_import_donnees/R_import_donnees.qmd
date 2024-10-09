@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+![ChatGPT](../img/ChatGPT.PNG)
 
 
 Chat GPT
@@ -93,7 +93,7 @@ Si vous avez un type de fichier spécifique en tête, n'hésitez pas à me le di
 
 ----
 
-![Copilot](img/copilot.PNG)
+![Copilot](../img/copilot.PNG)
 
 
 Copilot
