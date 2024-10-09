@@ -436,13 +436,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Importer des données sous R est assez simple et peut se faire de plusieurs façons, selon le type de données que vous avez. Voici quelques méthodes courantes :</p>
-<p>Fichiers CSV : R</p>
-<p>data &lt;- read.csv(“chemin/vers/votre_fichier.csv”) Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Fichiers Excel (nécessite le package readxl) : R</p>
-<p>install.packages(“readxl”) library(readxl) data &lt;- read_excel(“chemin/vers/votre_fichier.xlsx”) Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Fichiers texte : R</p>
-<p>data &lt;- read.table(“chemin/vers/votre_fichier.txt”, header = TRUE, sep = “) Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Bases de données SQL (nécessite le package DBI et un driver approprié) : R</p>
-<p>install.packages(“DBI”) library(DBI) con &lt;- dbConnect(RSQLite::SQLite(), “chemin/vers/votre_base_de_données.sqlite”) data &lt;- dbGetQuery(con, “SELECT * FROM votre_table”) dbDisconnect(con) Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Données en ligne : R</p>
-<p>data &lt;- read.csv(“http://url_de_votre_fichier.csv”) Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Avez-vous un type de fichier spécifique que vous souhaitez importer? Je peux vous donner des détails supplémentaires si nécessaire!</p>
+<ol type="1">
+<li><strong>Fichiers CSV</strong> :</li>
+</ol>
+<p>data &lt;- read.csv(“chemin/vers/votre_fichier.csv”)</p>
+<ol start="2" type="1">
+<li><strong>Fichiers Excel (nécessite le package readxl)</strong> :</li>
+</ol>
+<p>install.packages(“readxl”) library(readxl) data &lt;- read_excel(“chemin/vers/votre_fichier.xlsx”)</p>
+<ol start="3" type="1">
+<li><strong>Fichiers texte</strong> :</li>
+</ol>
+<p>data &lt;- read.table(“chemin/vers/votre_fichier.txt”, header = TRUE, sep = “)</p>
+<ol start="4" type="1">
+<li><strong>Bases de données SQL (nécessite le package DBI et un driver approprié) </strong> :</li>
+</ol>
+<p>install.packages(“DBI”) library(DBI) con &lt;- dbConnect(RSQLite::SQLite(), “chemin/vers/votre_base_de_données.sqlite”) data &lt;- dbGetQuery(con, “SELECT * FROM votre_table”) dbDisconnect(con)</p>
+<ol start="5" type="1">
+<li><strong>Données en ligne</strong> :</li>
+</ol>
+<p>data &lt;- read.csv(“http://url_de_votre_fichier.csv”)</p>
 
 
 </section>
