@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/7_diffusion/R_avancee_openxlsx.html</loc>
-    <lastmod>2024-07-26T13:55:00.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/R_template.html</loc>
-    <lastmod>2024-07-26T13:55:00.765Z</lastmod>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/index.html</loc>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_starter.html</loc>
-    <lastmod>2024-07-26T13:55:00.765Z</lastmod>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/R_template.html</loc>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/4_analyse_inferentielle/R_reg_log.html</loc>
-    <lastmod>2024-07-26T13:55:00.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/index.html</loc>
-    <lastmod>2024-07-26T13:55:00.769Z</lastmod>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/Z_usage_avance/R_avancee_partie_entiere.html</loc>
-    <lastmod>2024-07-26T13:55:00.769Z</lastmod>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/7_diffusion/R_avancee_openxlsx.html</loc>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_donnees.html</loc>
+    <lastmod>2024-10-09T14:28:26.106Z</lastmod>
   </url>
 </urlset>
