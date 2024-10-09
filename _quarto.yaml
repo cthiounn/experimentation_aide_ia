@@ -23,8 +23,8 @@ website:
             text: "Bien commencer avec R et Rstudio"
       - section: "Importer des données"
         contents:
-          - href: R_template.qmd
-            text: ""
+          - href: 2_import_donnees/R_import_donnees.qmd
+            text: "Importer des données sous R"
       - section: "Nettoyage et préparation des données"
         contents:
           - href: R_template.qmd
