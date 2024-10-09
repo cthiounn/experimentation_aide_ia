@@ -95,30 +95,38 @@ Si vous avez un type de fichier spécifique en tête, n'hésitez pas à me le di
 
 ![Copilot](../img/copilot.PNG)
 
+Importer des données sous R est assez simple et peut se faire de plusieurs façons, selon le type de données que vous avez. Voici quelques méthodes courantes :
 
-Copilot
-Envoyé par Copilot :
-Importer des données sous R est assez simple et peut se faire de plusieurs manières selon le type de fichier que vous avez. Voici quelques méthodes courantes :
-1.	Fichiers CSV :
+Fichiers CSV :
 R
+
 data <- read.csv("chemin/vers/votre_fichier.csv")
 Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-2.	Fichiers Excel (nécessite le package readxl) :
+Fichiers Excel (nécessite le package readxl) :
 R
+
 install.packages("readxl")
 library(readxl)
 data <- read_excel("chemin/vers/votre_fichier.xlsx")
 Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-3.	Fichiers TXT :
+Fichiers texte :
 R
+
 data <- read.table("chemin/vers/votre_fichier.txt", header = TRUE, sep = "\t")
 Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-4.	Bases de données SQL (nécessite le package DBI et un driver spécifique comme RMySQL pour MySQL) :
+Bases de données SQL (nécessite le package DBI et un driver approprié) :
 R
+
 install.packages("DBI")
 library(DBI)
-con <- dbConnect(RMySQL::MySQL(), dbname = "nom_de_la_base", host = "hôte", user = "utilisateur", password = "mot_de_passe")
-data <- dbGetQuery(con, "SELECT * FROM table")
+con <- dbConnect(RSQLite::SQLite(), "chemin/vers/votre_base_de_données.sqlite")
+data <- dbGetQuery(con, "SELECT * FROM votre_table")
 dbDisconnect(con)
 Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
+Données en ligne :
+R
+
+data <- read.csv("http://url_de_votre_fichier.csv")
+Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
+Avez-vous un type de fichier spécifique que vous souhaitez importer? Je peux vous donner des détails supplémentaires si nécessaire!
 
