@@ -95,38 +95,29 @@ Si vous avez un type de fichier spécifique en tête, n'hésitez pas à me le di
 
 ![Copilot](../img/copilot.PNG)
 
-Importer des données sous R est assez simple et peut se faire de plusieurs façons, selon le type de données que vous avez. Voici quelques méthodes courantes :
-
-Fichiers CSV :
-R
+1. **Fichiers CSV** :
 
 data <- read.csv("chemin/vers/votre_fichier.csv")
-Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-Fichiers Excel (nécessite le package readxl) :
-R
+
+2. **Fichiers Excel (nécessite le package readxl)** :
 
 install.packages("readxl")
 library(readxl)
 data <- read_excel("chemin/vers/votre_fichier.xlsx")
-Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-Fichiers texte :
-R
+
+3. **Fichiers texte** :
 
 data <- read.table("chemin/vers/votre_fichier.txt", header = TRUE, sep = "\t")
-Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-Bases de données SQL (nécessite le package DBI et un driver approprié) :
-R
+
+
+4. **Bases de données SQL (nécessite le package DBI et un driver approprié) ** :
 
 install.packages("DBI")
 library(DBI)
 con <- dbConnect(RSQLite::SQLite(), "chemin/vers/votre_base_de_données.sqlite")
 data <- dbGetQuery(con, "SELECT * FROM votre_table")
 dbDisconnect(con)
-Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-Données en ligne :
-R
+
+5. **Données en ligne** :
 
 data <- read.csv("http://url_de_votre_fichier.csv")
-Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
-Avez-vous un type de fichier spécifique que vous souhaitez importer? Je peux vous donner des détails supplémentaires si nécessaire!
-
