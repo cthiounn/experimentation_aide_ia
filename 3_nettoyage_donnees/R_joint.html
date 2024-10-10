@@ -334,6 +334,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#avec-le-package-data.table" id="toc-avec-le-package-data.table" class="nav-link" data-scroll-target="#avec-le-package-data.table">2. Avec le package <code>data.table</code></a></li>
   <li><a href="#avec-les-fonctions-de-base-r" id="toc-avec-les-fonctions-de-base-r" class="nav-link" data-scroll-target="#avec-les-fonctions-de-base-r">3. Avec les fonctions de base R</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#jointure-interne-inner-join" id="toc-jointure-interne-inner-join" class="nav-link" data-scroll-target="#jointure-interne-inner-join">1. Jointure interne (inner join) :</a></li>
+  <li><a href="#jointure-externe-gauche-left-join" id="toc-jointure-externe-gauche-left-join" class="nav-link" data-scroll-target="#jointure-externe-gauche-left-join">2. Jointure externe gauche (left join) :</a></li>
+  <li><a href="#jointure-externe-droite-right-join" id="toc-jointure-externe-droite-right-join" class="nav-link" data-scroll-target="#jointure-externe-droite-right-join">3. Jointure externe droite (right join) :</a></li>
+  <li><a href="#jointure-externe-complète-full-join" id="toc-jointure-externe-complète-full-join" class="nav-link" data-scroll-target="#jointure-externe-complète-full-join">4.Jointure externe complète (full join) :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -440,6 +444,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
+<p>Pour faire une jointure de deux tables sous R, vous pouvez utiliser les fonctions du package dplyr, qui simplifient grandement ce processus. Voici quelques exemples de jointures courantes :</p>
+</section>
+<section id="jointure-interne-inner-join" class="level3">
+<h3 class="anchored" data-anchor-id="jointure-interne-inner-join">1. Jointure interne (inner join) :</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="jointure-externe-gauche-left-join" class="level3">
+<h3 class="anchored" data-anchor-id="jointure-externe-gauche-left-join">2. Jointure externe gauche (left join) :</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">left_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="jointure-externe-droite-right-join" class="level3">
+<h3 class="anchored" data-anchor-id="jointure-externe-droite-right-join">3. Jointure externe droite (right join) :</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">right_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="jointure-externe-complète-full-join" class="level3">
+<h3 class="anchored" data-anchor-id="jointure-externe-complète-full-join">4.Jointure externe complète (full join) :</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">full_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ces exemples, table1 et table2 sont les deux tables que vous souhaitez joindre, et colonne_commune est le nom de la colonne commune sur laquelle vous faites la jointure.</p>
+<p>Si vous avez des colonnes avec des noms différents dans les deux tables, vous pouvez spécifier les colonnes comme ceci :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"colonne1_table1"</span> <span class="ot">=</span> <span class="st">"colonne2_table2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Avez-vous une jointure spécifique en tête ou des données particulières avec lesquelles vous travaillez? Je peux vous aider à adapter ces exemples à votre cas précis!</p>
 
 
 </section>
