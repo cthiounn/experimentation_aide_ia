@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_reg_log – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_joint – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Analyses inférentielles</a></li><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Régression logistique en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_nettoyage_donnees/R_joint.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_nettoyage_donnees/R_joint.html">Réaliser une jointure de deux tables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -222,7 +193,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_nettoyage_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_nettoyage_donnees/R_joint.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Réaliser une jointure de deux tables</span></a>
   </div>
 </li>
@@ -256,7 +227,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../4_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link active">
+  <a href="../4_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Régression logistique en R</span></a>
   </div>
 </li>
@@ -357,7 +328,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a></li>
+  <li><a href="#jointure-de-deux-tables" id="toc-jointure-de-deux-tables" class="nav-link active" data-scroll-target="#jointure-de-deux-tables">Jointure de deux tables</a>
+  <ul class="collapse">
+  <li><a href="#avec-le-package-dplyr" id="toc-avec-le-package-dplyr" class="nav-link" data-scroll-target="#avec-le-package-dplyr">1. Avec le package <code>dplyr</code></a></li>
+  <li><a href="#avec-le-package-data.table" id="toc-avec-le-package-data.table" class="nav-link" data-scroll-target="#avec-le-package-data.table">2. Avec le package <code>data.table</code></a></li>
+  <li><a href="#avec-les-fonctions-de-base-r" id="toc-avec-les-fonctions-de-base-r" class="nav-link" data-scroll-target="#avec-les-fonctions-de-base-r">3. Avec les fonctions de base R</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -367,8 +344,8 @@ window.Quarto = {
 
 
 
-<section id="régression-logistique" class="level2">
-<h2 class="anchored" data-anchor-id="régression-logistique">Régression logistique</h2>
+<section id="jointure-de-deux-tables" class="level2">
+<h2 class="anchored" data-anchor-id="jointure-de-deux-tables">Jointure de deux tables</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -377,7 +354,7 @@ window.Quarto = {
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire une régression logistique sous R?</li>
+<li>Comment faire une jointure de deux tables sous R?</li>
 </ul>
 </div>
 </div>
@@ -389,6 +366,73 @@ window.Quarto = {
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
+<p>Pour réaliser une jointure de deux tables sous R, vous pouvez utiliser plusieurs méthodes, mais les plus courantes sont avec les fonctions de base de R, le package <code>dplyr</code>, ou le package <code>data.table</code>. Voici un aperçu de ces méthodes :</p>
+<section id="avec-le-package-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="avec-le-package-dplyr">1. Avec le package <code>dplyr</code></h3>
+<p>Le package <code>dplyr</code> offre une syntaxe très lisible pour effectuer des jointures. Voici les types de jointures que vous pouvez faire :</p>
+<section id="installation-du-package" class="level4">
+<h4 class="anchored" data-anchor-id="installation-du-package">Installation du package</h4>
+<p>Si vous ne l’avez pas encore installé, vous pouvez le faire avec :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="chargement-du-package" class="level4">
+<h4 class="anchored" data-anchor-id="chargement-du-package">Chargement du package</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemples-de-jointures" class="level4">
+<h4 class="anchored" data-anchor-id="exemples-de-jointures">Exemples de jointures</h4>
+<p>Supposons que vous ayez deux data frames, <code>table1</code> et <code>table2</code>, avec une colonne commune <code>id</code>.</p>
+<ul>
+<li><strong>Inner Join (jointure interne)</strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Left Join (jointure à gauche)</strong></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">left_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Right Join (jointure à droite)</strong></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">right_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Full Join (jointure complète)</strong></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">full_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="avec-le-package-data.table" class="level3">
+<h3 class="anchored" data-anchor-id="avec-le-package-data.table">2. Avec le package <code>data.table</code></h3>
+<p>Le package <code>data.table</code> est également très performant pour les jointures, surtout avec de grandes tables.</p>
+<section id="installation-et-chargement" class="level4">
+<h4 class="anchored" data-anchor-id="installation-et-chargement">Installation et chargement</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"data.table"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemples-de-jointures-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemples-de-jointures-1">Exemples de jointures</h4>
+<p>Convertissez d’abord vos data frames en data tables :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(table1)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>table2 <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(table2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Jointure</strong></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)  <span class="co"># Inner Join</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) <span class="co"># Left Join</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>) <span class="co"># Right Join</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)    <span class="co"># Full Join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="avec-les-fonctions-de-base-r" class="level3">
+<h3 class="anchored" data-anchor-id="avec-les-fonctions-de-base-r">3. Avec les fonctions de base R</h3>
+<p>Vous pouvez également utiliser la fonction <code>merge()</code> de base R :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)   <span class="co"># Inner Join</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) <span class="co"># Left Join</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>) <span class="co"># Right Join</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)    <span class="co"># Full Join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Le choix de la méthode dépend de vos préférences et de vos besoins spécifiques. Le package <code>dplyr</code> est souvent préféré pour sa lisibilité et sa simplicité, tandis que <code>data.table</code> est très performant pour des jeux de données volumineux. Si vous avez des questions spécifiques sur l’une des méthodes, n’hésitez pas à demander !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -396,47 +440,9 @@ window.Quarto = {
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>La régression logistique est un outil puissant pour analyser des variables binaires en fonction de variables explicatives. Voici comment réaliser une régression logistique sous R:</p>
-<ol type="1">
-<li><p><strong>Préparation des données</strong>:</p>
-<ul>
-<li>Supposons que vous ayez une variable binaire (par exemple, 1 pour “oui” et 0 pour “non”) que vous souhaitez expliquer en fonction d’une variable explicative quantitative (par exemple, l’âge).</li>
-<li>Vous pouvez utiliser la fonction <code>glm()</code> (Modèle Linéaire Généralisé) pour estimer un modèle de régression logistique.</li>
-</ul></li>
-<li><p><strong>Modélisation</strong>:</p>
-<ul>
-<li>Voici la formule générale pour la régression logistique: <span class="math display">\[ \log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot x \]</span> où:
-<ul>
-<li>(p) est la probabilité de succès (valeur binaire).</li>
-<li>(_0) est l’intercept.</li>
-<li>(_1) est le coefficient associé à la variable explicative (x).</li>
-</ul></li>
-<li>La fonction de lien utilisée pour la régression logistique est le logit (ou log-odds).</li>
-</ul></li>
-<li><p><strong>Exemple de code</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (x: âge, y: achat d'album de death metal)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">40</span>, ...)  <span class="co"># Âges des personnes</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, ...)    <span class="co"># 0: Non, 1: Oui (achat d'album)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Régression logistique</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>myreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> logit))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myreg)  <span class="co"># Affiche les coefficients et les statistiques</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformation inverse pour obtenir les probabilités</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>logit_ypredit <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.12</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">5.95</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ypredit <span class="ot">&lt;-</span> <span class="fu">exp</span>(logit_ypredit) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(logit_ypredit))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé de la courbe</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, ypredit, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Dans l’exemple, l’influence négative de l’âge sur l’achat d’albums de death metal est significative au seuil de 5%.</li>
-</ul></li>
-</ol>
-<p>N’hésitez pas si vous avez besoin d’aide supplémentaire ! 😊</p>
-<p>Source : conversation avec Copilot, 24/07/2024 (1) Régression Logistique dans Rstudio. Comment faire la régressionlogistique dans R?. https://www.youtube.com/watch?v=sopRAKHtm3g. (2) Regression logistique avec R part2. https://www.youtube.com/watch?v=AekWTxpyjvs. (3) Regression logistique avec R part1. https://www.youtube.com/watch?v=6LTHZgYv6Nc. (4) Réaliser une régression logistique avec R - R-atique. https://perso.ens-lyon.fr/lise.vaudor/realiser-une-regression-logistique-avec-r/. (5) Un guide complet de la régression logistique en R - ICHI.PRO. https://ichi.pro/fr/un-guide-complet-de-la-regression-logistique-en-r-49515274030415. (6) 5 Regression logistique | Analyses statistiques avec R - Bookdown. https://bookdown.org/evraloui/lbira2110/regression-logistique.html. (7) undefined. https://github.com/alibezzaa/Logistic-regression.git. (8) Équation de régression logistique en R : Comprendre la formule avec des …. https://bing.com/search?q=r%c3%a9gression+logistique+R. (9) Équation de régression logistique en R : Comprendre la formule avec des …. https://docs.kanaries.net/fr/topics/R/logistic-regression-equation-in-r. (10) Régression logistique - Explication simple - DATAtab. https://datatab.fr/tutorial/logistic-regression.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
