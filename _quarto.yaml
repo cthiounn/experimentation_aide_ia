@@ -27,10 +27,8 @@ website:
             text: "Importer des données sous R"
       - section: "Nettoyage et préparation des données"
         contents:
-          - href: R_template.qmd
-            text: ""
-	  - href: 3_nettoyage_donnees/R_joint.qmd
-            text: ""
+          - href: 3_nettoyage_donnees/R_joint.qmd
+            text: "Réaliser une jointure de deux tables"
       - section: "Analyse des données"
         contents:
           - href: R_template.qmd

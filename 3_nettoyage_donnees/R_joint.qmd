@@ -1,4 +1,4 @@
-## Régression logistique
+## Jointure de deux tables
 
 ::: {.callout-note appearance="simple"}
 Prompt : 
@@ -11,6 +11,7 @@ Prompt :
 ----
 
 ![ChatGPT](../img/ChatGPT.PNG)
+
 
 Pour réaliser une jointure de deux tables sous R, vous pouvez utiliser plusieurs méthodes, mais les plus courantes sont avec les fonctions de base de R, le package `dplyr`, ou le package `data.table`. Voici un aperçu de ces méthodes :
 
