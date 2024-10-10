@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_reg_log – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_caract – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +114,9 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Analyses inférentielles</a></li><li class="breadcrumb-item"><a href="../4_analyse_inferentielle/R_reg_log.html">Régression logistique en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Expérimentation des IA pour l'utilisation de logiciels statistiques
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -239,8 +212,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">template</span></a>
+  <a href="../4_analyse_donnees/R_caract.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rechercher une chaîne de caractères sous R</span></a>
   </div>
 </li>
       </ul>
@@ -256,7 +229,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../4_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link active">
+  <a href="../6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Régression logistique en R</span></a>
   </div>
 </li>
@@ -357,7 +330,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a></li>
+  <li><a href="#recherche-dune-chaîne-de-caractères" id="toc-recherche-dune-chaîne-de-caractères" class="nav-link active" data-scroll-target="#recherche-dune-chaîne-de-caractères">Recherche d’une chaîne de caractères</a>
+  <ul class="collapse">
+  <li><a href="#utiliser-grep" id="toc-utiliser-grep" class="nav-link" data-scroll-target="#utiliser-grep">1. Utiliser <code>grep()</code></a></li>
+  <li><a href="#utiliser-grepl" id="toc-utiliser-grepl" class="nav-link" data-scroll-target="#utiliser-grepl">2. Utiliser <code>grepl()</code></a></li>
+  <li><a href="#utiliser-sub-et-gsub" id="toc-utiliser-sub-et-gsub" class="nav-link" data-scroll-target="#utiliser-sub-et-gsub">3. Utiliser <code>sub()</code> et <code>gsub()</code></a></li>
+  <li><a href="#utiliser-stringr" id="toc-utiliser-stringr" class="nav-link" data-scroll-target="#utiliser-stringr">4. Utiliser <code>stringr</code></a></li>
+  <li><a href="#utiliser-stringi" id="toc-utiliser-stringi" class="nav-link" data-scroll-target="#utiliser-stringi">5. Utiliser <code>stringi</code></a></li>
+  <li><a href="#exemple-complet" id="toc-exemple-complet" class="nav-link" data-scroll-target="#exemple-complet">Exemple Complet</a></li>
+  <li><a href="#grep-cette-fonction-recherche-des-motifs-dans-un-vecteur-de-caractères-et-renvoie-les-indices-des-éléments-correspondants." id="toc-grep-cette-fonction-recherche-des-motifs-dans-un-vecteur-de-caractères-et-renvoie-les-indices-des-éléments-correspondants." class="nav-link" data-scroll-target="#grep-cette-fonction-recherche-des-motifs-dans-un-vecteur-de-caractères-et-renvoie-les-indices-des-éléments-correspondants.">1. grep : Cette fonction recherche des motifs dans un vecteur de caractères et renvoie les indices des éléments correspondants.</a></li>
+  <li><a href="#grepl-similaire-à-grep-mais-renvoie-un-vecteur-logique-indiquant-si-chaque-élément-correspond-au-motif." id="toc-grepl-similaire-à-grep-mais-renvoie-un-vecteur-logique-indiquant-si-chaque-élément-correspond-au-motif." class="nav-link" data-scroll-target="#grepl-similaire-à-grep-mais-renvoie-un-vecteur-logique-indiquant-si-chaque-élément-correspond-au-motif.">2. grepl : Similaire à grep, mais renvoie un vecteur logique indiquant si chaque élément correspond au motif.</a></li>
+  <li><a href="#sub-et-gsub-ces-fonctions-remplacent-les-occurrences-dun-motif-par-une-autre-chaîne.-sub-remplace-la-première-occurrence-tandis-que-gsub-remplace-toutes-les-occurrences." id="toc-sub-et-gsub-ces-fonctions-remplacent-les-occurrences-dun-motif-par-une-autre-chaîne.-sub-remplace-la-première-occurrence-tandis-que-gsub-remplace-toutes-les-occurrences." class="nav-link" data-scroll-target="#sub-et-gsub-ces-fonctions-remplacent-les-occurrences-dun-motif-par-une-autre-chaîne.-sub-remplace-la-première-occurrence-tandis-que-gsub-remplace-toutes-les-occurrences.">3. sub et gsub : Ces fonctions remplacent les occurrences d’un motif par une autre chaîne. sub remplace la première occurrence, tandis que gsub remplace toutes les occurrences.</a></li>
+  <li><a href="#stringr-package-ce-package-offre-des-fonctions-puissantes-et-conviviales-pour-manipuler-des-chaînes-de-caractères." id="toc-stringr-package-ce-package-offre-des-fonctions-puissantes-et-conviviales-pour-manipuler-des-chaînes-de-caractères." class="nav-link" data-scroll-target="#stringr-package-ce-package-offre-des-fonctions-puissantes-et-conviviales-pour-manipuler-des-chaînes-de-caractères.">4. stringr package : Ce package offre des fonctions puissantes et conviviales pour manipuler des chaînes de caractères.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -367,8 +352,8 @@ window.Quarto = {
 
 
 
-<section id="régression-logistique" class="level2">
-<h2 class="anchored" data-anchor-id="régression-logistique">Régression logistique</h2>
+<section id="recherche-dune-chaîne-de-caractères" class="level2">
+<h2 class="anchored" data-anchor-id="recherche-dune-chaîne-de-caractères">Recherche d’une chaîne de caractères</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -377,7 +362,7 @@ window.Quarto = {
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire une régression logistique sous R?</li>
+<li>Comment rechercher une chaîne de caractères sous R?</li>
 </ul>
 </div>
 </div>
@@ -389,6 +374,78 @@ window.Quarto = {
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
+<p>Rechercher une chaîne de caractères sous R peut se faire à l’aide de plusieurs fonctions, selon vos besoins. Voici quelques-unes des méthodes les plus courantes :</p>
+<section id="utiliser-grep" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-grep">1. Utiliser <code>grep()</code></h3>
+<p>La fonction <code>grep()</code> recherche des motifs dans un vecteur de caractères et retourne les indices des éléments correspondants.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>text_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"date"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rechercher des éléments contenant "an"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"an"</span>, text_vector)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)  <span class="co"># Retourne les indices des éléments correspondants</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utiliser-grepl" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-grepl">2. Utiliser <code>grepl()</code></h3>
+<p>La fonction <code>grepl()</code> retourne un vecteur logique indiquant si le motif a été trouvé dans chaque élément du vecteur.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rechercher des éléments contenant "an"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"an"</span>, text_vector)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)  <span class="co"># TRUE ou FALSE pour chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utiliser-sub-et-gsub" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-sub-et-gsub">3. Utiliser <code>sub()</code> et <code>gsub()</code></h3>
+<p>Ces fonctions permettent de remplacer des motifs par une autre chaîne de caractères. <code>sub()</code> remplace la première occurrence, tandis que <code>gsub()</code> remplace toutes les occurrences.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer "an" par "AN"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>replaced_vector <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"an"</span>, <span class="st">"AN"</span>, text_vector)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(replaced_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utiliser-stringr" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-stringr">4. Utiliser <code>stringr</code></h3>
+<p>Le package <code>stringr</code> offre une syntaxe plus cohérente et des fonctions supplémentaires pour la manipulation de chaînes de caractères. Vous pouvez l’installer et l’utiliser comme suit :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de recherche</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(text_vector, <span class="st">"an"</span>)  <span class="co"># Retourne TRUE ou FALSE</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Trouver les indices</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>indices <span class="ot">&lt;-</span> <span class="fu">which</span>(result)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utiliser-stringi" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-stringi">5. Utiliser <code>stringi</code></h3>
+<p>Le package <code>stringi</code> est également très puissant pour le traitement de chaînes de caractères et peut être utilisé de manière similaire.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringi"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rechercher des éléments contenant "an"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">stri_detect_fixed</span>(text_vector, <span class="st">"an"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-complet" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-complet">Exemple Complet</h3>
+<p>Voici un exemple complet mettant en œuvre plusieurs de ces méthodes :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>text_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"date"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de grep</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>indices_grep <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"an"</span>, text_vector)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(indices_grep)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de grepl</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"an"</span>, text_vector)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(logical_vector)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de gsub</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>replaced_vector <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"an"</span>, <span class="st">"AN"</span>, text_vector)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(replaced_vector)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation de stringr</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>str_detect_result <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(text_vector, <span class="st">"an"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(str_detect_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces méthodes vous permettront de rechercher et de manipuler des chaînes de caractères de manière efficace sous R. Si vous avez un besoin spécifique ou un exemple en tête, n’hésitez pas à le partager pour des conseils plus ciblés !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -396,47 +453,38 @@ window.Quarto = {
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>La régression logistique est un outil puissant pour analyser des variables binaires en fonction de variables explicatives. Voici comment réaliser une régression logistique sous R:</p>
-<ol type="1">
-<li><p><strong>Préparation des données</strong>:</p>
-<ul>
-<li>Supposons que vous ayez une variable binaire (par exemple, 1 pour “oui” et 0 pour “non”) que vous souhaitez expliquer en fonction d’une variable explicative quantitative (par exemple, l’âge).</li>
-<li>Vous pouvez utiliser la fonction <code>glm()</code> (Modèle Linéaire Généralisé) pour estimer un modèle de régression logistique.</li>
-</ul></li>
-<li><p><strong>Modélisation</strong>:</p>
-<ul>
-<li>Voici la formule générale pour la régression logistique: <span class="math display">\[ \log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \cdot x \]</span> où:
-<ul>
-<li>(p) est la probabilité de succès (valeur binaire).</li>
-<li>(_0) est l’intercept.</li>
-<li>(_1) est le coefficient associé à la variable explicative (x).</li>
-</ul></li>
-<li>La fonction de lien utilisée pour la régression logistique est le logit (ou log-odds).</li>
-</ul></li>
-<li><p><strong>Exemple de code</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (x: âge, y: achat d'album de death metal)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">40</span>, ...)  <span class="co"># Âges des personnes</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, ...)    <span class="co"># 0: Non, 1: Oui (achat d'album)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Régression logistique</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>myreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> logit))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myreg)  <span class="co"># Affiche les coefficients et les statistiques</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformation inverse pour obtenir les probabilités</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>logit_ypredit <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.12</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">5.95</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ypredit <span class="ot">&lt;-</span> <span class="fu">exp</span>(logit_ypredit) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(logit_ypredit))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé de la courbe</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, ypredit, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Dans l’exemple, l’influence négative de l’âge sur l’achat d’albums de death metal est significative au seuil de 5%.</li>
-</ul></li>
-</ol>
-<p>N’hésitez pas si vous avez besoin d’aide supplémentaire ! 😊</p>
-<p>Source : conversation avec Copilot, 24/07/2024 (1) Régression Logistique dans Rstudio. Comment faire la régressionlogistique dans R?. https://www.youtube.com/watch?v=sopRAKHtm3g. (2) Regression logistique avec R part2. https://www.youtube.com/watch?v=AekWTxpyjvs. (3) Regression logistique avec R part1. https://www.youtube.com/watch?v=6LTHZgYv6Nc. (4) Réaliser une régression logistique avec R - R-atique. https://perso.ens-lyon.fr/lise.vaudor/realiser-une-regression-logistique-avec-r/. (5) Un guide complet de la régression logistique en R - ICHI.PRO. https://ichi.pro/fr/un-guide-complet-de-la-regression-logistique-en-r-49515274030415. (6) 5 Regression logistique | Analyses statistiques avec R - Bookdown. https://bookdown.org/evraloui/lbira2110/regression-logistique.html. (7) undefined. https://github.com/alibezzaa/Logistic-regression.git. (8) Équation de régression logistique en R : Comprendre la formule avec des …. https://bing.com/search?q=r%c3%a9gression+logistique+R. (9) Équation de régression logistique en R : Comprendre la formule avec des …. https://docs.kanaries.net/fr/topics/R/logistic-regression-equation-in-r. (10) Régression logistique - Explication simple - DATAtab. https://datatab.fr/tutorial/logistic-regression.</p>
+<p>Pour rechercher une chaîne de caractères sous R, vous pouvez utiliser plusieurs fonctions selon vos besoins. Voici quelques-unes des plus courantes :</p>
+</section>
+<section id="grep-cette-fonction-recherche-des-motifs-dans-un-vecteur-de-caractères-et-renvoie-les-indices-des-éléments-correspondants." class="level3">
+<h3 class="anchored" data-anchor-id="grep-cette-fonction-recherche-des-motifs-dans-un-vecteur-de-caractères-et-renvoie-les-indices-des-éléments-correspondants.">1. grep : Cette fonction recherche des motifs dans un vecteur de caractères et renvoie les indices des éléments correspondants.</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>indices <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"an"</span>, vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="grepl-similaire-à-grep-mais-renvoie-un-vecteur-logique-indiquant-si-chaque-élément-correspond-au-motif." class="level3">
+<h3 class="anchored" data-anchor-id="grepl-similaire-à-grep-mais-renvoie-un-vecteur-logique-indiquant-si-chaque-élément-correspond-au-motif.">2. grepl : Similaire à grep, mais renvoie un vecteur logique indiquant si chaque élément correspond au motif.</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>correspondances <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"an"</span>, vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sub-et-gsub-ces-fonctions-remplacent-les-occurrences-dun-motif-par-une-autre-chaîne.-sub-remplace-la-première-occurrence-tandis-que-gsub-remplace-toutes-les-occurrences." class="level3">
+<h3 class="anchored" data-anchor-id="sub-et-gsub-ces-fonctions-remplacent-les-occurrences-dun-motif-par-une-autre-chaîne.-sub-remplace-la-première-occurrence-tandis-que-gsub-remplace-toutes-les-occurrences.">3. sub et gsub : Ces fonctions remplacent les occurrences d’un motif par une autre chaîne. sub remplace la première occurrence, tandis que gsub remplace toutes les occurrences.</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>texte <span class="ot">&lt;-</span> <span class="st">"apple banana cherry"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>nouveau_texte <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"a"</span>, <span class="st">"o"</span>, texte)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stringr-package-ce-package-offre-des-fonctions-puissantes-et-conviviales-pour-manipuler-des-chaînes-de-caractères." class="level3">
+<h3 class="anchored" data-anchor-id="stringr-package-ce-package-offre-des-fonctions-puissantes-et-conviviales-pour-manipuler-des-chaînes-de-caractères.">4. stringr package : Ce package offre des fonctions puissantes et conviviales pour manipuler des chaînes de caractères.</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rechercher une chaîne</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(vecteur, <span class="st">"an"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire une chaîne</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(vecteur, <span class="st">"an"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer une chaîne</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(texte, <span class="st">"a"</span>, <span class="st">"o"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
