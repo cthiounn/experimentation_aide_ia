@@ -89,46 +89,35 @@ Ces étapes vous permettent de calculer et de visualiser les quartiles d'une var
 ![Copilot](../img/copilot.PNG)
 
 
-Pour rechercher une chaîne de caractères sous R, vous pouvez utiliser plusieurs fonctions selon vos besoins. Voici quelques-unes des plus courantes :
+Calculer les quartiles d’une variable sous R est assez simple grâce à la fonction quantile(). Voici comment vous pouvez le faire :
 
-### 1. grep : Cette fonction recherche des motifs dans un vecteur de caractères et renvoie les indices des éléments correspondants.
-
-```R
-vecteur <- c("apple", "banana", "cherry")
-indices <- grep("an", vecteur)
-```
-
-### 2. grepl : Similaire à grep, mais renvoie un vecteur logique indiquant si chaque élément correspond au motif.
-
+### 1. Calcul des quartiles :
 
 ```R
-correspondances <- grepl("an", vecteur)
-```
 
-### 3. sub et gsub : Ces fonctions remplacent les occurrences d’un motif par une autre chaîne. sub remplace la première occurrence, tandis que gsub remplace toutes les occurrences.
+# Supposons que vous avez un vecteur de données
+data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
-```R
-texte <- "apple banana cherry"
-nouveau_texte <- gsub("a", "o", texte)
-```
-
-### 4. stringr package : Ce package offre des fonctions puissantes et conviviales pour manipuler des chaînes de caractères.
-
-```R
-install.packages("stringr")
-library(stringr)
-
-# Rechercher une chaîne
-str_detect(vecteur, "an")
-
-# Extraire une chaîne
-str_extract(vecteur, "an")
-
-# Remplacer une chaîne
-str_replace_all(texte, "a", "o")
+# Calcul des quartiles
+quartiles <- quantile(data, probs = c(0.25, 0.5, 0.75))
+print(quartiles)
 ```
 
 
+
+### 2. Utilisation de la fonction summary() : La fonction summary() fournit également les quartiles (ainsi que d’autres statistiques descriptives) :
+
+```R
+summary(data)
+```
+
+### 3. Visualisation avec un boxplot : Vous pouvez également visualiser les quartiles avec un boxplot :
+
+```R
+boxplot(data)
+Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
+Ces méthodes vous donneront les quartiles de votre variable. Si vous avez un jeu de données spécifique ou un type de variable particulier, faites-le moi savoir pour que je puisse vous fournir des instructions plus détaillées!
+```
 
 
 
