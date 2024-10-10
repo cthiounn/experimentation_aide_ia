@@ -29,6 +29,8 @@ website:
         contents:
           - href: R_template.qmd
             text: ""
+	  - href: 3_nettoyage_donnees/R_joint.qmd
+            text: ""
       - section: "Analyse des données"
         contents:
           - href: R_template.qmd

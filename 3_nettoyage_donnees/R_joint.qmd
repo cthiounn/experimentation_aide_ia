@@ -1,0 +1,113 @@
+## Régression logistique
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment faire une jointure de deux tables sous R? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour réaliser une jointure de deux tables sous R, vous pouvez utiliser plusieurs méthodes, mais les plus courantes sont avec les fonctions de base de R, le package `dplyr`, ou le package `data.table`. Voici un aperçu de ces méthodes :
+
+### 1. Avec le package `dplyr`
+
+Le package `dplyr` offre une syntaxe très lisible pour effectuer des jointures. Voici les types de jointures que vous pouvez faire :
+
+#### Installation du package
+
+Si vous ne l'avez pas encore installé, vous pouvez le faire avec :
+
+```R
+install.packages("dplyr")
+```
+
+#### Chargement du package
+
+```R
+library(dplyr)
+```
+
+#### Exemples de jointures
+
+Supposons que vous ayez deux data frames, `table1` et `table2`, avec une colonne commune `id`.
+
+- **Inner Join (jointure interne)**
+
+```R
+result <- inner_join(table1, table2, by = "id")
+```
+
+- **Left Join (jointure à gauche)**
+
+```R
+result <- left_join(table1, table2, by = "id")
+```
+
+- **Right Join (jointure à droite)**
+
+```R
+result <- right_join(table1, table2, by = "id")
+```
+
+- **Full Join (jointure complète)**
+
+```R
+result <- full_join(table1, table2, by = "id")
+```
+
+### 2. Avec le package `data.table`
+
+Le package `data.table` est également très performant pour les jointures, surtout avec de grandes tables.
+
+#### Installation et chargement
+
+```R
+install.packages("data.table")
+library(data.table)
+```
+
+#### Exemples de jointures
+
+Convertissez d'abord vos data frames en data tables :
+
+```R
+table1 <- as.data.table(table1)
+table2 <- as.data.table(table2)
+```
+
+- **Jointure**
+
+```R
+result <- merge(table1, table2, by = "id", all = FALSE)  # Inner Join
+result <- merge(table1, table2, by = "id", all.x = TRUE) # Left Join
+result <- merge(table1, table2, by = "id", all.y = TRUE) # Right Join
+result <- merge(table1, table2, by = "id", all = TRUE)    # Full Join
+```
+
+### 3. Avec les fonctions de base R
+
+Vous pouvez également utiliser la fonction `merge()` de base R :
+
+```R
+result <- merge(table1, table2, by = "id")   # Inner Join
+result <- merge(table1, table2, by = "id", all.x = TRUE) # Left Join
+result <- merge(table1, table2, by = "id", all.y = TRUE) # Right Join
+result <- merge(table1, table2, by = "id", all = TRUE)    # Full Join
+```
+
+### Conclusion
+
+Le choix de la méthode dépend de vos préférences et de vos besoins spécifiques. Le package `dplyr` est souvent préféré pour sa lisibilité et sa simplicité, tandis que `data.table` est très performant pour des jeux de données volumineux. Si vous avez des questions spécifiques sur l'une des méthodes, n'hésitez pas à demander !
+
+
+
+
+----
+
+![Copilot](../img/copilot.PNG)
+
