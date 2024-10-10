@@ -112,3 +112,47 @@ Le choix de la méthode dépend de vos préférences et de vos besoins spécifiq
 
 ![Copilot](../img/copilot.PNG)
 
+
+Pour faire une jointure de deux tables sous R, vous pouvez utiliser les fonctions du package dplyr, qui simplifient grandement ce processus. Voici quelques exemples de jointures courantes :
+
+### 1. Jointure interne (inner join) :
+
+```R
+install.packages("dplyr")
+library(dplyr)
+
+result <- inner_join(table1, table2, by = "colonne_commune")
+```
+
+### 2. Jointure externe gauche (left join) :
+
+```R
+result <- left_join(table1, table2, by = "colonne_commune")
+```
+
+### 3. Jointure externe droite (right join) :
+
+```R
+result <- right_join(table1, table2, by = "colonne_commune")
+```
+
+### 4.Jointure externe complète (full join) :
+
+```R
+result <- full_join(table1, table2, by = "colonne_commune")
+```
+
+Dans ces exemples, table1 et table2 sont les deux tables que vous souhaitez joindre, et colonne_commune est le nom de la colonne commune sur laquelle vous faites la jointure.
+
+Si vous avez des colonnes avec des noms différents dans les deux tables, vous pouvez spécifier les colonnes comme ceci :
+
+```R
+result <- inner_join(table1, table2, by = c("colonne1_table1" = "colonne2_table2"))
+
+```
+
+Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.
+Avez-vous une jointure spécifique en tête ou des données particulières avec lesquelles vous travaillez? Je peux vous aider à adapter ces exemples à votre cas précis!
+
+
+
