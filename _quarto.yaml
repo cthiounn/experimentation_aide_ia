@@ -33,6 +33,8 @@ website:
         contents:
           - href: 4_analyse_donnees/R_caract.qmd
             text: "Rechercher une chaîne de caractères sous R"
+	  - href: 4_analyse_donnees/R_quartiles.qmd
+            text: "Calculer les quartiles d'une variable sous R"
       - section: "Analyses inférentielles"
         contents:
           - href: 6_analyse_inferentielle/R_reg_log.qmd

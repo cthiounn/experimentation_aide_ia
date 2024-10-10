@@ -1,0 +1,135 @@
+## Calculer les quartiles d'une variable
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment calculer les quartiles d'une variable sous R?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour calculer les quartiles d'une variable sous R, vous pouvez utiliser la fonction `quantile()`. Voici comment procéder, avec des exemples concrets :
+
+### 1. Exemple de données
+
+Commençons par créer un vecteur de données aléatoires :
+
+```r
+# Générer des données
+set.seed(123)  # Pour la reproductibilité
+data <- rnorm(100)  # 100 valeurs aléatoires suivant une distribution normale
+```
+
+### 2. Calcul des quartiles
+
+La fonction `quantile()` vous permet de calculer les quartiles en spécifiant les valeurs souhaitées :
+
+```r
+# Calculer les quartiles
+quartiles <- quantile(data)
+print(quartiles)
+```
+
+Par défaut, `quantile()` calcule les quartiles (0%, 25%, 50%, 75%, 100%). Voici un exemple d'utilisation avec des quantiles personnalisés :
+
+```r
+# Calculer des quartiles spécifiques
+custom_quartiles <- quantile(data, probs = c(0.25, 0.5, 0.75))
+print(custom_quartiles)
+```
+
+### 3. Interprétation des résultats
+
+Les résultats de `quantile()` vous donnent les valeurs aux quartiles spécifiés. Par exemple, si vous calculez les quartiles pour des données aléatoires, vous obtiendrez quelque chose comme :
+
+```plaintext
+      0%      25%      50%      75%     100% 
+-2.65250 -0.64606  0.01827  0.68244  2.17400 
+```
+
+### 4. Boîte à moustaches
+
+Vous pouvez également visualiser les quartiles à l'aide d'un boxplot :
+
+```r
+# Boîte à moustaches
+boxplot(data, main = "Boîte à moustaches de la variable", ylab = "Valeurs", col = "lightblue")
+```
+
+### Exemple complet
+
+Voici un exemple complet intégrant tous les éléments :
+
+```r
+# Générer des données
+set.seed(123)  # Pour la reproductibilité
+data <- rnorm(100)
+
+# Calculer les quartiles
+quartiles <- quantile(data)
+print(quartiles)
+
+# Calculer des quartiles spécifiques
+custom_quartiles <- quantile(data, probs = c(0.25, 0.5, 0.75))
+print(custom_quartiles)
+
+# Boîte à moustaches
+boxplot(data, main = "Boîte à moustaches de la variable", ylab = "Valeurs", col = "lightblue")
+```
+
+Ces étapes vous permettent de calculer et de visualiser les quartiles d'une variable sous R. Si vous avez d'autres questions ou besoin d'aide, n'hésitez pas à demander !
+
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+
+Pour rechercher une chaîne de caractères sous R, vous pouvez utiliser plusieurs fonctions selon vos besoins. Voici quelques-unes des plus courantes :
+
+### 1. grep : Cette fonction recherche des motifs dans un vecteur de caractères et renvoie les indices des éléments correspondants.
+
+```R
+vecteur <- c("apple", "banana", "cherry")
+indices <- grep("an", vecteur)
+```
+
+### 2. grepl : Similaire à grep, mais renvoie un vecteur logique indiquant si chaque élément correspond au motif.
+
+
+```R
+correspondances <- grepl("an", vecteur)
+```
+
+### 3. sub et gsub : Ces fonctions remplacent les occurrences d’un motif par une autre chaîne. sub remplace la première occurrence, tandis que gsub remplace toutes les occurrences.
+
+```R
+texte <- "apple banana cherry"
+nouveau_texte <- gsub("a", "o", texte)
+```
+
+### 4. stringr package : Ce package offre des fonctions puissantes et conviviales pour manipuler des chaînes de caractères.
+
+```R
+install.packages("stringr")
+library(stringr)
+
+# Rechercher une chaîne
+str_detect(vecteur, "an")
+
+# Extraire une chaîne
+str_extract(vecteur, "an")
+
+# Remplacer une chaîne
+str_replace_all(texte, "a", "o")
+```
+
+
+
+
+
+
