@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_avancee_openxlsx – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_quartiles – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../7_diffusion/R_avancee_openxlsx.html">Diffusion des résultats</a></li><li class="breadcrumb-item"><a href="../7_diffusion/R_avancee_openxlsx.html">Exporter des statistiques avec openxlsx</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_analyse_donnees/R_caract.html">Analyse des données</a></li><li class="breadcrumb-item"><a href="../4_analyse_donnees/R_quartiles.html">Calculer les quartiles d’une variable sous R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Calculer les quartiles d’une variable sous R</span></a>
   </div>
 </li>
@@ -278,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link active">
+  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exporter des statistiques avec openxlsx</span></a>
   </div>
 </li>
@@ -334,7 +334,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exporter-des-résultats-avec-openxlsx" id="toc-exporter-des-résultats-avec-openxlsx" class="nav-link active" data-scroll-target="#exporter-des-résultats-avec-openxlsx">Exporter des résultats avec openxlsx</a></li>
+  <li><a href="#calculer-les-quartiles-dune-variable" id="toc-calculer-les-quartiles-dune-variable" class="nav-link active" data-scroll-target="#calculer-les-quartiles-dune-variable">Calculer les quartiles d’une variable</a>
+  <ul class="collapse">
+  <li><a href="#exemple-de-données" id="toc-exemple-de-données" class="nav-link" data-scroll-target="#exemple-de-données">1. Exemple de données</a></li>
+  <li><a href="#calcul-des-quartiles" id="toc-calcul-des-quartiles" class="nav-link" data-scroll-target="#calcul-des-quartiles">2. Calcul des quartiles</a></li>
+  <li><a href="#interprétation-des-résultats" id="toc-interprétation-des-résultats" class="nav-link" data-scroll-target="#interprétation-des-résultats">3. Interprétation des résultats</a></li>
+  <li><a href="#boîte-à-moustaches" id="toc-boîte-à-moustaches" class="nav-link" data-scroll-target="#boîte-à-moustaches">4. Boîte à moustaches</a></li>
+  <li><a href="#exemple-complet" id="toc-exemple-complet" class="nav-link" data-scroll-target="#exemple-complet">Exemple complet</a></li>
+  <li><a href="#calcul-des-quartiles-1" id="toc-calcul-des-quartiles-1" class="nav-link" data-scroll-target="#calcul-des-quartiles-1">1. Calcul des quartiles :</a></li>
+  <li><a href="#utilisation-de-la-fonction-summary-la-fonction-summary-fournit-également-les-quartiles-ainsi-que-dautres-statistiques-descriptives" id="toc-utilisation-de-la-fonction-summary-la-fonction-summary-fournit-également-les-quartiles-ainsi-que-dautres-statistiques-descriptives" class="nav-link" data-scroll-target="#utilisation-de-la-fonction-summary-la-fonction-summary-fournit-également-les-quartiles-ainsi-que-dautres-statistiques-descriptives">2. Utilisation de la fonction summary() : La fonction summary() fournit également les quartiles (ainsi que d’autres statistiques descriptives) :</a></li>
+  <li><a href="#visualisation-avec-un-boxplot-vous-pouvez-également-visualiser-les-quartiles-avec-un-boxplot" id="toc-visualisation-avec-un-boxplot-vous-pouvez-également-visualiser-les-quartiles-avec-un-boxplot" class="nav-link" data-scroll-target="#visualisation-avec-un-boxplot-vous-pouvez-également-visualiser-les-quartiles-avec-un-boxplot">3. Visualisation avec un boxplot : Vous pouvez également visualiser les quartiles avec un boxplot :</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -344,8 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="exporter-des-résultats-avec-openxlsx" class="level2">
-<h2 class="anchored" data-anchor-id="exporter-des-résultats-avec-openxlsx">Exporter des résultats avec openxlsx</h2>
+<section id="calculer-les-quartiles-dune-variable" class="level2">
+<h2 class="anchored" data-anchor-id="calculer-les-quartiles-dune-variable">Calculer les quartiles d’une variable</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -354,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment exporter des résultats avec openxlsx ?</li>
+<li>Comment calculer les quartiles d’une variable sous R?</li>
 </ul>
 </div>
 </div>
@@ -366,62 +376,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p><code>openxlsx</code> est un package R très pratique pour créer, lire et modifier des fichiers Excel. Si tu souhaites exporter des résultats vers un fichier Excel avec <code>openxlsx</code>, voici comment procéder :</p>
-<ol type="1">
-<li><p><strong>Installation et chargement du package</strong></p>
-<p>Si tu n’as pas encore installé <code>openxlsx</code>, tu peux le faire avec :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ensuite, charge le package dans ta session R :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Préparation des données</strong></p>
-<p>Assure-toi que tes données sont prêtes à être exportées. Par exemple, disons que tu as un dataframe <code>df</code> :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nom =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Â<span class="at">ge =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ville =</span> <span class="fu">c</span>(<span class="st">"Paris"</span>, <span class="st">"Londres"</span>, <span class="st">"Berlin"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Création d’un fichier Excel</strong></p>
-<p>Pour créer un fichier Excel avec <code>openxlsx</code>, utilise la fonction <code>write.xlsx</code>. Voici un exemple de base :</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(df, <span class="at">file =</span> <span class="st">"mon_fichier.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>df</code> est le dataframe que tu souhaites exporter, et <code>file</code> spécifie le nom du fichier Excel que tu veux créer.</p></li>
-<li><p><strong>Ajouter plusieurs feuilles</strong></p>
-<p>Si tu souhaites ajouter plusieurs feuilles dans le même fichier Excel, tu peux le faire en utilisant l’argument <code>sheetName</code> :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()  <span class="co"># Crée un nouveau fichier Excel</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)  <span class="co"># Ajoute une feuille nommée "Feuille1"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille2"</span>)  <span class="co"># Ajoute une autre feuille nommée "Feuille2"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille1"</span>, <span class="at">x =</span> df)  <span class="co"># Écrit les données dans la première feuille</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille2"</span>, <span class="at">x =</span> df)  <span class="co"># Écrit les mêmes données dans la deuxième feuille</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="at">file =</span> <span class="st">"mon_fichier_multifeuilles.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, nous avons créé un classeur Excel avec deux feuilles, chacune contenant les données du dataframe <code>df</code>.</p></li>
-<li><p><strong>Personnalisation</strong></p>
-<p><code>openxlsx</code> offre plusieurs options pour personnaliser le format de tes feuilles Excel, comme ajouter des styles, des formats de cellules, et bien plus. Voici un exemple pour ajouter du style :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un classeur</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une feuille</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)</span>
+<p>Pour calculer les quartiles d’une variable sous R, vous pouvez utiliser la fonction <code>quantile()</code>. Voici comment procéder, avec des exemples concrets :</p>
+<section id="exemple-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-de-données">1. Exemple de données</h3>
+<p>Commençons par créer un vecteur de données aléatoires :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer des données</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Pour la reproductibilité</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)  <span class="co"># 100 valeurs aléatoires suivant une distribution normale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="calcul-des-quartiles" class="level3">
+<h3 class="anchored" data-anchor-id="calcul-des-quartiles">2. Calcul des quartiles</h3>
+<p>La fonction <code>quantile()</code> vous permet de calculer les quartiles en spécifiant les valeurs souhaitées :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer les quartiles</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>quartiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(quartiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Par défaut, <code>quantile()</code> calcule les quartiles (0%, 25%, 50%, 75%, 100%). Voici un exemple d’utilisation avec des quantiles personnalisés :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer des quartiles spécifiques</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>custom_quartiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(custom_quartiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="interprétation-des-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="interprétation-des-résultats">3. Interprétation des résultats</h3>
+<p>Les résultats de <code>quantile()</code> vous donnent les valeurs aux quartiles spécifiés. Par exemple, si vous calculez les quartiles pour des données aléatoires, vous obtiendrez quelque chose comme :</p>
+<pre class="plaintext"><code>      0%      25%      50%      75%     100% 
+-2.65250 -0.64606  0.01827  0.68244  2.17400 </code></pre>
+</section>
+<section id="boîte-à-moustaches" class="level3">
+<h3 class="anchored" data-anchor-id="boîte-à-moustaches">4. Boîte à moustaches</h3>
+<p>Vous pouvez également visualiser les quartiles à l’aide d’un boxplot :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boîte à moustaches</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data, <span class="at">main =</span> <span class="st">"Boîte à moustaches de la variable"</span>, <span class="at">ylab =</span> <span class="st">"Valeurs"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-complet" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-complet">Exemple complet</h3>
+<p>Voici un exemple complet intégrant tous les éléments :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer des données</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Pour la reproductibilité</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer les quartiles</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>quartiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(quartiles)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir un style</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>style <span class="ot">&lt;-</span> <span class="fu">createStyle</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fontSize =</span> <span class="dv">12</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">fontColour =</span> <span class="st">"#FFFFFF"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">bgFill =</span> <span class="st">"#4F81BD"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">halign =</span> <span class="st">"center"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">valign =</span> <span class="st">"center"</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">textDecoration =</span> <span class="st">"bold"</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire des données et appliquer le style</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille1"</span>, <span class="at">x =</span> df, <span class="at">headerStyle =</span> style)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sauvegarder le classeur</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="at">file =</span> <span class="st">"mon_fichier_stylise.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<p>Avec ces étapes, tu devrais pouvoir exporter efficacement tes résultats vers un fichier Excel en utilisant <code>openxlsx</code>. Si tu as des besoins spécifiques ou des questions supplémentaires, n’hésite pas !</p>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer des quartiles spécifiques</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>custom_quartiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(custom_quartiles)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Boîte à moustaches</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data, <span class="at">main =</span> <span class="st">"Boîte à moustaches de la variable"</span>, <span class="at">ylab =</span> <span class="st">"Valeurs"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces étapes vous permettent de calculer et de visualiser les quartiles d’une variable sous R. Si vous avez d’autres questions ou besoin d’aide, n’hésitez pas à demander !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -429,41 +432,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour exporter des résultats avec le package <code>openxlsx</code> en R, vous pouvez suivre les étapes suivantes :</p>
-<ol type="1">
-<li>Installez et chargez le package <code>openxlsx</code> avec les commandes suivantes :</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Créez un nouvel objet de classeur avec la fonction <code>createWorkbook()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li>Ajoutez une feuille de calcul à l’objet de classeur avec la fonction <code>addWorksheet()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" type="1">
-<li>Écrivez des données dans la feuille de calcul avec la fonction <code>writeData()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="st">"Feuille1"</span>, <span class="at">x =</span> votre_dataframe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="5" type="1">
-<li>Enregistrez le classeur avec la fonction <code>saveWorkbook()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="st">"nom_du_fichier.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>votre_dataframe</code> est le dataframe que vous souhaitez exporter et <code>nom_du_fichier.xlsx</code> est le nom du fichier Excel que vous souhaitez créer⁴.</p>
-<p>Si vous avez plusieurs dataframes à exporter dans des feuilles de calcul différentes d’un même classeur, vous pouvez utiliser une boucle <code>lapply</code> pour écrire chaque dataframe dans une nouvelle feuille de calcul⁵. Voici un exemple :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que 'myList' est une liste de dataframes</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>noms_des_feuilles <span class="ot">&lt;-</span> <span class="fu">names</span>(myList)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">seq_along</span>(myList), <span class="cf">function</span>(i) {</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addWorksheet</span>(wb, noms_des_feuilles[i])</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeData</span>(wb, noms_des_feuilles[i], myList[[i]])</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="st">"nom_du_fichier.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, chaque dataframe dans <code>myList</code> est écrit dans une nouvelle feuille de calcul. Les noms des feuilles de calcul correspondent aux noms des dataframes dans <code>myList</code>⁵.</p>
-<p>Source : conversation avec Copilot, 24/07/2024 (1) xlsx : le meilleur package pour connecter Excel avec le logiciel R - STHDA. http://www.sthda.com/french/wiki/xlsx-le-meilleur-package-pour-connecter-excel-avec-le-logiciel-r. (2) Use R and Openxlsx to output a list of dataframes as worksheets in a …. https://stackoverflow.com/questions/43176266/use-r-and-openxlsx-to-output-a-list-of-dataframes-as-worksheets-in-a-single-exce. (3) How to use the Openxlsx package. Import, export, and style multiple XLSX files in one workbook.. https://www.youtube.com/watch?v=nI-IlHvf1-c. (4) 10 - logiciel R - Exportation de données (écriture dans un fichier). https://www.youtube.com/watch?v=dpJ4CupNqdo. (5) Du logiciel R à l’Excel - Exporter des données ou résultats sous format CSV et xlsx (EXCEL). https://www.youtube.com/watch?v=EzthAcCP6-8. (6) Comment exporter les résultats d’une requête SQL Server vers Excel. https://bing.com/search?q=Comment+exporter+des+r%c3%a9sultats+avec+openxlsx. (7) Comment exporter les résultats d’une requête SQL Server vers Excel. https://axial-sql.com/fr/comment-exporter-les-resultats-dune-requete-sql-server-vers-excel/.</p>
+<p>Calculer les quartiles d’une variable sous R est assez simple grâce à la fonction quantile(). Voici comment vous pouvez le faire :</p>
+</section>
+<section id="calcul-des-quartiles-1" class="level3">
+<h3 class="anchored" data-anchor-id="calcul-des-quartiles-1">1. Calcul des quartiles :</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que vous avez un vecteur de données</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des quartiles</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>quartiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(quartiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utilisation-de-la-fonction-summary-la-fonction-summary-fournit-également-les-quartiles-ainsi-que-dautres-statistiques-descriptives" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-la-fonction-summary-la-fonction-summary-fournit-également-les-quartiles-ainsi-que-dautres-statistiques-descriptives">2. Utilisation de la fonction summary() : La fonction summary() fournit également les quartiles (ainsi que d’autres statistiques descriptives) :</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualisation-avec-un-boxplot-vous-pouvez-également-visualiser-les-quartiles-avec-un-boxplot" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-avec-un-boxplot-vous-pouvez-également-visualiser-les-quartiles-avec-un-boxplot">3. Visualisation avec un boxplot : Vous pouvez également visualiser les quartiles avec un boxplot :</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ.</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Ces méthodes vous donneront les quartiles de votre variable. Si vous avez un jeu de données spécifique ou un type de variable particulier, faites<span class="sc">-</span>le moi savoir pour que je puisse vous fournir des instructions plus détaillées<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

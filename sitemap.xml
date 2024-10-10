@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/index.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/6_analyse_inferentielle/R_reg_log.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/7_diffusion/R_avancee_openxlsx.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/R_template.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/Z_usage_avance/R_avancee_partie_entiere.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/4_analyse_donnees/R_quartiles.html</loc>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/3_nettoyage_donnees/R_joint.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/Z_usage_avance/R_avancee_partie_entiere.html</loc>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/R_template.html</loc>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/4_analyse_donnees/R_caract.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_starter.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_donnees.html</loc>
-    <lastmod>2024-10-10T13:56:40.060Z</lastmod>
+    <lastmod>2024-10-10T14:51:22.572Z</lastmod>
   </url>
 </urlset>
