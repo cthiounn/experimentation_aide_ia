@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_avancee_partie_entiere – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_compter – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Z_usage_avance/R_avancee_partie_entiere.html">Usage avancé</a></li><li class="breadcrumb-item"><a href="../Z_usage_avance/R_avancee_partie_entiere.html">Partie entière en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4_analyse_donnees/R_analyser_donnees.html">Analyse des données</a></li><li class="breadcrumb-item"><a href="../4_analyse_donnees/R_compter.html">Compter ses données</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -353,7 +324,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Compter ses données</span></a>
   </div>
 </li>
@@ -491,7 +462,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Partie entière en R</span></a>
   </div>
 </li>
@@ -513,10 +484,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#obtenir-la-partie-entière-en-r" id="toc-obtenir-la-partie-entière-en-r" class="nav-link active" data-scroll-target="#obtenir-la-partie-entière-en-r">Obtenir la partie entière en R</a>
+  <li><a href="#compter-ses-données" id="toc-compter-ses-données" class="nav-link active" data-scroll-target="#compter-ses-données">Compter ses données</a>
   <ul class="collapse">
-  <li><a href="#approche-naïve" id="toc-approche-naïve" class="nav-link" data-scroll-target="#approche-naïve">Approche naïve</a></li>
-  <li><a href="#spécificité-arrow-en-lazy" id="toc-spécificité-arrow-en-lazy" class="nav-link" data-scroll-target="#spécificité-arrow-en-lazy">Spécificité arrow en lazy</a></li>
+  <li><a href="#répartition-de-variables-qualitatives-facteurs-ou-variables-catégorielles" id="toc-répartition-de-variables-qualitatives-facteurs-ou-variables-catégorielles" class="nav-link" data-scroll-target="#répartition-de-variables-qualitatives-facteurs-ou-variables-catégorielles">1. Répartition de <strong>variables qualitatives</strong> (facteurs ou variables catégorielles)</a></li>
+  <li><a href="#répartition-de-variables-quantitatives-numériques" id="toc-répartition-de-variables-quantitatives-numériques" class="nav-link" data-scroll-target="#répartition-de-variables-quantitatives-numériques">2. Répartition de <strong>variables quantitatives</strong> (numériques)</a></li>
+  <li><a href="#répartition-pour-une-variable-mixte-qualitative-et-quantitative" id="toc-répartition-pour-une-variable-mixte-qualitative-et-quantitative" class="nav-link" data-scroll-target="#répartition-pour-une-variable-mixte-qualitative-et-quantitative">3. Répartition pour une <strong>variable mixte</strong> (qualitative et quantitative)</a></li>
+  <li><a href="#visualisation-des-fréquences" id="toc-visualisation-des-fréquences" class="nav-link" data-scroll-target="#visualisation-des-fréquences">4. Visualisation des fréquences</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#pour-une-variable-qualitative-catégorique" id="toc-pour-une-variable-qualitative-catégorique" class="nav-link" data-scroll-target="#pour-une-variable-qualitative-catégorique">Pour une variable qualitative (catégorique) :</a></li>
+  <li><a href="#pour-une-variable-quantitative" id="toc-pour-une-variable-quantitative" class="nav-link" data-scroll-target="#pour-une-variable-quantitative">Pour une variable quantitative :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -527,10 +503,8 @@ window.Quarto = {
 
 
 
-<section id="obtenir-la-partie-entière-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="obtenir-la-partie-entière-en-r">Obtenir la partie entière en R</h2>
-<section id="approche-naïve" class="level3">
-<h3 class="anchored" data-anchor-id="approche-naïve">Approche naïve</h3>
+<section id="compter-ses-données" class="level2">
+<h2 class="anchored" data-anchor-id="compter-ses-données">Compter ses données</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -539,7 +513,7 @@ window.Quarto = {
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Je souhaite avoir la partie entière en R</li>
+<li>Comment obtenir une répartition/fréquence d’une variable quantitative/qualitative en R ?</li>
 </ul>
 </div>
 </div>
@@ -551,22 +525,100 @@ window.Quarto = {
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, vous pouvez obtenir la partie entière d’un nombre (la partie avant la virgule, c’est-à-dire l’entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :</p>
-<ol type="1">
-<li><p><strong>La fonction <code>floor</code></strong> : Elle renvoie la plus grande valeur entière inférieure ou égale à l’argument.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>trunc</code></strong> : Elle tronque la partie décimale, ce qui équivaut à obtenir la partie entière de la valeur numérique.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>as.integer</code></strong> : Elle convertit une valeur numérique en entier en la tronquant.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>round</code> avec l’argument <code>digits</code> à 0</strong> : Cette fonction arrondit à l’entier le plus proche, mais ce n’est pas exactement la même chose que de prendre la partie entière car elle peut arrondir vers le haut ou vers le bas.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.7</span>, <span class="at">digits =</span> <span class="dv">0</span>)  <span class="co"># Renvoie 4</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.3</span>, <span class="at">digits =</span> <span class="dv">0</span>)  <span class="co"># Renvoie 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<p>Pour obtenir strictement la partie entière, les fonctions <code>floor</code> et <code>trunc</code> sont les plus adaptées. Si vous voulez absolument obtenir l’entier le plus proche sans prendre en compte la partie décimale, utilisez <code>trunc</code>. Si vous souhaitez l’entier inférieur ou égal à la valeur, utilisez <code>floor</code>.</p>
+<p>En R, vous pouvez obtenir une répartition (ou fréquence) d’une variable quantitative ou qualitative de différentes manières, en utilisant des fonctions adaptées à chaque type de donnée.</p>
+<section id="répartition-de-variables-qualitatives-facteurs-ou-variables-catégorielles" class="level3">
+<h3 class="anchored" data-anchor-id="répartition-de-variables-qualitatives-facteurs-ou-variables-catégorielles">1. Répartition de <strong>variables qualitatives</strong> (facteurs ou variables catégorielles)</h3>
+<p>Pour une variable qualitative, on peut utiliser la fonction <code>table()</code> ou <code>dplyr::count()</code>.</p>
+<section id="exemple-avec-table" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-table">Exemple avec <code>table()</code> :</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données qualitatives (facteur)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rouge"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>, <span class="st">"Vert"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Répartition des fréquences</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">&lt;-</span> <span class="fu">table</span>(data)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(frequencies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela renverra le nombre d’occurrences pour chaque catégorie de la variable.</p>
+</section>
+<section id="exemple-avec-dplyrcount" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-dplyrcount">Exemple avec <code>dplyr::count()</code> :</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package dplyr</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données qualitatives</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">couleur =</span> <span class="fu">c</span>(<span class="st">"Rouge"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>, <span class="st">"Vert"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Répartition des fréquences</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">count</span>(couleur)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(frequencies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="répartition-de-variables-quantitatives-numériques" class="level3">
+<h3 class="anchored" data-anchor-id="répartition-de-variables-quantitatives-numériques">2. Répartition de <strong>variables quantitatives</strong> (numériques)</h3>
+<p>Pour une variable quantitative, vous pouvez utiliser des fonctions comme <code>summary()</code> pour obtenir un résumé statistique, ou <code>hist()</code> pour une visualisation graphique. Si vous souhaitez avoir une répartition sous forme d’histogramme ou de classes (groupes de valeurs), voici deux exemples.</p>
+<section id="exemple-avec-summary" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-summary">Exemple avec <code>summary()</code> :</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données quantitatives</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Résumé statistique (moyenne, min, max, etc.)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-avec-un-histogramme-hist" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-un-histogramme-hist">Exemple avec un histogramme <code>hist()</code> :</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données quantitatives</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramme de la variable quantitative</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data, <span class="at">main =</span> <span class="st">"Histogramme des données"</span>, <span class="at">xlab =</span> <span class="st">"Valeurs"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-avec-dplyr-et-cut-pour-obtenir-une-répartition-par-groupes" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-et-cut-pour-obtenir-une-répartition-par-groupes">Exemple avec <code>dplyr</code> et <code>cut()</code> pour obtenir une répartition par groupes :</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données quantitatives</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">valeur =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer des classes (groupes) pour la variable quantitative</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">groupe =</span> <span class="fu">cut</span>(valeur, <span class="at">breaks =</span> <span class="dv">4</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les observations par groupe</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">count</span>(groupe)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(frequencies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="répartition-pour-une-variable-mixte-qualitative-et-quantitative" class="level3">
+<h3 class="anchored" data-anchor-id="répartition-pour-une-variable-mixte-qualitative-et-quantitative">3. Répartition pour une <strong>variable mixte</strong> (qualitative et quantitative)</h3>
+<p>Si vous avez une variable mixte (par exemple, une variable qualitative avec une quantitative associée), vous pouvez utiliser <code>table()</code> pour une distribution croisée ou <code>dplyr</code> pour manipuler ces données.</p>
+<p>Exemple avec une variable quantitative et une variable qualitative :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données mixtes</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">couleur =</span> <span class="fu">c</span>(<span class="st">"Rouge"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>, <span class="st">"Vert"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">10</span>, <span class="dv">30</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Répartition croisée de la variable qualitative avec la quantitative</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>couleur, data<span class="sc">$</span>score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualisation-des-fréquences" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-des-fréquences">4. Visualisation des fréquences</h3>
+<p>Pour des visualisations plus avancées, vous pouvez utiliser des packages comme <code>ggplot2</code>. Voici un exemple pour une variable qualitative :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer ggplot2 si nécessaire</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données qualitatives</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">couleur =</span> <span class="fu">c</span>(<span class="st">"Rouge"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>, <span class="st">"Vert"</span>, <span class="st">"Bleu"</span>, <span class="st">"Rouge"</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un graphique de fréquence</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> couleur)) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fréquences des couleurs"</span>, <span class="at">x =</span> <span class="st">"Couleur"</span>, <span class="at">y =</span> <span class="st">"Fréquence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela vous donnera une visualisation graphique des fréquences pour chaque catégorie.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<ul>
+<li>Pour les <strong>variables qualitatives</strong>, utilisez <code>table()</code> ou <code>dplyr::count()</code>.</li>
+<li>Pour les <strong>variables quantitatives</strong>, utilisez <code>summary()</code> ou <code>hist()</code> pour des résumés ou visualisations.</li>
+<li>Pour une <strong>répartition par groupes</strong> pour des variables quantitatives, <code>cut()</code> et <code>count()</code> sont utiles.</li>
+<li><code>ggplot2</code> est une excellente option pour la visualisation graphique.</li>
+</ul>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -574,198 +626,32 @@ window.Quarto = {
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>En R, la fonction <code>floor()</code> est utilisée pour obtenir la partie entière d’un nombre. Voici un exemple de code :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir un nombre</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="fl">7.9</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>partie_entiere <span class="ot">&lt;-</span> <span class="fu">floor</span>(nombre)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher la partie entière</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(partie_entiere)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>floor(7.9)</code> retournera <code>7</code> car <code>7</code> est la partie entière de <code>7.9</code>. Vous pouvez remplacer <code>7.9</code> par n’importe quel nombre pour obtenir sa partie entière.</p>
+<p>Pour obtenir une répartition ou fréquence d’une variable en R, vous pouvez utiliser différentes fonctions selon le type de variable (quantitative ou qualitative). Voici quelques exemples :</p>
 </section>
-<section id="spécificité-arrow-en-lazy" class="level3">
-<h3 class="anchored" data-anchor-id="spécificité-arrow-en-lazy">Spécificité arrow en lazy</h3>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Prompt :</p>
-<ul>
-<li>J’utilise R pour travailler un fichier parquet dont le chemin est stocké dans une variable “NAME_PARQUET” ouvert avec arrow::open_dataset en lazy, je veux la partie entière d’un nombre actuellement représenté sous format string et nommé “result”</li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/ChatGPT.PNG" class="img-fluid figure-img"></p>
-<figcaption>ChatGPT</figcaption>
-</figure>
-</div>
-<p>Pour obtenir la partie entière d’un nombre représenté sous forme de chaîne de caractères dans un fichier Parquet ouvert en mode lazy avec <code>arrow::open_dataset</code>, vous pouvez utiliser les fonctionnalités de manipulation de colonnes fournies par <code>dplyr</code> et <code>arrow</code>. Voici un exemple de comment faire cela :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset en mode lazy</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer la colonne "result" en partie entière</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premières lignes pour vérifier</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="sc">%&gt;%</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result, result_integer) <span class="sc">%&gt;%</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Voici une explication étape par étape de ce que fait ce code :</p>
-<ol type="1">
-<li><p><strong>Ouvrir le dataset en mode lazy</strong> :</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cette ligne ouvre votre fichier Parquet en utilisant <code>arrow::open_dataset</code>.</p></li>
-<li><p><strong>Transformer la colonne “result” en partie entière</strong> :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>mutate(result_integer = ...)</code> : Crée une nouvelle colonne <code>result_integer</code> qui contiendra les valeurs entières.</li>
-<li><code>as.numeric(result)</code> : Convertit la colonne <code>result</code> (qui est une chaîne de caractères) en numérique.</li>
-<li><code>floor(...)</code> : Prend la partie entière du nombre.</li>
-</ul></li>
-<li><p><strong>Afficher les premières lignes pour vérifier</strong> :</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result, result_integer) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>select(result, result_integer)</code> : Sélectionne les colonnes <code>result</code> et <code>result_integer</code> pour l’affichage.</li>
-<li><code>collect()</code> : Évalue les transformations en mode lazy et charge les résultats en mémoire.</li>
-<li><code>head()</code> : Affiche les premières lignes pour vérifier le résultat.</li>
-</ul></li>
-</ol>
-<p>Assurez-vous de remplacer <code>"path/to/your/parquet/file"</code> par le chemin réel de votre fichier Parquet. Ce script suppose que votre colonne <code>result</code> contient des chaînes de caractères qui peuvent être converties en nombres.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Suite :</p>
-<ul>
-<li>cela donne l’erreur suivante : Error: Expression extract_integer_part(result) not supported in Arrow Call collect() first to pull data into R.</li>
-</ul>
-</div>
-</div>
-</div>
-<p>L’erreur indique que l’expression <code>extract_integer_part(result)</code> n’est pas supportée par Arrow en mode lazy et qu’il faudrait utiliser <code>collect()</code> pour tirer les données en mémoire avant de faire des transformations non supportées par Arrow.</p>
-<p>Pour contourner ce problème, vous pouvez d’abord collecter les données dans un DataFrame en mémoire avec <code>collect()</code> puis faire les transformations en utilisant <code>dplyr</code>. Voici comment faire :</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset en mode lazy</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Collecter les données en mémoire</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result) <span class="sc">%&gt;%</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer la colonne "result" en partie entière</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> collected_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premières lignes pour vérifier</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collected_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Voici une explication étape par étape de ce que fait ce code :</p>
-<ol type="1">
-<li><p><strong>Ouvrir le dataset en mode lazy</strong> :</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cette ligne ouvre votre fichier Parquet en utilisant <code>arrow::open_dataset</code>.</p></li>
-<li><p><strong>Collecter les données en mémoire</strong> :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>select(result)</code> : Sélectionne uniquement la colonne <code>result</code> pour réduire la quantité de données collectées.</li>
-<li><code>collect()</code> : Charge les données sélectionnées en mémoire sous forme de DataFrame R.</li>
-</ul></li>
-<li><p><strong>Transformer la colonne “result” en partie entière</strong> :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> collected_data <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>mutate(result_integer = ...)</code> : Crée une nouvelle colonne <code>result_integer</code> qui contiendra les valeurs entières.</li>
-<li><code>as.numeric(result)</code> : Convertit la colonne <code>result</code> (qui est une chaîne de caractères) en numérique.</li>
-<li><code>floor(...)</code> : Prend la partie entière du nombre.</li>
-</ul></li>
-<li><p><strong>Afficher les premières lignes pour vérifier</strong> :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collected_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>head(collected_data)</code> : Affiche les premières lignes du DataFrame pour vérifier le résultat.</li>
-</ul></li>
-</ol>
-<p>Ce script permet de contourner les limitations d’Arrow pour certaines opérations et utilise les fonctionnalités de <code>dplyr</code> une fois les données collectées en mémoire. Assurez-vous de remplacer <code>"path/to/your/parquet/file"</code> par le chemin réel de votre fichier Parquet.</p>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/copilot.PNG" class="img-fluid figure-img"></p>
-<figcaption>Copilot</figcaption>
-</figure>
-</div>
-<p>Pour obtenir la partie entière d’un nombre représenté sous format string dans R, vous pouvez utiliser la fonction <code>as.integer()</code>. Cependant, cette fonction convertit le string en un nombre entier seulement si le string est déjà un nombre. Si le string contient des caractères non numériques ou des décimales, vous devez d’abord le convertir en un nombre à virgule flottante avec <code>as.numeric()</code> puis utiliser <code>floor()</code> pour obtenir la partie entière. Voici comment vous pouvez le faire:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que votre dataset est stocké dans la variable 'data'</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(NAME_PARQUET)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la colonne 'result' en nombre à virgule flottante</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>result)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> <span class="fu">floor</span>(data<span class="sc">$</span>result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela convertira la colonne “result” en nombres entiers. Si vous rencontrez des problèmes avec des valeurs non numériques, vous devrez peut-être les gérer séparément. Notez que <code>as.numeric()</code> et <code>floor()</code> renverront <code>NA</code> pour les valeurs non numériques. Vous pouvez utiliser <code>is.na()</code> pour identifier ces valeurs.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Suite :</p>
-<ul>
-<li>Error in data<span class="math inline">\(result &lt;- as.numeric(data\)</span>result) : cannot add bindings to a locked environment</li>
-</ul>
-</div>
-</div>
-</div>
-<p>L’erreur que vous rencontrez est due à une tentative de modification d’un environnement verrouillé. Dans R, un “environnement verrouillé” est généralement un environnement qui a été rendu en lecture seule et ne peut pas être modifié.</p>
-<p>Lorsque vous utilisez <code>arrow::open_dataset()</code>, il renvoie un objet <code>Dataset</code> qui est en lecture seule. Vous ne pouvez pas modifier directement les colonnes de cet objet.</p>
-<p>Pour résoudre ce problème, vous pouvez créer une copie de la colonne que vous souhaitez modifier dans un nouvel objet, effectuer les modifications sur cet objet, puis ajouter cet objet à votre <code>Dataset</code>. Voici comment vous pouvez le faire :</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(NAME_PARQUET)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer une copie de la colonne 'result' dans un nouvel objet</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> data<span class="sc">$</span>result</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la colonne 'result' en nombre à virgule flottante</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(result_column)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> <span class="fu">floor</span>(result_column)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter la colonne modifiée à l'objet 'data'</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> result_column</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela devrait résoudre votre problème. Si vous rencontrez toujours des problèmes, n’hésitez pas à me le faire savoir !</p>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Cela ne marche toujours pas !</p>
-</div>
-</div>
-</div>
+<section id="pour-une-variable-qualitative-catégorique" class="level3">
+<h3 class="anchored" data-anchor-id="pour-une-variable-qualitative-catégorique">Pour une variable qualitative (catégorique) :</h3>
+<p>Vous pouvez utiliser la fonction <code>table()</code> pour obtenir la fréquence de chaque catégorie.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de variable qualitative</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>variable_qualitative <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des fréquences</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>frequences <span class="ot">&lt;-</span> <span class="fu">table</span>(variable_qualitative)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(frequences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pour-une-variable-quantitative" class="level3">
+<h3 class="anchored" data-anchor-id="pour-une-variable-quantitative">Pour une variable quantitative :</h3>
+<p>Vous pouvez utiliser la fonction <code>hist()</code> pour obtenir une répartition sous forme d’histogramme, ou <code>cut()</code> et <code>table()</code> pour des intervalles spécifiques.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de variable quantitative</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>variable_quantitative <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramme</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(variable_quantitative)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fréquences par intervalles</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>intervalles <span class="ot">&lt;-</span> <span class="fu">cut</span>(variable_quantitative, <span class="at">breaks=</span><span class="dv">5</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>frequences_intervalles <span class="ot">&lt;-</span> <span class="fu">table</span>(intervalles)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(frequences_intervalles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces fonctions vous permettent de visualiser et d’analyser la distribution de vos données de manière efficace. Si vous avez besoin d’aide supplémentaire ou d’exemples plus spécifiques, n’hésitez pas à demander ! 😊</p>
 
 
 </section>
