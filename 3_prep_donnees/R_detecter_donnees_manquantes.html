@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_librairie_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_detecter_donnees_manquantes – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_librairie_import.html">Quelles librairies et fonctions utiliser ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_detecter_donnees_manquantes.html">Comment détecter les données manquantes ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comment détecter les données manquantes ?</span></a>
   </div>
 </li>
@@ -444,16 +444,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#importer-des-fichiers-csv-ou-txt" id="toc-importer-des-fichiers-csv-ou-txt" class="nav-link" data-scroll-target="#importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></a></li>
-  <li><a href="#importer-des-fichiers-excel-xls-xlsx" id="toc-importer-des-fichiers-excel-xls-xlsx" class="nav-link" data-scroll-target="#importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></a></li>
-  <li><a href="#importer-des-bases-de-données-sql" id="toc-importer-des-bases-de-données-sql" class="nav-link" data-scroll-target="#importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></a></li>
-  <li><a href="#importer-des-fichiers-json" id="toc-importer-des-fichiers-json" class="nav-link" data-scroll-target="#importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></a></li>
-  <li><a href="#importer-des-fichiers-xml-ou-html" id="toc-importer-des-fichiers-xml-ou-html" class="nav-link" data-scroll-target="#importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></a></li>
-  <li><a href="#importer-des-fichiers-spss-sas-stata" id="toc-importer-des-fichiers-spss-sas-stata" class="nav-link" data-scroll-target="#importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></a></li>
-  <li><a href="#importer-des-fichiers-hdf5" id="toc-importer-des-fichiers-hdf5" class="nav-link" data-scroll-target="#importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></a></li>
-  <li><a href="#importer-des-fichiers-à-partir-dune-url" id="toc-importer-des-fichiers-à-partir-dune-url" class="nav-link" data-scroll-target="#importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></a></li>
-  <li><a href="#importer-des-fichiers-parquet" id="toc-importer-des-fichiers-parquet" class="nav-link" data-scroll-target="#importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></a></li>
-  <li><a href="#outils-pour-automatiser-et-améliorer-les-imports" id="toc-outils-pour-automatiser-et-améliorer-les-imports" class="nav-link" data-scroll-target="#outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></a></li>
+  <li><a href="#utiliser-is.na" id="toc-utiliser-is.na" class="nav-link" data-scroll-target="#utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></a></li>
+  <li><a href="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" id="toc-compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="nav-link" data-scroll-target="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></a></li>
+  <li><a href="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" id="toc-vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="nav-link" data-scroll-target="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></a></li>
+  <li><a href="#utiliser-summary-pour-une-vue-densemble" id="toc-utiliser-summary-pour-une-vue-densemble" class="nav-link" data-scroll-target="#utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></a></li>
+  <li><a href="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" id="toc-vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="nav-link" data-scroll-target="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></a></li>
+  <li><a href="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" id="toc-détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="nav-link" data-scroll-target="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Quelles librairies et fonctions utiliser pour l’import de données en R ?</li>
+<li>Comment détecter les données manquantes en R ?</li>
 </ul>
 </div>
 </div>
@@ -486,194 +482,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, plusieurs <strong>librairies et fonctions</strong> permettent d’importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :</p>
-<hr>
-<section id="importer-des-fichiers-csv-ou-txt" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li>Base R (pas besoin de packages supplémentaires) :
-<ul>
-<li><code>read.csv()</code> : pour des fichiers CSV.</li>
-<li><code>read.table()</code> : pour des fichiers TXT.</li>
-</ul></li>
-<li><strong>readr</strong> (plus rapide et plus moderne) :
-<ul>
-<li><code>read_csv()</code> : pour les fichiers CSV.</li>
-<li><code>read_tsv()</code> : pour les fichiers TSV (tab-separated values).</li>
-</ul></li>
-<li><strong>data.table</strong> (pour les gros fichiers, très performant) :
-<ul>
-<li><code>fread()</code> : détecte automatiquement le format du fichier.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<p>En R, il existe plusieurs façons de détecter les données manquantes dans un jeu de données. Voici quelques méthodes courantes :</p>
+<section id="utiliser-is.na" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></h3>
+<p>La fonction <code>is.na()</code> permet de tester si des valeurs sont manquantes dans un vecteur, une matrice ou un cadre de données. Elle renvoie un vecteur logique avec <code>TRUE</code> pour les valeurs manquantes et <code>FALSE</code> pour les autres.</p>
+<section id="exemple" class="level4">
+<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur avec des valeurs manquantes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier les valeurs manquantes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela renverra :</p>
+<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 </section>
-<section id="importer-des-fichiers-excel-xls-xlsx" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>readxl</strong> : Pour lire les fichiers Excel sans besoin d’installer Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>openxlsx</strong> : Pour lire et écrire des fichiers Excel sans dépendances externes.
-<ul>
-<li><code>read.xlsx()</code></li>
-</ul></li>
-<li><strong>XLConnect</strong> ou <strong>xlsx</strong> (moins utilisées, nécessitent Java).</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Spécifier la feuille si nécessaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-bases-de-données-sql" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>DBI</strong> : Interface de base pour interagir avec les bases SQL.
-<ul>
-<li>Utilisée avec des packages spécifiques comme <code>RMySQL</code>, <code>RPostgres</code>, ou <code>odbc</code>.</li>
-</ul></li>
-<li><strong>dplyr</strong> : Utilise <code>dbplyr</code> pour créer des connexions aux bases de données.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="at">dbname =</span> <span class="st">"mydatabase.sqlite"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM table_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="level3">
+<h3 class="anchored" data-anchor-id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></h3>
+<p>Vous pouvez utiliser <code>sum(is.na())</code> pour compter le nombre de valeurs manquantes dans un vecteur, une matrice ou un data frame.</p>
+<section id="exemple-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-1">Exemple :</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes dans le vecteur x</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(x))  <span class="co"># Résultat : 2 (2 valeurs manquantes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-json" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>jsonlite</strong> :
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>rjson</strong> : Une autre alternative plus basique.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-xml-ou-html" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>xml2</strong> : Pour manipuler les fichiers XML.
-<ul>
-<li><code>read_xml()</code></li>
-</ul></li>
-<li><strong>rvest</strong> : Pour extraire les données des pages web HTML.
-<ul>
-<li><code>html_table()</code> pour récupérer des tables.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xml_data <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"data.xml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="level3">
+<h3 class="anchored" data-anchor-id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></h3>
+<p>Si vous travaillez avec un <strong>data frame</strong>, vous pouvez utiliser <code>colSums()</code> pour compter les valeurs manquantes par colonne.</p>
+<section id="exemple-2" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-2">Exemple :</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de data frame avec des valeurs manquantes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes par colonne</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela renverra :</p>
+<pre><code>a b 
+1 1</code></pre>
 </section>
-<section id="importer-des-fichiers-spss-sas-stata" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>haven</strong> :
-<ul>
-<li><code>read_spss()</code> : Pour les fichiers SPSS (.sav).</li>
-<li><code>read_sas()</code> : Pour les fichiers SAS.</li>
-<li><code>read_stata()</code> : Pour les fichiers STATA.</li>
-</ul></li>
-<li><strong>foreign</strong> : Alternative plus ancienne.
-<ul>
-<li><code>read.spss()</code>, <code>read.dta()</code>, etc.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">"data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-hdf5" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>rhdf5</strong> :
-<ul>
-<li><code>h5read()</code></li>
-</ul></li>
-<li><strong>hdf5r</strong> : Une alternative plus récente.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rhdf5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">h5read</span>(<span class="st">"data.h5"</span>, <span class="st">"dataset_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="utiliser-summary-pour-une-vue-densemble" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></h3>
+<p>La fonction <code>summary()</code> fournit un résumé statistique rapide du data frame, et elle indique également le nombre de valeurs manquantes dans chaque colonne.</p>
+<section id="exemple-3" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-3">Exemple :</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela donnera un résumé avec des informations sur les valeurs manquantes, sous forme de <code>NA's</code> :</p>
+<pre><code>      a            b       
+ Min.   :1.0   Min.   :2.0  
+ 1st Qu.:1.5   1st Qu.:2.0  
+ Median :2.5   Median :2.5  
+ Mean   :2.3   Mean   :3.0  
+ 3rd Qu.:3.0   3rd Qu.:4.0  
+ Max.   :4.0   Max.   :4.0  
+ NA's   :1     NA's   :1</code></pre>
 </section>
-<section id="importer-des-fichiers-à-partir-dune-url" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></h3>
-<ul>
-<li><p><strong>Fonctions principales :</strong></p>
-<ul>
-<li>Base R :
-<ul>
-<li><code>read.csv(url)</code>, <code>read.table(url)</code></li>
-</ul></li>
-<li>Avec <strong>httr</strong> pour des requêtes HTTP avancées.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://example.com/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-parquet" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>arrow</strong> :
-<ul>
-<li><code>read_parquet()</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="level3">
+<h3 class="anchored" data-anchor-id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></h3>
+<p>Si vous voulez vérifier s’il y a des valeurs manquantes dans l’ensemble du data frame (ou tout autre objet), vous pouvez utiliser <code>any(is.na())</code>. Cette fonction renvoie <code>TRUE</code> si des valeurs manquantes existent et <code>FALSE</code> si ce n’est pas le cas.</p>
+<section id="exemple-4" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-4">Exemple :</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier s'il y a des valeurs manquantes dans le data frame</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(df))  <span class="co"># Résultat : TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="outils-pour-automatiser-et-améliorer-les-imports" class="level3">
-<h3 class="anchored" data-anchor-id="outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></h3>
-<ul>
-<li><strong>tidyverse</strong> : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).</li>
-<li><strong>rio</strong> : Simplifie l’importation/exportation avec une seule fonction.
-<ul>
-<li><code>import()</code></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !</p>
+</section>
+<section id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="level3">
+<h3 class="anchored" data-anchor-id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></h3>
+<p>Si vous souhaitez extraire les lignes ou les colonnes contenant des valeurs manquantes, vous pouvez utiliser des fonctions comme <code>which()</code> ou <code>complete.cases()</code>.</p>
+<section id="exemple-pour-les-lignes-avec-des-données-manquantes" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-avec-des-données-manquantes">Exemple pour les lignes avec des données manquantes :</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes avec des valeurs manquantes</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(df)) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela renverra l’indice des lignes qui contiennent des valeurs manquantes.</p>
+</section>
+<section id="exemple-pour-les-lignes-sans-données-manquantes" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-sans-données-manquantes">Exemple pour les lignes sans données manquantes :</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes sans valeurs manquantes</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">complete.cases</span>(df), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces méthodes vous permettent d’inspecter et de détecter les valeurs manquantes dans vos données en R.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -681,40 +568,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour l’import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :</p>
+<p>Pour détecter les données manquantes en R, vous pouvez utiliser plusieurs méthodes et fonctions. Voici quelques-unes des plus courantes :</p>
 <ol type="1">
-<li><strong>readr</strong> : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
-<ul>
-<li><code>read_csv()</code></li>
-<li><code>read_tsv()</code></li>
-</ul></li>
-<li><strong>data.table</strong> : Connue pour sa rapidité avec de grands ensembles de données.
-<ul>
-<li><code>fread()</code></li>
-</ul></li>
-<li><strong>readxl</strong> : Pour lire des fichiers Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>haven</strong> : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
-<ul>
-<li><code>read_spss()</code></li>
-<li><code>read_stata()</code></li>
-<li><code>read_sas()</code></li>
-</ul></li>
-<li><strong>jsonlite</strong> : Pour lire des fichiers JSON.
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>DBI</strong> et <strong>RSQLite</strong> : Pour interagir avec des bases de données SQL.
-<ul>
-<li><code>dbConnect()</code></li>
-<li><code>dbReadTable()</code></li>
-</ul></li>
+<li><p><strong>Utiliser la fonction <code>is.na()</code></strong> :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de détection des valeurs manquantes dans un vecteur</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Compter les valeurs manquantes avec <code>sum(is.na())</code></strong> :</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre de valeurs manquantes dans un vecteur</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser <code>na.omit()</code> pour supprimer les valeurs manquantes</strong> :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans un data frame</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Visualiser les données manquantes avec des packages comme <code>VIM</code> ou <code>naniar</code></strong> :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et utiliser le package VIM pour visualiser les données manquantes</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"VIM"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(data_frame, <span class="at">col=</span><span class="fu">c</span>(<span class="st">'navyblue'</span>,<span class="st">'red'</span>), <span class="at">numbers=</span><span class="cn">TRUE</span>, <span class="at">sortVars=</span><span class="cn">TRUE</span>, <span class="at">labels=</span><span class="fu">names</span>(data_frame), <span class="at">cex.axis=</span>.<span class="dv">7</span>, <span class="at">gap=</span><span class="dv">3</span>, <span class="at">ylab=</span><span class="fu">c</span>(<span class="st">"Histogramme des données manquantes"</span>,<span class="st">"Modèle de données"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l’une d’elles ou sur un type de fichier particulier, n’hésite pas à demander ! 😊</p>
+<p>Ces méthodes vous permettent de détecter, compter et gérer les données manquantes efficacement dans vos analyses en R<a href="https://sites.google.com/site/rgraphiques/home/2--ouvrir-des-bases-de-donnees/donnees-manquantes-absentes-ou-vides-sous-r">1</a><a href="https://www.datanovia.com/en/fr/blog/comment-visualiser-les-donnees-manquantes-dans-r-a-laide-dune-heatmap/">2</a><a href="https://thinkr.fr/donnees-manquantes-causes-identification-et-imputation/">3</a>.</p>
+<p>Avez-vous besoin d’aide pour une étape spécifique ou un exemple plus détaillé ?</p>
 
 
+</section>
 </section>
 </section>
 

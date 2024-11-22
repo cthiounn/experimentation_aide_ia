@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_librairie_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_creer_variable – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_librairie_import.html">Quelles librairies et fonctions utiliser ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_variable.html">Comment créer de nouvelles variables ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comment créer de nouvelles variables ?</span></a>
   </div>
 </li>
@@ -444,16 +444,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#importer-des-fichiers-csv-ou-txt" id="toc-importer-des-fichiers-csv-ou-txt" class="nav-link" data-scroll-target="#importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></a></li>
-  <li><a href="#importer-des-fichiers-excel-xls-xlsx" id="toc-importer-des-fichiers-excel-xls-xlsx" class="nav-link" data-scroll-target="#importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></a></li>
-  <li><a href="#importer-des-bases-de-données-sql" id="toc-importer-des-bases-de-données-sql" class="nav-link" data-scroll-target="#importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></a></li>
-  <li><a href="#importer-des-fichiers-json" id="toc-importer-des-fichiers-json" class="nav-link" data-scroll-target="#importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></a></li>
-  <li><a href="#importer-des-fichiers-xml-ou-html" id="toc-importer-des-fichiers-xml-ou-html" class="nav-link" data-scroll-target="#importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></a></li>
-  <li><a href="#importer-des-fichiers-spss-sas-stata" id="toc-importer-des-fichiers-spss-sas-stata" class="nav-link" data-scroll-target="#importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></a></li>
-  <li><a href="#importer-des-fichiers-hdf5" id="toc-importer-des-fichiers-hdf5" class="nav-link" data-scroll-target="#importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></a></li>
-  <li><a href="#importer-des-fichiers-à-partir-dune-url" id="toc-importer-des-fichiers-à-partir-dune-url" class="nav-link" data-scroll-target="#importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></a></li>
-  <li><a href="#importer-des-fichiers-parquet" id="toc-importer-des-fichiers-parquet" class="nav-link" data-scroll-target="#importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></a></li>
-  <li><a href="#outils-pour-automatiser-et-améliorer-les-imports" id="toc-outils-pour-automatiser-et-améliorer-les-imports" class="nav-link" data-scroll-target="#outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></a></li>
+  <li><a href="#création-dune-variable-simple" id="toc-création-dune-variable-simple" class="nav-link" data-scroll-target="#création-dune-variable-simple">1. <strong>Création d’une variable simple :</strong></a></li>
+  <li><a href="#création-dune-variable-dans-un-dataframe" id="toc-création-dune-variable-dans-un-dataframe" class="nav-link" data-scroll-target="#création-dune-variable-dans-un-dataframe">2. <strong>Création d’une variable dans un dataframe :</strong></a></li>
+  <li><a href="#utilisation-de-la-fonction-mutate-dplyr" id="toc-utilisation-de-la-fonction-mutate-dplyr" class="nav-link" data-scroll-target="#utilisation-de-la-fonction-mutate-dplyr">3. <strong>Utilisation de la fonction <code>mutate()</code> (dplyr) :</strong></a></li>
+  <li><a href="#création-de-variables-conditionnelles" id="toc-création-de-variables-conditionnelles" class="nav-link" data-scroll-target="#création-de-variables-conditionnelles">4. <strong>Création de variables conditionnelles :</strong></a></li>
+  <li><a href="#création-dune-variable-avec-la-fonction-transform" id="toc-création-dune-variable-avec-la-fonction-transform" class="nav-link" data-scroll-target="#création-dune-variable-avec-la-fonction-transform">5. <strong>Création d’une variable avec la fonction <code>transform()</code> :</strong></a></li>
+  <li><a href="#utilisation-de-la-fonction-within" id="toc-utilisation-de-la-fonction-within" class="nav-link" data-scroll-target="#utilisation-de-la-fonction-within">6. <strong>Utilisation de la fonction <code>within()</code> :</strong></a></li>
+  <li><a href="#récapitulatif-des-méthodes" id="toc-récapitulatif-des-méthodes" class="nav-link" data-scroll-target="#récapitulatif-des-méthodes">Récapitulatif des méthodes :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Quelles librairies et fonctions utiliser pour l’import de données en R ?</li>
+<li>Comment créer de nouvelles variables en R ?</li>
 </ul>
 </div>
 </div>
@@ -486,194 +483,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, plusieurs <strong>librairies et fonctions</strong> permettent d’importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :</p>
-<hr>
-<section id="importer-des-fichiers-csv-ou-txt" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li>Base R (pas besoin de packages supplémentaires) :
-<ul>
-<li><code>read.csv()</code> : pour des fichiers CSV.</li>
-<li><code>read.table()</code> : pour des fichiers TXT.</li>
-</ul></li>
-<li><strong>readr</strong> (plus rapide et plus moderne) :
-<ul>
-<li><code>read_csv()</code> : pour les fichiers CSV.</li>
-<li><code>read_tsv()</code> : pour les fichiers TSV (tab-separated values).</li>
-</ul></li>
-<li><strong>data.table</strong> (pour les gros fichiers, très performant) :
-<ul>
-<li><code>fread()</code> : détecte automatiquement le format du fichier.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<p>En R, la création de nouvelles variables (ou colonnes) peut être réalisée de différentes manières en fonction du contexte. Voici quelques approches courantes pour créer des variables dans R :</p>
+<section id="création-dune-variable-simple" class="level3">
+<h3 class="anchored" data-anchor-id="création-dune-variable-simple">1. <strong>Création d’une variable simple :</strong></h3>
+<p>Pour créer une nouvelle variable (un vecteur), vous pouvez simplement lui affecter une valeur à l’aide de l’opérateur d’assignation <code>&lt;-</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une variable 'x' avec des valeurs numériques</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-excel-xls-xlsx" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>readxl</strong> : Pour lire les fichiers Excel sans besoin d’installer Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>openxlsx</strong> : Pour lire et écrire des fichiers Excel sans dépendances externes.
-<ul>
-<li><code>read.xlsx()</code></li>
-</ul></li>
-<li><strong>XLConnect</strong> ou <strong>xlsx</strong> (moins utilisées, nécessitent Java).</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Spécifier la feuille si nécessaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="création-dune-variable-dans-un-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="création-dune-variable-dans-un-dataframe">2. <strong>Création d’une variable dans un dataframe :</strong></h3>
+<p>Si vous travaillez avec des données dans un <code>data.frame</code>, vous pouvez ajouter une nouvelle colonne au dataframe.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de dataframe</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une nouvelle variable (colonne) au dataframe</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou en utilisant un calcul sur des colonnes existantes</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>d <span class="ot">&lt;-</span> df<span class="sc">$</span>a <span class="sc">+</span> df<span class="sc">$</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-bases-de-données-sql" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>DBI</strong> : Interface de base pour interagir avec les bases SQL.
-<ul>
-<li>Utilisée avec des packages spécifiques comme <code>RMySQL</code>, <code>RPostgres</code>, ou <code>odbc</code>.</li>
-</ul></li>
-<li><strong>dplyr</strong> : Utilise <code>dbplyr</code> pour créer des connexions aux bases de données.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="at">dbname =</span> <span class="st">"mydatabase.sqlite"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM table_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="utilisation-de-la-fonction-mutate-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-la-fonction-mutate-dplyr">3. <strong>Utilisation de la fonction <code>mutate()</code> (dplyr) :</strong></h3>
+<p>La fonction <code>mutate()</code> du package <code>dplyr</code> est très pratique pour créer ou modifier des variables dans un <code>data.frame</code>. Elle permet de créer une nouvelle variable basée sur des calculs ou transformations des colonnes existantes.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package dplyr</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une colonne 'e' qui est la somme de 'a' et 'b'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e =</span> a <span class="sc">+</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-json" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>jsonlite</strong> :
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>rjson</strong> : Une autre alternative plus basique.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="création-de-variables-conditionnelles" class="level3">
+<h3 class="anchored" data-anchor-id="création-de-variables-conditionnelles">4. <strong>Création de variables conditionnelles :</strong></h3>
+<p>Vous pouvez aussi créer des variables selon des conditions spécifiques à l’aide de <code>ifelse()</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer une variable 'category' basée sur la valeur de 'a'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>a <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-xml-ou-html" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>xml2</strong> : Pour manipuler les fichiers XML.
-<ul>
-<li><code>read_xml()</code></li>
-</ul></li>
-<li><strong>rvest</strong> : Pour extraire les données des pages web HTML.
-<ul>
-<li><code>html_table()</code> pour récupérer des tables.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xml_data <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"data.xml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="création-dune-variable-avec-la-fonction-transform" class="level3">
+<h3 class="anchored" data-anchor-id="création-dune-variable-avec-la-fonction-transform">5. <strong>Création d’une variable avec la fonction <code>transform()</code> :</strong></h3>
+<p>La fonction <code>transform()</code> peut également être utilisée pour ajouter ou modifier des variables dans un <code>data.frame</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">transform</span>(df, <span class="at">f =</span> a <span class="sc">*</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-spss-sas-stata" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>haven</strong> :
-<ul>
-<li><code>read_spss()</code> : Pour les fichiers SPSS (.sav).</li>
-<li><code>read_sas()</code> : Pour les fichiers SAS.</li>
-<li><code>read_stata()</code> : Pour les fichiers STATA.</li>
-</ul></li>
-<li><strong>foreign</strong> : Alternative plus ancienne.
-<ul>
-<li><code>read.spss()</code>, <code>read.dta()</code>, etc.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">"data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="utilisation-de-la-fonction-within" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-la-fonction-within">6. <strong>Utilisation de la fonction <code>within()</code> :</strong></h3>
+<p>Une autre manière de modifier ou de créer des variables dans un <code>data.frame</code> est d’utiliser la fonction <code>within()</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">within</span>(df, {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> a <span class="sc">*</span> b</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-hdf5" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></h3>
+<section id="récapitulatif-des-méthodes" class="level3">
+<h3 class="anchored" data-anchor-id="récapitulatif-des-méthodes">Récapitulatif des méthodes :</h3>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>rhdf5</strong> :
-<ul>
-<li><code>h5read()</code></li>
-</ul></li>
-<li><strong>hdf5r</strong> : Une alternative plus récente.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rhdf5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">h5read</span>(<span class="st">"data.h5"</span>, <span class="st">"dataset_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong><code>&lt;-</code></strong> : Pour créer une variable simple.</li>
+<li><strong><code>$</code></strong> : Pour ajouter une colonne à un <code>data.frame</code>.</li>
+<li><strong><code>mutate()</code></strong> (dplyr) : Pour ajouter des colonnes basées sur des calculs ou transformations.</li>
+<li><strong><code>ifelse()</code></strong> : Pour créer des variables conditionnelles.</li>
+<li><strong><code>transform()</code></strong> : Pour ajouter ou modifier des colonnes dans un <code>data.frame</code>.</li>
+<li><strong><code>within()</code></strong> : Pour ajouter ou modifier des colonnes dans un <code>data.frame</code>.</li>
 </ul>
-<hr>
-</section>
-<section id="importer-des-fichiers-à-partir-dune-url" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></h3>
-<ul>
-<li><p><strong>Fonctions principales :</strong></p>
-<ul>
-<li>Base R :
-<ul>
-<li><code>read.csv(url)</code>, <code>read.table(url)</code></li>
-</ul></li>
-<li>Avec <strong>httr</strong> pour des requêtes HTTP avancées.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://example.com/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
-</section>
-<section id="importer-des-fichiers-parquet" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>arrow</strong> :
-<ul>
-<li><code>read_parquet()</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
-</section>
-<section id="outils-pour-automatiser-et-améliorer-les-imports" class="level3">
-<h3 class="anchored" data-anchor-id="outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></h3>
-<ul>
-<li><strong>tidyverse</strong> : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).</li>
-<li><strong>rio</strong> : Simplifie l’importation/exportation avec une seule fonction.
-<ul>
-<li><code>import()</code></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !</p>
+<p>Si tu as un exemple spécifique de ce que tu veux faire, je peux t’aider à ajuster ces méthodes !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -681,38 +548,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour l’import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :</p>
+<p>Créer de nouvelles variables en R est assez simple et peut se faire de plusieurs manières. Voici quelques méthodes courantes :</p>
 <ol type="1">
-<li><strong>readr</strong> : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
-<ul>
-<li><code>read_csv()</code></li>
-<li><code>read_tsv()</code></li>
-</ul></li>
-<li><strong>data.table</strong> : Connue pour sa rapidité avec de grands ensembles de données.
-<ul>
-<li><code>fread()</code></li>
-</ul></li>
-<li><strong>readxl</strong> : Pour lire des fichiers Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>haven</strong> : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
-<ul>
-<li><code>read_spss()</code></li>
-<li><code>read_stata()</code></li>
-<li><code>read_sas()</code></li>
-</ul></li>
-<li><strong>jsonlite</strong> : Pour lire des fichiers JSON.
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>DBI</strong> et <strong>RSQLite</strong> : Pour interagir avec des bases de données SQL.
-<ul>
-<li><code>dbConnect()</code></li>
-<li><code>dbReadTable()</code></li>
-</ul></li>
+<li><p><strong>Utiliser l’opérateur <code>$</code></strong> : Vous pouvez créer une nouvelle variable dans un dataframe en utilisant l’opérateur <code>$</code>. Par exemple, si vous avez un dataframe <code>df</code> et que vous voulez créer une nouvelle variable <code>new_var</code> qui est le double d’une variable existante <code>old_var</code>, vous pouvez faire :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>new_var <span class="ot">&lt;-</span> df<span class="sc">$</span>old_var <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser la fonction <code>mutate()</code> du package <code>dplyr</code></strong> : Le package <code>dplyr</code> offre une manière élégante de manipuler les dataframes. La fonction <code>mutate()</code> permet de créer de nouvelles variables. Par exemple :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_var =</span> old_var <span class="sc">*</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser la fonction <code>ifelse()</code> pour des variables conditionnelles</strong> : Si vous voulez créer une variable basée sur une condition, vous pouvez utiliser <code>ifelse()</code>. Par exemple, pour créer une variable <code>new_var</code> qui vaut 1 si <code>old_var</code> est supérieur à 10, et 0 sinon :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>new_var <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>old_var <span class="sc">&gt;</span> <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l’une d’elles ou sur un type de fichier particulier, n’hésite pas à demander ! 😊</p>
+<p>Ces méthodes vous permettent de créer et de manipuler des variables facilement dans R<a href="https://bookdown.org/fousseynoubah/dswr_book/transformer-de-donnees-avec-dplyr.html">1</a><a href="https://juba.github.io/tidyverse/09-recodages.html">2</a><a href="https://demandred.gitbooks.io/introduction-a-r-pour-les-chatons/content/transformer-les-donnees.html">3</a>.</p>
+<p>Si vous avez des questions spécifiques ou si vous voulez voir un exemple plus détaillé, n’hésitez pas à demander ! 😊</p>
 
 
 </section>

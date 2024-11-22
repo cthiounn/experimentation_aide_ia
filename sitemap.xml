@@ -2,82 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/index.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_donnees.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_ods.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_donnees_volumineuses.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_xls.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_documentation_R.html</loc>
-    <lastmod>2024-11-22T09:37:07.404Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_comment_coder.html</loc>
-    <lastmod>2024-11-22T09:37:07.404Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/7_diffusion/R_avancee_openxlsx.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/4_analyse_donnees/R_quartiles.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
   </url>
   <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_nettoyage_donnees/R_joint.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_traitement_donnees_manquantes.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
-    <loc>https://cthiounn.github.io/experimentation_aide_ia/Z_usage_avance/R_avancee_partie_entiere.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_recoder_variable.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_creer_filtre.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_operations_apres_import.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/R_template.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/Z_usage_avance/R_avancee_partie_entiere.html</loc>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_detecter_donnees_manquantes.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_joint.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_creer_variable.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_renommer_variable.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cthiounn.github.io/experimentation_aide_ia/3_prep_donnees/R_detecter_valeurs_aberrantes.html</loc>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/4_analyse_donnees/R_caract.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_starter.html</loc>
-    <lastmod>2024-11-22T09:37:07.404Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/1_demarrer/R_prerequis.html</loc>
-    <lastmod>2024-11-22T09:37:07.404Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/6_analyse_inferentielle/R_reg_log.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.931Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_parquet.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_csv.html</loc>
-    <lastmod>2024-11-22T09:37:07.404Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_import_sas.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
   <url>
     <loc>https://cthiounn.github.io/experimentation_aide_ia/2_import_donnees/R_librairie_import.html</loc>
-    <lastmod>2024-11-22T09:37:07.408Z</lastmod>
+    <lastmod>2024-11-22T10:11:39.927Z</lastmod>
   </url>
 </urlset>

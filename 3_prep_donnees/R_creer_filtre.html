@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_librairie_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_creer_filtre – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_librairie_import.html">Quelles librairies et fonctions utiliser ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_filtre.html">Comment faire un filtre ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comment faire un filtre ?</span></a>
   </div>
 </li>
@@ -444,16 +444,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#importer-des-fichiers-csv-ou-txt" id="toc-importer-des-fichiers-csv-ou-txt" class="nav-link" data-scroll-target="#importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></a></li>
-  <li><a href="#importer-des-fichiers-excel-xls-xlsx" id="toc-importer-des-fichiers-excel-xls-xlsx" class="nav-link" data-scroll-target="#importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></a></li>
-  <li><a href="#importer-des-bases-de-données-sql" id="toc-importer-des-bases-de-données-sql" class="nav-link" data-scroll-target="#importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></a></li>
-  <li><a href="#importer-des-fichiers-json" id="toc-importer-des-fichiers-json" class="nav-link" data-scroll-target="#importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></a></li>
-  <li><a href="#importer-des-fichiers-xml-ou-html" id="toc-importer-des-fichiers-xml-ou-html" class="nav-link" data-scroll-target="#importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></a></li>
-  <li><a href="#importer-des-fichiers-spss-sas-stata" id="toc-importer-des-fichiers-spss-sas-stata" class="nav-link" data-scroll-target="#importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></a></li>
-  <li><a href="#importer-des-fichiers-hdf5" id="toc-importer-des-fichiers-hdf5" class="nav-link" data-scroll-target="#importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></a></li>
-  <li><a href="#importer-des-fichiers-à-partir-dune-url" id="toc-importer-des-fichiers-à-partir-dune-url" class="nav-link" data-scroll-target="#importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></a></li>
-  <li><a href="#importer-des-fichiers-parquet" id="toc-importer-des-fichiers-parquet" class="nav-link" data-scroll-target="#importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></a></li>
-  <li><a href="#outils-pour-automatiser-et-améliorer-les-imports" id="toc-outils-pour-automatiser-et-améliorer-les-imports" class="nav-link" data-scroll-target="#outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></a></li>
+  <li><a href="#filtrer-un-data.frame-avec-la-fonction-subset" id="toc-filtrer-un-data.frame-avec-la-fonction-subset" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></a></li>
+  <li><a href="#filtrer-un-data.frame-avec-dplyr" id="toc-filtrer-un-data.frame-avec-dplyr" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></a></li>
+  <li><a href="#filtrer-avec-des-conditions-complexes" id="toc-filtrer-avec-des-conditions-complexes" class="nav-link" data-scroll-target="#filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</a></li>
+  <li><a href="#filtrer-un-vecteur" id="toc-filtrer-un-vecteur" class="nav-link" data-scroll-target="#filtrer-un-vecteur">4. Filtrer un vecteur</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Quelles librairies et fonctions utiliser pour l’import de données en R ?</li>
+<li>Comment faire un filtre en R ?</li>
 </ul>
 </div>
 </div>
@@ -486,194 +481,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, plusieurs <strong>librairies et fonctions</strong> permettent d’importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :</p>
-<hr>
-<section id="importer-des-fichiers-csv-ou-txt" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li>Base R (pas besoin de packages supplémentaires) :
-<ul>
-<li><code>read.csv()</code> : pour des fichiers CSV.</li>
-<li><code>read.table()</code> : pour des fichiers TXT.</li>
-</ul></li>
-<li><strong>readr</strong> (plus rapide et plus moderne) :
-<ul>
-<li><code>read_csv()</code> : pour les fichiers CSV.</li>
-<li><code>read_tsv()</code> : pour les fichiers TSV (tab-separated values).</li>
-</ul></li>
-<li><strong>data.table</strong> (pour les gros fichiers, très performant) :
-<ul>
-<li><code>fread()</code> : détecte automatiquement le format du fichier.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<p>Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l’objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :</p>
+<section id="filtrer-un-data.frame-avec-la-fonction-subset" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></h3>
+<p>Si vous avez un <code>data.frame</code> et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction <code>subset()</code>.</p>
+<section id="exemple" class="level4">
+<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-excel-xls-xlsx" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>readxl</strong> : Pour lire les fichiers Excel sans besoin d’installer Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>openxlsx</strong> : Pour lire et écrire des fichiers Excel sans dépendances externes.
-<ul>
-<li><code>read.xlsx()</code></li>
-</ul></li>
-<li><strong>XLConnect</strong> ou <strong>xlsx</strong> (moins utilisées, nécessitent Java).</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Spécifier la feuille si nécessaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-bases-de-données-sql" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>DBI</strong> : Interface de base pour interagir avec les bases SQL.
-<ul>
-<li>Utilisée avec des packages spécifiques comme <code>RMySQL</code>, <code>RPostgres</code>, ou <code>odbc</code>.</li>
-</ul></li>
-<li><strong>dplyr</strong> : Utilise <code>dbplyr</code> pour créer des connexions aux bases de données.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="at">dbname =</span> <span class="st">"mydatabase.sqlite"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM table_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="filtrer-un-data.frame-avec-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></h3>
+<p>Le package <code>dplyr</code> de la suite <code>tidyverse</code> offre une syntaxe plus concise et expressive pour effectuer des filtres.</p>
+<section id="exemple-avec-dplyr" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-dplyr">Exemple avec <code>dplyr</code> :</h4>
+<ol type="1">
+<li>Installez et chargez le package <code>dplyr</code> si nécessaire :</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Utilisez la fonction <code>filter()</code> pour appliquer des conditions de filtrage.</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-json" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>jsonlite</strong> :
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>rjson</strong> : Une autre alternative plus basique.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-xml-ou-html" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>xml2</strong> : Pour manipuler les fichiers XML.
-<ul>
-<li><code>read_xml()</code></li>
-</ul></li>
-<li><strong>rvest</strong> : Pour extraire les données des pages web HTML.
-<ul>
-<li><code>html_table()</code> pour récupérer des tables.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xml_data <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"data.xml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="filtrer-avec-des-conditions-complexes" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</h3>
+<p>Vous pouvez aussi combiner plusieurs conditions de filtrage dans <code>subset()</code> ou <code>filter()</code>.</p>
+<section id="exemple-avec-dplyr-conditions-multiples" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-conditions-multiples">Exemple avec <code>dplyr</code> (conditions multiples) :</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> sexe <span class="sc">==</span> <span class="st">'Homme'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-spss-sas-stata" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>haven</strong> :
-<ul>
-<li><code>read_spss()</code> : Pour les fichiers SPSS (.sav).</li>
-<li><code>read_sas()</code> : Pour les fichiers SAS.</li>
-<li><code>read_stata()</code> : Pour les fichiers STATA.</li>
-</ul></li>
-<li><strong>foreign</strong> : Alternative plus ancienne.
-<ul>
-<li><code>read.spss()</code>, <code>read.dta()</code>, etc.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">"data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-hdf5" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>rhdf5</strong> :
-<ul>
-<li><code>h5read()</code></li>
-</ul></li>
-<li><strong>hdf5r</strong> : Une alternative plus récente.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rhdf5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">h5read</span>(<span class="st">"data.h5"</span>, <span class="st">"dataset_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="filtrer-un-vecteur" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-un-vecteur">4. Filtrer un vecteur</h3>
+<p>Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :</p>
+<section id="exemple-avec-un-vecteur" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-avec-un-vecteur">Exemple avec un vecteur :</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un vecteur d'âges</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les âges supérieurs ou égaux à 25</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ages_filtrés <span class="ot">&lt;-</span> ages[ages <span class="sc">&gt;=</span> <span class="dv">25</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ages_filtrés)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-à-partir-dune-url" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></h3>
-<ul>
-<li><p><strong>Fonctions principales :</strong></p>
-<ul>
-<li>Base R :
-<ul>
-<li><code>read.csv(url)</code>, <code>read.table(url)</code></li>
-</ul></li>
-<li>Avec <strong>httr</strong> pour des requêtes HTTP avancées.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://example.com/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-parquet" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></h3>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>arrow</strong> :
-<ul>
-<li><code>read_parquet()</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Pour des filtrages simples sur des <code>data.frame</code>, <code>subset()</code> est une solution rapide.</li>
+<li>Pour un filtrage plus puissant, flexible et facile à combiner avec d’autres opérations, <code>dplyr::filter()</code> est idéal.</li>
+<li>Si vous travaillez avec des vecteurs, vous pouvez utiliser l’indexation logique directement.</li>
 </ul>
-<hr>
-</section>
-<section id="outils-pour-automatiser-et-améliorer-les-imports" class="level3">
-<h3 class="anchored" data-anchor-id="outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></h3>
-<ul>
-<li><strong>tidyverse</strong> : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).</li>
-<li><strong>rio</strong> : Simplifie l’importation/exportation avec une seule fonction.
-<ul>
-<li><code>import()</code></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !</p>
+<p>Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -681,38 +567,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour l’import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :</p>
+<p>Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package <code>dplyr</code> :</p>
 <ol type="1">
-<li><strong>readr</strong> : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
-<ul>
-<li><code>read_csv()</code></li>
-<li><code>read_tsv()</code></li>
-</ul></li>
-<li><strong>data.table</strong> : Connue pour sa rapidité avec de grands ensembles de données.
-<ul>
-<li><code>fread()</code></li>
-</ul></li>
-<li><strong>readxl</strong> : Pour lire des fichiers Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>haven</strong> : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
-<ul>
-<li><code>read_spss()</code></li>
-<li><code>read_stata()</code></li>
-<li><code>read_sas()</code></li>
-</ul></li>
-<li><strong>jsonlite</strong> : Pour lire des fichiers JSON.
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>DBI</strong> et <strong>RSQLite</strong> : Pour interagir avec des bases de données SQL.
-<ul>
-<li><code>dbConnect()</code></li>
-<li><code>dbReadTable()</code></li>
-</ul></li>
+<li><p><strong>Installer et charger le package <code>dplyr</code></strong> : <code>R     install.packages("dplyr")     library(dplyr)</code></p></li>
+<li><p><strong>Créer un dataframe d’exemple</strong> : <code>R     data &lt;- data.frame(       id = 1:10,       score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)     )</code></p></li>
+<li><p><strong>Filtrer les lignes où le score est supérieur à 100</strong> : <code>R     filtered_data &lt;- data %&gt;%       filter(score &gt; 100)</code></p></li>
+<li><p><strong>Afficher le résultat</strong> : <code>R     print(filtered_data)</code></p></li>
 </ol>
-<p>Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l’une d’elles ou sur un type de fichier particulier, n’hésite pas à demander ! 😊</p>
+<p>Ce code va filtrer le dataframe <code>data</code> pour ne garder que les lignes où la colonne <code>score</code> est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d’autres critères ou utiliser d’autres fonctions de <code>dplyr</code> pour des filtrages plus complexes.</p>
+<p>Si vous avez des besoins spécifiques ou des questions supplémentaires, n’hésitez pas à me le faire savoir ! 😊</p>
 
 
 </section>

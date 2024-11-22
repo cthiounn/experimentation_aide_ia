@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_librairie_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_operations_apres_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_librairie_import.html">Quelles librairies et fonctions utiliser ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Que faire après avoir importer des données ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
@@ -253,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Que faire après avoir importer des données ?</span></a>
   </div>
 </li>
@@ -444,16 +410,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#importer-des-fichiers-csv-ou-txt" id="toc-importer-des-fichiers-csv-ou-txt" class="nav-link" data-scroll-target="#importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></a></li>
-  <li><a href="#importer-des-fichiers-excel-xls-xlsx" id="toc-importer-des-fichiers-excel-xls-xlsx" class="nav-link" data-scroll-target="#importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></a></li>
-  <li><a href="#importer-des-bases-de-données-sql" id="toc-importer-des-bases-de-données-sql" class="nav-link" data-scroll-target="#importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></a></li>
-  <li><a href="#importer-des-fichiers-json" id="toc-importer-des-fichiers-json" class="nav-link" data-scroll-target="#importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></a></li>
-  <li><a href="#importer-des-fichiers-xml-ou-html" id="toc-importer-des-fichiers-xml-ou-html" class="nav-link" data-scroll-target="#importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></a></li>
-  <li><a href="#importer-des-fichiers-spss-sas-stata" id="toc-importer-des-fichiers-spss-sas-stata" class="nav-link" data-scroll-target="#importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></a></li>
-  <li><a href="#importer-des-fichiers-hdf5" id="toc-importer-des-fichiers-hdf5" class="nav-link" data-scroll-target="#importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></a></li>
-  <li><a href="#importer-des-fichiers-à-partir-dune-url" id="toc-importer-des-fichiers-à-partir-dune-url" class="nav-link" data-scroll-target="#importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></a></li>
-  <li><a href="#importer-des-fichiers-parquet" id="toc-importer-des-fichiers-parquet" class="nav-link" data-scroll-target="#importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></a></li>
-  <li><a href="#outils-pour-automatiser-et-améliorer-les-imports" id="toc-outils-pour-automatiser-et-améliorer-les-imports" class="nav-link" data-scroll-target="#outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></a></li>
+  <li><a href="#inspecter-les-données" id="toc-inspecter-les-données" class="nav-link" data-scroll-target="#inspecter-les-données">1. <strong>Inspecter les données</strong></a></li>
+  <li><a href="#vérifier-et-nettoyer-les-données" id="toc-vérifier-et-nettoyer-les-données" class="nav-link" data-scroll-target="#vérifier-et-nettoyer-les-données">2. <strong>Vérifier et nettoyer les données</strong></a></li>
+  <li><a href="#manipuler-et-transformer-les-données" id="toc-manipuler-et-transformer-les-données" class="nav-link" data-scroll-target="#manipuler-et-transformer-les-données">3. <strong>Manipuler et transformer les données</strong></a></li>
+  <li><a href="#exploration-des-données" id="toc-exploration-des-données" class="nav-link" data-scroll-target="#exploration-des-données">4. <strong>Exploration des données</strong></a></li>
+  <li><a href="#analyse-statistique" id="toc-analyse-statistique" class="nav-link" data-scroll-target="#analyse-statistique">5. <strong>Analyse statistique</strong></a></li>
+  <li><a href="#visualisation-avancée" id="toc-visualisation-avancée" class="nav-link" data-scroll-target="#visualisation-avancée">6. <strong>Visualisation avancée</strong></a></li>
+  <li><a href="#exporter-les-données-ou-les-résultats" id="toc-exporter-les-données-ou-les-résultats" class="nav-link" data-scroll-target="#exporter-les-données-ou-les-résultats">7. <strong>Exporter les données ou les résultats</strong></a></li>
+  <li><a href="#documentation-et-sauvegarde-du-code" id="toc-documentation-et-sauvegarde-du-code" class="nav-link" data-scroll-target="#documentation-et-sauvegarde-du-code">8. <strong>Documentation et sauvegarde du code</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Quelles librairies et fonctions utiliser pour l’import de données en R ?</li>
+<li>Que faire après avoir importer des données en R ?</li>
 </ul>
 </div>
 </div>
@@ -486,194 +450,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, plusieurs <strong>librairies et fonctions</strong> permettent d’importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :</p>
-<hr>
-<section id="importer-des-fichiers-csv-ou-txt" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></h3>
+<p>Après avoir importé des données en R, il y a plusieurs étapes courantes que vous pouvez suivre pour analyser, nettoyer et explorer vos données. Voici un guide des étapes que vous pouvez suivre :</p>
+<section id="inspecter-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="inspecter-les-données">1. <strong>Inspecter les données</strong></h3>
+<p>Il est important de vérifier que les données ont bien été importées et qu’elles sont dans le bon format.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li>Base R (pas besoin de packages supplémentaires) :
-<ul>
-<li><code>read.csv()</code> : pour des fichiers CSV.</li>
-<li><code>read.table()</code> : pour des fichiers TXT.</li>
-</ul></li>
-<li><strong>readr</strong> (plus rapide et plus moderne) :
-<ul>
-<li><code>read_csv()</code> : pour les fichiers CSV.</li>
-<li><code>read_tsv()</code> : pour les fichiers TSV (tab-separated values).</li>
-</ul></li>
-<li><strong>data.table</strong> (pour les gros fichiers, très performant) :
-<ul>
-<li><code>fread()</code> : détecte automatiquement le format du fichier.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Afficher les premières lignes</strong> :<br>
+<code>R      head(data)  # Affiche les premières lignes des données</code></li>
+<li><strong>Afficher la structure des données</strong> :<br>
+<code>R      str(data)  # Affiche la structure des données (types de variables, etc.)</code></li>
+<li><strong>Obtenir un résumé statistique des données</strong> :<br>
+<code>R      summary(data)  # Résumé statistique des variables</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-excel-xls-xlsx" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></h3>
+<section id="vérifier-et-nettoyer-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="vérifier-et-nettoyer-les-données">2. <strong>Vérifier et nettoyer les données</strong></h3>
+<p>Les données peuvent contenir des erreurs, des valeurs manquantes ou des doublons qu’il convient de corriger ou d’enlever.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>readxl</strong> : Pour lire les fichiers Excel sans besoin d’installer Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>openxlsx</strong> : Pour lire et écrire des fichiers Excel sans dépendances externes.
-<ul>
-<li><code>read.xlsx()</code></li>
-</ul></li>
-<li><strong>XLConnect</strong> ou <strong>xlsx</strong> (moins utilisées, nécessitent Java).</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Spécifier la feuille si nécessaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Vérifier les valeurs manquantes</strong> : <code>R      sum(is.na(data))  # Compte le nombre de valeurs manquantes</code></li>
+<li><strong>Supprimer les lignes avec des valeurs manquantes</strong> : <code>R      data_clean &lt;- na.omit(data)  # Supprime les lignes avec des valeurs manquantes</code></li>
+<li><strong>Remplacer les valeurs manquantes</strong> (par exemple, par la moyenne) : <code>R      data$variable[is.na(data$variable)] &lt;- mean(data$variable, na.rm = TRUE)</code></li>
+<li><strong>Supprimer les doublons</strong> : <code>R      data_clean &lt;- data[!duplicated(data), ]  # Enlève les doublons</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-bases-de-données-sql" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></h3>
+<section id="manipuler-et-transformer-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="manipuler-et-transformer-les-données">3. <strong>Manipuler et transformer les données</strong></h3>
+<p>Parfois, les données doivent être modifiées ou réorganisées avant l’analyse.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>DBI</strong> : Interface de base pour interagir avec les bases SQL.
-<ul>
-<li>Utilisée avec des packages spécifiques comme <code>RMySQL</code>, <code>RPostgres</code>, ou <code>odbc</code>.</li>
-</ul></li>
-<li><strong>dplyr</strong> : Utilise <code>dbplyr</code> pour créer des connexions aux bases de données.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="at">dbname =</span> <span class="st">"mydatabase.sqlite"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM table_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Filtrer les données</strong> : <code>R      data_filtered &lt;- subset(data, variable &gt; 10)  # Exemple de filtrage</code></li>
+<li><strong>Créer de nouvelles variables</strong> : <code>R      data$new_variable &lt;- data$variable1 + data$variable2  # Ajouter une nouvelle colonne</code></li>
+<li><strong>Changer le type de données d’une variable</strong> : <code>R      data$variable &lt;- as.factor(data$variable)  # Convertir en facteur</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-json" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></h3>
+<section id="exploration-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="exploration-des-données">4. <strong>Exploration des données</strong></h3>
+<p>Avant de procéder à des analyses plus complexes, une exploration visuelle et statistique peut aider à mieux comprendre les relations dans vos données.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>jsonlite</strong> :
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>rjson</strong> : Une autre alternative plus basique.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Histogramme</strong> pour observer la distribution : <code>R      hist(data$variable)</code></li>
+<li><strong>Diagramme de dispersion</strong> pour explorer les relations entre deux variables : <code>R      plot(data$variable1, data$variable2)</code></li>
+<li><strong>Boîte à moustaches</strong> pour observer les quartiles et les valeurs aberrantes : <code>R      boxplot(data$variable)</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-xml-ou-html" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></h3>
+<section id="analyse-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-statistique">5. <strong>Analyse statistique</strong></h3>
+<p>En fonction de votre objectif, vous pouvez effectuer des analyses statistiques, comme des tests de significativité ou des modèles prédictifs.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>xml2</strong> : Pour manipuler les fichiers XML.
-<ul>
-<li><code>read_xml()</code></li>
-</ul></li>
-<li><strong>rvest</strong> : Pour extraire les données des pages web HTML.
-<ul>
-<li><code>html_table()</code> pour récupérer des tables.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xml_data <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"data.xml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Test t pour comparer deux groupes</strong> : <code>R      t.test(data$variable ~ data$group)</code></li>
+<li><strong>Régression linéaire</strong> pour prédire une variable continue : <code>R      model &lt;- lm(variable1 ~ variable2 + variable3, data = data)      summary(model)</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-spss-sas-stata" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></h3>
+<section id="visualisation-avancée" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-avancée">6. <strong>Visualisation avancée</strong></h3>
+<p>Pour une exploration plus approfondie ou pour créer des graphiques plus complexes, vous pouvez utiliser des bibliothèques comme <code>ggplot2</code>.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>haven</strong> :
-<ul>
-<li><code>read_spss()</code> : Pour les fichiers SPSS (.sav).</li>
-<li><code>read_sas()</code> : Pour les fichiers SAS.</li>
-<li><code>read_stata()</code> : Pour les fichiers STATA.</li>
-</ul></li>
-<li><strong>foreign</strong> : Alternative plus ancienne.
-<ul>
-<li><code>read.spss()</code>, <code>read.dta()</code>, etc.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">"data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Exemple de graphique avec ggplot2</strong> : <code>R      library(ggplot2)      ggplot(data, aes(x = variable1, y = variable2)) + geom_point()</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-hdf5" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></h3>
+<section id="exporter-les-données-ou-les-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="exporter-les-données-ou-les-résultats">7. <strong>Exporter les données ou les résultats</strong></h3>
+<p>Une fois que vous avez nettoyé et analysé vos données, vous pouvez vouloir sauvegarder vos résultats.</p>
 <ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>rhdf5</strong> :
-<ul>
-<li><code>h5read()</code></li>
-</ul></li>
-<li><strong>hdf5r</strong> : Une alternative plus récente.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rhdf5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">h5read</span>(<span class="st">"data.h5"</span>, <span class="st">"dataset_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Exporter les données nettoyées</strong> en fichier CSV : <code>R      write.csv(data_clean, "data_clean.csv", row.names = FALSE)</code></li>
+<li><strong>Exporter un graphique</strong> : <code>R      ggsave("plot.png", plot = last_plot())</code></li>
 </ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-à-partir-dune-url" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></h3>
+<section id="documentation-et-sauvegarde-du-code" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-et-sauvegarde-du-code">8. <strong>Documentation et sauvegarde du code</strong></h3>
+<p>Il est important de garder une trace de toutes les étapes que vous avez réalisées, que ce soit pour reproduire les analyses ou pour partager votre travail avec d’autres.</p>
 <ul>
-<li><p><strong>Fonctions principales :</strong></p>
-<ul>
-<li>Base R :
-<ul>
-<li><code>read.csv(url)</code>, <code>read.table(url)</code></li>
-</ul></li>
-<li>Avec <strong>httr</strong> pour des requêtes HTTP avancées.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://example.com/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Commenter le code</strong> pour expliquer chaque étape : <code>R      # Charger les données      data &lt;- read.csv("fichier.csv")</code></li>
 </ul>
-<hr>
-</section>
-<section id="importer-des-fichiers-parquet" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>arrow</strong> :
-<ul>
-<li><code>read_parquet()</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
-</section>
-<section id="outils-pour-automatiser-et-améliorer-les-imports" class="level3">
-<h3 class="anchored" data-anchor-id="outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></h3>
-<ul>
-<li><strong>tidyverse</strong> : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).</li>
-<li><strong>rio</strong> : Simplifie l’importation/exportation avec une seule fonction.
-<ul>
-<li><code>import()</code></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !</p>
+<p>Ces étapes vous permettent d’obtenir une meilleure compréhension des données importées et de vous préparer pour des analyses statistiques ou des visualisations plus avancées.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -681,38 +528,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour l’import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :</p>
+<p>Après avoir importé des données en R, il y a plusieurs étapes que vous pouvez suivre pour les analyser et les visualiser :</p>
 <ol type="1">
-<li><strong>readr</strong> : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
+<li><strong>Exploration des données</strong> :
 <ul>
-<li><code>read_csv()</code></li>
-<li><code>read_tsv()</code></li>
+<li>Utilisez des fonctions comme <code>head()</code>, <code>summary()</code>, et <code>str()</code> pour obtenir un aperçu de vos données.</li>
+<li>Vérifiez les valeurs manquantes avec <code>is.na()</code> et les doublons avec <code>duplicated()</code>.</li>
 </ul></li>
-<li><strong>data.table</strong> : Connue pour sa rapidité avec de grands ensembles de données.
+<li><strong>Nettoyage des données</strong> :
 <ul>
-<li><code>fread()</code></li>
+<li>Remplacez ou supprimez les valeurs manquantes.</li>
+<li>Corrigez les erreurs typographiques et les incohérences.</li>
+<li>Filtrez les données inutiles.</li>
 </ul></li>
-<li><strong>readxl</strong> : Pour lire des fichiers Excel.
+<li><strong>Transformation des données</strong> :
 <ul>
-<li><code>read_excel()</code></li>
+<li>Créez de nouvelles variables si nécessaire.</li>
+<li>Agrégez les données pour obtenir des résumés.</li>
+<li>Utilisez des fonctions comme <code>mutate()</code>, <code>filter()</code>, et <code>select()</code> du package <code>dplyr</code>.</li>
 </ul></li>
-<li><strong>haven</strong> : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
+<li><strong>Visualisation des données</strong> :
 <ul>
-<li><code>read_spss()</code></li>
-<li><code>read_stata()</code></li>
-<li><code>read_sas()</code></li>
+<li>Utilisez <code>ggplot2</code> pour créer des graphiques.</li>
+<li>Créez des histogrammes, des boîtes à moustaches, des diagrammes de dispersion, etc.</li>
 </ul></li>
-<li><strong>jsonlite</strong> : Pour lire des fichiers JSON.
+<li><strong>Analyse statistique</strong> :
 <ul>
-<li><code>fromJSON()</code></li>
+<li>Effectuez des tests statistiques appropriés (t-test, ANOVA, régression linéaire, etc.).</li>
+<li>Utilisez des packages comme <code>stats</code> et <code>car</code>.</li>
 </ul></li>
-<li><strong>DBI</strong> et <strong>RSQLite</strong> : Pour interagir avec des bases de données SQL.
+<li><strong>Modélisation</strong> :
 <ul>
-<li><code>dbConnect()</code></li>
-<li><code>dbReadTable()</code></li>
+<li>Entraînez des modèles de machine learning avec des packages comme <code>caret</code> ou <code>randomForest</code>.</li>
+<li>Évaluez la performance de vos modèles.</li>
+</ul></li>
+<li><strong>Communication des résultats</strong> :
+<ul>
+<li>Créez des rapports avec <code>R Markdown</code>.</li>
+<li>Partagez vos visualisations et analyses avec des collègues ou des clients.</li>
 </ul></li>
 </ol>
-<p>Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l’une d’elles ou sur un type de fichier particulier, n’hésite pas à demander ! 😊</p>
+<p>Avez-vous besoin d’aide pour une de ces étapes en particulier ?</p>
 
 
 </section>

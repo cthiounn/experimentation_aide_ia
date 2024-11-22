@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_librairie_import – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_detecter_valeurs_aberrantes – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_librairie_import.html">Quelles librairies et fonctions utiliser ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_detecter_valeurs_aberrantes.html">Comment détecter les données aberrantes ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comment détecter les données aberrantes ?</span></a>
   </div>
 </li>
@@ -444,16 +444,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#importer-des-fichiers-csv-ou-txt" id="toc-importer-des-fichiers-csv-ou-txt" class="nav-link" data-scroll-target="#importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></a></li>
-  <li><a href="#importer-des-fichiers-excel-xls-xlsx" id="toc-importer-des-fichiers-excel-xls-xlsx" class="nav-link" data-scroll-target="#importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></a></li>
-  <li><a href="#importer-des-bases-de-données-sql" id="toc-importer-des-bases-de-données-sql" class="nav-link" data-scroll-target="#importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></a></li>
-  <li><a href="#importer-des-fichiers-json" id="toc-importer-des-fichiers-json" class="nav-link" data-scroll-target="#importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></a></li>
-  <li><a href="#importer-des-fichiers-xml-ou-html" id="toc-importer-des-fichiers-xml-ou-html" class="nav-link" data-scroll-target="#importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></a></li>
-  <li><a href="#importer-des-fichiers-spss-sas-stata" id="toc-importer-des-fichiers-spss-sas-stata" class="nav-link" data-scroll-target="#importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></a></li>
-  <li><a href="#importer-des-fichiers-hdf5" id="toc-importer-des-fichiers-hdf5" class="nav-link" data-scroll-target="#importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></a></li>
-  <li><a href="#importer-des-fichiers-à-partir-dune-url" id="toc-importer-des-fichiers-à-partir-dune-url" class="nav-link" data-scroll-target="#importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></a></li>
-  <li><a href="#importer-des-fichiers-parquet" id="toc-importer-des-fichiers-parquet" class="nav-link" data-scroll-target="#importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></a></li>
-  <li><a href="#outils-pour-automatiser-et-améliorer-les-imports" id="toc-outils-pour-automatiser-et-améliorer-les-imports" class="nav-link" data-scroll-target="#outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></a></li>
+  <li><a href="#utilisation-de-liqr-intervalle-interquartile" id="toc-utilisation-de-liqr-intervalle-interquartile" class="nav-link" data-scroll-target="#utilisation-de-liqr-intervalle-interquartile">1. Utilisation de l’IQR (Intervalle Interquartile)</a></li>
+  <li><a href="#utilisation-des-boîtes-à-moustaches-boxplot" id="toc-utilisation-des-boîtes-à-moustaches-boxplot" class="nav-link" data-scroll-target="#utilisation-des-boîtes-à-moustaches-boxplot">2. Utilisation des boîtes à moustaches (Boxplot)</a></li>
+  <li><a href="#test-de-grubbs" id="toc-test-de-grubbs" class="nav-link" data-scroll-target="#test-de-grubbs">3. Test de Grubbs</a></li>
+  <li><a href="#méthode-z-score" id="toc-méthode-z-score" class="nav-link" data-scroll-target="#méthode-z-score">4. Méthode Z-score</a></li>
+  <li><a href="#visualisation-avec-un-diagramme-de-dispersion" id="toc-visualisation-avec-un-diagramme-de-dispersion" class="nav-link" data-scroll-target="#visualisation-avec-un-diagramme-de-dispersion">5. Visualisation avec un diagramme de dispersion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Quelles librairies et fonctions utiliser pour l’import de données en R ?</li>
+<li>Comment détecter les données aberrantes en R ?</li>
 </ul>
 </div>
 </div>
@@ -486,194 +482,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, plusieurs <strong>librairies et fonctions</strong> permettent d’importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :</p>
-<hr>
-<section id="importer-des-fichiers-csv-ou-txt" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-csv-ou-txt"><strong>1. Importer des fichiers CSV ou TXT</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li>Base R (pas besoin de packages supplémentaires) :
-<ul>
-<li><code>read.csv()</code> : pour des fichiers CSV.</li>
-<li><code>read.table()</code> : pour des fichiers TXT.</li>
-</ul></li>
-<li><strong>readr</strong> (plus rapide et plus moderne) :
-<ul>
-<li><code>read_csv()</code> : pour les fichiers CSV.</li>
-<li><code>read_tsv()</code> : pour les fichiers TSV (tab-separated values).</li>
-</ul></li>
-<li><strong>data.table</strong> (pour les gros fichiers, très performant) :
-<ul>
-<li><code>fread()</code> : détecte automatiquement le format du fichier.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<p>Pour détecter les données aberrantes (ou <strong>outliers</strong>) en R, plusieurs méthodes statistiques et graphiques peuvent être utilisées. Voici quelques-unes des approches courantes :</p>
+<section id="utilisation-de-liqr-intervalle-interquartile" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-liqr-intervalle-interquartile">1. Utilisation de l’IQR (Intervalle Interquartile)</h3>
+<p>L’une des méthodes les plus populaires pour identifier les données aberrantes est d’utiliser l’IQR (Intervalle Interquartile). Cette méthode repose sur la détection des valeurs qui sont situées en dehors de l’intervalle défini par les 1,5 fois l’IQR.</p>
+<section id="code-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="code-en-r">Code en R :</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Données exemple</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des quartiles</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data, <span class="fl">0.25</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data, <span class="fl">0.75</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul de l'IQR</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>IQR_value <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition des seuils pour les outliers</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Détection des outliers</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> data[data <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data <span class="sc">&gt;</span> upper_bound]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage des résultats</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-excel-xls-xlsx" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-excel-xls-xlsx"><strong>2. Importer des fichiers Excel (XLS, XLSX)</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>readxl</strong> : Pour lire les fichiers Excel sans besoin d’installer Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>openxlsx</strong> : Pour lire et écrire des fichiers Excel sans dépendances externes.
-<ul>
-<li><code>read.xlsx()</code></li>
-</ul></li>
-<li><strong>XLConnect</strong> ou <strong>xlsx</strong> (moins utilisées, nécessitent Java).</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Spécifier la feuille si nécessaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-bases-de-données-sql" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-bases-de-données-sql"><strong>3. Importer des bases de données SQL</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>DBI</strong> : Interface de base pour interagir avec les bases SQL.
-<ul>
-<li>Utilisée avec des packages spécifiques comme <code>RMySQL</code>, <code>RPostgres</code>, ou <code>odbc</code>.</li>
-</ul></li>
-<li><strong>dplyr</strong> : Utilise <code>dbplyr</code> pour créer des connexions aux bases de données.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="at">dbname =</span> <span class="st">"mydatabase.sqlite"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM table_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="utilisation-des-boîtes-à-moustaches-boxplot" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-des-boîtes-à-moustaches-boxplot">2. Utilisation des boîtes à moustaches (Boxplot)</h3>
+<p>Le <strong>boxplot</strong> est un graphique qui visualise l’IQR et permet de repérer facilement les valeurs aberrantes. Les valeurs aberrantes sont généralement situées au-delà des “moustaches” (les lignes horizontales).</p>
+<section id="code-en-r-1" class="level4">
+<h4 class="anchored" data-anchor-id="code-en-r-1">Code en R :</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot pour détecter les outliers visuellement</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data, <span class="at">main =</span> <span class="st">"Boxplot des données"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ce graphique, les points qui sont au-delà des moustaches sont des outliers potentiels.</p>
 </section>
-<section id="importer-des-fichiers-json" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-json"><strong>4. Importer des fichiers JSON</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>jsonlite</strong> :
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>rjson</strong> : Une autre alternative plus basique.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-xml-ou-html" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-xml-ou-html"><strong>5. Importer des fichiers XML ou HTML</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>xml2</strong> : Pour manipuler les fichiers XML.
-<ul>
-<li><code>read_xml()</code></li>
-</ul></li>
-<li><strong>rvest</strong> : Pour extraire les données des pages web HTML.
-<ul>
-<li><code>html_table()</code> pour récupérer des tables.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xml_data <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"data.xml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="test-de-grubbs" class="level3">
+<h3 class="anchored" data-anchor-id="test-de-grubbs">3. Test de Grubbs</h3>
+<p>Le <strong>test de Grubbs</strong> est un test statistique qui peut être utilisé pour détecter un outlier dans un jeu de données.</p>
+<section id="code-en-r-avec-le-package-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="code-en-r-avec-le-package-outliers">Code en R (avec le package <code>outliers</code>) :</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation du package outliers</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"outliers"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(outliers)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Test de Grubbs pour la détection des outliers</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grubbs.test</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le test renverra une valeur de p qui, si elle est inférieure à un seuil alpha (par exemple, 0.05), indique qu’il existe un outlier.</p>
 </section>
-<section id="importer-des-fichiers-spss-sas-stata" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-spss-sas-stata"><strong>6. Importer des fichiers SPSS, SAS, STATA</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>haven</strong> :
-<ul>
-<li><code>read_spss()</code> : Pour les fichiers SPSS (.sav).</li>
-<li><code>read_sas()</code> : Pour les fichiers SAS.</li>
-<li><code>read_stata()</code> : Pour les fichiers STATA.</li>
-</ul></li>
-<li><strong>foreign</strong> : Alternative plus ancienne.
-<ul>
-<li><code>read.spss()</code>, <code>read.dta()</code>, etc.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_spss</span>(<span class="st">"data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-hdf5" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-hdf5"><strong>7. Importer des fichiers HDF5</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>rhdf5</strong> :
-<ul>
-<li><code>h5read()</code></li>
-</ul></li>
-<li><strong>hdf5r</strong> : Une alternative plus récente.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rhdf5)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">h5read</span>(<span class="st">"data.h5"</span>, <span class="st">"dataset_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="méthode-z-score" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-z-score">4. Méthode Z-score</h3>
+<p>Les <strong>scores Z</strong> permettent de mesurer combien d’écarts-types une valeur est éloignée de la moyenne. Une valeur ayant un score Z très élevé (en général, supérieur à 3 ou inférieur à -3) est souvent considérée comme une donnée aberrante.</p>
+<section id="code-en-r-2" class="level4">
+<h4 class="anchored" data-anchor-id="code-en-r-2">Code en R :</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des scores Z</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">scale</span>(data)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Détection des outliers (valeurs avec un score Z supérieur à 3 ou inférieur à -3)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> data[<span class="fu">abs</span>(z_scores) <span class="sc">&gt;</span> <span class="dv">3</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage des résultats</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="importer-des-fichiers-à-partir-dune-url" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-à-partir-dune-url"><strong>8. Importer des fichiers à partir d’une URL</strong></h3>
-<ul>
-<li><p><strong>Fonctions principales :</strong></p>
-<ul>
-<li>Base R :
-<ul>
-<li><code>read.csv(url)</code>, <code>read.table(url)</code></li>
-</ul></li>
-<li>Avec <strong>httr</strong> pour des requêtes HTTP avancées.</li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://example.com/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
 </section>
-<section id="importer-des-fichiers-parquet" class="level3">
-<h3 class="anchored" data-anchor-id="importer-des-fichiers-parquet"><strong>9. Importer des fichiers Parquet</strong></h3>
-<ul>
-<li><p><strong>Librairies principales :</strong></p>
-<ul>
-<li><strong>arrow</strong> :
-<ul>
-<li><code>read_parquet()</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>Exemple :</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<hr>
+<section id="visualisation-avec-un-diagramme-de-dispersion" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-avec-un-diagramme-de-dispersion">5. Visualisation avec un diagramme de dispersion</h3>
+<p>Pour les données multivariées (par exemple, dans le cas de données avec plusieurs variables), un <strong>diagramme de dispersion</strong> peut être utile pour repérer des valeurs aberrantes.</p>
+<section id="code-en-r-3" class="level4">
+<h4 class="anchored" data-anchor-id="code-en-r-3">Code en R :</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Données multivariées exemple</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">100</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">100</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagramme de dispersion</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>x, data<span class="sc">$</span>y, <span class="at">main =</span> <span class="st">"Diagramme de dispersion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Les points qui s’éloignent significativement du nuage de points peuvent être considérés comme des outliers.</p>
 </section>
-<section id="outils-pour-automatiser-et-améliorer-les-imports" class="level3">
-<h3 class="anchored" data-anchor-id="outils-pour-automatiser-et-améliorer-les-imports"><strong>10. Outils pour automatiser et améliorer les imports</strong></h3>
-<ul>
-<li><strong>tidyverse</strong> : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).</li>
-<li><strong>rio</strong> : Simplifie l’importation/exportation avec une seule fonction.
-<ul>
-<li><code>import()</code></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>En résumé, pour détecter des données aberrantes en R, vous pouvez utiliser plusieurs méthodes comme l’IQR, les boxplots, les tests statistiques (par exemple, le test de Grubbs), les scores Z ou encore des visualisations graphiques comme les diagrammes de dispersion. L’approche choisie dépendra de la nature de vos données et du type d’analyse que vous souhaitez effectuer.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -681,38 +574,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour l’import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :</p>
+<p>Pour détecter les données aberrantes (ou outliers) en R, vous pouvez utiliser plusieurs méthodes. Voici quelques-unes des plus courantes :</p>
 <ol type="1">
-<li><strong>readr</strong> : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
-<ul>
-<li><code>read_csv()</code></li>
-<li><code>read_tsv()</code></li>
-</ul></li>
-<li><strong>data.table</strong> : Connue pour sa rapidité avec de grands ensembles de données.
-<ul>
-<li><code>fread()</code></li>
-</ul></li>
-<li><strong>readxl</strong> : Pour lire des fichiers Excel.
-<ul>
-<li><code>read_excel()</code></li>
-</ul></li>
-<li><strong>haven</strong> : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
-<ul>
-<li><code>read_spss()</code></li>
-<li><code>read_stata()</code></li>
-<li><code>read_sas()</code></li>
-</ul></li>
-<li><strong>jsonlite</strong> : Pour lire des fichiers JSON.
-<ul>
-<li><code>fromJSON()</code></li>
-</ul></li>
-<li><strong>DBI</strong> et <strong>RSQLite</strong> : Pour interagir avec des bases de données SQL.
-<ul>
-<li><code>dbConnect()</code></li>
-<li><code>dbReadTable()</code></li>
-</ul></li>
+<li><p><strong>Boxplots</strong> : Les boxplots sont une méthode visuelle simple pour identifier les outliers. Les valeurs situées en dehors des moustaches du boxplot sont considérées comme des outliers. Vous pouvez utiliser le package <code>ggplot2</code> pour créer des boxplots :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> factor_variable, <span class="at">y =</span> numeric_variable)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Méthode de l’intervalle interquartile (IQR)</strong> : Cette méthode identifie les outliers comme les valeurs situées en dehors de 1,5 fois l’IQR au-dessus du troisième quartile ou en dessous du premier quartile :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data<span class="sc">$</span>variable, <span class="fl">0.25</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data<span class="sc">$</span>variable, <span class="fl">0.75</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>IQR <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> data[data<span class="sc">$</span>variable <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>variable <span class="sc">&gt;</span> upper_bound, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Méthode des écarts-types</strong> : Les valeurs situées à plus de 3 écarts-types de la moyenne sont souvent considérées comme des outliers :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>variable)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sd_value <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>variable)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> data[<span class="fu">abs</span>(data<span class="sc">$</span>variable <span class="sc">-</span> mean_value) <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">*</span> sd_value, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Tests statistiques</strong> : Vous pouvez utiliser des tests comme le test de Grubbs pour détecter les outliers dans vos données :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(outliers)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grubbs.test</span>(data<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l’une d’elles ou sur un type de fichier particulier, n’hésite pas à demander ! 😊</p>
+<p>Ces méthodes vous permettent de détecter et de traiter les valeurs aberrantes dans vos données. Si vous avez besoin de plus de détails ou d’exemples spécifiques, n’hésitez pas à demander !</p>
 
 
 </section>
