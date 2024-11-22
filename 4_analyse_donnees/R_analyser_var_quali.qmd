@@ -1,0 +1,133 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment analyser une variable qualitative en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour analyser une variable qualitative en R, vous pouvez utiliser plusieurs méthodes qui permettent de résumer et d'explorer les données de manière efficace. Voici les étapes de base pour analyser une variable qualitative en R :
+
+### 1. **Chargement des données**
+Si vous travaillez avec un fichier CSV ou un autre type de données, commencez par importer les données dans R.
+
+```R
+# Charger un fichier CSV
+data <- read.csv("chemin/vers/mon_fichier.csv")
+```
+
+### 2. **Résumé des données qualitatives**
+Une variable qualitative est généralement représentée par un facteur ou une variable de type caractère dans R. Pour obtenir un résumé de la distribution des modalités de cette variable, vous pouvez utiliser les fonctions suivantes :
+
+#### a. **Tableau de fréquence**
+La fonction `table()` permet de créer un tableau de fréquence qui affiche le nombre d’occurrences de chaque modalité.
+
+```R
+# Créer un tableau de fréquence pour la variable qualitative
+table(data$variable_qualitative)
+```
+
+#### b. **Proportions relatives**
+La fonction `prop.table()` peut être utilisée sur le tableau de fréquence pour obtenir les proportions relatives.
+
+```R
+# Proportions relatives pour la variable qualitative
+prop.table(table(data$variable_qualitative))
+```
+
+### 3. **Visualisation des données**
+Pour mieux comprendre la distribution des modalités de la variable qualitative, vous pouvez créer des graphiques.
+
+#### a. **Barplot**
+Un **barplot** (diagramme à barres) est idéal pour afficher la fréquence des modalités.
+
+```R
+# Créer un diagramme à barres
+barplot(table(data$variable_qualitative), main="Distribution des modalités",
+        col="lightblue", xlab="Modalités", ylab="Fréquence")
+```
+
+#### b. **Diagramme en secteurs (pie chart)**
+Un **pie chart** (diagramme circulaire) peut aussi être utilisé pour visualiser la proportion de chaque modalité.
+
+```R
+# Créer un diagramme en secteurs
+pie(table(data$variable_qualitative), main="Répartition des modalités")
+```
+
+### 4. **Tests statistiques pour les variables qualitatives**
+Si vous souhaitez comparer les distributions de la variable qualitative en fonction d’une autre variable, vous pouvez utiliser des tests statistiques comme le test du **Chi carré**.
+
+#### a. **Test du Chi carré**
+Le test du Chi carré permet de tester l’indépendance entre deux variables qualitatives.
+
+```R
+# Test du Chi carré pour tester l'indépendance entre deux variables qualitatives
+chisq.test(table(data$variable_qualitative, data$autre_variable_qualitative))
+```
+
+### 5. **Analyse plus avancée**
+Si vous souhaitez effectuer des analyses plus poussées sur la variable qualitative, vous pouvez utiliser des techniques comme la régression logistique ou des tests de comparaison de proportions, selon le contexte.
+
+### Exemple complet :
+Voici un exemple complet qui montre comment analyser une variable qualitative, avec un fichier hypothétique de données :
+
+```R
+# Charger les données
+data <- read.csv("mon_fichier.csv")
+
+# Tableau de fréquence
+table(data$variable_qualitative)
+
+# Proportions relatives
+prop.table(table(data$variable_qualitative))
+
+# Diagramme à barres
+barplot(table(data$variable_qualitative), main="Distribution des modalités", col="lightgreen", xlab="Modalités", ylab="Fréquence")
+
+# Test du Chi carré (si on a une deuxième variable qualitative à comparer)
+chisq.test(table(data$variable_qualitative, data$autre_variable_qualitative))
+```
+
+En résumé, pour analyser une variable qualitative en R, vous pouvez commencer par une exploration descriptive avec des tableaux de fréquence, puis visualiser les résultats avec des graphiques comme des barplots ou des pie charts. Si nécessaire, vous pouvez également effectuer des tests statistiques pour explorer les relations entre variables.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour analyser une variable qualitative en R, vous pouvez utiliser plusieurs fonctions et techniques. Voici quelques étapes courantes :
+
+1. **Créer une table de fréquences** :
+   ```R
+   table(variable)
+   ```
+
+2. **Calculer les proportions** :
+   ```R
+   prop.table(table(variable))
+   ```
+
+3. **Trier les fréquences** :
+   ```R
+   sort(table(variable), decreasing = TRUE)
+   ```
+
+4. **Visualiser les données** :
+   - **Diagramme en barres** :
+     ```R
+     barplot(table(variable), main="Titre", col="blue")
+     ```
+   - **Diagramme en points** :
+     ```R
+     dotchart(table(variable), main="Titre", col="red")
+     ```
+
+Ces fonctions vous permettent de résumer et de visualiser les données qualitatives efficacement. Pour plus de détails, vous pouvez consulter des tutoriels vidéo comme [celui-ci](https://www.youtube.com/watch?v=1acAZNIXpd8)[1](https://www.youtube.com/watch?v=1acAZNIXpd8) ou [celui-là](https://www.youtube.com/watch?v=jRkZoNemVGQ)[2](https://www.youtube.com/watch?v=jRkZoNemVGQ).
+
+Avez-vous une variable spécifique que vous souhaitez analyser ?

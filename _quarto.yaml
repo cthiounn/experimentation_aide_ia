@@ -48,29 +48,43 @@ website:
       - section: "Nettoyage et préparation des données"
         contents:
           - href: 3_prep_donnees/R_operations_apres_import.qmd
-            text: "Que faire après avoir importer des données ?"
+            text: "Que faire après avoir importer des données"
           - href: 3_prep_donnees/R_detecter_donnees_manquantes.qmd
-            text: "Comment détecter les données manquantes ?"
+            text: "Détecter les données manquantes"
           - href: 3_prep_donnees/R_traitement_donnees_manquantes
-            text: "Que faire avec les données manquantes ?"
+            text: "Traiter les données manquantes"
           - href: 3_prep_donnees/R_creer_variable.qmd
-            text: "Comment créer de nouvelles variables ?"
+            text: "Créer de nouvelles variables"
           - href: 3_prep_donnees/R_creer_filtre.qmd
-            text: "Comment faire un filtre ?"
+            text: "Appliquer un filtre"
           - href: 3_prep_donnees/R_recoder_variable.qmd
-            text: "Comment recoder une variable ?"
+            text: "Recoder une variable"
           - href: 3_prep_donnees/R_detecter_valeurs_aberrantes.qmd
-            text: "Comment détecter les données aberrantes ?"
+            text: "Détecter les données aberrantes"
           - href: 3_prep_donnees/R_renommer_variable.qmd
-            text: "Comment renommer une variable ?"
+            text: "Renommer une variable"
           - href: 3_prep_donnees/R_joint.qmd
-            text: "Comment faire une jointure de deux tables sous R ?"
+            text: "Joindre deux tables"
       - section: "Analyse des données"
         contents:
+          - href: 4_analyse_donnees/R_analyser_donnees.qmd
+            text: "Analyser ses données"
+          - href: 4_analyse_donnees/R_compter.qmd
+            text: "Compter ses données"
+          - href: 4_analyse_donnees/R_analyser_var_quali.qmd
+            text: "Analyser une variable qualitative"
+          - href: 4_analyse_donnees/R_analyser_var_quanti.qmd
+            text: "Analyser une variable quantitative"
+          - href: 4_analyse_donnees/R_stats_desc.qmd
+            text: "Obtenir les statistiques descriptives d'une variable"
+          - href: 4_analyse_donnees/R_nom_variables.qmd
+            text: "Obtenir tous les noms de variables"
+          - href: 4_analyse_donnees/R_appliquer_ponderation.qmd
+            text: "Appliquer des pondérations"
           - href: 4_analyse_donnees/R_caract.qmd
-            text: "Rechercher une chaîne de caractères sous R"
+            text: "Rechercher une chaîne de caractères"
           - href: 4_analyse_donnees/R_quartiles.qmd
-            text: "Calculer les quartiles d'une variable sous R"
+            text: "Calculer les quartiles d'une variable"
       - section: "Analyses inférentielles"
         contents:
           - href: 6_analyse_inferentielle/R_reg_log.qmd

@@ -1,0 +1,81 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment obtenir tous les noms de variables en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, vous pouvez obtenir la liste de tous les noms de variables dans l'environnement de travail (workspace) en utilisant différentes méthodes. Voici quelques approches :
+
+### 1. **Utiliser `ls()`**
+La fonction `ls()` renvoie une liste de tous les objets dans l'environnement global, ce qui inclut les variables, fonctions, et autres objets. Pour afficher uniquement les variables, vous pouvez également filtrer les résultats si nécessaire.
+
+```r
+# Liste de tous les objets dans l'environnement global
+ls()
+
+# Si vous voulez voir uniquement les objets qui sont des variables (et non des fonctions ou autres types)
+ls(envir = .GlobalEnv)
+```
+
+### 2. **Utiliser `objects()`**
+La fonction `objects()` est identique à `ls()` et renvoie aussi les noms des objets dans l'environnement global.
+
+```r
+# Liste des objets dans l'environnement global
+objects()
+```
+
+### 3. **Filtrer les variables spécifiques**
+Si vous souhaitez filtrer par type d'objet (par exemple, seulement les variables de type "numeric", "character", etc.), vous pouvez utiliser `sapply()` ou une fonction similaire pour obtenir des objets d'un type spécifique :
+
+```r
+# Obtenir les variables de type "numeric"
+numeric_vars <- ls()[sapply(ls(), function(x) is.numeric(get(x)))]
+print(numeric_vars)
+```
+
+### 4. **Lister les variables dans un environnement spécifique**
+Si vous souhaitez obtenir les variables dans un environnement différent (pas l'environnement global), vous pouvez spécifier cet environnement dans `ls()` en utilisant l'argument `envir` :
+
+```r
+# Liste des objets dans l'environnement d'un package spécifique
+ls(envir = as.environment("package:stats"))
+```
+
+### 5. **Utiliser `globalenv()` pour l'environnement global**
+Une autre méthode est d'utiliser la fonction `globalenv()` pour cibler spécifiquement l'environnement global.
+
+```r
+# Liste des objets dans l'environnement global
+ls(envir = globalenv())
+```
+
+Ces méthodes vous permettront d'afficher les noms de toutes les variables définies dans votre session R.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour obtenir tous les noms de variables dans un environnement R, vous pouvez utiliser la fonction `ls()`. Voici un exemple simple :
+
+```R
+# Affiche tous les noms de variables dans l'environnement global
+ls()
+```
+
+Si vous souhaitez obtenir les noms de variables dans un environnement spécifique, vous pouvez passer cet environnement en argument à `ls()`. Par exemple :
+
+```R
+# Affiche tous les noms de variables dans un environnement spécifique
+ls(envir = my_environment)
+```
+
+N'hésitez pas à me demander si vous avez besoin d'autres informations ou d'aide supplémentaire avec R ! 😊

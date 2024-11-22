@@ -1,0 +1,139 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment obtenir les statistiques descriptives d'une variable en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour obtenir des statistiques descriptives d'une variable en R, vous pouvez utiliser plusieurs fonctions de base. Voici quelques exemples pour vous guider :
+
+### 1. **Utiliser `summary()`**
+
+La fonction `summary()` donne un résumé des statistiques de base pour une variable, telles que la moyenne, la médiane, les quartiles, le minimum, et le maximum. Cela fonctionne pour les vecteurs, les colonnes de data frames, etc.
+
+```R
+# Exemple : pour une variable x
+summary(x)
+```
+
+Cela vous donnera des statistiques comme :
+- Min (minimum)
+- 1st Qu. (1er quartile)
+- Median (médiane)
+- Mean (moyenne)
+- 3rd Qu. (3e quartile)
+- Max (maximum)
+
+### 2. **Utiliser `mean()`, `median()`, `sd()` pour des mesures spécifiques**
+
+Si vous voulez calculer spécifiquement la moyenne, la médiane ou l'écart-type, vous pouvez utiliser ces fonctions :
+
+```R
+mean(x)      # Moyenne
+median(x)    # Médiane
+sd(x)        # Écart-type
+```
+
+### 3. **Utiliser `sd()`, `var()`, `range()`**
+
+Pour obtenir des informations supplémentaires comme la variance ou l'intervalle :
+
+```R
+sd(x)        # Écart-type
+var(x)       # Variance
+range(x)     # Intervalle (min, max)
+```
+
+### 4. **Utiliser `quantile()` pour les quantiles**
+
+Pour obtenir des quantiles spécifiques (par exemple, le 25e, 50e et 75e percentiles), utilisez :
+
+```R
+quantile(x)
+```
+
+Cela retourne les 5 quantiles de base : minimum, 1er quartile (Q1), médiane (Q2), 3e quartile (Q3) et maximum.
+
+### 5. **Utiliser la bibliothèque `psych` pour des statistiques détaillées**
+
+Si vous avez besoin de plus de détails (comme la kurtosis, la skewness, etc.), vous pouvez utiliser le package `psych` avec la fonction `describe()` :
+
+```R
+# Installez psych si vous ne l'avez pas
+install.packages("psych")
+
+# Chargez le package
+library(psych)
+
+# Utilisez la fonction describe
+describe(x)
+```
+
+Cela donne un résumé complet des statistiques descriptives, y compris la moyenne, l'écart-type, la médiane, le minimum, le maximum, et des informations sur la distribution de la variable.
+
+### 6. **Avec `dplyr` pour un résumé dans un tableau**
+
+Si vous préférez utiliser `dplyr` pour des statistiques descriptives dans un format de tableau, vous pouvez faire ceci :
+
+```R
+library(dplyr)
+
+# Exemple avec un data frame df et une variable x
+df %>%
+  summarise(
+    Moyenne = mean(x, na.rm = TRUE),
+    Médiane = median(x, na.rm = TRUE),
+    Min = min(x, na.rm = TRUE),
+    Max = max(x, na.rm = TRUE),
+    ÉcartType = sd(x, na.rm = TRUE),
+    Variance = var(x, na.rm = TRUE)
+  )
+```
+
+### Conclusion
+
+Ces fonctions vous permettront d'obtenir rapidement des statistiques descriptives de vos données dans R. Choisissez la méthode en fonction de vos besoins spécifiques.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour obtenir les statistiques descriptives d'une variable en R, vous pouvez utiliser plusieurs fonctions. Voici quelques-unes des plus courantes :
+
+1. **summary()** : Cette fonction fournit un résumé des statistiques de base (minimum, premier quartile, médiane, moyenne, troisième quartile, maximum).
+   ```R
+   summary(votre_variable)
+   ```
+
+2. **mean()** et **sd()** : Pour obtenir la moyenne et l'écart-type.
+   ```R
+   mean(votre_variable)
+   sd(votre_variable)
+   ```
+
+3. **min()** et **max()** : Pour obtenir les valeurs minimale et maximale.
+   ```R
+   min(votre_variable)
+   max(votre_variable)
+   ```
+
+4. **quantile()** : Pour obtenir les quantiles spécifiques.
+   ```R
+   quantile(votre_variable, probs = c(0.25, 0.5, 0.75))
+   ```
+
+5. **summarytools** : Un package qui offre des fonctions plus détaillées.
+   ```R
+   install.packages("summarytools")
+   library(summarytools)
+   dfSummary(votre_variable)
+   ```
+
+Ces fonctions devraient vous donner une bonne vue d'ensemble des statistiques descriptives de votre variable. Si vous avez besoin de plus de détails ou d'aide avec un code spécifique, n'hésitez pas à demander ! 😊

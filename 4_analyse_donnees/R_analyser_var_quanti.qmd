@@ -1,0 +1,191 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment analyser une variable quantitative en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+L'analyse d'une variable quantitative en R comprend plusieurs étapes clés pour explorer, résumer et interpréter les données. Voici un guide structuré des différentes méthodes que vous pouvez utiliser :
+
+### 1. **Chargement des données**
+Assurez-vous d'abord que vos données sont chargées dans R. Si vous travaillez avec un fichier CSV, vous pouvez utiliser la fonction `read.csv()` :
+
+```R
+data <- read.csv("chemin/vers/mon_fichier.csv")
+```
+
+### 2. **Résumé des données**
+Une fois que vos données sont chargées, commencez par obtenir un résumé général de la variable quantitative en question.
+
+- **Résumé statistique de base** avec `summary()` :
+  ```R
+  summary(data$variable)
+  ```
+  Cela vous donnera des informations sur le minimum, le premier quartile, la médiane, la moyenne, le troisième quartile et le maximum de la variable.
+
+- **Mesures de tendance centrale et de dispersion** :
+  ```R
+  mean(data$variable)   # Moyenne
+  median(data$variable) # Médiane
+  sd(data$variable)     # Écart-type
+  var(data$variable)    # Variance
+  ```
+
+- **Quantiles** (pour obtenir des quantiles spécifiques) :
+  ```R
+  quantile(data$variable)
+  ```
+
+### 3. **Visualisation des données**
+La visualisation est essentielle pour comprendre la distribution de votre variable quantitative.
+
+- **Histogramme** pour visualiser la distribution :
+  ```R
+  hist(data$variable, main="Histogramme de la variable", xlab="Valeur", col="lightblue", border="black")
+  ```
+
+- **Boîte à moustaches (boxplot)** pour observer les quartiles, la médiane et les valeurs aberrantes :
+  ```R
+  boxplot(data$variable, main="Boîte à moustaches de la variable", ylab="Valeur")
+  ```
+
+- **Nuage de points (scatter plot)** si vous comparez la variable à une autre :
+  ```R
+  plot(data$variable, main="Nuage de points de la variable", xlab="Index", ylab="Valeur")
+  ```
+
+### 4. **Tests statistiques**
+Selon la question de recherche, vous pouvez vouloir réaliser des tests statistiques pour mieux comprendre votre variable.
+
+- **Test de normalité** (par exemple, test de Shapiro-Wilk) :
+  ```R
+  shapiro.test(data$variable)
+  ```
+  Cela vous permet de vérifier si votre variable suit une distribution normale.
+
+- **Test de comparaison entre deux groupes** (par exemple, un test t pour comparer la moyenne entre deux groupes) :
+  ```R
+  t.test(data$variable ~ data$group)
+  ```
+
+- **Intervalle de confiance** de la moyenne :
+  ```R
+  t.test(data$variable)
+  ```
+
+### 5. **Analyse de la distribution**
+Il est important de vérifier la forme de la distribution de votre variable pour voir si elle est symétrique, asymétrique, ou normale.
+
+- **Histogramme avec une courbe de densité** :
+  ```R
+  hist(data$variable, probability = TRUE, main="Histogramme et courbe de densité", col="lightblue")
+  lines(density(data$variable), col="red", lwd=2)
+  ```
+
+- **Test de normalité** comme mentionné plus haut.
+
+### 6. **Analyse de la variance (ANOVA)**
+Si vous avez plusieurs groupes et que vous souhaitez tester la différence entre leurs moyennes, vous pouvez effectuer une **ANOVA** (analyse de la variance) :
+
+```R
+anova_result <- aov(data$variable ~ data$group)
+summary(anova_result)
+```
+
+### 7. **Mesures de l'asymétrie et de la kurtose**
+Pour obtenir des informations sur la symétrie et la forme de votre distribution, vous pouvez calculer l'asymétrie (skewness) et la kurtose :
+
+```R
+library(e1071)
+skewness(data$variable)  # Asymétrie
+kurtosis(data$variable)  # Kurtose
+```
+
+### 8. **Corrélations**
+Si vous avez plusieurs variables quantitatives et souhaitez analyser les relations entre elles, vous pouvez calculer des coefficients de corrélation :
+
+- **Coefficient de corrélation de Pearson** :
+  ```R
+  cor(data$variable1, data$variable2)
+  ```
+
+- **Matrice de corrélation pour plusieurs variables** :
+  ```R
+  cor(data[, c("variable1", "variable2", "variable3")])
+  ```
+
+---
+
+### Exemple d'analyse complète :
+
+Supposons que vous travaillez avec une variable quantitative appelée `age` dans un jeu de données nommé `data` :
+
+```R
+# Résumé statistique de base
+summary(data$age)
+mean(data$age)
+sd(data$age)
+
+# Visualisation : histogramme et boxplot
+hist(data$age, main="Histogramme de l'âge", col="lightblue", border="black")
+boxplot(data$age, main="Boîte à moustaches de l'âge")
+
+# Test de normalité
+shapiro.test(data$age)
+
+# Test de comparaison entre groupes
+t.test(data$age ~ data$gender)
+
+# Corrélation avec une autre variable
+cor(data$age, data$income)
+```
+
+En suivant ces étapes, vous serez en mesure d'analyser efficacement une variable quantitative dans R et d'explorer ses caractéristiques, sa distribution et ses relations avec d'autres variables.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour analyser une variable quantitative en R, vous pouvez suivre plusieurs étapes. Voici un guide de base :
+
+1. **Importer les données** :
+   ```R
+   data <- read.csv("votre_fichier.csv")
+   ```
+
+2. **Résumé statistique** :
+   ```R
+   summary(data$variable)
+   ```
+
+3. **Visualisation** :
+   - **Histogramme** :
+     ```R
+     hist(data$variable, main="Histogramme de la variable", xlab="Valeurs", ylab="Fréquence")
+     ```
+   - **Boxplot** :
+     ```R
+     boxplot(data$variable, main="Boxplot de la variable", ylab="Valeurs")
+     ```
+
+4. **Calculer des mesures de tendance centrale et de dispersion** :
+   ```R
+   mean(data$variable)  # Moyenne
+   median(data$variable)  # Médiane
+   sd(data$variable)  # Écart-type
+   var(data$variable)  # Variance
+   ```
+
+5. **Tester la normalité** (par exemple, avec le test de Shapiro-Wilk) :
+   ```R
+   shapiro.test(data$variable)
+   ```
+
+Ces étapes vous donneront une bonne base pour comprendre et analyser votre variable quantitative. Si vous avez des questions spécifiques ou besoin de plus de détails, n'hésitez pas à demander ! 😊

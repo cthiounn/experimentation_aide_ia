@@ -1,0 +1,151 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment obtenir une répartition/fréquence d'une variable quantitative/qualitative en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, vous pouvez obtenir une répartition (ou fréquence) d'une variable quantitative ou qualitative de différentes manières, en utilisant des fonctions adaptées à chaque type de donnée.
+
+### 1. Répartition de **variables qualitatives** (facteurs ou variables catégorielles)
+Pour une variable qualitative, on peut utiliser la fonction `table()` ou `dplyr::count()`.
+
+#### Exemple avec `table()` :
+```R
+# Exemple de données qualitatives (facteur)
+data <- c("Rouge", "Bleu", "Rouge", "Vert", "Bleu", "Rouge")
+
+# Répartition des fréquences
+frequencies <- table(data)
+print(frequencies)
+```
+
+Cela renverra le nombre d'occurrences pour chaque catégorie de la variable.
+
+#### Exemple avec `dplyr::count()` :
+```R
+# Charger le package dplyr
+library(dplyr)
+
+# Exemple de données qualitatives
+data <- data.frame(couleur = c("Rouge", "Bleu", "Rouge", "Vert", "Bleu", "Rouge"))
+
+# Répartition des fréquences
+frequencies <- data %>% count(couleur)
+print(frequencies)
+```
+
+### 2. Répartition de **variables quantitatives** (numériques)
+Pour une variable quantitative, vous pouvez utiliser des fonctions comme `summary()` pour obtenir un résumé statistique, ou `hist()` pour une visualisation graphique. Si vous souhaitez avoir une répartition sous forme d'histogramme ou de classes (groupes de valeurs), voici deux exemples.
+
+#### Exemple avec `summary()` :
+```R
+# Exemple de données quantitatives
+data <- c(12, 15, 14, 19, 10, 18, 15, 16, 14, 17)
+
+# Résumé statistique (moyenne, min, max, etc.)
+summary(data)
+```
+
+#### Exemple avec un histogramme `hist()` :
+```R
+# Exemple de données quantitatives
+data <- c(12, 15, 14, 19, 10, 18, 15, 16, 14, 17)
+
+# Histogramme de la variable quantitative
+hist(data, main = "Histogramme des données", xlab = "Valeurs", col = "blue", border = "black")
+```
+
+#### Exemple avec `dplyr` et `cut()` pour obtenir une répartition par groupes :
+```R
+# Exemple de données quantitatives
+data <- data.frame(valeur = c(12, 15, 14, 19, 10, 18, 15, 16, 14, 17))
+
+# Créer des classes (groupes) pour la variable quantitative
+data <- data %>% mutate(groupe = cut(valeur, breaks = 4))
+
+# Compter les observations par groupe
+frequencies <- data %>% count(groupe)
+print(frequencies)
+```
+
+### 3. Répartition pour une **variable mixte** (qualitative et quantitative)
+Si vous avez une variable mixte (par exemple, une variable qualitative avec une quantitative associée), vous pouvez utiliser `table()` pour une distribution croisée ou `dplyr` pour manipuler ces données.
+
+Exemple avec une variable quantitative et une variable qualitative :
+```R
+# Exemple de données mixtes
+data <- data.frame(couleur = c("Rouge", "Bleu", "Rouge", "Vert", "Bleu", "Rouge"),
+                   score = c(10, 15, 20, 25, 10, 30))
+
+# Répartition croisée de la variable qualitative avec la quantitative
+table(data$couleur, data$score)
+```
+
+### 4. Visualisation des fréquences
+Pour des visualisations plus avancées, vous pouvez utiliser des packages comme `ggplot2`. Voici un exemple pour une variable qualitative :
+
+```R
+# Installer ggplot2 si nécessaire
+# install.packages("ggplot2")
+library(ggplot2)
+
+# Exemple de données qualitatives
+data <- data.frame(couleur = c("Rouge", "Bleu", "Rouge", "Vert", "Bleu", "Rouge"))
+
+# Créer un graphique de fréquence
+ggplot(data, aes(x = couleur)) +
+  geom_bar(fill = "skyblue") +
+  labs(title = "Fréquences des couleurs", x = "Couleur", y = "Fréquence")
+```
+
+Cela vous donnera une visualisation graphique des fréquences pour chaque catégorie.
+
+### Conclusion
+- Pour les **variables qualitatives**, utilisez `table()` ou `dplyr::count()`.
+- Pour les **variables quantitatives**, utilisez `summary()` ou `hist()` pour des résumés ou visualisations.
+- Pour une **répartition par groupes** pour des variables quantitatives, `cut()` et `count()` sont utiles.
+- `ggplot2` est une excellente option pour la visualisation graphique.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour obtenir une répartition ou fréquence d'une variable en R, vous pouvez utiliser différentes fonctions selon le type de variable (quantitative ou qualitative). Voici quelques exemples :
+
+### Pour une variable qualitative (catégorique) :
+Vous pouvez utiliser la fonction `table()` pour obtenir la fréquence de chaque catégorie.
+
+```R
+# Exemple de variable qualitative
+variable_qualitative <- c("A", "B", "A", "C", "B", "A")
+
+# Calcul des fréquences
+frequences <- table(variable_qualitative)
+print(frequences)
+```
+
+### Pour une variable quantitative :
+Vous pouvez utiliser la fonction `hist()` pour obtenir une répartition sous forme d'histogramme, ou `cut()` et `table()` pour des intervalles spécifiques.
+
+```R
+# Exemple de variable quantitative
+variable_quantitative <- c(1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10)
+
+# Histogramme
+hist(variable_quantitative)
+
+# Fréquences par intervalles
+intervalles <- cut(variable_quantitative, breaks=5)
+frequences_intervalles <- table(intervalles)
+print(frequences_intervalles)
+```
+
+Ces fonctions vous permettent de visualiser et d'analyser la distribution de vos données de manière efficace. Si vous avez besoin d'aide supplémentaire ou d'exemples plus spécifiques, n'hésitez pas à demander ! 😊
