@@ -1,0 +1,214 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment coder en R
+
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+**Coder en R** consiste à utiliser ce langage de programmation principalement conçu pour l’analyse de données, les statistiques et les visualisations. Voici une introduction aux bases de la programmation en R.
+
+---
+
+### 1. **Installation et configuration**
+- Téléchargez et installez **R** depuis le site officiel : [CRAN](https://cran.r-project.org/).
+- Pour une interface plus conviviale, téléchargez **RStudio**, un environnement de développement intégré (IDE) pour R.
+
+---
+
+### 2. **Notions de base**
+#### a. Variables
+Vous pouvez affecter des valeurs à des variables avec `<-` ou `=`.
+
+```r
+x <- 5
+y <- 10
+z <- x + y
+print(z)  # Affiche 15
+```
+
+#### b. Types de données
+R prend en charge plusieurs types de données :
+- **Numériques** : `x <- 3.14`
+- **Chaînes de caractères** : `text <- "Bonjour"`
+- **Logiques** : `val <- TRUE`
+- **Facteurs** (catégories) : `fact <- factor(c("rouge", "bleu", "vert"))`
+
+#### c. Structures de données
+- **Vecteurs** : Collections de données du même type.
+
+```r
+vec <- c(1, 2, 3, 4)
+print(vec)
+```
+
+- **Matrices** : Tableaux 2D.
+
+```r
+mat <- matrix(1:9, nrow = 3, byrow = TRUE)
+print(mat)
+```
+
+- **Listes** : Collections de données hétérogènes.
+
+```r
+lst <- list(nom = "Alice", âge = 25, scores = c(90, 85, 88))
+print(lst)
+```
+
+- **Data Frames** : Tableaux de données.
+
+```r
+df <- data.frame(
+  nom = c("Alice", "Bob"),
+  âge = c(25, 30),
+  score = c(90, 85)
+)
+print(df)
+```
+
+---
+
+### 3. **Contrôle de flux**
+#### a. Conditions
+
+```r
+x <- 10
+if (x > 5) {
+  print("x est grand")
+} else {
+  print("x est petit")
+}
+```
+
+#### b. Boucles
+- **For** :
+
+```r
+for (i in 1:5) {
+  print(i)
+}
+```
+
+- **While** :
+
+```r
+i <- 1
+while (i <= 5) {
+  print(i)
+  i <- i + 1
+}
+```
+
+---
+
+### 4. **Fonctions**
+Vous pouvez définir vos propres fonctions.
+
+```r
+addition <- function(a, b) {
+  return(a + b)
+}
+
+resultat <- addition(5, 10)
+print(resultat)  # 15
+```
+
+---
+
+### 5. **Manipulation et visualisation de données**
+#### a. Utiliser des bibliothèques
+R a de nombreuses bibliothèques utiles :
+- `dplyr` pour manipuler les données.
+- `ggplot2` pour visualiser les données.
+
+```r
+# Exemple avec ggplot2
+library(ggplot2)
+
+df <- data.frame(x = 1:10, y = (1:10)^2)
+ggplot(df, aes(x = x, y = y)) +
+  geom_line() +
+  labs(title = "Exemple de graphique", x = "x", y = "x^2")
+```
+
+---
+
+### 6. **Utilisation avancée**
+- **Chargement de fichiers** :
+```r
+data <- read.csv("data.csv")
+print(head(data))  # Affiche les premières lignes
+```
+
+- **Exportation de fichiers** :
+```r
+write.csv(data, "data_export.csv")
+```
+
+---
+
+### 7. **Ressources complémentaires**
+- Documentation officielle de R : [CRAN Documentation](https://cran.r-project.org/manuals.html)
+- Tutoriels interactifs : [Swirl](https://swirlstats.com/)
+
+Avec de la pratique, vous serez capable de gérer efficacement vos données et de créer des visualisations percutantes ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour commencer à coder en R, voici quelques étapes de base :
+
+1. **Installation de R et RStudio** :
+   - Téléchargez et installez R depuis le site officiel du CRAN : CRAN R Project.
+   - Téléchargez et installez RStudio, un environnement de développement intégré (IDE) pour R : RStudio.
+
+2. **Premiers pas avec R** :
+   - **Variables et types de données** : Vous pouvez créer des variables en utilisant `<-` ou `=`. Par exemple :
+     ```r
+     x <- 5
+     y = "Bonjour"
+     ```
+   - **Opérations de base** : R peut être utilisé comme une calculatrice :
+     ```r
+     somme <- 3 + 2
+     produit <- 4 * 5
+     ```
+
+3. **Structures de données** :
+   - **Vecteurs** : Une des structures de base en R. Vous pouvez créer un vecteur avec `c()` :
+     ```r
+     mon_vecteur <- c(1, 2, 3, 4, 5)
+     ```
+   - **Data frames** : Utilisés pour les ensembles de données tabulaires :
+     ```r
+     mon_data_frame <- data.frame(nom = c("Alice", "Bob"), age = c(25, 30))
+     ```
+
+4. **Fonctions** :
+   - Vous pouvez définir vos propres fonctions en R :
+     ```r
+     ma_fonction <- function(a, b) {
+       return(a + b)
+     }
+     resultat <- ma_fonction(3, 4)
+     ```
+
+5. **Utilisation de packages** :
+   - R dispose de nombreux packages pour étendre ses fonctionnalités. Par exemple, pour installer et utiliser le package `ggplot2` pour la visualisation de données :
+     ```r
+     install.packages("ggplot2")
+     library(ggplot2)
+     ```
+
+Pour des tutoriels détaillés, vous pouvez consulter des ressources comme [Developpez.com](https://r.developpez.com/tutoriels/cours-complet-programmation-r/) qui offre un cours complet pour débutants[1](https://r.developpez.com/tutoriels/cours-complet-programmation-r/).
+
+Si vous avez des questions spécifiques ou besoin d'aide sur un aspect particulier de R, n'hésitez pas à demander ! 😊

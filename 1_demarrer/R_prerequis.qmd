@@ -1,0 +1,86 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Que faut-il installer pour coder en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour coder en **R**, voici ce que vous devez installer : 
+
+---
+
+### 1. **Installer R**
+   R est un langage et un environnement pour le calcul statistique et la visualisation de données.
+   - **Site officiel** : [https://cran.r-project.org/](https://cran.r-project.org/)
+   - Téléchargez et installez la version correspondant à votre système d'exploitation (Windows, macOS, Linux).
+
+---
+
+### 2. **Installer un IDE (Interface de Développement Intégré)**
+   Bien que vous puissiez utiliser R directement, un IDE rend le codage beaucoup plus facile et agréable.
+
+   #### Option la plus populaire : **RStudio**
+   - **Site officiel** : [https://posit.co/downloads/](https://posit.co/downloads/) (anciennement RStudio)
+   - RStudio est un IDE gratuit et complet pour R, offrant une interface conviviale avec :
+     - Un éditeur de script.
+     - Une console intégrée.
+     - Un panneau pour visualiser les graphiques et fichiers.
+     - Une gestion des packages.
+   
+   **Astuce :** Installez d'abord R, puis RStudio.
+
+---
+
+### 3. **Installer des Packages R**
+   - Une fois R et RStudio installés, vous pouvez enrichir vos fonctionnalités en installant des packages R.
+   - Utilisez la commande suivante dans la console R pour installer un package :
+     ```R
+     install.packages("nom_du_package")
+     ```
+   - Exemples populaires :
+     - **ggplot2** : pour la visualisation de données.
+     - **dplyr** : pour la manipulation de données.
+     - **tidyr** : pour organiser les données.
+     - **shiny** : pour créer des applications web interactives.
+
+---
+
+### 4. **(Optionnel) Installer des outils supplémentaires**
+   - **Git** (facultatif) : pour le contrôle de version et la collaboration (intégration avec RStudio).
+     - Site officiel : [https://git-scm.com/](https://git-scm.com/)
+   - **Python** : pour l’intégration avec R (utile dans des projets avancés, via des packages comme `reticulate`).
+
+---
+
+### 5. **(Optionnel) Installer des bibliothèques pour votre système**
+   Certains packages R nécessitent des bibliothèques ou des dépendances supplémentaires, surtout pour le traitement d'images, le calcul parallèle ou l'apprentissage automatique. 
+   - Sur Windows, installez RTools (disponible sur CRAN).
+   - Sur Linux/macOS, utilisez des gestionnaires de packages comme **apt** ou **brew** pour installer les dépendances.
+
+---
+
+### Résumé des étapes :
+1. Téléchargez et installez **R**.
+2. Téléchargez et installez **RStudio** (recommandé).
+3. Installez des packages pour vos besoins.
+
+Une fois tout cela prêt, vous pouvez commencer à coder en R ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour coder en R, voici ce que vous devez installer :
+
+1. **R** : Téléchargez et installez R depuis le site officiel du CRAN.
+2. **RStudio** : Un environnement de développement intégré (IDE) très populaire pour R. Vous pouvez le télécharger depuis le site officiel de RStudio.
+3. **Paquets R** : Selon vos besoins, vous devrez peut-être installer des paquets supplémentaires. Vous pouvez les installer directement depuis R ou RStudio avec la commande `install.packages("nom_du_paquet")`.
+
+Avez-vous déjà utilisé R ou RStudio auparavant ?

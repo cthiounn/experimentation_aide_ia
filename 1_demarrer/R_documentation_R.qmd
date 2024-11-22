@@ -1,0 +1,179 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Documentation pour débuter en R
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+R est un langage de programmation et un environnement très utilisé pour les statistiques, l'analyse de données et la science des données. Pour débuter avec R, voici une documentation structurée qui inclut les bases et des ressources utiles.
+
+---
+
+### 1. **Installation**
+#### a) Télécharger et installer R
+- Site officiel : [https://cran.r-project.org/](https://cran.r-project.org/)
+- Suivez les instructions pour votre système d'exploitation (Windows, MacOS, Linux).
+
+#### b) Installer RStudio (facultatif mais recommandé)
+- RStudio est un environnement de développement intégré (IDE) pour R.
+- Téléchargement : [https://www.rstudio.com/](https://www.rstudio.com/)
+
+---
+
+### 2. **Premiers pas avec R**
+#### a) Lancement
+- Si vous utilisez R directement, ouvrez-le via son interface.
+- Si vous utilisez RStudio, lancez-le pour une interface plus conviviale.
+
+#### b) Console R
+- Vous pouvez saisir des commandes directement dans la console pour des essais rapides.
+
+#### c) Script R
+- Pour écrire et exécuter du code, utilisez des scripts `.R`. Vous pouvez les créer dans RStudio.
+
+---
+
+### 3. **Bases du langage R**
+#### a) Manipulations simples
+```R
+# Affichage d'une chaîne de caractères
+print("Bonjour R")
+
+# Opérations mathématiques de base
+2 + 2
+3 * 5
+sqrt(16)
+```
+
+#### b) Variables
+```R
+x <- 10  # Affectation
+y <- 5
+z <- x + y  # Opération sur les variables
+z
+```
+
+#### c) Vecteurs
+```R
+# Création d'un vecteur
+vecteur <- c(1, 2, 3, 4, 5)
+vecteur
+
+# Opérations sur un vecteur
+vecteur * 2
+sum(vecteur)
+mean(vecteur)
+```
+
+#### d) Types de données
+- Numériques : `1, 2.5`
+- Texte : `"Bonjour"`
+- Booléens : `TRUE`, `FALSE`
+- Facteurs : catégories (exemple : `factor(c("A", "B", "A"))`)
+
+#### e) Structures de données
+- Vecteurs (`c()`)
+- Matrices (`matrix()`)
+- Listes (`list()`)
+- Dataframes (`data.frame()`)
+
+---
+
+### 4. **Packages**
+Les packages étendent les fonctionnalités de base de R.
+#### a) Installer un package
+```R
+install.packages("ggplot2")
+```
+
+#### b) Charger un package
+```R
+library(ggplot2)
+```
+
+---
+
+### 5. **Visualisation des données**
+#### Exemple avec `ggplot2`
+```R
+library(ggplot2)
+
+# Exemple de graphique simple
+data(mpg, package = "ggplot2")  # Charger un jeu de données intégré
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  theme_minimal()
+```
+
+---
+
+### 6. **Documentation intégrée**
+R dispose d'une documentation détaillée.
+```R
+?mean  # Documentation pour la fonction mean
+help.search("regression")  # Recherche dans la documentation
+```
+
+---
+
+### 7. **Ressources en ligne**
+#### Documentation officielle
+- [Manuel d'introduction à R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) (en anglais).
+  
+#### Tutoriels
+- **Swirl** : Apprenez R directement dans la console avec ce package interactif.
+  ```R
+  install.packages("swirl")
+  library(swirl)
+  swirl()
+  ```
+- [R for Data Science](https://r4ds.had.co.nz/) par Hadley Wickham (en anglais, gratuit en ligne).
+  
+#### Communautés
+- Forums : [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
+- Groupes : [RStudio Community](https://community.rstudio.com/)
+
+---
+
+### 8. **Exercices pratiques**
+Pour progresser rapidement, pratiquez avec vos propres données ou utilisez des jeux de données disponibles dans R.
+```R
+data(iris)  # Charger un jeu de données intégré
+head(iris)  # Afficher les premières lignes
+summary(iris)  # Résumé statistique
+```
+
+---
+
+Si vous avez des questions spécifiques, n'hésitez pas à demander ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Bien sûr ! Voici quelques ressources pour vous aider à débuter avec R :
+
+1. **Tutoriels Vidéo** :
+   - [Prise en main du logiciel R - Tutoriel](https://www.youtube.com/watch?v=MCgkVbhT0PA) : Une introduction complète à R, couvrant les bases des calculs, des statistiques descriptives, et l'importation de données[1](https://www.youtube.com/watch?v=MCgkVbhT0PA).
+   - [Les premiers pas avec R et RStudio](https://www.youtube.com/watch?v=pAm-6xxWkoE) : Un guide pour les francophones sur l'utilisation de R et RStudio, incluant l'importation de fichiers de données et la création de graphiques[2](https://www.youtube.com/watch?v=pAm-6xxWkoE).
+
+2. **Cours en Ligne** :
+   - [Cours complet pour débutants pour apprendre R](https://r.developpez.com/tutoriels/cours-complet-programmation-r/) : Un cours détaillé couvrant les bases de la programmation en R, les objets R, les opérateurs et fonctions, et des exemples pratiques[3](https://r.developpez.com/tutoriels/cours-complet-programmation-r/).
+   - [Initiation à R - INRAE](https://documents.migale.inrae.fr/posts/tutorials/initiation-r/) : Un tutoriel pour débuter avec R, incluant la manipulation des structures de données et la création de graphiques simples[4](https://documents.migale.inrae.fr/posts/tutorials/initiation-r/).
+
+3. **Sites Web** :
+   - [Le langage R pour débutants - Pandacodeur](https://www.pandacodeur.com/pages/tutoriels/langage-r/le-langage-r-pour-debutants.html) : Un guide pour apprendre les bases de R, y compris la syntaxe, les types de données, et la manipulation des données[5](https://www.pandacodeur.com/pages/tutoriels/langage-r/le-langage-r-pour-debutants.html).
+
+Ces ressources devraient vous fournir une bonne base pour commencer à utiliser R. Si vous avez des questions spécifiques ou besoin de plus de détails, n'hésitez pas à demander ! 😊
+
+[1](https://www.youtube.com/watch?v=MCgkVbhT0PA): [Prise en main du logiciel R - Tutoriel](https://www.youtube.com/watch?v=MCgkVbhT0PA)
+[2](https://www.youtube.com/watch?v=pAm-6xxWkoE): [Les premiers pas avec R et RStudio](https://www.youtube.com/watch?v=pAm-6xxWkoE)
+[3](https://r.developpez.com/tutoriels/cours-complet-programmation-r/): [Cours complet pour débutants pour apprendre R](https://r.developpez.com/tutoriels/cours-complet-programmation-r/)
+[4](https://documents.migale.inrae.fr/posts/tutorials/initiation-r/): [Initiation à R - INRAE](https://documents.migale.inrae.fr/posts/tutorials/initiation-r/)
+[5](https://www.pandacodeur.com/pages/tutoriels/langage-r/le-langage-r-pour-debutants.html): [Le langage R pour débutants - Pandacodeur](https://www.pandacodeur.com/pages/tutoriels/langage-r/le-langage-r-pour-debutants.html)

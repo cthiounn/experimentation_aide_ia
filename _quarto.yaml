@@ -21,6 +21,12 @@ website:
         contents:
           - href: 1_demarrer/R_starter.qmd
             text: "Bien commencer avec R et Rstudio"
+          - href: 1_demarrer/R_prerequis.qmd
+            text: "Que faut-il installer pour coder en R ?"
+          - href: 1_demarrer/R_comment_coder.qmd
+            text: "Comment coder en R"
+          - href: 1_demarrer/R_documentation_R.qmd
+            text: "Documentation pour débuter en R"
       - section: "Importer des données"
         contents:
           - href: 2_import_donnees/R_import_donnees.qmd
