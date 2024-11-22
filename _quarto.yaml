@@ -31,6 +31,20 @@ website:
         contents:
           - href: 2_import_donnees/R_import_donnees.qmd
             text: "Importer des données sous R"
+          - href: 2_import_donnees/R_import_csv.qmd
+            text: "Importer un fichier CSV"
+          - href: 2_import_donnees/R_import_sas.qmd
+            text: "Importer un fichier SAS"
+          - href: 2_import_donnees/R_import_parquet.qmd
+            text: "Importer un fichier Parquet"
+          - href: 2_import_donnees/R_import_xls.qmd
+            text: "Importer un fichier XLS"
+          - href: 2_import_donnees/R_import_ods.qmd
+            text: "Importer un fichier ODS"
+          - href: 2_import_donnees/R_librairie_import.qmd
+            text: "Quelles librairies et fonctions utiliser ?"
+          - href: 2_import_donnees/R_import_donnees_volumineuses.qmd
+            text: "Importer des données volumineuses sous R"
       - section: "Nettoyage et préparation des données"
         contents:
           - href: 3_nettoyage_donnees/R_joint.qmd

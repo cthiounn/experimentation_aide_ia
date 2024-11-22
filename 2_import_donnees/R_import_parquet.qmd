@@ -1,0 +1,120 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment importer un fichier Parquet en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+
+Importer un fichier **Parquet** en R est assez simple grâce à des packages dédiés. Voici les étapes principales et les outils que vous pouvez utiliser :
+
+---
+
+### 1. **Installer les packages nécessaires**
+Vous aurez besoin du package `arrow`, qui est performant et populaire pour manipuler des fichiers Parquet en R.
+
+```R
+install.packages("arrow")
+```
+
+---
+
+### 2. **Charger le package**
+Chargez le package dans votre script ou session R :
+
+```R
+library(arrow)
+```
+
+---
+
+### 3. **Lire le fichier Parquet**
+Utilisez la fonction `read_parquet()` pour importer un fichier Parquet. Par exemple :
+
+```R
+# Remplacez 'votre_fichier.parquet' par le chemin réel de votre fichier
+data <- read_parquet("votre_fichier.parquet")
+
+# Affichez un aperçu des données
+head(data)
+```
+
+---
+
+### 4. **Autres options de `arrow`**
+Le package `arrow` offre plusieurs fonctionnalités pour personnaliser la lecture des fichiers Parquet :
+- Lire un fichier Parquet distant (par exemple, sur AWS S3 ou Google Cloud Storage) en spécifiant l'URL.
+- Charger uniquement certaines colonnes pour économiser de la mémoire avec l'argument `columns`.
+
+Exemple pour charger des colonnes spécifiques :
+
+```R
+data <- read_parquet("votre_fichier.parquet", col_select = c("colonne1", "colonne2"))
+```
+
+---
+
+### 5. **Alternative : Package `sparklyr` (avec Spark)**
+Si vous travaillez avec de gros fichiers et que vous utilisez **Spark**, vous pouvez importer des fichiers Parquet en R via le package `sparklyr` :
+
+```R
+install.packages("sparklyr")
+library(sparklyr)
+
+# Configurer une session Spark
+sc <- spark_connect(master = "local")
+
+# Lire le fichier Parquet
+data <- spark_read_parquet(sc, name = "table_parquet", path = "votre_fichier.parquet")
+
+# Collecter les données en mémoire R
+data_local <- collect(data)
+
+# Afficher les données
+head(data_local)
+```
+
+---
+
+### 6. **Vérifiez la structure des données**
+Après l'importation, vous pouvez utiliser des fonctions comme `str()`, `summary()`, ou `glimpse()` (si `dplyr` est chargé) pour explorer votre jeu de données.
+
+```R
+str(data)
+summary(data)
+```
+
+---
+
+Avec ces méthodes, vous serez en mesure de lire et manipuler efficacement des fichiers Parquet en R !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour importer un fichier Parquet en R, vous pouvez utiliser le package `arrow`, qui est spécialement conçu pour manipuler ce type de fichier. Voici un exemple de code pour lire un fichier Parquet :
+
+```r
+# Installer le package arrow si ce n'est pas déjà fait
+install.packages("arrow")
+
+# Charger le package
+library(arrow)
+
+# Lire le fichier Parquet
+df <- read_parquet("chemin/vers/votre_fichier.parquet")
+
+# Afficher les premières lignes du dataframe
+head(df)
+```
+
+Le package `arrow` offre également des fonctionnalités avancées pour manipuler des fichiers Parquet volumineux, comme le partitionnement des données[1](https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html)[2](https://arrow.apache.org/docs/r/reference/read_parquet.html).
+
+Si vous avez des questions supplémentaires ou besoin d'aide pour une autre tâche, n'hésitez pas à demander ! 😊

@@ -1,0 +1,130 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment importer un CSV en R? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour importer un fichier CSV en **R**, vous pouvez utiliser plusieurs fonctions adaptées à vos besoins et à la structure du fichier. Voici les étapes générales pour importer un fichier CSV :
+
+---
+
+### 1. **Utiliser `read.csv` (base R)**
+
+La fonction de base pour importer un CSV est **`read.csv`**, qui fait partie de R par défaut.
+
+```R
+# Exemple de code
+data <- read.csv("chemin/vers/fichier.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+# Arguments importants :
+# - "chemin/vers/fichier.csv" : chemin vers le fichier CSV.
+# - header = TRUE : indique si la première ligne contient les noms des colonnes.
+# - sep = "," : spécifie que le séparateur des colonnes est une virgule.
+# - stringsAsFactors = FALSE : évite de convertir les colonnes de texte en facteurs.
+```
+
+---
+
+### 2. **Utiliser `read_csv` (package `readr`)**
+
+Si vous utilisez le package **`readr`** (inclus dans le tidyverse), la fonction **`read_csv`** est plus rapide et offre des fonctionnalités avancées.
+
+```R
+# Installer le package si nécessaire
+install.packages("readr")
+
+# Charger le package
+library(readr)
+
+# Importer le CSV
+data <- read_csv("chemin/vers/fichier.csv")
+
+# Avantages :
+# - Importation rapide pour les fichiers volumineux.
+# - Les types de colonnes sont automatiquement détectés.
+```
+
+---
+
+### 3. **Utiliser `fread` (package `data.table`)**
+
+Pour des performances encore plus rapides, notamment avec de grands fichiers, utilisez **`fread`** du package **`data.table`**.
+
+```R
+# Installer le package si nécessaire
+install.packages("data.table")
+
+# Charger le package
+library(data.table)
+
+# Importer le CSV
+data <- fread("chemin/vers/fichier.csv")
+
+# Avantages :
+# - Extrêmement rapide pour les fichiers de grande taille.
+# - Détection automatique des séparateurs et types de données.
+```
+
+---
+
+### 4. **Spécificités supplémentaires**
+
+#### a) **Changer le séparateur (si ce n'est pas une virgule)**
+- Si votre fichier utilise un autre séparateur, comme un point-virgule (`;`), vous devez l'indiquer :
+```R
+data <- read.csv("fichier.csv", sep = ";")
+data <- read_delim("fichier.csv", delim = ";")
+```
+
+#### b) **Gérer les fichiers CSV encodés différemment**
+- Si votre fichier contient des caractères spéciaux, vérifiez l'encodage :
+```R
+data <- read.csv("fichier.csv", fileEncoding = "UTF-8")
+data <- read_csv("fichier.csv", locale = locale(encoding = "UTF-8"))
+```
+
+---
+
+### 5. **Vérifier l'importation**
+Une fois le fichier importé, inspectez les données pour vous assurer qu'elles sont correctement chargées :
+```R
+head(data)       # Aperçu des premières lignes
+str(data)        # Structure des données (types des colonnes)
+summary(data)    # Résumé statistique des données
+```
+
+Si vous rencontrez des erreurs, n'hésitez pas à partager plus de détails ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+
+
+Importer un fichier CSV en R est assez simple. Voici les étapes de base :
+
+1. **Installer et charger le package nécessaire** (si ce n'est pas déjà fait) :
+   ```R
+   install.packages("readr")
+   library(readr)
+   ```
+
+2. **Utiliser la fonction `read_csv`** pour lire le fichier CSV :
+   ```R
+   data <- read_csv("chemin/vers/votre_fichier.csv")
+   ```
+
+3. **Vérifier les premières lignes du fichier importé** pour s'assurer que tout est correct :
+   ```R
+   head(data)
+   ```
+
+Assurez-vous de remplacer `"chemin/vers/votre_fichier.csv"` par le chemin réel de votre fichier CSV. Si vous avez des questions supplémentaires ou des problèmes spécifiques, n'hésitez pas à demander ! 😊

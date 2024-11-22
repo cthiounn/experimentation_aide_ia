@@ -1,0 +1,186 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Quelles librairies et fonctions utiliser pour l'import de données en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, plusieurs **librairies et fonctions** permettent d'importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :
+
+---
+
+### **1. Importer des fichiers CSV ou TXT**
+- **Librairies principales :**
+  - Base R (pas besoin de packages supplémentaires) :
+    - `read.csv()` : pour des fichiers CSV.
+    - `read.table()` : pour des fichiers TXT.
+  - **readr** (plus rapide et plus moderne) :
+    - `read_csv()` : pour les fichiers CSV.
+    - `read_tsv()` : pour les fichiers TSV (tab-separated values).
+  - **data.table** (pour les gros fichiers, très performant) :
+    - `fread()` : détecte automatiquement le format du fichier.
+- **Exemple :**
+  ```R
+  data <- read.csv("data.csv")
+  data <- readr::read_csv("data.csv")
+  data <- data.table::fread("data.csv")
+  ```
+
+---
+
+### **2. Importer des fichiers Excel (XLS, XLSX)**
+- **Librairies principales :**
+  - **readxl** : Pour lire les fichiers Excel sans besoin d’installer Excel.
+    - `read_excel()`
+  - **openxlsx** : Pour lire et écrire des fichiers Excel sans dépendances externes.
+    - `read.xlsx()`
+  - **XLConnect** ou **xlsx** (moins utilisées, nécessitent Java).
+- **Exemple :**
+  ```R
+  library(readxl)
+  data <- read_excel("data.xlsx", sheet = 1)  # Spécifier la feuille si nécessaire
+  ```
+
+---
+
+### **3. Importer des bases de données SQL**
+- **Librairies principales :**
+  - **DBI** : Interface de base pour interagir avec les bases SQL.
+    - Utilisée avec des packages spécifiques comme `RMySQL`, `RPostgres`, ou `odbc`.
+  - **dplyr** : Utilise `dbplyr` pour créer des connexions aux bases de données.
+- **Exemple :**
+  ```R
+  library(DBI)
+  conn <- dbConnect(RSQLite::SQLite(), dbname = "mydatabase.sqlite")
+  data <- dbGetQuery(conn, "SELECT * FROM table_name")
+  ```
+
+---
+
+### **4. Importer des fichiers JSON**
+- **Librairies principales :**
+  - **jsonlite** :
+    - `fromJSON()`
+  - **rjson** : Une autre alternative plus basique.
+- **Exemple :**
+  ```R
+  library(jsonlite)
+  data <- fromJSON("data.json")
+  ```
+
+---
+
+### **5. Importer des fichiers XML ou HTML**
+- **Librairies principales :**
+  - **xml2** : Pour manipuler les fichiers XML.
+    - `read_xml()`
+  - **rvest** : Pour extraire les données des pages web HTML.
+    - `html_table()` pour récupérer des tables.
+- **Exemple :**
+  ```R
+  library(xml2)
+  xml_data <- read_xml("data.xml")
+  ```
+
+---
+
+### **6. Importer des fichiers SPSS, SAS, STATA**
+- **Librairies principales :**
+  - **haven** :
+    - `read_spss()` : Pour les fichiers SPSS (.sav).
+    - `read_sas()` : Pour les fichiers SAS.
+    - `read_stata()` : Pour les fichiers STATA.
+  - **foreign** : Alternative plus ancienne.
+    - `read.spss()`, `read.dta()`, etc.
+- **Exemple :**
+  ```R
+  library(haven)
+  data <- read_spss("data.sav")
+  ```
+
+---
+
+### **7. Importer des fichiers HDF5**
+- **Librairies principales :**
+  - **rhdf5** :
+    - `h5read()`
+  - **hdf5r** : Une alternative plus récente.
+- **Exemple :**
+  ```R
+  library(rhdf5)
+  data <- h5read("data.h5", "dataset_name")
+  ```
+
+---
+
+### **8. Importer des fichiers à partir d'une URL**
+- **Fonctions principales :**
+  - Base R :
+    - `read.csv(url)`, `read.table(url)`
+  - Avec **httr** pour des requêtes HTTP avancées.
+- **Exemple :**
+  ```R
+  data <- read.csv("https://example.com/data.csv")
+  ```
+
+---
+
+### **9. Importer des fichiers Parquet**
+- **Librairies principales :**
+  - **arrow** :
+    - `read_parquet()`
+- **Exemple :**
+  ```R
+  library(arrow)
+  data <- read_parquet("data.parquet")
+  ```
+
+---
+
+### **10. Outils pour automatiser et améliorer les imports**
+- **tidyverse** : Combine plusieurs fonctionnalités d’import et de manipulation de données (CSV, JSON, etc.).
+- **rio** : Simplifie l'importation/exportation avec une seule fonction.
+  - `import()`
+  ```R
+  library(rio)
+  data <- import("data.csv")
+  ```
+
+Avec ces outils, vous pouvez facilement importer des données dans presque tous les formats !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour l'import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :
+
+1. **readr** : Une partie du tidyverse, cette librairie est rapide et efficace pour lire des fichiers plats comme CSV et TSV.
+   - `read_csv()`
+   - `read_tsv()`
+
+2. **data.table** : Connue pour sa rapidité avec de grands ensembles de données.
+   - `fread()`
+
+3. **readxl** : Pour lire des fichiers Excel.
+   - `read_excel()`
+
+4. **haven** : Pour importer des fichiers de logiciels statistiques comme SPSS, Stata, et SAS.
+   - `read_spss()`
+   - `read_stata()`
+   - `read_sas()`
+
+5. **jsonlite** : Pour lire des fichiers JSON.
+   - `fromJSON()`
+
+6. **DBI** et **RSQLite** : Pour interagir avec des bases de données SQL.
+   - `dbConnect()`
+   - `dbReadTable()`
+
+Ces librairies couvrent la plupart des besoins en importation de données. Si tu as des questions spécifiques sur l'une d'elles ou sur un type de fichier particulier, n'hésite pas à demander ! 😊

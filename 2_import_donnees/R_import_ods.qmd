@@ -1,0 +1,97 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment importer un fichier ods en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+
+Pour importer un fichier ODS (OpenDocument Spreadsheet) dans R, vous pouvez utiliser le package **`readODS`**. Voici les étapes détaillées :
+
+### 1. Installer le package `readODS`
+Si vous n'avez pas encore installé ce package, vous pouvez le faire en utilisant la commande suivante :
+
+```R
+install.packages("readODS")
+```
+
+### 2. Charger le package
+Une fois installé, chargez le package dans votre session R :
+
+```R
+library(readODS)
+```
+
+### 3. Importer le fichier ODS
+Utilisez la fonction **`read_ods()`** pour lire les données. Voici un exemple de base :
+
+```R
+# Remplacez "chemin_vers_votre_fichier.ods" par le chemin réel vers votre fichier ODS
+chemin_fichier <- "chemin_vers_votre_fichier.ods"
+
+# Lire la première feuille (par défaut) du fichier
+data <- read_ods(chemin_fichier)
+
+# Afficher les données
+print(data)
+```
+
+### 4. Options supplémentaires
+La fonction **`read_ods()`** offre plusieurs options :
+- **`sheet`** : pour spécifier une feuille précise à lire (par défaut, la première feuille est lue).
+- **`range`** : pour lire une plage spécifique de cellules.
+- **`col_names`** : pour spécifier si la première ligne contient les noms des colonnes (`TRUE` par défaut).
+- **`na`** : pour définir les valeurs considérées comme manquantes (`NA`).
+
+#### Exemple d'utilisation avancée
+```R
+# Lire la deuxième feuille et définir "NA" pour les cellules vides
+data <- read_ods(chemin_fichier, sheet = 2, na = "")
+```
+
+### 5. Conseils pour le chemin du fichier
+- Si le fichier est dans le répertoire de travail actuel, utilisez son nom directement.
+- Pour vérifier ou modifier le répertoire de travail :
+  ```R
+  getwd() # Obtenir le répertoire actuel
+  setwd("nouveau/chemin") # Modifier le répertoire
+  ```
+
+Avec ces étapes, vous pouvez facilement importer des fichiers ODS dans R pour vos analyses ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour importer un fichier ODS en R, vous pouvez utiliser le package `readODS`. Voici les étapes à suivre :
+
+1. **Installer le package** :
+   ```R
+   install.packages("readODS")
+   ```
+
+2. **Charger le package** :
+   ```R
+   library(readODS)
+   ```
+
+3. **Lire le fichier ODS** :
+   ```R
+   dataset <- read_ods("chemin/vers/votre_fichier.ods")
+   ```
+
+Ce code permet de lire le premier onglet du fichier ODS et de le stocker dans un data frame nommé `dataset`[1](https://cran.r-project.org/web/packages/readODS/readODS.pdf)[2](https://thinkr.fr/abcdr/comment-lire-un-fichier-ods-avec-r-read_ods/).
+
+Si vous avez besoin de lire un onglet spécifique ou de personnaliser l'importation, vous pouvez ajouter des arguments supplémentaires à la fonction `read_ods`. Par exemple, pour lire le deuxième onglet :
+```R
+dataset <- read_ods("chemin/vers/votre_fichier.ods", sheet = 2)
+```
+
+N'hésitez pas à me dire si vous avez besoin d'aide supplémentaire ou si vous avez d'autres questions !

@@ -1,0 +1,136 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment importer un fichier SAS en R ?
+
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Importer un fichier SAS en **R** peut se faire de plusieurs manières en fonction des outils disponibles. Voici quelques méthodes courantes :
+
+---
+
+### 1. **Utiliser le package `haven`**
+Le package `haven`, qui fait partie de la collection `tidyverse`, permet de lire directement des fichiers SAS au format `.sas7bdat` ou `.xpt`.
+
+#### Installation et utilisation :
+```R
+# Installer le package si nécessaire
+install.packages("haven")
+
+# Charger le package
+library(haven)
+
+# Lire un fichier SAS
+data <- read_sas("chemin/vers/fichier.sas7bdat")
+
+# Afficher un aperçu
+head(data)
+```
+
+---
+
+### 2. **Utiliser le package `sas7bdat`**
+Le package `sas7bdat` est une autre option pour lire les fichiers `.sas7bdat`.
+
+#### Installation et utilisation :
+```R
+# Installer le package si nécessaire
+install.packages("sas7bdat")
+
+# Charger le package
+library(sas7bdat)
+
+# Lire un fichier SAS
+data <- read.sas7bdat("chemin/vers/fichier.sas7bdat")
+
+# Afficher un aperçu
+head(data)
+```
+
+---
+
+### 3. **Utiliser le package `foreign`**
+Le package `foreign` est une solution classique pour importer des fichiers SAS exportés au format XPORT (`.xpt`).
+
+#### Installation et utilisation :
+```R
+# Charger le package (inclus par défaut dans R)
+library(foreign)
+
+# Lire un fichier SAS au format XPORT
+data <- read.xport("chemin/vers/fichier.xpt")
+
+# Afficher un aperçu
+head(data)
+```
+
+---
+
+### 4. **Utiliser le package `rio`**
+Le package `rio` simplifie l'importation et l'exportation de nombreux types de fichiers, y compris les fichiers SAS.
+
+#### Installation et utilisation :
+```R
+# Installer le package si nécessaire
+install.packages("rio")
+
+# Charger le package
+library(rio)
+
+# Importer un fichier SAS
+data <- import("chemin/vers/fichier.sas7bdat")
+
+# Afficher un aperçu
+head(data)
+```
+
+---
+
+### 5. **Utiliser `SAS Universal Viewer` pour convertir les fichiers**
+Si aucun des packages ne fonctionne ou si le fichier est complexe, vous pouvez utiliser **SAS Universal Viewer** (gratuit) pour convertir les fichiers `.sas7bdat` en CSV, que vous pourrez ensuite importer dans R via :
+
+```R
+data <- read.csv("chemin/vers/fichier.csv")
+```
+
+---
+
+### Recommandations :
+- **Pour des fichiers modernes** : Utilisez `haven`.
+- **Pour des fichiers anciens ou exportés** : Utilisez `foreign`.
+- **Pour une approche simplifiée** : Utilisez `rio`.
+
+Assurez-vous d’avoir le bon chemin d’accès au fichier, en tenant compte des permissions et des extensions correctes.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour importer un fichier SAS en R, vous pouvez utiliser le package **haven**. Voici les étapes à suivre :
+
+1. **Installer le package haven** :
+   ```R
+   install.packages("haven")
+   ```
+
+2. **Charger le package** :
+   ```R
+   library(haven)
+   ```
+
+3. **Importer le fichier SAS** :
+   ```R
+   data <- read_sas("chemin/vers/votre_fichier.sas7bdat")
+   ```
+
+Cette méthode utilise la fonction `read_sas()` pour lire les fichiers SAS au format `.sas7bdat`[1](https://www.statology.org/import-sas-into-r/)[2](https://r-craft.org/how-to-load-sas-files-in-r-transitioning-from-sas-to-r-with-seamless-data-integration/).
+
+Si vous avez des questions supplémentaires ou besoin d'aide pour une autre tâche, n'hésitez pas à demander !
