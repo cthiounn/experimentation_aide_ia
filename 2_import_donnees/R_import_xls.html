@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_avancee_partie_entiere – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_import_xls – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Z_usage_avance/R_avancee_partie_entiere.html">Usage avancé</a></li><li class="breadcrumb-item"><a href="../Z_usage_avance/R_avancee_partie_entiere.html">Partie entière en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_donnees.html">Importer des données</a></li><li class="breadcrumb-item"><a href="../2_import_donnees/R_import_xls.html">Importer un fichier XLS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -247,7 +218,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Importer un fichier XLS</span></a>
   </div>
 </li>
@@ -401,7 +372,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Partie entière en R</span></a>
   </div>
 </li>
@@ -423,10 +394,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#obtenir-la-partie-entière-en-r" id="toc-obtenir-la-partie-entière-en-r" class="nav-link active" data-scroll-target="#obtenir-la-partie-entière-en-r">Obtenir la partie entière en R</a>
+  <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#approche-naïve" id="toc-approche-naïve" class="nav-link" data-scroll-target="#approche-naïve">Approche naïve</a></li>
-  <li><a href="#spécificité-arrow-en-lazy" id="toc-spécificité-arrow-en-lazy" class="nav-link" data-scroll-target="#spécificité-arrow-en-lazy">Spécificité arrow en lazy</a></li>
+  <li><a href="#utilisation-du-package-readxl-recommandé-pour-sa-simplicité" id="toc-utilisation-du-package-readxl-recommandé-pour-sa-simplicité" class="nav-link" data-scroll-target="#utilisation-du-package-readxl-recommandé-pour-sa-simplicité">1. <strong>Utilisation du package <code>readxl</code></strong> (recommandé pour sa simplicité)</a></li>
+  <li><a href="#utilisation-du-package-openxlsx" id="toc-utilisation-du-package-openxlsx" class="nav-link" data-scroll-target="#utilisation-du-package-openxlsx">2. <strong>Utilisation du package <code>openxlsx</code></strong></a></li>
+  <li><a href="#utilisation-du-package-xlconnect-moins-fréquent" id="toc-utilisation-du-package-xlconnect-moins-fréquent" class="nav-link" data-scroll-target="#utilisation-du-package-xlconnect-moins-fréquent">3. <strong>Utilisation du package <code>XLConnect</code></strong> (moins fréquent)</a></li>
+  <li><a href="#avec-tidyverse-et-readxl-pour-une-manipulation-directe" id="toc-avec-tidyverse-et-readxl-pour-une-manipulation-directe" class="nav-link" data-scroll-target="#avec-tidyverse-et-readxl-pour-une-manipulation-directe">4. <strong>Avec <code>tidyverse</code> et <code>readxl</code> pour une manipulation directe</strong></a></li>
+  <li><a href="#conseils-supplémentaires" id="toc-conseils-supplémentaires" class="nav-link" data-scroll-target="#conseils-supplémentaires">Conseils supplémentaires</a></li>
+  <li><a href="#méthode-avec-le-package-readxl" id="toc-méthode-avec-le-package-readxl" class="nav-link" data-scroll-target="#méthode-avec-le-package-readxl"><strong>Méthode avec le package <code>readxl</code></strong></a></li>
+  <li><a href="#méthode-avec-le-package-openxlsx" id="toc-méthode-avec-le-package-openxlsx" class="nav-link" data-scroll-target="#méthode-avec-le-package-openxlsx"><strong>Méthode avec le package <code>openxlsx</code></strong></a></li>
+  <li><a href="#comparer-les-deux-méthodes" id="toc-comparer-les-deux-méthodes" class="nav-link" data-scroll-target="#comparer-les-deux-méthodes"><strong>Comparer les deux méthodes :</strong></a></li>
+  <li><a href="#exemple-complet-avec-readxl" id="toc-exemple-complet-avec-readxl" class="nav-link" data-scroll-target="#exemple-complet-avec-readxl">Exemple complet avec <code>readxl</code> :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -437,10 +415,8 @@ window.Quarto = {
 
 
 
-<section id="obtenir-la-partie-entière-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="obtenir-la-partie-entière-en-r">Obtenir la partie entière en R</h2>
-<section id="approche-naïve" class="level3">
-<h3 class="anchored" data-anchor-id="approche-naïve">Approche naïve</h3>
+<section id="template" class="level2">
+<h2 class="anchored" data-anchor-id="template">template</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -449,7 +425,7 @@ window.Quarto = {
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Je souhaite avoir la partie entière en R</li>
+<li>Comment importer un xls(x) en R ?</li>
 </ul>
 </div>
 </div>
@@ -461,22 +437,180 @@ window.Quarto = {
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, vous pouvez obtenir la partie entière d’un nombre (la partie avant la virgule, c’est-à-dire l’entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :</p>
+<p>Importer un fichier Excel (.xls ou .xlsx) en <strong>R</strong> peut être fait facilement en utilisant des packages comme <strong>readxl</strong>, <strong>openxlsx</strong>, ou <strong>XLConnect</strong>. Voici les étapes principales pour chaque méthode couramment utilisée :</p>
+<hr>
+<section id="utilisation-du-package-readxl-recommandé-pour-sa-simplicité" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-readxl-recommandé-pour-sa-simplicité">1. <strong>Utilisation du package <code>readxl</code></strong> (recommandé pour sa simplicité)</h3>
+<p>Le package <code>readxl</code> est léger et fonctionne bien avec les fichiers Excel.</p>
+<section id="installation" class="level4">
+<h4 class="anchored" data-anchor-id="installation">Installation :</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="chargement-et-importation" class="level4">
+<h4 class="anchored" data-anchor-id="chargement-et-importation">Chargement et importation :</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Spécifiez le chemin du fichier</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"chemin/vers/fichier.xlsx"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire la première feuille (par défaut)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire une feuille spécifique</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path, <span class="at">sheet =</span> <span class="st">"NomFeuille"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire les premières lignes uniquement (pour un aperçu)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path, <span class="at">n_max =</span> <span class="dv">10</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Si la première ligne contient des noms de colonnes, mais ce n'est pas le cas :</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="utilisation-du-package-openxlsx" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-openxlsx">2. <strong>Utilisation du package <code>openxlsx</code></strong></h3>
+<p>Ce package permet aussi d’écrire dans un fichier Excel.</p>
+<section id="installation-1" class="level4">
+<h4 class="anchored" data-anchor-id="installation-1">Installation :</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="chargement-et-importation-1" class="level4">
+<h4 class="anchored" data-anchor-id="chargement-et-importation-1">Chargement et importation :</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire un fichier Excel</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"chemin/vers/fichier.xlsx"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(file_path, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Index de la feuille ou son nom</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Vous pouvez ajuster les options comme `startRow` pour lire à partir d'une ligne spécifique</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(file_path, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">startRow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="utilisation-du-package-xlconnect-moins-fréquent" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-xlconnect-moins-fréquent">3. <strong>Utilisation du package <code>XLConnect</code></strong> (moins fréquent)</h3>
+<p>Ce package dépend de Java, ce qui peut poser des problèmes de compatibilité.</p>
+<section id="installation-2" class="level4">
+<h4 class="anchored" data-anchor-id="installation-2">Installation :</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"XLConnect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="chargement-et-importation-2" class="level4">
+<h4 class="anchored" data-anchor-id="chargement-et-importation-2">Chargement et importation :</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(XLConnect)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le fichier Excel</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"chemin/vers/fichier.xlsx"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(file_path)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire une feuille spécifique</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readWorksheet</span>(wb, <span class="at">sheet =</span> <span class="st">"NomFeuille"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="avec-tidyverse-et-readxl-pour-une-manipulation-directe" class="level3">
+<h3 class="anchored" data-anchor-id="avec-tidyverse-et-readxl-pour-une-manipulation-directe">4. <strong>Avec <code>tidyverse</code> et <code>readxl</code> pour une manipulation directe</strong></h3>
+<p><code>readxl</code> s’intègre parfaitement avec <code>tidyverse</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer et transformer</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"NomFeuille"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Colonne)) <span class="sc">%&gt;%</span>  <span class="co"># Exemple de filtre</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">NouvelleColonne =</span> Colonne1 <span class="sc">+</span> Colonne2)  <span class="co"># Exemple de transformation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="conseils-supplémentaires" class="level3">
+<h3 class="anchored" data-anchor-id="conseils-supplémentaires">Conseils supplémentaires</h3>
+<ul>
+<li><p><strong>Détecter les feuilles d’un fichier</strong> :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">"chemin/vers/fichier.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Gérer les encodages</strong> : Les fichiers Excel n’ont généralement pas de problème d’encodage comme les CSV. Cependant, vérifiez toujours la lisibilité des caractères spéciaux.</p></li>
+<li><p><strong>Chemin relatif/absolu</strong> : Assurez-vous que le chemin est correct, surtout si vous travaillez dans un projet RStudio.</p></li>
+</ul>
+<p>Avec ces approches, vous pouvez facilement importer vos fichiers Excel en R ! 😊</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/ChatGPT.PNG" class="img-fluid figure-img"></p>
+<figcaption>ChatGPT réponse 2</figcaption>
+</figure>
+</div>
+<p>Pour importer un fichier Excel (au format <code>.xls</code> ou <code>.xlsx</code>) dans R, vous pouvez utiliser des packages dédiés comme <strong><code>readxl</code></strong> ou <strong><code>openxlsx</code></strong>. Voici une explication détaillée de chaque méthode :</p>
+<hr>
+</section>
+<section id="méthode-avec-le-package-readxl" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-avec-le-package-readxl"><strong>Méthode avec le package <code>readxl</code></strong></h3>
 <ol type="1">
-<li><p><strong>La fonction <code>floor</code></strong> : Elle renvoie la plus grande valeur entière inférieure ou égale à l’argument.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>trunc</code></strong> : Elle tronque la partie décimale, ce qui équivaut à obtenir la partie entière de la valeur numérique.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>as.integer</code></strong> : Elle convertit une valeur numérique en entier en la tronquant.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">3.7</span>)  <span class="co"># Renvoie 3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="sc">-</span><span class="fl">3.7</span>) <span class="co"># Renvoie -3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>La fonction <code>round</code> avec l’argument <code>digits</code> à 0</strong> : Cette fonction arrondit à l’entier le plus proche, mais ce n’est pas exactement la même chose que de prendre la partie entière car elle peut arrondir vers le haut ou vers le bas.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.7</span>, <span class="at">digits =</span> <span class="dv">0</span>)  <span class="co"># Renvoie 4</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.3</span>, <span class="at">digits =</span> <span class="dv">0</span>)  <span class="co"># Renvoie 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Installer le package :</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Charger le package :</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Importer un fichier Excel :</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer un fichier .xlsx</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Si le fichier contient plusieurs feuilles, spécifiez-en une :</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"NomDeLaFeuille"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Options supplémentaires :</strong></p>
+<ul>
+<li><p><strong>Ignorer des lignes au début :</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">skip =</span> <span class="dv">2</span>) <span class="co"># Ignore les 2 premières lignes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lire seulement des colonnes spécifiques :</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">range =</span> <span class="st">"A1:C10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
 </ol>
-<p>Pour obtenir strictement la partie entière, les fonctions <code>floor</code> et <code>trunc</code> sont les plus adaptées. Si vous voulez absolument obtenir l’entier le plus proche sans prendre en compte la partie décimale, utilisez <code>trunc</code>. Si vous souhaitez l’entier inférieur ou égal à la valeur, utilisez <code>floor</code>.</p>
+<hr>
+</section>
+<section id="méthode-avec-le-package-openxlsx" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-avec-le-package-openxlsx"><strong>Méthode avec le package <code>openxlsx</code></strong></h3>
+<ol type="1">
+<li><p><strong>Installer le package :</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Charger le package :</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lire un fichier Excel :</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer un fichier Excel</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)  <span class="co"># Lire la première feuille</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Utiliser le nom de la feuille au lieu de son index</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"NomDeLaFeuille"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Options supplémentaires :</strong></p>
+<ul>
+<li><p><strong>Plage de cellules spécifiques :</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"chemin/vers/votre/fichier.xlsx"</span>, <span class="at">rows =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">cols =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="comparer-les-deux-méthodes" class="level3">
+<h3 class="anchored" data-anchor-id="comparer-les-deux-méthodes"><strong>Comparer les deux méthodes :</strong></h3>
+<ul>
+<li><strong><code>readxl</code></strong> :
+<ul>
+<li>Plus rapide pour lire des fichiers Excel.</li>
+<li>Ne nécessite pas de dépendances externes.</li>
+<li>Supporte uniquement la lecture (pas d’écriture).</li>
+</ul></li>
+<li><strong><code>openxlsx</code></strong> :
+<ul>
+<li>Permet de lire et écrire des fichiers Excel.</li>
+<li>Offre des fonctionnalités avancées pour la manipulation des feuilles Excel.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="exemple-complet-avec-readxl" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-complet-avec-readxl">Exemple complet avec <code>readxl</code> :</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et charger readxl</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire un fichier Excel</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/exemple.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Feuille1"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les 6 premières lignes</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Vous pouvez aussi explorer d’autres packages comme <strong><code>xlsx</code></strong>, mais ceux mentionnés ici sont plus modernes et largement utilisés.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -484,198 +618,32 @@ window.Quarto = {
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>En R, la fonction <code>floor()</code> est utilisée pour obtenir la partie entière d’un nombre. Voici un exemple de code :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir un nombre</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="fl">7.9</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>partie_entiere <span class="ot">&lt;-</span> <span class="fu">floor</span>(nombre)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher la partie entière</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(partie_entiere)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>floor(7.9)</code> retournera <code>7</code> car <code>7</code> est la partie entière de <code>7.9</code>. Vous pouvez remplacer <code>7.9</code> par n’importe quel nombre pour obtenir sa partie entière.</p>
-</section>
-<section id="spécificité-arrow-en-lazy" class="level3">
-<h3 class="anchored" data-anchor-id="spécificité-arrow-en-lazy">Spécificité arrow en lazy</h3>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Prompt :</p>
-<ul>
-<li>J’utilise R pour travailler un fichier parquet dont le chemin est stocké dans une variable “NAME_PARQUET” ouvert avec arrow::open_dataset en lazy, je veux la partie entière d’un nombre actuellement représenté sous format string et nommé “result”</li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/ChatGPT.PNG" class="img-fluid figure-img"></p>
-<figcaption>ChatGPT</figcaption>
-</figure>
-</div>
-<p>Pour obtenir la partie entière d’un nombre représenté sous forme de chaîne de caractères dans un fichier Parquet ouvert en mode lazy avec <code>arrow::open_dataset</code>, vous pouvez utiliser les fonctionnalités de manipulation de colonnes fournies par <code>dplyr</code> et <code>arrow</code>. Voici un exemple de comment faire cela :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset en mode lazy</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer la colonne "result" en partie entière</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premières lignes pour vérifier</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="sc">%&gt;%</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result, result_integer) <span class="sc">%&gt;%</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Voici une explication étape par étape de ce que fait ce code :</p>
+<p>Pour importer un fichier Excel (.xls ou .xlsx) en R, vous pouvez utiliser le package <code>readxl</code>. Voici comment procéder :</p>
 <ol type="1">
-<li><p><strong>Ouvrir le dataset en mode lazy</strong> :</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cette ligne ouvre votre fichier Parquet en utilisant <code>arrow::open_dataset</code>.</p></li>
-<li><p><strong>Transformer la colonne “result” en partie entière</strong> :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li><p><strong>Installer le package <code>readxl</code></strong> (si ce n’est pas déjà fait) :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Charger le package</strong> :</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lire le fichier Excel</strong> :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacez "votre_fichier.xlsx" par le chemin de votre fichier</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"votre_fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><code>mutate(result_integer = ...)</code> : Crée une nouvelle colonne <code>result_integer</code> qui contiendra les valeurs entières.</li>
-<li><code>as.numeric(result)</code> : Convertit la colonne <code>result</code> (qui est une chaîne de caractères) en numérique.</li>
-<li><code>floor(...)</code> : Prend la partie entière du nombre.</li>
-</ul></li>
-<li><p><strong>Afficher les premières lignes pour vérifier</strong> :</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dataset_transformed <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result, result_integer) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>select(result, result_integer)</code> : Sélectionne les colonnes <code>result</code> et <code>result_integer</code> pour l’affichage.</li>
-<li><code>collect()</code> : Évalue les transformations en mode lazy et charge les résultats en mémoire.</li>
-<li><code>head()</code> : Affiche les premières lignes pour vérifier le résultat.</li>
+<li><code>sheet = 1</code> indique que vous souhaitez lire la première feuille du fichier Excel. Vous pouvez également spécifier le nom de la feuille, par exemple <code>sheet = "Feuille1"</code>.</li>
 </ul></li>
 </ol>
-<p>Assurez-vous de remplacer <code>"path/to/your/parquet/file"</code> par le chemin réel de votre fichier Parquet. Ce script suppose que votre colonne <code>result</code> contient des chaînes de caractères qui peuvent être converties en nombres.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Suite :</p>
-<ul>
-<li>cela donne l’erreur suivante : Error: Expression extract_integer_part(result) not supported in Arrow Call collect() first to pull data into R.</li>
-</ul>
-</div>
-</div>
-</div>
-<p>L’erreur indique que l’expression <code>extract_integer_part(result)</code> n’est pas supportée par Arrow en mode lazy et qu’il faudrait utiliser <code>collect()</code> pour tirer les données en mémoire avant de faire des transformations non supportées par Arrow.</p>
-<p>Pour contourner ce problème, vous pouvez d’abord collecter les données dans un DataFrame en mémoire avec <code>collect()</code> puis faire les transformations en utilisant <code>dplyr</code>. Voici comment faire :</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset en mode lazy</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Collecter les données en mémoire</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result) <span class="sc">%&gt;%</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer la colonne "result" en partie entière</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> collected_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premières lignes pour vérifier</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collected_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Voici une explication étape par étape de ce que fait ce code :</p>
-<ol type="1">
-<li><p><strong>Ouvrir le dataset en mode lazy</strong> :</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"path/to/your/parquet/file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cette ligne ouvre votre fichier Parquet en utilisant <code>arrow::open_dataset</code>.</p></li>
-<li><p><strong>Collecter les données en mémoire</strong> :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(result) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>select(result)</code> : Sélectionne uniquement la colonne <code>result</code> pour réduire la quantité de données collectées.</li>
-<li><code>collect()</code> : Charge les données sélectionnées en mémoire sous forme de DataFrame R.</li>
-</ul></li>
-<li><p><strong>Transformer la colonne “result” en partie entière</strong> :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>collected_data <span class="ot">&lt;-</span> collected_data <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result_integer =</span> <span class="fu">floor</span>(<span class="fu">as.numeric</span>(result)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>mutate(result_integer = ...)</code> : Crée une nouvelle colonne <code>result_integer</code> qui contiendra les valeurs entières.</li>
-<li><code>as.numeric(result)</code> : Convertit la colonne <code>result</code> (qui est une chaîne de caractères) en numérique.</li>
-<li><code>floor(...)</code> : Prend la partie entière du nombre.</li>
-</ul></li>
-<li><p><strong>Afficher les premières lignes pour vérifier</strong> :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collected_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>head(collected_data)</code> : Affiche les premières lignes du DataFrame pour vérifier le résultat.</li>
-</ul></li>
-</ol>
-<p>Ce script permet de contourner les limitations d’Arrow pour certaines opérations et utilise les fonctionnalités de <code>dplyr</code> une fois les données collectées en mémoire. Assurez-vous de remplacer <code>"path/to/your/parquet/file"</code> par le chemin réel de votre fichier Parquet.</p>
-<hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/copilot.PNG" class="img-fluid figure-img"></p>
-<figcaption>Copilot</figcaption>
-</figure>
-</div>
-<p>Pour obtenir la partie entière d’un nombre représenté sous format string dans R, vous pouvez utiliser la fonction <code>as.integer()</code>. Cependant, cette fonction convertit le string en un nombre entier seulement si le string est déjà un nombre. Si le string contient des caractères non numériques ou des décimales, vous devez d’abord le convertir en un nombre à virgule flottante avec <code>as.numeric()</code> puis utiliser <code>floor()</code> pour obtenir la partie entière. Voici comment vous pouvez le faire:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que votre dataset est stocké dans la variable 'data'</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(NAME_PARQUET)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la colonne 'result' en nombre à virgule flottante</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>result)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> <span class="fu">floor</span>(data<span class="sc">$</span>result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela convertira la colonne “result” en nombres entiers. Si vous rencontrez des problèmes avec des valeurs non numériques, vous devrez peut-être les gérer séparément. Notez que <code>as.numeric()</code> et <code>floor()</code> renverront <code>NA</code> pour les valeurs non numériques. Vous pouvez utiliser <code>is.na()</code> pour identifier ces valeurs.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Suite :</p>
-<ul>
-<li>Error in data<span class="math inline">\(result &lt;- as.numeric(data\)</span>result) : cannot add bindings to a locked environment</li>
-</ul>
-</div>
-</div>
-</div>
-<p>L’erreur que vous rencontrez est due à une tentative de modification d’un environnement verrouillé. Dans R, un “environnement verrouillé” est généralement un environnement qui a été rendu en lecture seule et ne peut pas être modifié.</p>
-<p>Lorsque vous utilisez <code>arrow::open_dataset()</code>, il renvoie un objet <code>Dataset</code> qui est en lecture seule. Vous ne pouvez pas modifier directement les colonnes de cet objet.</p>
-<p>Pour résoudre ce problème, vous pouvez créer une copie de la colonne que vous souhaitez modifier dans un nouvel objet, effectuer les modifications sur cet objet, puis ajouter cet objet à votre <code>Dataset</code>. Voici comment vous pouvez le faire :</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvrir le dataset</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(NAME_PARQUET)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer une copie de la colonne 'result' dans un nouvel objet</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> data<span class="sc">$</span>result</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la colonne 'result' en nombre à virgule flottante</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(result_column)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenir la partie entière</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>result_column <span class="ot">&lt;-</span> <span class="fu">floor</span>(result_column)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter la colonne modifiée à l'objet 'data'</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>result <span class="ot">&lt;-</span> result_column</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela devrait résoudre votre problème. Si vous rencontrez toujours des problèmes, n’hésitez pas à me le faire savoir !</p>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Cela ne marche toujours pas !</p>
-</div>
-</div>
-</div>
+<p>Voici un exemple complet :</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package (si nécessaire)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire le fichier Excel</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"chemin/vers/votre_fichier.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premières lignes du dataframe</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>N’hésitez pas à me dire si vous avez besoin d’aide supplémentaire ou si vous avez d’autres questions ! 😊</p>
 
 
 </section>
