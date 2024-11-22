@@ -1,4 +1,4 @@
-## template
+## Documentation pour débuter en R
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

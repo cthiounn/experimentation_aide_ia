@@ -1,4 +1,4 @@
-## template
+## Appliquer un filtre
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

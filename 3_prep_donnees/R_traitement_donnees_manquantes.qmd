@@ -1,4 +1,4 @@
-## template
+## Traiter les données manquantes
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

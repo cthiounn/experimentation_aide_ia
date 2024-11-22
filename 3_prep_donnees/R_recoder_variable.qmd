@@ -1,4 +1,4 @@
-## template
+## Recoder une variable
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

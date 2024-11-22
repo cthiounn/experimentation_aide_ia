@@ -1,4 +1,4 @@
-## template
+## Analyser une variable qualitative
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

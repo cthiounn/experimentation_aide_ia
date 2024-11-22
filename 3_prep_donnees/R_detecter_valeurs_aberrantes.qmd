@@ -1,4 +1,4 @@
-## template
+## Détecter les valeurs aberrantes
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

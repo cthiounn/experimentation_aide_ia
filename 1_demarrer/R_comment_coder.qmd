@@ -1,5 +1,4 @@
-## template
-
+## Comment coder en R
 ::: {.callout-note appearance="simple"}
 Prompt : 
 

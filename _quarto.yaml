@@ -60,7 +60,7 @@ website:
           - href: 3_prep_donnees/R_recoder_variable.qmd
             text: "Recoder une variable"
           - href: 3_prep_donnees/R_detecter_valeurs_aberrantes.qmd
-            text: "Détecter les données aberrantes"
+            text: "Détecter les valeurs aberrantes"
           - href: 3_prep_donnees/R_renommer_variable.qmd
             text: "Renommer une variable"
           - href: 3_prep_donnees/R_joint.qmd

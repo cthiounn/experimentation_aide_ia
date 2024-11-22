@@ -1,4 +1,4 @@
-## template
+## Obtenir les statistiques descriptives d'une variable
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

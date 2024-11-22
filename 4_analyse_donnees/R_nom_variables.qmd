@@ -1,4 +1,4 @@
-## template
+## Obtenir tous les noms de variables
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

@@ -1,4 +1,4 @@
-## template
+## Créer de nouvelles variables
 
 ::: {.callout-note appearance="simple"}
 Prompt : 

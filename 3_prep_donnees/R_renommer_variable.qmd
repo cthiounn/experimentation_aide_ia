@@ -1,4 +1,4 @@
-## template
+## Renommer une variable
 
 ::: {.callout-note appearance="simple"}
 Prompt : 
