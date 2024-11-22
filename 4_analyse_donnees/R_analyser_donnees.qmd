@@ -236,8 +236,10 @@ Pour faire une analyse de données en R, voici les étapes principales :
    output: html_document
    ---
 
-   ```{r}
+   ```r
    summary(data)
+   ```
+   
    ```
 
 Pour plus de détails, vous pouvez consulter des ressources comme les guides de [data.gouv.fr](https://guides.data.gouv.fr/reutiliser-des-donnees/guide-traitement-et-analyse-de-donnees/analyser-des-donnees/analyser-des-donnees-avec-r)[1](https://guides.data.gouv.fr/reutiliser-des-donnees/guide-traitement-et-analyse-de-donnees/analyser-des-donnees/analyser-des-donnees-avec-r) ou suivre des cours en ligne sur des plateformes comme [Coursera](https://www.coursera.org/learn/analyse-de-donnees-avec-la-programmation-r)[2](https://www.coursera.org/learn/analyse-de-donnees-avec-la-programmation-r) et [OpenClassrooms](https://openclassrooms.com/fr/courses/8248096-initiez-vous-a-r-pour-lanalyse-de-donnees)[3](https://openclassrooms.com/fr/courses/8248096-initiez-vous-a-r-pour-lanalyse-de-donnees/8308695-tirez-un-maximum-de-ce-cours).
