@@ -47,8 +47,24 @@ website:
             text: "Importer des données volumineuses sous R"
       - section: "Nettoyage et préparation des données"
         contents:
-          - href: 3_nettoyage_donnees/R_joint.qmd
-            text: "Réaliser une jointure de deux tables"
+          - href: 3_prep_donnees/R_operations_apres_import.qmd
+            text: "Que faire après avoir importer des données ?"
+          - href: 3_prep_donnees/R_detecter_donnees_manquantes.qmd
+            text: "Comment détecter les données manquantes ?"
+          - href: 3_prep_donnees/R_traitement_donnees_manquantes
+            text: "Que faire avec les données manquantes ?"
+          - href: 3_prep_donnees/R_creer_variable.qmd
+            text: "Comment créer de nouvelles variables ?"
+          - href: 3_prep_donnees/R_creer_filtre.qmd
+            text: "Comment faire un filtre ?"
+          - href: 3_prep_donnees/R_recoder_variable.qmd
+            text: "Comment recoder une variable ?"
+          - href: 3_prep_donnees/R_detecter_valeurs_aberrantes.qmd
+            text: "Comment détecter les données aberrantes ?"
+          - href: 3_prep_donnees/R_renommer_variable.qmd
+            text: "Comment renommer une variable ?"
+          - href: 3_prep_donnees/R_joint.qmd
+            text: "Comment faire une jointure de deux tables sous R ?"
       - section: "Analyse des données"
         contents:
           - href: 4_analyse_donnees/R_caract.qmd

@@ -1,0 +1,141 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment détecter les données manquantes en R ?
+
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, il existe plusieurs façons de détecter les données manquantes dans un jeu de données. Voici quelques méthodes courantes :
+
+### 1. **Utiliser `is.na()`**
+La fonction `is.na()` permet de tester si des valeurs sont manquantes dans un vecteur, une matrice ou un cadre de données. Elle renvoie un vecteur logique avec `TRUE` pour les valeurs manquantes et `FALSE` pour les autres.
+
+#### Exemple :
+```r
+# Exemple de vecteur avec des valeurs manquantes
+x <- c(1, 2, NA, 4, NA, 6)
+
+# Vérifier les valeurs manquantes
+is.na(x)
+```
+Cela renverra :
+```
+[1] FALSE FALSE  TRUE FALSE  TRUE FALSE
+```
+
+### 2. **Compter le nombre de valeurs manquantes avec `sum(is.na())`**
+Vous pouvez utiliser `sum(is.na())` pour compter le nombre de valeurs manquantes dans un vecteur, une matrice ou un data frame.
+
+#### Exemple :
+```r
+# Compter les valeurs manquantes dans le vecteur x
+sum(is.na(x))  # Résultat : 2 (2 valeurs manquantes)
+```
+
+### 3. **Vérifier les valeurs manquantes dans un DataFrame avec `colSums()`**
+Si vous travaillez avec un **data frame**, vous pouvez utiliser `colSums()` pour compter les valeurs manquantes par colonne.
+
+#### Exemple :
+```r
+# Exemple de data frame avec des valeurs manquantes
+df <- data.frame(a = c(1, 2, NA, 4), b = c(NA, 2, 3, 4))
+
+# Compter les valeurs manquantes par colonne
+colSums(is.na(df))
+```
+Cela renverra :
+```
+a b 
+1 1
+```
+
+### 4. **Utiliser `summary()` pour une vue d'ensemble**
+La fonction `summary()` fournit un résumé statistique rapide du data frame, et elle indique également le nombre de valeurs manquantes dans chaque colonne.
+
+#### Exemple :
+```r
+summary(df)
+```
+Cela donnera un résumé avec des informations sur les valeurs manquantes, sous forme de `NA's` :
+```
+      a            b       
+ Min.   :1.0   Min.   :2.0  
+ 1st Qu.:1.5   1st Qu.:2.0  
+ Median :2.5   Median :2.5  
+ Mean   :2.3   Mean   :3.0  
+ 3rd Qu.:3.0   3rd Qu.:4.0  
+ Max.   :4.0   Max.   :4.0  
+ NA's   :1     NA's   :1
+```
+
+### 5. **Vérifier si tout un data frame contient des valeurs manquantes avec `any(is.na())`**
+Si vous voulez vérifier s'il y a des valeurs manquantes dans l'ensemble du data frame (ou tout autre objet), vous pouvez utiliser `any(is.na())`. Cette fonction renvoie `TRUE` si des valeurs manquantes existent et `FALSE` si ce n'est pas le cas.
+
+#### Exemple :
+```r
+# Vérifier s'il y a des valeurs manquantes dans le data frame
+any(is.na(df))  # Résultat : TRUE
+```
+
+### 6. **Détecter les lignes ou colonnes avec des valeurs manquantes**
+Si vous souhaitez extraire les lignes ou les colonnes contenant des valeurs manquantes, vous pouvez utiliser des fonctions comme `which()` ou `complete.cases()`.
+
+#### Exemple pour les lignes avec des données manquantes :
+```r
+# Lignes avec des valeurs manquantes
+which(rowSums(is.na(df)) > 0)
+```
+Cela renverra l'indice des lignes qui contiennent des valeurs manquantes.
+
+#### Exemple pour les lignes sans données manquantes :
+```r
+# Lignes sans valeurs manquantes
+df[complete.cases(df), ]
+```
+
+Ces méthodes vous permettent d'inspecter et de détecter les valeurs manquantes dans vos données en R.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour détecter les données manquantes en R, vous pouvez utiliser plusieurs méthodes et fonctions. Voici quelques-unes des plus courantes :
+
+1. **Utiliser la fonction `is.na()`** :
+   ```R
+   # Exemple de détection des valeurs manquantes dans un vecteur
+   vecteur <- c(1, 2, NA, 4, NA, 6)
+   is.na(vecteur)
+   ```
+
+2. **Compter les valeurs manquantes avec `sum(is.na())`** :
+   ```R
+   # Compter le nombre de valeurs manquantes dans un vecteur
+   sum(is.na(vecteur))
+   ```
+
+3. **Utiliser `na.omit()` pour supprimer les valeurs manquantes** :
+   ```R
+   # Supprimer les lignes avec des valeurs manquantes dans un data frame
+   data_clean <- na.omit(data_frame)
+   ```
+
+4. **Visualiser les données manquantes avec des packages comme `VIM` ou `naniar`** :
+   ```R
+   # Installer et utiliser le package VIM pour visualiser les données manquantes
+   install.packages("VIM")
+   library(VIM)
+   aggr(data_frame, col=c('navyblue','red'), numbers=TRUE, sortVars=TRUE, labels=names(data_frame), cex.axis=.7, gap=3, ylab=c("Histogramme des données manquantes","Modèle de données"))
+   ```
+
+Ces méthodes vous permettent de détecter, compter et gérer les données manquantes efficacement dans vos analyses en R[1](https://sites.google.com/site/rgraphiques/home/2--ouvrir-des-bases-de-donnees/donnees-manquantes-absentes-ou-vides-sous-r)[2](https://www.datanovia.com/en/fr/blog/comment-visualiser-les-donnees-manquantes-dans-r-a-laide-dune-heatmap/)[3](https://thinkr.fr/donnees-manquantes-causes-identification-et-imputation/).
+
+Avez-vous besoin d'aide pour une étape spécifique ou un exemple plus détaillé ?

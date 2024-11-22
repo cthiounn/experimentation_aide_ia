@@ -1,0 +1,148 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Que faire avec les données manquantes en R ?
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Les données manquantes (ou **NA** en R) sont un défi fréquent lors de l'analyse de données. Il existe plusieurs approches pour gérer les données manquantes en fonction de la situation et des objectifs d'analyse. Voici différentes stratégies à adopter pour traiter les **NA** en R :
+
+### 1. **Identifier les données manquantes**
+Avant de traiter les données manquantes, il est important de les identifier.
+
+- **Vérifier la présence de valeurs manquantes dans un jeu de données** :
+  ```R
+  sum(is.na(votre_data))  # Nombre total de valeurs manquantes
+  ```
+
+- **Vérifier les colonnes avec des données manquantes** :
+  ```R
+  colSums(is.na(votre_data))  # Nombre de NAs par colonne
+  ```
+
+### 2. **Supprimer les données manquantes**
+Il existe plusieurs options pour supprimer les lignes ou les colonnes contenant des valeurs manquantes.
+
+- **Supprimer les lignes contenant des valeurs manquantes** :
+  ```R
+  votre_data_sans_NA <- na.omit(votre_data)
+  ```
+
+  Cela supprime toutes les lignes contenant au moins un NA.
+
+- **Supprimer les colonnes contenant des valeurs manquantes** :
+  ```R
+  votre_data_sans_colonnes_NA <- votre_data[, colSums(is.na(votre_data)) == 0]
+  ```
+
+  Cela supprime les colonnes qui contiennent des valeurs manquantes.
+
+### 3. **Imputer les données manquantes**
+L’imputation est une méthode où vous remplacez les valeurs manquantes par des estimations basées sur les données disponibles.
+
+- **Imputer par la moyenne (pour les variables numériques)** :
+  ```R
+  votre_data$colonne[is.na(votre_data$colonne)] <- mean(votre_data$colonne, na.rm = TRUE)
+  ```
+
+- **Imputer par la médiane** (utile si les données sont asymétriques ou contiennent des valeurs aberrantes) :
+  ```R
+  votre_data$colonne[is.na(votre_data$colonne)] <- median(votre_data$colonne, na.rm = TRUE)
+  ```
+
+- **Imputer par la mode** (pour les variables catégorielles) :
+  ```R
+  mode_imputation <- function(x) {
+    uniq_x <- unique(x)
+    uniq_x[which.max(tabulate(match(x, uniq_x)))]
+  }
+  votre_data$colonne[is.na(votre_data$colonne)] <- mode_imputation(votre_data$colonne)
+  ```
+
+- **Imputation par régression ou modèles avancés** :
+  Vous pouvez utiliser des algorithmes comme la régression ou des méthodes d’imputation plus sophistiquées comme la méthode **KNN** (K-Nearest Neighbors) ou l’imputation multiple via la méthode **MICE**.
+
+  Exemple avec le package `mice` :
+  ```R
+  library(mice)
+  imputed_data <- mice(votre_data, method = 'pmm')  # imputation par "predictive mean matching"
+  votre_data_impute <- complete(imputed_data)  # Génère un jeu de données complet
+  ```
+
+### 4. **Utiliser des modèles robustes aux données manquantes**
+Certains modèles statistiques et algorithmes peuvent gérer directement les données manquantes. Par exemple, les modèles de régression linéaire avec la méthode de **maximum de vraisemblance** ou les arbres de décision comme ceux utilisés dans le package `rpart` ou `randomForest`.
+
+```R
+library(randomForest)
+model <- randomForest(target ~ ., data = votre_data, na.action = na.roughfix)
+```
+
+### 5. **Utiliser des techniques avancées**
+- **KNN (K-Nearest Neighbors)** : Imputation basée sur la proximité des voisins.
+- **MICE (Multiple Imputation by Chained Equations)** : Fournit une approche plus sophistiquée d'imputation multiple, prenant en compte les dépendances entre les variables.
+
+```R
+library(DMwR)
+votre_data <- knnImputation(votre_data)
+```
+
+### 6. **Créer une nouvelle catégorie pour les données manquantes**
+Dans certains cas, surtout pour des variables catégorielles, vous pouvez créer une nouvelle catégorie indiquant que la donnée est manquante.
+
+```R
+votre_data$colonne[is.na(votre_data$colonne)] <- 'Non renseigné'
+```
+
+### Résumé des approches courantes :
+1. **Supprimer les données manquantes** (lignes ou colonnes).
+2. **Imputer les valeurs manquantes** (moyenne, médiane, mode, régression, KNN).
+3. **Utiliser des modèles robustes** qui peuvent gérer les NA directement.
+4. **MICE ou imputation multiple** pour des approches plus avancées.
+
+Le choix de la méthode dépend du type de données, de la proportion des valeurs manquantes et de l'objectif de l'analyse.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Gérer les données manquantes en R est une tâche courante et il existe plusieurs méthodes pour les traiter. Voici quelques approches courantes :
+
+1. **Identifier les données manquantes** :
+   - Utilisez `is.na()` pour détecter les valeurs manquantes.
+   - La fonction `summary()` peut également donner un aperçu des données manquantes dans chaque variable.
+
+2. **Supprimer les données manquantes** :
+   - `na.omit()` ou `na.exclude()` peuvent être utilisés pour supprimer les lignes contenant des valeurs manquantes.
+   - `complete.cases()` permet de sélectionner uniquement les lignes complètes.
+
+3. **Imputer les données manquantes** :
+   - Remplacer les valeurs manquantes par des statistiques comme la moyenne (`mean()`) ou la médiane (`median()`).
+   - Utiliser des méthodes plus avancées comme l'imputation multiple avec le package `mice`.
+
+4. **Visualiser les données manquantes** :
+   - Le package `VIM` offre des fonctions comme `matrixplot()` pour visualiser les données manquantes.
+   - `naniar` et `visdat` sont également utiles pour explorer et visualiser les données manquantes.
+
+5. **Gérer les données manquantes dans les analyses** :
+   - De nombreuses fonctions R ont un paramètre `na.rm = TRUE` pour ignorer les valeurs manquantes lors des calculs.
+
+Voici un exemple simple pour imputer les valeurs manquantes avec la moyenne d'une colonne :
+
+```r
+# Exemple de données avec des valeurs manquantes
+data <- c(1, 2, NA, 4, 5, NA, 7)
+
+# Imputation des valeurs manquantes avec la moyenne
+data[is.na(data)] <- mean(data, na.rm = TRUE)
+print(data)
+```
+
+Ces méthodes vous aideront à gérer efficacement les données manquantes dans vos analyses en R[1](https://sites.google.com/site/rgraphiques/home/2--ouvrir-des-bases-de-donnees/donnees-manquantes-absentes-ou-vides-sous-r)[2](https://delladata.fr/visualisation-donnees-manquantes/)[3](https://ichi.pro/fr/imputation-des-donnees-manquantes-avec-r-evaluation-avec-regression-lineaire-223743872282669).
+
+Avez-vous un exemple spécifique de données avec lesquelles vous travaillez ?

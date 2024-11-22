@@ -1,0 +1,112 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment créer de nouvelles variables en R ?
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, la création de nouvelles variables (ou colonnes) peut être réalisée de différentes manières en fonction du contexte. Voici quelques approches courantes pour créer des variables dans R :
+
+### 1. **Création d'une variable simple :**
+Pour créer une nouvelle variable (un vecteur), vous pouvez simplement lui affecter une valeur à l'aide de l'opérateur d'assignation `<-`.
+
+```r
+# Création d'une variable 'x' avec des valeurs numériques
+x <- c(1, 2, 3, 4, 5)
+```
+
+### 2. **Création d'une variable dans un dataframe :**
+Si vous travaillez avec des données dans un `data.frame`, vous pouvez ajouter une nouvelle colonne au dataframe.
+
+```r
+# Exemple de dataframe
+df <- data.frame(a = c(1, 2, 3), b = c(4, 5, 6))
+
+# Ajouter une nouvelle variable (colonne) au dataframe
+df$c <- c(7, 8, 9)
+
+# Ou en utilisant un calcul sur des colonnes existantes
+df$d <- df$a + df$b
+```
+
+### 3. **Utilisation de la fonction `mutate()` (dplyr) :**
+La fonction `mutate()` du package `dplyr` est très pratique pour créer ou modifier des variables dans un `data.frame`. Elle permet de créer une nouvelle variable basée sur des calculs ou transformations des colonnes existantes.
+
+```r
+# Charger le package dplyr
+library(dplyr)
+
+# Ajouter une colonne 'e' qui est la somme de 'a' et 'b'
+df <- df %>%
+  mutate(e = a + b)
+```
+
+### 4. **Création de variables conditionnelles :**
+Vous pouvez aussi créer des variables selon des conditions spécifiques à l'aide de `ifelse()`.
+
+```r
+# Créer une variable 'category' basée sur la valeur de 'a'
+df$category <- ifelse(df$a > 2, "High", "Low")
+```
+
+### 5. **Création d'une variable avec la fonction `transform()` :**
+La fonction `transform()` peut également être utilisée pour ajouter ou modifier des variables dans un `data.frame`.
+
+```r
+df <- transform(df, f = a * b)
+```
+
+### 6. **Utilisation de la fonction `within()` :**
+Une autre manière de modifier ou de créer des variables dans un `data.frame` est d'utiliser la fonction `within()`.
+
+```r
+df <- within(df, {
+  g <- a * b
+})
+```
+
+### Récapitulatif des méthodes :
+- **`<-`** : Pour créer une variable simple.
+- **`$`** : Pour ajouter une colonne à un `data.frame`.
+- **`mutate()`** (dplyr) : Pour ajouter des colonnes basées sur des calculs ou transformations.
+- **`ifelse()`** : Pour créer des variables conditionnelles.
+- **`transform()`** : Pour ajouter ou modifier des colonnes dans un `data.frame`.
+- **`within()`** : Pour ajouter ou modifier des colonnes dans un `data.frame`.
+
+Si tu as un exemple spécifique de ce que tu veux faire, je peux t'aider à ajuster ces méthodes !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Créer de nouvelles variables en R est assez simple et peut se faire de plusieurs manières. Voici quelques méthodes courantes :
+
+1. **Utiliser l'opérateur `$`** :
+   Vous pouvez créer une nouvelle variable dans un dataframe en utilisant l'opérateur `$`. Par exemple, si vous avez un dataframe `df` et que vous voulez créer une nouvelle variable `new_var` qui est le double d'une variable existante `old_var`, vous pouvez faire :
+   ```r
+   df$new_var <- df$old_var * 2
+   ```
+
+2. **Utiliser la fonction `mutate()` du package `dplyr`** :
+   Le package `dplyr` offre une manière élégante de manipuler les dataframes. La fonction `mutate()` permet de créer de nouvelles variables. Par exemple :
+   ```r
+   library(dplyr)
+   df <- df %>%
+     mutate(new_var = old_var * 2)
+   ```
+
+3. **Utiliser la fonction `ifelse()` pour des variables conditionnelles** :
+   Si vous voulez créer une variable basée sur une condition, vous pouvez utiliser `ifelse()`. Par exemple, pour créer une variable `new_var` qui vaut 1 si `old_var` est supérieur à 10, et 0 sinon :
+   ```r
+   df$new_var <- ifelse(df$old_var > 10, 1, 0)
+   ```
+
+Ces méthodes vous permettent de créer et de manipuler des variables facilement dans R[1](https://bookdown.org/fousseynoubah/dswr_book/transformer-de-donnees-avec-dplyr.html)[2](https://juba.github.io/tidyverse/09-recodages.html)[3](https://demandred.gitbooks.io/introduction-a-r-pour-les-chatons/content/transformer-les-donnees.html).
+
+Si vous avez des questions spécifiques ou si vous voulez voir un exemple plus détaillé, n'hésitez pas à demander ! 😊

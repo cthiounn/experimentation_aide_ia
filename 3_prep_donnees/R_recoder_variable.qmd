@@ -1,0 +1,106 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment recoder une variable en R ?
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, vous pouvez recoder une variable de plusieurs façons, en fonction du type de modification que vous souhaitez apporter. Voici quelques méthodes courantes pour recoder une variable.
+
+### 1. Utilisation de la fonction `ifelse()`
+La fonction `ifelse()` permet de modifier les valeurs d'une variable en fonction d'une condition.
+
+```r
+# Exemple de recodage d'une variable
+data$nouvelle_variable <- ifelse(data$variable == "ancienne_valeur", "nouvelle_valeur", data$variable)
+```
+Cela va remplacer les valeurs de la variable `variable` qui sont égales à `"ancienne_valeur"` par `"nouvelle_valeur"` et conserver les autres valeurs inchangées.
+
+### 2. Utilisation de `dplyr` avec `mutate()` et `case_when()`
+Si vous travaillez avec le package `dplyr`, vous pouvez utiliser `mutate()` et `case_when()` pour effectuer des recodages plus complexes et plus lisibles.
+
+```r
+library(dplyr)
+
+# Exemple avec dplyr
+data <- data %>%
+  mutate(nouvelle_variable = case_when(
+    variable == "ancienne_valeur1" ~ "nouvelle_valeur1",
+    variable == "ancienne_valeur2" ~ "nouvelle_valeur2",
+    TRUE ~ variable
+  ))
+```
+Avec `case_when()`, vous pouvez définir plusieurs conditions et affecter différentes valeurs en fonction de ces conditions.
+
+### 3. Utilisation de `factor()` pour recoder des facteurs
+Si la variable à recoder est un facteur, vous pouvez utiliser la fonction `factor()` pour changer l'ordre ou les niveaux d'un facteur.
+
+```r
+# Exemple de recodage d'un facteur
+data$nouveau_facteur <- factor(data$variable, levels = c("ancienne_valeur1", "ancienne_valeur2"), labels = c("nouvelle_valeur1", "nouvelle_valeur2"))
+```
+Cela va remplacer les niveaux de `variable` en fonction de l'ordre spécifié dans `levels` et les étiquettes associées à ces niveaux dans `labels`.
+
+### 4. Recodage avec `recode()` de `dplyr`
+`recode()` de `dplyr` est aussi une méthode simple pour remplacer des valeurs spécifiques par d'autres.
+
+```r
+library(dplyr)
+
+data$nouvelle_variable <- recode(data$variable,
+                                 "ancienne_valeur1" = "nouvelle_valeur1",
+                                 "ancienne_valeur2" = "nouvelle_valeur2")
+```
+Cela remplace directement les anciennes valeurs par de nouvelles.
+
+### 5. Recodage par substitution manuelle
+Si vous souhaitez faire un recodage personnalisé pour chaque valeur, vous pouvez directement utiliser des indices de colonnes ou des valeurs spécifiques.
+
+```r
+# Exemple de recodage manuel
+data$nouvelle_variable <- data$variable
+data$nouvelle_variable[data$variable == "ancienne_valeur"] <- "nouvelle_valeur"
+```
+
+### Conclusion
+Le choix de la méthode dépend de la complexité du recodage que vous souhaitez effectuer. Pour des recodages simples, `ifelse()` et `recode()` sont efficaces, tandis que pour des transformations plus complexes ou multi-conditions, `case_when()` de `dplyr` est très utile.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour recoder une variable en R, vous pouvez utiliser plusieurs fonctions et packages selon vos besoins. Voici quelques méthodes courantes :
+
+1. **Utiliser la fonction `recode` du package `dplyr`** :
+   ```R
+   library(dplyr)
+   data <- data.frame(variable = c("A", "B", "C", "A"))
+   data <- data %>%
+     mutate(variable_recoded = recode(variable, "A" = "X", "B" = "Y", "C" = "Z"))
+   ```
+
+2. **Utiliser la fonction `ifelse` pour créer une variable binaire** :
+   ```R
+   data <- data.frame(variable = c(1, 2, 3, 1))
+   data$variable_recoded <- ifelse(data$variable == 1, "Yes", "No")
+   ```
+
+3. **Utiliser la fonction `cut` pour recoder une variable numérique en catégories** :
+   ```R
+   data <- data.frame(variable = c(1, 2, 3, 4, 5))
+   data$variable_recoded <- cut(data$variable, breaks = c(0, 2, 4, 6), labels = c("Low", "Medium", "High"))
+   ```
+
+4. **Utiliser la fonction `factor` pour recoder les niveaux d'un facteur** :
+   ```R
+   data <- data.frame(variable = factor(c("A", "B", "C", "A")))
+   data$variable_recoded <- factor(data$variable, levels = c("A", "B", "C"), labels = c("X", "Y", "Z"))
+   ```
+
+Ces méthodes vous permettent de recoder des variables de différentes manières selon vos besoins spécifiques. Si vous avez des questions plus précises ou si vous souhaitez voir un exemple détaillé, n'hésitez pas à demander !

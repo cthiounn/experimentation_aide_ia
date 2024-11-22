@@ -1,0 +1,102 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment renommer une variable en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, pour renommer une variable (ou une colonne dans un jeu de données), vous pouvez utiliser plusieurs méthodes selon le contexte. Voici quelques-unes des approches les plus courantes :
+
+### 1. **Renommer une colonne dans un `data.frame`**
+Si vous avez un `data.frame` et que vous souhaitez renommer une colonne, vous pouvez utiliser la fonction `colnames()` ou `names()`.
+
+#### Exemple avec `colnames()` :
+```r
+# Création d'un data.frame exemple
+df <- data.frame(A = 1:5, B = 6:10)
+
+# Renommer la colonne A en 'Nouvelle_A'
+colnames(df)[colnames(df) == "A"] <- "Nouvelle_A"
+```
+
+#### Exemple avec `names()` :
+```r
+# Renommer la colonne B en 'Nouvelle_B'
+names(df)[names(df) == "B"] <- "Nouvelle_B"
+```
+
+### 2. **Renommer une variable (ou une colonne) avec `dplyr`**
+Le package `dplyr` offre une fonction pratique appelée `rename()` pour renommer des colonnes. Cette fonction est souvent utilisée pour une syntaxe plus claire.
+
+#### Exemple avec `rename()` de `dplyr` :
+```r
+# Charger le package dplyr
+library(dplyr)
+
+# Renommer la colonne A en 'Nouvelle_A'
+df <- df %>%
+  rename(Nouvelle_A = A)
+```
+
+### 3. **Renommer une variable simple**
+Si vous travaillez avec une simple variable (et non une colonne dans un `data.frame`), vous pouvez simplement affecter une nouvelle valeur à une variable existante.
+
+#### Exemple :
+```r
+# Variable originale
+A <- 5
+
+# Renommer A en Nouvelle_A
+Nouvelle_A <- A
+rm(A)  # Optionnel, si vous souhaitez supprimer l'ancienne variable
+```
+
+### 4. **Renommer une colonne dans un `data.table`**
+Si vous utilisez le package `data.table`, vous pouvez renommer une colonne avec la syntaxe suivante :
+```r
+# Charger le package data.table
+library(data.table)
+
+# Création d'un data.table exemple
+dt <- data.table(A = 1:5, B = 6:10)
+
+# Renommer la colonne A en 'Nouvelle_A'
+setnames(dt, "A", "Nouvelle_A")
+```
+
+### Résumé :
+- **`colnames()` / `names()`** : pour renommer des colonnes dans un `data.frame`.
+- **`dplyr::rename()`** : pour une syntaxe plus claire et élégante.
+- **`data.table::setnames()`** : pour renommer des colonnes dans un `data.table`.
+
+Chaque méthode est adaptée à des situations spécifiques selon que vous travaillez avec un `data.frame`, un `data.table`, ou des variables simples.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour renommer une variable en R, vous pouvez utiliser la fonction `rename()` du package `dplyr`. Voici un exemple simple :
+
+```R
+# Installer et charger le package dplyr
+install.packages("dplyr")
+library(dplyr)
+
+# Exemple de dataframe
+df <- data.frame(ancien_nom = c(1, 2, 3))
+
+# Renommer la variable
+df <- df %>% rename(nouveau_nom = ancien_nom)
+
+# Afficher le dataframe modifié
+print(df)
+```
+
+Dans cet exemple, la variable `ancien_nom` est renommée en `nouveau_nom`. Si vous avez d'autres questions ou besoin d'aide supplémentaire, n'hésitez pas à demander ! 😊

@@ -1,0 +1,145 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment détecter les données aberrantes en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour détecter les données aberrantes (ou **outliers**) en R, plusieurs méthodes statistiques et graphiques peuvent être utilisées. Voici quelques-unes des approches courantes :
+
+### 1. Utilisation de l'IQR (Intervalle Interquartile)
+L'une des méthodes les plus populaires pour identifier les données aberrantes est d'utiliser l'IQR (Intervalle Interquartile). Cette méthode repose sur la détection des valeurs qui sont situées en dehors de l'intervalle défini par les 1,5 fois l'IQR.
+
+#### Code en R :
+
+```r
+# Données exemple
+data <- c(10, 12, 12, 13, 12, 14, 100, 15, 16, 18, 20)
+
+# Calcul des quartiles
+Q1 <- quantile(data, 0.25)
+Q3 <- quantile(data, 0.75)
+
+# Calcul de l'IQR
+IQR_value <- Q3 - Q1
+
+# Définition des seuils pour les outliers
+lower_bound <- Q1 - 1.5 * IQR_value
+upper_bound <- Q3 + 1.5 * IQR_value
+
+# Détection des outliers
+outliers <- data[data < lower_bound | data > upper_bound]
+
+# Affichage des résultats
+outliers
+```
+
+### 2. Utilisation des boîtes à moustaches (Boxplot)
+Le **boxplot** est un graphique qui visualise l'IQR et permet de repérer facilement les valeurs aberrantes. Les valeurs aberrantes sont généralement situées au-delà des "moustaches" (les lignes horizontales).
+
+#### Code en R :
+
+```r
+# Boxplot pour détecter les outliers visuellement
+boxplot(data, main = "Boxplot des données", col = "lightblue")
+```
+
+Dans ce graphique, les points qui sont au-delà des moustaches sont des outliers potentiels.
+
+### 3. Test de Grubbs
+Le **test de Grubbs** est un test statistique qui peut être utilisé pour détecter un outlier dans un jeu de données.
+
+#### Code en R (avec le package `outliers`) :
+
+```r
+# Installation du package outliers
+install.packages("outliers")
+library(outliers)
+
+# Test de Grubbs pour la détection des outliers
+grubbs.test(data)
+```
+
+Le test renverra une valeur de p qui, si elle est inférieure à un seuil alpha (par exemple, 0.05), indique qu'il existe un outlier.
+
+### 4. Méthode Z-score
+Les **scores Z** permettent de mesurer combien d'écarts-types une valeur est éloignée de la moyenne. Une valeur ayant un score Z très élevé (en général, supérieur à 3 ou inférieur à -3) est souvent considérée comme une donnée aberrante.
+
+#### Code en R :
+
+```r
+# Calcul des scores Z
+z_scores <- scale(data)
+
+# Détection des outliers (valeurs avec un score Z supérieur à 3 ou inférieur à -3)
+outliers <- data[abs(z_scores) > 3]
+
+# Affichage des résultats
+outliers
+```
+
+### 5. Visualisation avec un diagramme de dispersion
+Pour les données multivariées (par exemple, dans le cas de données avec plusieurs variables), un **diagramme de dispersion** peut être utile pour repérer des valeurs aberrantes.
+
+#### Code en R :
+
+```r
+# Données multivariées exemple
+data <- data.frame(
+  x = c(1, 2, 3, 4, 5, 100),
+  y = c(1, 2, 3, 4, 5, 100)
+)
+
+# Diagramme de dispersion
+plot(data$x, data$y, main = "Diagramme de dispersion")
+```
+
+Les points qui s'éloignent significativement du nuage de points peuvent être considérés comme des outliers.
+
+### Conclusion
+En résumé, pour détecter des données aberrantes en R, vous pouvez utiliser plusieurs méthodes comme l'IQR, les boxplots, les tests statistiques (par exemple, le test de Grubbs), les scores Z ou encore des visualisations graphiques comme les diagrammes de dispersion. L'approche choisie dépendra de la nature de vos données et du type d'analyse que vous souhaitez effectuer.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour détecter les données aberrantes (ou outliers) en R, vous pouvez utiliser plusieurs méthodes. Voici quelques-unes des plus courantes :
+
+1. **Boxplots** : Les boxplots sont une méthode visuelle simple pour identifier les outliers. Les valeurs situées en dehors des moustaches du boxplot sont considérées comme des outliers. Vous pouvez utiliser le package `ggplot2` pour créer des boxplots :
+   ```R
+   library(ggplot2)
+   ggplot(data, aes(x = factor_variable, y = numeric_variable)) +
+     geom_boxplot()
+   ```
+
+2. **Méthode de l'intervalle interquartile (IQR)** : Cette méthode identifie les outliers comme les valeurs situées en dehors de 1,5 fois l'IQR au-dessus du troisième quartile ou en dessous du premier quartile :
+   ```R
+   Q1 <- quantile(data$variable, 0.25)
+   Q3 <- quantile(data$variable, 0.75)
+   IQR <- Q3 - Q1
+   lower_bound <- Q1 - 1.5 * IQR
+   upper_bound <- Q3 + 1.5 * IQR
+   outliers <- data[data$variable < lower_bound | data$variable > upper_bound, ]
+   ```
+
+3. **Méthode des écarts-types** : Les valeurs situées à plus de 3 écarts-types de la moyenne sont souvent considérées comme des outliers :
+   ```R
+   mean_value <- mean(data$variable)
+   sd_value <- sd(data$variable)
+   outliers <- data[abs(data$variable - mean_value) > 3 * sd_value, ]
+   ```
+
+4. **Tests statistiques** : Vous pouvez utiliser des tests comme le test de Grubbs pour détecter les outliers dans vos données :
+   ```R
+   library(outliers)
+   grubbs.test(data$variable)
+   ```
+
+Ces méthodes vous permettent de détecter et de traiter les valeurs aberrantes dans vos données. Si vous avez besoin de plus de détails ou d'exemples spécifiques, n'hésitez pas à demander !

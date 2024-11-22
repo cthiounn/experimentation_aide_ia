@@ -1,0 +1,127 @@
+## template
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment faire un filtre en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l'objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :
+
+### 1. Filtrer un `data.frame` avec la fonction `subset()`
+Si vous avez un `data.frame` et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction `subset()`.
+
+#### Exemple :
+```r
+# Créer un exemple de data.frame
+df <- data.frame(
+  id = 1:5,
+  age = c(23, 25, 28, 22, 30),
+  sexe = c('Homme', 'Femme', 'Homme', 'Femme', 'Homme')
+)
+
+# Filtrer les lignes où l'âge est supérieur ou égal à 25
+df_filtré <- subset(df, age >= 25)
+
+print(df_filtré)
+```
+
+### 2. Filtrer un `data.frame` avec `dplyr`
+Le package `dplyr` de la suite `tidyverse` offre une syntaxe plus concise et expressive pour effectuer des filtres.
+
+#### Exemple avec `dplyr` :
+1. Installez et chargez le package `dplyr` si nécessaire :
+```r
+install.packages("dplyr")
+library(dplyr)
+```
+
+2. Utilisez la fonction `filter()` pour appliquer des conditions de filtrage.
+
+```r
+# Créer un exemple de data.frame
+df <- data.frame(
+  id = 1:5,
+  age = c(23, 25, 28, 22, 30),
+  sexe = c('Homme', 'Femme', 'Homme', 'Femme', 'Homme')
+)
+
+# Filtrer les lignes où l'âge est supérieur ou égal à 25
+df_filtré <- df %>%
+  filter(age >= 25)
+
+print(df_filtré)
+```
+
+### 3. Filtrer avec des conditions complexes
+Vous pouvez aussi combiner plusieurs conditions de filtrage dans `subset()` ou `filter()`.
+
+#### Exemple avec `dplyr` (conditions multiples) :
+```r
+df_filtré <- df %>%
+  filter(age >= 25 & sexe == 'Homme')
+
+print(df_filtré)
+```
+
+### 4. Filtrer un vecteur
+Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :
+
+#### Exemple avec un vecteur :
+```r
+# Créer un vecteur d'âges
+ages <- c(23, 25, 28, 22, 30)
+
+# Filtrer les âges supérieurs ou égaux à 25
+ages_filtrés <- ages[ages >= 25]
+
+print(ages_filtrés)
+```
+
+### Conclusion
+- Pour des filtrages simples sur des `data.frame`, `subset()` est une solution rapide.
+- Pour un filtrage plus puissant, flexible et facile à combiner avec d'autres opérations, `dplyr::filter()` est idéal.
+- Si vous travaillez avec des vecteurs, vous pouvez utiliser l'indexation logique directement.
+
+Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package `dplyr` :
+
+1. **Installer et charger le package `dplyr`** :
+    ```R
+    install.packages("dplyr")
+    library(dplyr)
+    ```
+
+2. **Créer un dataframe d'exemple** :
+    ```R
+    data <- data.frame(
+      id = 1:10,
+      score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)
+    )
+    ```
+
+3. **Filtrer les lignes où le score est supérieur à 100** :
+    ```R
+    filtered_data <- data %>%
+      filter(score > 100)
+    ```
+
+4. **Afficher le résultat** :
+    ```R
+    print(filtered_data)
+    ```
+
+Ce code va filtrer le dataframe `data` pour ne garder que les lignes où la colonne `score` est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d'autres critères ou utiliser d'autres fonctions de `dplyr` pour des filtrages plus complexes.
+
+Si vous avez des besoins spécifiques ou des questions supplémentaires, n'hésitez pas à me le faire savoir ! 😊
