@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_joint – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_prerequis – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_nettoyage_donnees/R_joint.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_nettoyage_donnees/R_joint.html">Réaliser une jointure de deux tables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_demarrer/R_starter.html">Bien démarrer en R</a></li><li class="breadcrumb-item"><a href="../1_demarrer/R_prerequis.html">Que faut-il installer pour coder en R ?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Que faut-il installer pour coder en R ?</span></a>
   </div>
 </li>
@@ -211,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_nettoyage_donnees/R_joint.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_nettoyage_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Réaliser une jointure de deux tables</span></a>
   </div>
 </li>
@@ -352,16 +318,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#jointure-de-deux-tables" id="toc-jointure-de-deux-tables" class="nav-link active" data-scroll-target="#jointure-de-deux-tables">Jointure de deux tables</a>
+  <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#avec-le-package-dplyr" id="toc-avec-le-package-dplyr" class="nav-link" data-scroll-target="#avec-le-package-dplyr">1. Avec le package <code>dplyr</code></a></li>
-  <li><a href="#avec-le-package-data.table" id="toc-avec-le-package-data.table" class="nav-link" data-scroll-target="#avec-le-package-data.table">2. Avec le package <code>data.table</code></a></li>
-  <li><a href="#avec-les-fonctions-de-base-r" id="toc-avec-les-fonctions-de-base-r" class="nav-link" data-scroll-target="#avec-les-fonctions-de-base-r">3. Avec les fonctions de base R</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#jointure-interne-inner-join" id="toc-jointure-interne-inner-join" class="nav-link" data-scroll-target="#jointure-interne-inner-join">1. Jointure interne (inner join) :</a></li>
-  <li><a href="#jointure-externe-gauche-left-join" id="toc-jointure-externe-gauche-left-join" class="nav-link" data-scroll-target="#jointure-externe-gauche-left-join">2. Jointure externe gauche (left join) :</a></li>
-  <li><a href="#jointure-externe-droite-right-join" id="toc-jointure-externe-droite-right-join" class="nav-link" data-scroll-target="#jointure-externe-droite-right-join">3. Jointure externe droite (right join) :</a></li>
-  <li><a href="#jointure-externe-complète-full-join" id="toc-jointure-externe-complète-full-join" class="nav-link" data-scroll-target="#jointure-externe-complète-full-join">4.Jointure externe complète (full join) :</a></li>
+  <li><a href="#installer-r" id="toc-installer-r" class="nav-link" data-scroll-target="#installer-r">1. <strong>Installer R</strong></a></li>
+  <li><a href="#installer-un-ide-interface-de-développement-intégré" id="toc-installer-un-ide-interface-de-développement-intégré" class="nav-link" data-scroll-target="#installer-un-ide-interface-de-développement-intégré">2. <strong>Installer un IDE (Interface de Développement Intégré)</strong></a></li>
+  <li><a href="#installer-des-packages-r" id="toc-installer-des-packages-r" class="nav-link" data-scroll-target="#installer-des-packages-r">3. <strong>Installer des Packages R</strong></a></li>
+  <li><a href="#optionnel-installer-des-outils-supplémentaires" id="toc-optionnel-installer-des-outils-supplémentaires" class="nav-link" data-scroll-target="#optionnel-installer-des-outils-supplémentaires">4. <strong>(Optionnel) Installer des outils supplémentaires</strong></a></li>
+  <li><a href="#optionnel-installer-des-bibliothèques-pour-votre-système" id="toc-optionnel-installer-des-bibliothèques-pour-votre-système" class="nav-link" data-scroll-target="#optionnel-installer-des-bibliothèques-pour-votre-système">5. <strong>(Optionnel) Installer des bibliothèques pour votre système</strong></a></li>
+  <li><a href="#résumé-des-étapes" id="toc-résumé-des-étapes" class="nav-link" data-scroll-target="#résumé-des-étapes">Résumé des étapes :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -372,8 +336,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="jointure-de-deux-tables" class="level2">
-<h2 class="anchored" data-anchor-id="jointure-de-deux-tables">Jointure de deux tables</h2>
+<section id="template" class="level2">
+<h2 class="anchored" data-anchor-id="template">template</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -382,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire une jointure de deux tables sous R?</li>
+<li>Que faut-il installer pour coder en R ?</li>
 </ul>
 </div>
 </div>
@@ -394,73 +358,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour réaliser une jointure de deux tables sous R, vous pouvez utiliser plusieurs méthodes, mais les plus courantes sont avec les fonctions de base de R, le package <code>dplyr</code>, ou le package <code>data.table</code>. Voici un aperçu de ces méthodes :</p>
-<section id="avec-le-package-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="avec-le-package-dplyr">1. Avec le package <code>dplyr</code></h3>
-<p>Le package <code>dplyr</code> offre une syntaxe très lisible pour effectuer des jointures. Voici les types de jointures que vous pouvez faire :</p>
-<section id="installation-du-package" class="level4">
-<h4 class="anchored" data-anchor-id="installation-du-package">Installation du package</h4>
-<p>Si vous ne l’avez pas encore installé, vous pouvez le faire avec :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pour coder en <strong>R</strong>, voici ce que vous devez installer :</p>
+<hr>
+<section id="installer-r" class="level3">
+<h3 class="anchored" data-anchor-id="installer-r">1. <strong>Installer R</strong></h3>
+<p>R est un langage et un environnement pour le calcul statistique et la visualisation de données. - <strong>Site officiel</strong> : <a href="https://cran.r-project.org/">https://cran.r-project.org/</a> - Téléchargez et installez la version correspondant à votre système d’exploitation (Windows, macOS, Linux).</p>
+<hr>
 </section>
-<section id="chargement-du-package" class="level4">
-<h4 class="anchored" data-anchor-id="chargement-du-package">Chargement du package</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="installer-un-ide-interface-de-développement-intégré" class="level3">
+<h3 class="anchored" data-anchor-id="installer-un-ide-interface-de-développement-intégré">2. <strong>Installer un IDE (Interface de Développement Intégré)</strong></h3>
+<p>Bien que vous puissiez utiliser R directement, un IDE rend le codage beaucoup plus facile et agréable.</p>
+<p>#### Option la plus populaire : <strong>RStudio</strong> - <strong>Site officiel</strong> : <a href="https://posit.co/downloads/">https://posit.co/downloads/</a> (anciennement RStudio) - RStudio est un IDE gratuit et complet pour R, offrant une interface conviviale avec : - Un éditeur de script. - Une console intégrée. - Un panneau pour visualiser les graphiques et fichiers. - Une gestion des packages.</p>
+<p><strong>Astuce :</strong> Installez d’abord R, puis RStudio.</p>
+<hr>
 </section>
-<section id="exemples-de-jointures" class="level4">
-<h4 class="anchored" data-anchor-id="exemples-de-jointures">Exemples de jointures</h4>
-<p>Supposons que vous ayez deux data frames, <code>table1</code> et <code>table2</code>, avec une colonne commune <code>id</code>.</p>
+<section id="installer-des-packages-r" class="level3">
+<h3 class="anchored" data-anchor-id="installer-des-packages-r">3. <strong>Installer des Packages R</strong></h3>
 <ul>
-<li><strong>Inner Join (jointure interne)</strong></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>Une fois R et RStudio installés, vous pouvez enrichir vos fonctionnalités en installant des packages R.</li>
+<li>Utilisez la commande suivante dans la console R pour installer un package : <code>R      install.packages("nom_du_package")</code></li>
+<li>Exemples populaires :
 <ul>
-<li><strong>Left Join (jointure à gauche)</strong></li>
+<li><strong>ggplot2</strong> : pour la visualisation de données.</li>
+<li><strong>dplyr</strong> : pour la manipulation de données.</li>
+<li><strong>tidyr</strong> : pour organiser les données.</li>
+<li><strong>shiny</strong> : pour créer des applications web interactives.</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">left_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="optionnel-installer-des-outils-supplémentaires" class="level3">
+<h3 class="anchored" data-anchor-id="optionnel-installer-des-outils-supplémentaires">4. <strong>(Optionnel) Installer des outils supplémentaires</strong></h3>
 <ul>
-<li><strong>Right Join (jointure à droite)</strong></li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">right_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li><strong>Git</strong> (facultatif) : pour le contrôle de version et la collaboration (intégration avec RStudio).
 <ul>
-<li><strong>Full Join (jointure complète)</strong></li>
+<li>Site officiel : <a href="https://git-scm.com/">https://git-scm.com/</a></li>
+</ul></li>
+<li><strong>Python</strong> : pour l’intégration avec R (utile dans des projets avancés, via des packages comme <code>reticulate</code>).</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">full_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
+<section id="optionnel-installer-des-bibliothèques-pour-votre-système" class="level3">
+<h3 class="anchored" data-anchor-id="optionnel-installer-des-bibliothèques-pour-votre-système">5. <strong>(Optionnel) Installer des bibliothèques pour votre système</strong></h3>
+<p>Certains packages R nécessitent des bibliothèques ou des dépendances supplémentaires, surtout pour le traitement d’images, le calcul parallèle ou l’apprentissage automatique. - Sur Windows, installez RTools (disponible sur CRAN). - Sur Linux/macOS, utilisez des gestionnaires de packages comme <strong>apt</strong> ou <strong>brew</strong> pour installer les dépendances.</p>
+<hr>
 </section>
-<section id="avec-le-package-data.table" class="level3">
-<h3 class="anchored" data-anchor-id="avec-le-package-data.table">2. Avec le package <code>data.table</code></h3>
-<p>Le package <code>data.table</code> est également très performant pour les jointures, surtout avec de grandes tables.</p>
-<section id="installation-et-chargement" class="level4">
-<h4 class="anchored" data-anchor-id="installation-et-chargement">Installation et chargement</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"data.table"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="exemples-de-jointures-1" class="level4">
-<h4 class="anchored" data-anchor-id="exemples-de-jointures-1">Exemples de jointures</h4>
-<p>Convertissez d’abord vos data frames en data tables :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(table1)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>table2 <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(table2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><strong>Jointure</strong></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)  <span class="co"># Inner Join</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) <span class="co"># Left Join</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>) <span class="co"># Right Join</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)    <span class="co"># Full Join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="avec-les-fonctions-de-base-r" class="level3">
-<h3 class="anchored" data-anchor-id="avec-les-fonctions-de-base-r">3. Avec les fonctions de base R</h3>
-<p>Vous pouvez également utiliser la fonction <code>merge()</code> de base R :</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>)   <span class="co"># Inner Join</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) <span class="co"># Left Join</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>) <span class="co"># Right Join</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">merge</span>(table1, table2, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)    <span class="co"># Full Join</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>Le choix de la méthode dépend de vos préférences et de vos besoins spécifiques. Le package <code>dplyr</code> est souvent préféré pour sa lisibilité et sa simplicité, tandis que <code>data.table</code> est très performant pour des jeux de données volumineux. Si vous avez des questions spécifiques sur l’une des méthodes, n’hésitez pas à demander !</p>
+<section id="résumé-des-étapes" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-des-étapes">Résumé des étapes :</h3>
+<ol type="1">
+<li>Téléchargez et installez <strong>R</strong>.</li>
+<li>Téléchargez et installez <strong>RStudio</strong> (recommandé).</li>
+<li>Installez des packages pour vos besoins.</li>
+</ol>
+<p>Une fois tout cela prêt, vous pouvez commencer à coder en R ! 😊</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -468,30 +418,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour faire une jointure de deux tables sous R, vous pouvez utiliser les fonctions du package dplyr, qui simplifient grandement ce processus. Voici quelques exemples de jointures courantes :</p>
-</section>
-<section id="jointure-interne-inner-join" class="level3">
-<h3 class="anchored" data-anchor-id="jointure-interne-inner-join">1. Jointure interne (inner join) :</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="jointure-externe-gauche-left-join" class="level3">
-<h3 class="anchored" data-anchor-id="jointure-externe-gauche-left-join">2. Jointure externe gauche (left join) :</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">left_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="jointure-externe-droite-right-join" class="level3">
-<h3 class="anchored" data-anchor-id="jointure-externe-droite-right-join">3. Jointure externe droite (right join) :</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">right_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="jointure-externe-complète-full-join" class="level3">
-<h3 class="anchored" data-anchor-id="jointure-externe-complète-full-join">4.Jointure externe complète (full join) :</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">full_join</span>(table1, table2, <span class="at">by =</span> <span class="st">"colonne_commune"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans ces exemples, table1 et table2 sont les deux tables que vous souhaitez joindre, et colonne_commune est le nom de la colonne commune sur laquelle vous faites la jointure.</p>
-<p>Si vous avez des colonnes avec des noms différents dans les deux tables, vous pouvez spécifier les colonnes comme ceci :</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(table1, table2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"colonne1_table1"</span> <span class="ot">=</span> <span class="st">"colonne2_table2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Code généré par l’IA. Examinez et utilisez soigneusement. Plus d’informations sur la FAQ. Avez-vous une jointure spécifique en tête ou des données particulières avec lesquelles vous travaillez? Je peux vous aider à adapter ces exemples à votre cas précis!</p>
+<p>Pour coder en R, voici ce que vous devez installer :</p>
+<ol type="1">
+<li><strong>R</strong> : Téléchargez et installez R depuis le site officiel du CRAN.</li>
+<li><strong>RStudio</strong> : Un environnement de développement intégré (IDE) très populaire pour R. Vous pouvez le télécharger depuis le site officiel de RStudio.</li>
+<li><strong>Paquets R</strong> : Selon vos besoins, vous devrez peut-être installer des paquets supplémentaires. Vous pouvez les installer directement depuis R ou RStudio avec la commande <code>install.packages("nom_du_paquet")</code>.</li>
+</ol>
+<p>Avez-vous déjà utilisé R ou RStudio auparavant ?</p>
 
 
 </section>
