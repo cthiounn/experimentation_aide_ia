@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expérimentation des IA pour l’utilisation de logiciels statistiques</title>
+<title>r_corriger_non_reponse – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_redresser_variable_manquante.html">Redressement des données</a></li><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_corriger_non_reponse.html">Correction de la non réponse</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
+      <a href="../">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -110,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -125,25 +159,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bien commencer avec R et Rstudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Que faut-il installer pour coder en R ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_comment_coder.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_comment_coder.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comment coder en R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_documentation_R.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_documentation_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation pour débuter en R</span></a>
   </div>
 </li>
@@ -160,49 +194,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_donnees.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer des données sous R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_csv.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_csv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_sas.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_sas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier SAS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_parquet.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_parquet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier Parquet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier XLS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_ods.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_ods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier ODS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_donnees_volumineuses.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_donnees_volumineuses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer des données volumineuses sous R</span></a>
   </div>
 </li>
@@ -219,55 +253,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Que faire après avoir importer des données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les données manquantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_traitement_donnees_manquantes" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_traitement_donnees_manquantes" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Traiter les données manquantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Créer de nouvelles variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_recoder_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_recoder_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Recoder une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les valeurs aberrantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_renommer_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_renommer_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Renommer une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Joindre deux tables</span></a>
   </div>
 </li>
@@ -284,55 +318,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_donnees.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser ses données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Compter ses données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_var_quali.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_var_quali.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser une variable qualitative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_var_quanti.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_var_quanti.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser une variable quantitative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_stats_desc.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_stats_desc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obtenir les statistiques descriptives d’une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_nom_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_nom_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obtenir tous les noms de variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_appliquer_ponderation.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_appliquer_ponderation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer des pondérations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_caract.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_caract.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rechercher une chaîne de caractères</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculer les quartiles d’une variable</span></a>
   </div>
 </li>
@@ -349,31 +383,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_redresser_variable_manquante.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_redresser_variable_manquante.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Redresser une variable manquante</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_reponderer.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_reponderer.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repondérer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Correction de la non réponse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse_totale.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse_totale.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Corriger la non réponse totale</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse_partielle.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse_partielle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Corriger la non réponse partielle</span></a>
   </div>
 </li>
@@ -390,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
+  <a href="../6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Régression logistique en R</span></a>
   </div>
 </li>
@@ -418,7 +452,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">template</span></a>
   </div>
 </li>
@@ -435,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
+  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exporter des statistiques avec openxlsx</span></a>
   </div>
 </li>
@@ -452,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">template</span></a>
   </div>
 </li>
@@ -469,13 +503,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
+  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Partie entière en R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Template de fiche</span></a>
   </div>
 </li>
@@ -491,9 +525,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#projet-expérimentation-daide-avec-lia" id="toc-projet-expérimentation-daide-avec-lia" class="nav-link active" data-scroll-target="#projet-expérimentation-daide-avec-lia">Projet “Expérimentation d’aide avec l’IA”</a>
+  <li><a href="#correction-de-la-non-réponse" id="toc-correction-de-la-non-réponse" class="nav-link active" data-scroll-target="#correction-de-la-non-réponse">Correction de la non réponse</a>
   <ul class="collapse">
-  <li><a href="#préambule" id="toc-préambule" class="nav-link" data-scroll-target="#préambule">Préambule</a></li>
+  <li><a href="#identifier-les-non-réponses" id="toc-identifier-les-non-réponses" class="nav-link" data-scroll-target="#identifier-les-non-réponses"><strong>1. Identifier les non-réponses</strong></a></li>
+  <li><a href="#supprimer-les-lignes-ou-colonnes-contenant-des-non-réponses" id="toc-supprimer-les-lignes-ou-colonnes-contenant-des-non-réponses" class="nav-link" data-scroll-target="#supprimer-les-lignes-ou-colonnes-contenant-des-non-réponses"><strong>2. Supprimer les lignes ou colonnes contenant des non-réponses</strong></a></li>
+  <li><a href="#remplacer-les-non-réponses-par-des-valeurs-spécifiques" id="toc-remplacer-les-non-réponses-par-des-valeurs-spécifiques" class="nav-link" data-scroll-target="#remplacer-les-non-réponses-par-des-valeurs-spécifiques"><strong>3. Remplacer les non-réponses par des valeurs spécifiques</strong></a></li>
+  <li><a href="#utiliser-des-fonctions-tolérant-les-non-réponses" id="toc-utiliser-des-fonctions-tolérant-les-non-réponses" class="nav-link" data-scroll-target="#utiliser-des-fonctions-tolérant-les-non-réponses"><strong>4. Utiliser des fonctions tolérant les non-réponses</strong></a></li>
+  <li><a href="#imputer-les-valeurs-manquantes" id="toc-imputer-les-valeurs-manquantes" class="nav-link" data-scroll-target="#imputer-les-valeurs-manquantes"><strong>5. Imputer les valeurs manquantes</strong></a></li>
+  <li><a href="#visualiser-les-non-réponses" id="toc-visualiser-les-non-réponses" class="nav-link" data-scroll-target="#visualiser-les-non-réponses"><strong>6. Visualiser les non-réponses</strong></a></li>
+  <li><a href="#résumé" id="toc-résumé" class="nav-link" data-scroll-target="#résumé">Résumé</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -504,11 +544,142 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="projet-expérimentation-daide-avec-lia" class="level1">
-<h1>Projet “Expérimentation d’aide avec l’IA”</h1>
-<section id="préambule" class="level2">
-<h2 class="anchored" data-anchor-id="préambule">Préambule</h2>
-<p>Nous reproduisons ici les réponses données par ChatGPT et Copilot Microsoft, à des fins d’expérimentations et de pédagogie, pour aider à coder en R.</p>
+<section id="correction-de-la-non-réponse" class="level2">
+<h2 class="anchored" data-anchor-id="correction-de-la-non-réponse">Correction de la non réponse</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Prompt :</p>
+<ul>
+<li>Comment corriger la non réponse en R ?</li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/ChatGPT.PNG" class="img-fluid figure-img"></p>
+<figcaption>ChatGPT</figcaption>
+</figure>
+</div>
+<p>En R, une <strong>non-réponse</strong> ou <strong>valeur manquante</strong> est représentée par la valeur spéciale <code>NA</code>. Si vous travaillez avec des données contenant des valeurs manquantes, vous pouvez les corriger, les traiter ou les manipuler en fonction de vos objectifs. Voici plusieurs stratégies pour corriger ou gérer les non-réponses en R :</p>
+<hr>
+<section id="identifier-les-non-réponses" class="level3">
+<h3 class="anchored" data-anchor-id="identifier-les-non-réponses"><strong>1. Identifier les non-réponses</strong></h3>
+<p>Pour repérer les <code>NA</code> dans vos données : - <strong>Afficher les valeurs manquantes</strong> : <code>R   is.na(donnees)</code> Cela retourne un vecteur (ou une matrice pour les tableaux) de valeurs logiques <code>TRUE</code> ou <code>FALSE</code>.</p>
+<ul>
+<li><p><strong>Compter les valeurs manquantes</strong> :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(donnees))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Voir leur position</strong> :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(donnees))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<hr>
+</section>
+<section id="supprimer-les-lignes-ou-colonnes-contenant-des-non-réponses" class="level3">
+<h3 class="anchored" data-anchor-id="supprimer-les-lignes-ou-colonnes-contenant-des-non-réponses"><strong>2. Supprimer les lignes ou colonnes contenant des non-réponses</strong></h3>
+<ul>
+<li><p><strong>Supprimer les lignes avec des valeurs manquantes</strong> :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>donnees_sans_na <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(donnees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Cela supprime toutes les lignes où au moins une valeur est manquante.</p>
+</blockquote></li>
+<li><p><strong>Supprimer les colonnes contenant des <code>NA</code></strong> :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>donnees_sans_colonnes_na <span class="ot">&lt;-</span> donnees[, <span class="fu">colSums</span>(<span class="fu">is.na</span>(donnees)) <span class="sc">==</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<hr>
+</section>
+<section id="remplacer-les-non-réponses-par-des-valeurs-spécifiques" class="level3">
+<h3 class="anchored" data-anchor-id="remplacer-les-non-réponses-par-des-valeurs-spécifiques"><strong>3. Remplacer les non-réponses par des valeurs spécifiques</strong></h3>
+<ul>
+<li><p><strong>Remplacer par une valeur par défaut (par exemple 0, moyenne, médiane)</strong> :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>donnees[<span class="fu">is.na</span>(donnees)] <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># Remplacer par 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ou pour remplacer avec la moyenne (par colonne) :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>donnees <span class="ot">&lt;-</span> <span class="fu">apply</span>(donnees, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">ifelse</span>(<span class="fu">is.na</span>(x), <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<hr>
+</section>
+<section id="utiliser-des-fonctions-tolérant-les-non-réponses" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-des-fonctions-tolérant-les-non-réponses"><strong>4. Utiliser des fonctions tolérant les non-réponses</strong></h3>
+<p>Certaines fonctions d’analyse ont des paramètres pour ignorer les <code>NA</code> : - <strong>Calculs ignorants les <code>NA</code></strong> : <code>R   mean(donnees, na.rm = TRUE)  # Calcul de la moyenne en ignorant les NA   sum(donnees, na.rm = TRUE)  # Somme en ignorant les NA</code></p>
+<ul>
+<li><strong>Modèles statistiques</strong> : La plupart des fonctions statistiques (par ex. <code>lm</code>) ont un argument <code>na.action</code> pour gérer les <code>NA</code>.</li>
+</ul>
+<hr>
+</section>
+<section id="imputer-les-valeurs-manquantes" class="level3">
+<h3 class="anchored" data-anchor-id="imputer-les-valeurs-manquantes"><strong>5. Imputer les valeurs manquantes</strong></h3>
+<p>Si vous ne voulez pas supprimer les valeurs manquantes mais plutôt les <strong>estimer</strong> (imputation), vous pouvez utiliser des méthodes plus sophistiquées : - <strong>Avec la moyenne ou la médiane</strong> (simple) : <code>R   library(Hmisc)   donnees$colonne &lt;- impute(donnees$colonne, mean)  # Remplacement par la moyenne   donnees$colonne &lt;- impute(donnees$colonne, median)  # Remplacement par la médiane</code></p>
+<ul>
+<li><p><strong>Imputation multiple</strong> (méthodes avancées) : Pour des imputations plus complexes, comme celles basées sur des modèles statistiques :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>donnees_imputees <span class="ot">&lt;-</span> <span class="fu">mice</span>(donnees, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">method =</span> <span class="st">'pmm'</span>)  <span class="co"># Predictive Mean Matching</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>complete_data <span class="ot">&lt;-</span> <span class="fu">complete</span>(donnees_imputees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<hr>
+</section>
+<section id="visualiser-les-non-réponses" class="level3">
+<h3 class="anchored" data-anchor-id="visualiser-les-non-réponses"><strong>6. Visualiser les non-réponses</strong></h3>
+<p>Il peut être utile de visualiser les <code>NA</code> dans vos données :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(donnees)  <span class="co"># Visualisation des valeurs manquantes par variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="résumé" class="level3">
+<h3 class="anchored" data-anchor-id="résumé">Résumé</h3>
+<ul>
+<li><strong>Supprimer les <code>NA</code></strong> si vous avez suffisamment de données (e.g., <code>na.omit()</code>).</li>
+<li><strong>Remplacer les <code>NA</code></strong> par une valeur (moyenne, médiane, etc.) si cela est pertinent pour votre analyse.</li>
+<li><strong>Utiliser des imputations avancées</strong> pour des analyses nécessitant des données complètes.</li>
+</ul>
+<p>L’approche exacte dépend du contexte de votre analyse et de la nature de vos données.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/copilot.PNG" class="img-fluid figure-img"></p>
+<figcaption>Copilot</figcaption>
+</figure>
+</div>
+<p>Pour corriger les erreurs de non-réponse en R, il est essentiel de comprendre les différents types d’erreurs et comment les gérer. Voici quelques méthodes courantes :</p>
+<ol type="1">
+<li><p><strong>Utiliser <code>tryCatch()</code></strong> : Cette fonction permet de capturer et de gérer les erreurs. Par exemple :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code susceptible de générer une erreur</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">warning =</span> <span class="cf">function</span>(w) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion des avertissements</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Warning: "</span>, w)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion des erreurs</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Error: "</span>, e)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}, <span class="at">finally =</span> {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à exécuter quoi qu'il arrive</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Fin de l'exécution."</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser <code>suppressWarnings()</code> et <code>suppressMessages()</code></strong> : Ces fonctions permettent de masquer les avertissements et les messages, respectivement.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>({</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code qui génère des avertissements</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Validation des entrées</strong> : Avant d’exécuter une fonction, vérifiez que les entrées sont valides.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_log <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">"x doit être supérieur ou égal à 0"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">log</span>(x)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser des valeurs par défaut</strong> : Fournir des valeurs par défaut pour éviter les erreurs dues à des arguments manquants.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="dv">1</span>) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>Ces techniques vous aideront à rendre votre code plus robuste et à mieux gérer les erreurs<a href="https://thinkr.fr/controle-et-gestion-des-erreurs-dans-r/">1</a><a href="https://www.datacamp.com/fr/tutorial/error-fix-non-numeric-argument-to-binary-operator-in-r">2</a><a href="https://stacklima.com/gestion-des-erreurs-dans-la-programmation-r/">3</a>. Si vous avez des exemples spécifiques ou des messages d’erreur particuliers, n’hésitez pas à les partager pour obtenir une aide plus ciblée !</p>
 
 
 </section>

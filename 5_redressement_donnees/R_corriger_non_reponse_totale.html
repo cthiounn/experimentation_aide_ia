@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Expérimentation des IA pour l’utilisation de logiciels statistiques</title>
+<title>r_corriger_non_reponse_totale – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_redresser_variable_manquante.html">Redressement des données</a></li><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_corriger_non_reponse_totale.html">Corriger la non réponse totale</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
+      <a href="../">Expérimentation des IA pour l’utilisation de logiciels statistiques</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -110,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -125,25 +159,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bien commencer avec R et Rstudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_prerequis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Que faut-il installer pour coder en R ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_comment_coder.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_comment_coder.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comment coder en R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_demarrer/R_documentation_R.html" class="sidebar-item-text sidebar-link">
+  <a href="../1_demarrer/R_documentation_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation pour débuter en R</span></a>
   </div>
 </li>
@@ -160,49 +194,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_donnees.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer des données sous R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_csv.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_csv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_sas.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_sas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier SAS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_parquet.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_parquet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier Parquet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_xls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier XLS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_ods.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_ods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer un fichier ODS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_librairie_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quelles librairies et fonctions utiliser ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_import_donnees/R_import_donnees_volumineuses.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_import_donnees/R_import_donnees_volumineuses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importer des données volumineuses sous R</span></a>
   </div>
 </li>
@@ -219,55 +253,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Que faire après avoir importer des données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les données manquantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_traitement_donnees_manquantes" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_traitement_donnees_manquantes" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Traiter les données manquantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Créer de nouvelles variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_recoder_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_recoder_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Recoder une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_detecter_valeurs_aberrantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les valeurs aberrantes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_renommer_variable.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_renommer_variable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Renommer une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_prep_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
+  <a href="../3_prep_donnees/R_joint.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Joindre deux tables</span></a>
   </div>
 </li>
@@ -284,55 +318,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_donnees.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_donnees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser ses données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_compter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Compter ses données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_var_quali.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_var_quali.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser une variable qualitative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_analyser_var_quanti.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_analyser_var_quanti.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyser une variable quantitative</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_stats_desc.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_stats_desc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obtenir les statistiques descriptives d’une variable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_nom_variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_nom_variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obtenir tous les noms de variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_appliquer_ponderation.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_appliquer_ponderation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer des pondérations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_caract.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_caract.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rechercher une chaîne de caractères</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link">
+  <a href="../4_analyse_donnees/R_quartiles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculer les quartiles d’une variable</span></a>
   </div>
 </li>
@@ -349,31 +383,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_redresser_variable_manquante.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_redresser_variable_manquante.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Redresser une variable manquante</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_reponderer.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_reponderer.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repondérer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Correction de la non réponse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse_totale.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse_totale.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Corriger la non réponse totale</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_redressement_donnees/R_corriger_non_reponse_partielle.html" class="sidebar-item-text sidebar-link">
+  <a href="../5_redressement_donnees/R_corriger_non_reponse_partielle.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Corriger la non réponse partielle</span></a>
   </div>
 </li>
@@ -390,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
+  <a href="../6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Régression logistique en R</span></a>
   </div>
 </li>
@@ -418,7 +452,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">template</span></a>
   </div>
 </li>
@@ -435,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
+  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exporter des statistiques avec openxlsx</span></a>
   </div>
 </li>
@@ -452,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">template</span></a>
   </div>
 </li>
@@ -469,13 +503,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
+  <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Partie entière en R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_template.html" class="sidebar-item-text sidebar-link">
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Template de fiche</span></a>
   </div>
 </li>
@@ -491,10 +525,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#projet-expérimentation-daide-avec-lia" id="toc-projet-expérimentation-daide-avec-lia" class="nav-link active" data-scroll-target="#projet-expérimentation-daide-avec-lia">Projet “Expérimentation d’aide avec l’IA”</a>
-  <ul class="collapse">
-  <li><a href="#préambule" id="toc-préambule" class="nav-link" data-scroll-target="#préambule">Préambule</a></li>
-  </ul></li>
+  <li><a href="#comment-corriger-la-non-réponse-totale-sous-r" id="toc-comment-corriger-la-non-réponse-totale-sous-r" class="nav-link active" data-scroll-target="#comment-corriger-la-non-réponse-totale-sous-r">Comment corriger la non réponse totale sous R ?</a></li>
   </ul>
 </nav>
     </div>
@@ -504,14 +535,87 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="projet-expérimentation-daide-avec-lia" class="level1">
-<h1>Projet “Expérimentation d’aide avec l’IA”</h1>
-<section id="préambule" class="level2">
-<h2 class="anchored" data-anchor-id="préambule">Préambule</h2>
-<p>Nous reproduisons ici les réponses données par ChatGPT et Copilot Microsoft, à des fins d’expérimentations et de pédagogie, pour aider à coder en R.</p>
+<section id="comment-corriger-la-non-réponse-totale-sous-r" class="level2">
+<h2 class="anchored" data-anchor-id="comment-corriger-la-non-réponse-totale-sous-r">Comment corriger la non réponse totale sous R ?</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Prompt :</p>
+<ul>
+<li>Comment corriger la non réponse totale sous R ?</li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/ChatGPT.PNG" class="img-fluid figure-img"></p>
+<figcaption>ChatGPT</figcaption>
+</figure>
+</div>
+<p>Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :</p>
+<ol type="1">
+<li><strong>Calculer les poids initiaux</strong> : Si vous avez un échantillon aléatoire simple, chaque individu a un poids initial égal à l’inverse de sa probabilité d’inclusion dans l’échantillon.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de calcul des poids initiaux</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>poids_initiaux <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> prob_inclusion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Estimer les probabilités de réponse</strong> : Utilisez un modèle de régression logistique pour estimer la probabilité de réponse de chaque individu en fonction de variables auxiliaires.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de modèle de régression logistique</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(reponse <span class="sc">~</span> var1 <span class="sc">+</span> var2 <span class="sc">+</span> var3, <span class="at">family =</span> binomial, <span class="at">data =</span> donnees)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>prob_reponse <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Calculer les poids ajustés</strong> : Ajustez les poids initiaux en fonction des probabilités de réponse estimées.</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des poids ajustés</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>poids_ajustes <span class="ot">&lt;-</span> poids_initiaux <span class="sc">/</span> prob_reponse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><strong>Appliquer les poids ajustés</strong> : Utilisez ces poids ajustés pour vos analyses statistiques.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'application des poids ajustés dans une analyse</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weights =</span> <span class="sc">~</span>poids_ajustes, <span class="at">data =</span> donnees)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">svymean</span>(<span class="sc">~</span>var_interet, <span class="at">design =</span> analyse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cette méthode permet de corriger le biais introduit par la non-réponse en augmentant les poids des répondants pour qu’ils représentent également les non-répondants<a href="https://www.insee.fr/fr/statistiques/fichier/2838097/8-correction-de-la-non-reponse-par-reponderation.pdf">1</a><a href="https://cedric.cnam.fr/~saporta/NonReponse.pdf">2</a>.</p>
+<p>Si vous avez des questions spécifiques ou besoin d’aide avec votre code, n’hésitez pas à demander !</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/copilot.PNG" class="img-fluid figure-img"></p>
+<figcaption>Copilot</figcaption>
+</figure>
+</div>
+<p>Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :</p>
+<ol type="1">
+<li><strong>Calculer les poids initiaux</strong> : Si vous avez un échantillon aléatoire simple, chaque individu a un poids initial égal à l’inverse de sa probabilité d’inclusion dans l’échantillon.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de calcul des poids initiaux</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>poids_initiaux <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> prob_inclusion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Estimer les probabilités de réponse</strong> : Utilisez un modèle de régression logistique pour estimer la probabilité de réponse de chaque individu en fonction de variables auxiliaires.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de modèle de régression logistique</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(reponse <span class="sc">~</span> var1 <span class="sc">+</span> var2 <span class="sc">+</span> var3, <span class="at">family =</span> binomial, <span class="at">data =</span> donnees)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>prob_reponse <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Calculer les poids ajustés</strong> : Ajustez les poids initiaux en fonction des probabilités de réponse estimées.</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des poids ajustés</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>poids_ajustes <span class="ot">&lt;-</span> poids_initiaux <span class="sc">/</span> prob_reponse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><strong>Appliquer les poids ajustés</strong> : Utilisez ces poids ajustés pour vos analyses statistiques.</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'application des poids ajustés dans une analyse</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>analyse <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weights =</span> <span class="sc">~</span>poids_ajustes, <span class="at">data =</span> donnees)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">svymean</span>(<span class="sc">~</span>var_interet, <span class="at">design =</span> analyse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cette méthode permet de corriger le biais introduit par la non-réponse en augmentant les poids des répondants pour qu’ils représentent également les non-répondants<a href="https://www.insee.fr/fr/statistiques/fichier/2838097/8-correction-de-la-non-reponse-par-reponderation.pdf">1</a><a href="https://cedric.cnam.fr/~saporta/NonReponse.pdf">2</a>.</p>
+<p>Si vous avez des questions spécifiques ou besoin d’aide avec votre code, n’hésitez pas à demander !</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
