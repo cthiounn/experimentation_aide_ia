@@ -99,11 +99,17 @@ website:
             text: "Corriger la non réponse partielle"
       - section: "Analyses inférentielles"
         contents:
+          - href: 6_analyse_inferentielle/R_reg_lineaire.qmd
+            text: "Régression linéaire"
           - href: 6_analyse_inferentielle/R_reg_log.qmd
-            text: "Régression logistique en R"
+            text: "Régression logistique"
+          - href: 6_analyse_inferentielle/R_analyse_econometrique.qmd
+            text: "Analyse économétrique"
+          - href: 6_analyse_inferentielle/R_reg_did.qmd
+            text: "Régression Diff In Diff"
       - section: "Interprétation des résultats"
         contents:
-          - href: R_staR_templaterter.qmd
+          - href: R_template.qmd
             text: ""
       - section: "Rédaction du rapport"
         contents:

@@ -1,0 +1,184 @@
+## Diff in Diff
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment effectuer une analyse par différences de différences avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+L’analyse par **différences de différences** (ou **difference-in-differences**, DID) est une méthode utilisée en économétrie pour évaluer l'impact d'une intervention ou d'un traitement. Cette méthode compare les changements dans un groupe traité à ceux observés dans un groupe non traité avant et après l'intervention. Voici un guide étape par étape pour effectuer une analyse DID avec **R**.
+
+---
+
+### 1. Préparer les données
+Vos données doivent contenir :
+- **Un indicateur de traitement** (`treat`) : 1 si l'observation est dans le groupe traité, 0 sinon.
+- **Un indicateur de période** (`time`) : 1 si l'observation est post-intervention, 0 sinon.
+- La variable dépendante (par exemple, `outcome`), que vous cherchez à analyser.
+
+Voici un exemple fictif :
+```R
+data <- data.frame(
+  id = 1:10,
+  treat = c(1, 1, 1, 0, 0, 1, 1, 0, 0, 0),
+  time = c(0, 0, 1, 0, 0, 1, 1, 1, 1, 0),
+  outcome = c(5, 6, 9, 7, 8, 10, 12, 6, 5, 7)
+)
+```
+
+### 2. Créer une variable d’interaction
+La méthode DID repose sur l'effet d'interaction entre les variables `treat` et `time`. Vous pouvez créer manuellement une variable pour cette interaction :
+```R
+data$interaction <- data$treat * data$time
+```
+
+### 3. Estimer le modèle avec **lm()**
+Le modèle DID peut être estimé à l'aide d'une régression linéaire. L'équation est :
+\[
+\text{Outcome} = \beta_0 + \beta_1 \cdot \text{treat} + \beta_2 \cdot \text{time} + \beta_3 \cdot (\text{treat} \times \text{time}) + \varepsilon
+\]
+
+Dans R :
+```R
+model <- lm(outcome ~ treat + time + interaction, data = data)
+summary(model)
+```
+
+### 4. Interpréter les résultats
+- **\(\beta_3\)** (le coefficient de `interaction`) représente l’effet causal estimé du traitement, après avoir contrôlé pour les différences initiales entre les groupes et les tendances générales dans le temps.
+
+### 5. Exemple avec des données simulées
+Voici un exemple complet avec des données simulées :
+```R
+# Générer des données fictives
+set.seed(123)
+n <- 100
+data <- data.frame(
+  id = 1:n,
+  treat = rep(c(0, 1), each = n/2),
+  time = rep(c(0, 1), times = n/2),
+  error = rnorm(n, 0, 1)
+)
+
+# Générer outcome avec un effet traitement
+data$outcome <- 5 + 2 * data$treat + 3 * data$time + 1.5 * data$treat * data$time + data$error
+
+# Régression DID
+data$interaction <- data$treat * data$time
+model <- lm(outcome ~ treat + time + interaction, data = data)
+summary(model)
+```
+
+### 6. Visualiser les résultats
+Vous pouvez visualiser les tendances pour les groupes traité et non traité avant et après le traitement :
+```R
+library(ggplot2)
+
+ggplot(data, aes(x = time, y = outcome, color = factor(treat))) +
+  stat_summary(fun = mean, geom = "line", size = 1.2) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  labs(
+    title = "Analyse DID",
+    x = "Période (0 = Avant, 1 = Après)",
+    y = "Résultat moyen",
+    color = "Traitement"
+  ) +
+  theme_minimal()
+```
+
+### 7. Utiliser des outils dédiés
+Des packages comme **`fixest`** ou **`did`** peuvent simplifier les analyses DID plus avancées :
+- Avec **fixest** :
+```R
+library(fixest)
+model <- feols(outcome ~ treat * time, data = data)
+summary(model)
+```
+- Avec **did** (plus adapté pour les interventions complexes) :
+```R
+library(did)
+result <- att_gt(yname = "outcome", 
+                 tname = "time", 
+                 idname = "id", 
+                 gname = "treat", 
+                 data = data)
+summary(result)
+```
+
+---
+
+### Remarques :
+- Assurez-vous que le groupe traité et le groupe non traité sont comparables avant l'intervention (hypothèse de **parallel trends**).
+- Vous pouvez ajouter des covariables au modèle si nécessaire.
+- Pour des analyses robustes, pensez à utiliser des erreurs standard robustes avec **vcovHC** ou des ajustements via des clusters.
+
+Si vous avez des données spécifiques ou souhaitez des explications supplémentaires, n’hésitez pas à demander !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour effectuer une analyse par différences de différences (DID) avec R, vous pouvez suivre ces étapes :
+
+1. **Préparer les données** :
+   - Assurez-vous que vos données sont sous forme de panel, avec des observations avant et après le traitement pour les groupes de traitement et de contrôle.
+
+2. **Charger les packages nécessaires** :
+   ```r
+   install.packages("tidyverse")
+   install.packages("broom")
+   library(tidyverse)
+   library(broom)
+   ```
+
+3. **Importer les données** :
+   ```r
+   data <- read.csv("votre_fichier.csv")
+   ```
+
+4. **Créer les variables nécessaires** :
+   - Une variable binaire pour le traitement (1 si traité, 0 sinon).
+   - Une variable binaire pour la période post-traitement (1 si après traitement, 0 sinon).
+   - Une variable d'interaction entre le traitement et la période post-traitement.
+
+5. **Estimer le modèle DID** :
+   ```r
+   model <- lm(outcome ~ treatment * post_period, data = data)
+   summary(model)
+   ```
+
+6. **Interpréter les résultats** :
+   - Le coefficient de l'interaction (`treatment:post_period`) représente l'effet du traitement.
+
+Voici un exemple complet en R :
+
+```r
+# Charger les packages
+install.packages("tidyverse")
+install.packages("broom")
+library(tidyverse)
+library(broom)
+
+# Importer les données
+data <- read.csv("votre_fichier.csv")
+
+# Créer les variables nécessaires
+data <- data %>%
+  mutate(treatment = ifelse(group == "traitement", 1, 0),
+         post_period = ifelse(time >= "date_traitement", 1, 0),
+         interaction = treatment * post_period)
+
+# Estimer le modèle DID
+model <- lm(outcome ~ treatment * post_period, data = data)
+summary(model)
+```
+
+Pour une explication plus détaillée et des exemples supplémentaires, vous pouvez consulter des tutoriels en ligne comme celui de [Noman Arshed](https://www.youtube.com/watch?v=ja_3T7hlUt4) ou de [Ralf Becker](https://www.youtube.com/watch?v=NmKNQdsLlh0) sur YouTube[1](https://www.youtube.com/watch?v=ja_3T7hlUt4)[2](https://www.youtube.com/watch?v=NmKNQdsLlh0).
+
+N'hésitez pas à me demander si vous avez des questions spécifiques ou besoin d'aide supplémentaire !

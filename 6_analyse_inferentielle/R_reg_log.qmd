@@ -12,6 +12,118 @@ Prompt :
 
 ![ChatGPT](../img/ChatGPT.PNG)
 
+La régression logistique sous R est un outil statistique permettant de modéliser une variable dépendante binaire (ayant deux modalités, comme 0/1, vrai/faux) en fonction de variables explicatives. Voici les étapes pour effectuer une régression logistique sous R :
+
+---
+
+### 1. **Importer les données**
+Chargez vos données dans R avec une fonction comme `read.csv()` ou en utilisant des ensembles de données intégrés (ex. `mtcars`).
+
+```R
+# Exemple de chargement des données
+data <- read.csv("votre_fichier.csv")
+```
+
+---
+
+### 2. **Explorer et préparer les données**
+Avant d’ajuster le modèle, inspectez vos données.
+
+```R
+# Aperçu des données
+head(data)
+summary(data)
+
+# Vérifiez les valeurs manquantes
+sum(is.na(data))
+
+# Convertissez la variable cible en facteur (si nécessaire)
+data$variable_cible <- as.factor(data$variable_cible)
+```
+
+---
+
+### 3. **Ajuster le modèle**
+Utilisez la fonction `glm()` pour effectuer une régression logistique. Spécifiez `family = binomial` pour indiquer qu’il s’agit d’un modèle logistique.
+
+```R
+# Ajuster le modèle
+modele <- glm(variable_cible ~ var1 + var2, data = data, family = binomial)
+
+# Afficher le résumé du modèle
+summary(modele)
+```
+
+---
+
+### 4. **Interpréter les résultats**
+Le résumé du modèle fournit :
+- Les coefficients (`Estimate`) : Log-odds (logarithme des chances).
+- Les valeurs de p (`Pr(>|z|)`) : Significativité des variables explicatives.
+
+---
+
+### 5. **Vérifier la qualité du modèle**
+- **Pseudo-R² :** Utilisez des fonctions comme `pscl::pR2()`.
+- **Table de confusion et précision :**
+
+```R
+# Prédictions (probabilités)
+predictions <- predict(modele, type = "response")
+
+# Convertir en classes (0/1)
+classes_predites <- ifelse(predictions > 0.5, 1, 0)
+
+# Table de confusion
+table(observed = data$variable_cible, predicted = classes_predites)
+```
+
+---
+
+### 6. **Visualiser les résultats**
+Vous pouvez visualiser la courbe ROC pour évaluer les performances du modèle.
+
+```R
+library(pROC)
+
+# Courbe ROC
+roc_curve <- roc(data$variable_cible, predictions)
+plot(roc_curve)
+auc(roc_curve) # Aire sous la courbe
+```
+
+---
+
+### Exemple Complet
+Voici un exemple basé sur le dataset `mtcars` pour prédire si une voiture est automatique (`am = 0`) ou manuelle (`am = 1`), basé sur la consommation (`mpg`) et la puissance (`hp`).
+
+```R
+# Convertir la variable cible en facteur
+mtcars$am <- as.factor(mtcars$am)
+
+# Ajuster le modèle
+modele <- glm(am ~ mpg + hp, data = mtcars, family = binomial)
+
+# Résumé du modèle
+summary(modele)
+
+# Prédictions
+predictions <- predict(modele, type = "response")
+classes_predites <- ifelse(predictions > 0.5, 1, 0)
+
+# Table de confusion
+table(observed = mtcars$am, predicted = classes_predites)
+
+# Courbe ROC
+library(pROC)
+roc_curve <- roc(mtcars$am, predictions)
+plot(roc_curve)
+auc(roc_curve)
+```
+
+--- 
+
+Si vous avez besoin de plus de détails ou d’une adaptation spécifique à vos données, n’hésitez pas à demander !
 
 ----
 

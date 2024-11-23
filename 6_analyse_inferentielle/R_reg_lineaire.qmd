@@ -1,0 +1,138 @@
+## Régression linéaire
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment faire une régression linéaire en R? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+La régression linéaire en R peut être effectuée de manière simple à l’aide de la fonction `lm()` (Linear Model). Voici les étapes générales pour réaliser une régression linéaire en R :
+
+---
+
+### Étape 1 : Charger les données
+Vous pouvez utiliser un jeu de données intégré à R ou importer vos propres données depuis un fichier.
+
+```R
+# Exemple avec un jeu de données intégré, mtcars
+data(mtcars)
+
+# Afficher les premières lignes des données
+head(mtcars)
+```
+
+---
+
+### Étape 2 : Ajuster le modèle de régression linéaire
+Utilisez la fonction `lm()` pour ajuster le modèle. Par exemple, si vous voulez modéliser la relation entre le poids de la voiture (`wt`) et sa consommation (`mpg`), utilisez :
+
+```R
+# Ajuster une régression linéaire
+modele <- lm(mpg ~ wt, data = mtcars)
+
+# Résumé du modèle
+summary(modele)
+```
+
+---
+
+### Étape 3 : Interpréter les résultats
+La sortie de `summary(modele)` inclut des informations importantes :
+- **Coefficients** : Les estimations des coefficients de régression.
+- **p-value** : Pour tester la signification statistique des coefficients.
+- **R-squared** : Pour évaluer la qualité de l'ajustement.
+
+---
+
+### Étape 4 : Visualiser le modèle
+Vous pouvez visualiser les données et la ligne de régression avec la fonction `plot()` ou en utilisant des librairies comme `ggplot2`.
+
+```R
+# Visualisation basique
+plot(mtcars$wt, mtcars$mpg, main = "Régression linéaire",
+     xlab = "Poids de la voiture", ylab = "Consommation (mpg)")
+abline(modele, col = "red", lwd = 2)
+```
+
+Ou avec `ggplot2` :
+
+```R
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "red") +
+  labs(title = "Régression linéaire", x = "Poids de la voiture", y = "Consommation (mpg)")
+```
+
+---
+
+### Étape 5 : Diagnostiquer le modèle
+Pour vérifier les hypothèses du modèle (linéarité, normalité des résidus, etc.), utilisez les graphiques de diagnostic intégrés.
+
+```R
+# Graphiques de diagnostic
+par(mfrow = c(2, 2))  # Affiche 4 graphiques sur une même page
+plot(modele)
+```
+
+---
+
+### Étape 6 : Prédictions
+Pour effectuer des prédictions à partir du modèle ajusté :
+
+```R
+# Nouvelles données
+nouvelles_donnees <- data.frame(wt = c(2.5, 3.0, 3.5))
+
+# Prédictions
+predictions <- predict(modele, newdata = nouvelles_donnees)
+print(predictions)
+```
+
+---
+
+Cette méthodologie couvre les bases de la régression linéaire en R. Pour des analyses plus complexes, explorez les options supplémentaires de `lm()` ou d'autres packages comme `caret` pour la modélisation.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour effectuer une régression linéaire en R, vous pouvez suivre ces étapes :
+
+1. **Importer les données** :
+   ```R
+   data <- read.csv("votre_fichier.csv")
+   ```
+
+2. **Visualiser les données** :
+   ```R
+   plot(data$variable_indépendante, data$variable_dépendante)
+   ```
+
+3. **Ajuster le modèle de régression linéaire** :
+   ```R
+   model <- lm(variable_dépendante ~ variable_indépendante, data = data)
+   summary(model)
+   ```
+
+4. **Visualiser la ligne de régression** :
+   ```R
+   plot(data$variable_indépendante, data$variable_dépendante)
+   abline(model, col = "red")
+   ```
+
+5. **Évaluer les résidus** :
+   ```R
+   plot(model$residuals)
+   ```
+
+Ces étapes vous permettent de réaliser une régression linéaire simple et d'analyser les résultats. Pour plus de détails, vous pouvez consulter des tutoriels en ligne comme ceux de [DellaData](https://delladata.fr/la-regression-lineaire-simple-avec-le-logiciel-r/) ou des vidéos explicatives sur YouTube[1](https://www.youtube.com/watch?v=B5s8LP7s2-Q)[2](https://www.youtube.com/watch?v=0DyW4WXdvsk).
+
+Si vous avez des questions spécifiques ou des données particulières à analyser, n'hésitez pas à me le faire savoir ! 😊
