@@ -1,0 +1,165 @@
+## Correction de la non réponse
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment corriger la non réponse en R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+
+En R, une **non-réponse** ou **valeur manquante** est représentée par la valeur spéciale `NA`. Si vous travaillez avec des données contenant des valeurs manquantes, vous pouvez les corriger, les traiter ou les manipuler en fonction de vos objectifs. Voici plusieurs stratégies pour corriger ou gérer les non-réponses en R :
+
+---
+
+### **1. Identifier les non-réponses**
+Pour repérer les `NA` dans vos données :
+- **Afficher les valeurs manquantes** :
+  ```R
+  is.na(donnees)
+  ```
+  Cela retourne un vecteur (ou une matrice pour les tableaux) de valeurs logiques `TRUE` ou `FALSE`.
+
+- **Compter les valeurs manquantes** :
+  ```R
+  sum(is.na(donnees))
+  ```
+
+- **Voir leur position** :
+  ```R
+  which(is.na(donnees))
+  ```
+
+---
+
+### **2. Supprimer les lignes ou colonnes contenant des non-réponses**
+- **Supprimer les lignes avec des valeurs manquantes** :
+  ```R
+  donnees_sans_na <- na.omit(donnees)
+  ```
+  > Cela supprime toutes les lignes où au moins une valeur est manquante.
+
+- **Supprimer les colonnes contenant des `NA`** :
+  ```R
+  donnees_sans_colonnes_na <- donnees[, colSums(is.na(donnees)) == 0]
+  ```
+
+---
+
+### **3. Remplacer les non-réponses par des valeurs spécifiques**
+- **Remplacer par une valeur par défaut (par exemple 0, moyenne, médiane)** :
+  ```R
+  donnees[is.na(donnees)] <- 0  # Remplacer par 0
+  ```
+  Ou pour remplacer avec la moyenne (par colonne) :
+  ```R
+  donnees <- apply(donnees, 2, function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x))
+  ```
+
+---
+
+### **4. Utiliser des fonctions tolérant les non-réponses**
+Certaines fonctions d’analyse ont des paramètres pour ignorer les `NA` :
+- **Calculs ignorants les `NA`** :
+  ```R
+  mean(donnees, na.rm = TRUE)  # Calcul de la moyenne en ignorant les NA
+  sum(donnees, na.rm = TRUE)  # Somme en ignorant les NA
+  ```
+
+- **Modèles statistiques** :
+  La plupart des fonctions statistiques (par ex. `lm`) ont un argument `na.action` pour gérer les `NA`.
+
+---
+
+### **5. Imputer les valeurs manquantes**
+Si vous ne voulez pas supprimer les valeurs manquantes mais plutôt les **estimer** (imputation), vous pouvez utiliser des méthodes plus sophistiquées :
+- **Avec la moyenne ou la médiane** (simple) :
+  ```R
+  library(Hmisc)
+  donnees$colonne <- impute(donnees$colonne, mean)  # Remplacement par la moyenne
+  donnees$colonne <- impute(donnees$colonne, median)  # Remplacement par la médiane
+  ```
+
+- **Imputation multiple** (méthodes avancées) :
+  Pour des imputations plus complexes, comme celles basées sur des modèles statistiques :
+  ```R
+  library(mice)
+  donnees_imputees <- mice(donnees, m = 5, method = 'pmm')  # Predictive Mean Matching
+  complete_data <- complete(donnees_imputees)
+  ```
+
+---
+
+### **6. Visualiser les non-réponses**
+Il peut être utile de visualiser les `NA` dans vos données :
+```R
+library(ggplot2)
+library(naniar)
+gg_miss_var(donnees)  # Visualisation des valeurs manquantes par variable
+```
+
+---
+
+### Résumé
+- **Supprimer les `NA`** si vous avez suffisamment de données (e.g., `na.omit()`).
+- **Remplacer les `NA`** par une valeur (moyenne, médiane, etc.) si cela est pertinent pour votre analyse.
+- **Utiliser des imputations avancées** pour des analyses nécessitant des données complètes.
+
+L'approche exacte dépend du contexte de votre analyse et de la nature de vos données.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour corriger les erreurs de non-réponse en R, il est essentiel de comprendre les différents types d'erreurs et comment les gérer. Voici quelques méthodes courantes :
+
+1. **Utiliser `tryCatch()`** : Cette fonction permet de capturer et de gérer les erreurs. Par exemple :
+   ```r
+   result <- tryCatch({
+       # Code susceptible de générer une erreur
+       log(-1)
+   }, warning = function(w) {
+       # Gestion des avertissements
+       message("Warning: ", w)
+       NA
+   }, error = function(e) {
+       # Gestion des erreurs
+       message("Error: ", e)
+       NA
+   }, finally = {
+       # Code à exécuter quoi qu'il arrive
+       message("Fin de l'exécution.")
+   })
+   ```
+
+2. **Utiliser `suppressWarnings()` et `suppressMessages()`** : Ces fonctions permettent de masquer les avertissements et les messages, respectivement.
+   ```r
+   suppressWarnings({
+       # Code qui génère des avertissements
+       sqrt(-1)
+   })
+   ```
+
+3. **Validation des entrées** : Avant d'exécuter une fonction, vérifiez que les entrées sont valides.
+   ```r
+   my_log <- function(x) {
+       if (x < 0) {
+           stop("x doit être supérieur ou égal à 0")
+       }
+       log(x)
+   }
+   ```
+
+4. **Utiliser des valeurs par défaut** : Fournir des valeurs par défaut pour éviter les erreurs dues à des arguments manquants.
+   ```r
+   my_function <- function(x = 1) {
+       x + 1
+   }
+   ```
+
+Ces techniques vous aideront à rendre votre code plus robuste et à mieux gérer les erreurs[1](https://thinkr.fr/controle-et-gestion-des-erreurs-dans-r/)[2](https://www.datacamp.com/fr/tutorial/error-fix-non-numeric-argument-to-binary-operator-in-r)[3](https://stacklima.com/gestion-des-erreurs-dans-la-programmation-r/). Si vous avez des exemples spécifiques ou des messages d'erreur particuliers, n'hésitez pas à les partager pour obtenir une aide plus ciblée !

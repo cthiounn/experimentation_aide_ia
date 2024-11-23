@@ -85,6 +85,18 @@ website:
             text: "Rechercher une chaîne de caractères"
           - href: 4_analyse_donnees/R_quartiles.qmd
             text: "Calculer les quartiles d'une variable"
+      - section: "Redressement des données"
+        contents:
+          - href: 5_redressement_donnees/R_redresser_variable_manquante.qmd
+            text: "Redresser une variable manquante"
+          - href: 5_redressement_donnees/R_reponderer.qmd
+            text: "Repondérer"
+          - href: 5_redressement_donnees/R_corriger_non_reponse.qmd
+            text: "Correction de la non réponse"
+          - href: 5_redressement_donnees/R_corriger_non_reponse_totale.qmd
+            text: "Corriger la non réponse totale"
+          - href: 5_redressement_donnees/R_corriger_non_reponse_partielle.qmd
+            text: "Corriger la non réponse partielle"
       - section: "Analyses inférentielles"
         contents:
           - href: 6_analyse_inferentielle/R_reg_log.qmd

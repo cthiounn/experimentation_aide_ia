@@ -1,0 +1,89 @@
+## Comment corriger la non réponse totale sous R ?
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment corriger la non réponse totale sous R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :
+
+1. **Calculer les poids initiaux** : Si vous avez un échantillon aléatoire simple, chaque individu a un poids initial égal à l'inverse de sa probabilité d'inclusion dans l'échantillon.
+
+```r
+# Exemple de calcul des poids initiaux
+poids_initiaux <- 1 / prob_inclusion
+```
+
+2. **Estimer les probabilités de réponse** : Utilisez un modèle de régression logistique pour estimer la probabilité de réponse de chaque individu en fonction de variables auxiliaires.
+
+```r
+# Exemple de modèle de régression logistique
+modele <- glm(reponse ~ var1 + var2 + var3, family = binomial, data = donnees)
+prob_reponse <- predict(modele, type = "response")
+```
+
+3. **Calculer les poids ajustés** : Ajustez les poids initiaux en fonction des probabilités de réponse estimées.
+
+```r
+# Calcul des poids ajustés
+poids_ajustes <- poids_initiaux / prob_reponse
+```
+
+4. **Appliquer les poids ajustés** : Utilisez ces poids ajustés pour vos analyses statistiques.
+
+```r
+# Exemple d'application des poids ajustés dans une analyse
+analyse <- svydesign(ids = ~1, weights = ~poids_ajustes, data = donnees)
+resultats <- svymean(~var_interet, design = analyse)
+```
+
+Cette méthode permet de corriger le biais introduit par la non-réponse en augmentant les poids des répondants pour qu'ils représentent également les non-répondants[1](https://www.insee.fr/fr/statistiques/fichier/2838097/8-correction-de-la-non-reponse-par-reponderation.pdf)[2](https://cedric.cnam.fr/~saporta/NonReponse.pdf).
+
+Si vous avez des questions spécifiques ou besoin d'aide avec votre code, n'hésitez pas à demander !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :
+
+1. **Calculer les poids initiaux** : Si vous avez un échantillon aléatoire simple, chaque individu a un poids initial égal à l'inverse de sa probabilité d'inclusion dans l'échantillon.
+
+```r
+# Exemple de calcul des poids initiaux
+poids_initiaux <- 1 / prob_inclusion
+```
+
+2. **Estimer les probabilités de réponse** : Utilisez un modèle de régression logistique pour estimer la probabilité de réponse de chaque individu en fonction de variables auxiliaires.
+
+```r
+# Exemple de modèle de régression logistique
+modele <- glm(reponse ~ var1 + var2 + var3, family = binomial, data = donnees)
+prob_reponse <- predict(modele, type = "response")
+```
+
+3. **Calculer les poids ajustés** : Ajustez les poids initiaux en fonction des probabilités de réponse estimées.
+
+```r
+# Calcul des poids ajustés
+poids_ajustes <- poids_initiaux / prob_reponse
+```
+
+4. **Appliquer les poids ajustés** : Utilisez ces poids ajustés pour vos analyses statistiques.
+
+```r
+# Exemple d'application des poids ajustés dans une analyse
+analyse <- svydesign(ids = ~1, weights = ~poids_ajustes, data = donnees)
+resultats <- svymean(~var_interet, design = analyse)
+```
+
+Cette méthode permet de corriger le biais introduit par la non-réponse en augmentant les poids des répondants pour qu'ils représentent également les non-répondants[1](https://www.insee.fr/fr/statistiques/fichier/2838097/8-correction-de-la-non-reponse-par-reponderation.pdf)[2](https://cedric.cnam.fr/~saporta/NonReponse.pdf).
+
+Si vous avez des questions spécifiques ou besoin d'aide avec votre code, n'hésitez pas à demander !

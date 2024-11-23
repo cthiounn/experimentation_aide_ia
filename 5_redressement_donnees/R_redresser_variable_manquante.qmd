@@ -1,0 +1,160 @@
+## Redressements des données manquantes (une variable)
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment redresser des données manquantes (une variable) en R ? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour redresser des données manquantes dans une variable en **R**, plusieurs approches sont disponibles, selon la nature des données et des hypothèses que vous pouvez faire. Voici les étapes et les méthodes les plus courantes :
+
+---
+
+## 1. **Identifier les données manquantes**
+Avant de redresser une variable, il faut identifier les valeurs manquantes :
+
+```R
+sum(is.na(variable))  # Nombre de valeurs manquantes
+mean(is.na(variable)) # Proportion de valeurs manquantes
+```
+
+---
+
+## 2. **Stratégies de redressement des données manquantes**
+
+### a) **Suppression des données manquantes**
+Si la proportion de valeurs manquantes est faible, vous pouvez supprimer les lignes ou les colonnes concernées.
+
+```R
+# Supprimer les lignes avec NA dans une variable
+data <- data[!is.na(data$variable), ]
+```
+
+**Limites** : Peut biaiser les résultats si les valeurs manquantes ne sont pas aléatoires.
+
+---
+
+### b) **Remplacement par une constante ou une valeur simple**
+Vous pouvez imputer les valeurs manquantes par une constante ou des statistiques simples.
+
+#### i. Moyenne ou médiane
+```R
+data$variable[is.na(data$variable)] <- mean(data$variable, na.rm = TRUE)  # Moyenne
+data$variable[is.na(data$variable)] <- median(data$variable, na.rm = TRUE)  # Médiane
+```
+
+#### ii. Mode (valeur la plus fréquente)
+```R
+mode_value <- as.numeric(names(sort(table(data$variable), decreasing = TRUE))[1])
+data$variable[is.na(data$variable)] <- mode_value
+```
+
+**Limites** : Cela réduit la variabilité des données.
+
+---
+
+### c) **Imputation basée sur des modèles**
+Vous pouvez utiliser des modèles statistiques ou des algorithmes pour prédire les valeurs manquantes en fonction des autres variables.
+
+#### i. Régression linéaire ou logistique
+Si la relation entre la variable manquante et les autres variables est forte, vous pouvez utiliser un modèle de régression pour imputer les valeurs.
+
+```R
+library(mice)
+imputed_data <- mice(data, method = "norm.predict", m = 1)
+data <- complete(imputed_data)
+```
+
+#### ii. K-Nearest Neighbors (KNN)
+L’imputation par KNN remplit les valeurs manquantes en fonction des valeurs des observations les plus proches.
+
+```R
+library(VIM)
+data <- kNN(data, variable = "variable")
+```
+
+**Avantage** : Prend en compte les relations complexes entre variables.
+
+---
+
+### d) **Interpolation (pour les séries temporelles)**
+Si vos données sont temporelles, vous pouvez interpoler les valeurs manquantes.
+
+```R
+library(zoo)
+data$variable <- na.approx(data$variable)  # Interpolation linéaire
+data$variable <- na.spline(data$variable)  # Interpolation par spline
+```
+
+---
+
+### e) **Imputation multiple**
+Pour éviter de sous-estimer l’incertitude associée aux données manquantes, l’imputation multiple est une approche robuste.
+
+```R
+library(mice)
+imputed_data <- mice(data, m = 5, method = "pmm")  # Predictive Mean Matching
+data <- complete(imputed_data)
+```
+
+---
+
+### f) **Utilisation de modèles avancés (Random Forest)**
+Les modèles comme Random Forest sont puissants pour prédire les valeurs manquantes.
+
+```R
+library(missForest)
+data <- missForest(data)$ximp
+```
+
+---
+
+## 3. **Validation du redressement**
+Après imputation, vérifiez les distributions et la cohérence des données :
+
+- Comparer les statistiques avant/après.
+- Visualiser la distribution (par exemple, avec `ggplot2`).
+
+---
+
+Ces méthodes sont à choisir en fonction du contexte, des hypothèses et des objectifs de votre analyse. Si vous avez des précisions sur vos données, je peux vous aider à affiner le choix !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour redresser des données manquantes dans R, il existe plusieurs méthodes en fonction de ce que vous souhaitez faire avec ces données. Voici quelques approches courantes :
+
+1. **Supprimer les valeurs manquantes** :
+   ```R
+   data <- na.omit(data)
+   ```
+   Cette méthode supprime toutes les lignes contenant des valeurs manquantes.
+
+2. **Remplacer les valeurs manquantes par une valeur spécifique** :
+   ```R
+   data[is.na(data)] <- 0  # Remplace les NA par 0
+   ```
+
+3. **Utiliser la moyenne ou la médiane pour remplacer les valeurs manquantes** :
+   ```R
+   data$variable[is.na(data$variable)] <- mean(data$variable, na.rm = TRUE)  # Remplace les NA par la moyenne
+   ```
+
+4. **Utiliser des méthodes plus avancées comme l'imputation multiple** :
+   ```R
+   library(mice)
+   imputed_data <- mice(data, m = 5, method = 'pmm', maxit = 50, seed = 500)
+   completed_data <- complete(imputed_data, 1)
+   ```
+   Cette méthode utilise le package `mice` pour effectuer une imputation multiple par régression.
+
+Pour plus de détails, vous pouvez consulter des tutoriels en ligne comme ceux proposés par [Guru99](https://www.guru99.com/fr/r-replace-missing-values.html)[1](https://www.guru99.com/fr/r-replace-missing-values.html) ou des vidéos explicatives sur YouTube[2](https://www.youtube.com/watch?v=yacuMoIKEg4)[3](https://www.youtube.com/watch?v=gptthNRXXYU)[4](https://www.youtube.com/watch?v=RPLLc8Ce5GE).
+
+Avez-vous une méthode spécifique que vous préférez utiliser ou des contraintes particulières pour votre projet ?

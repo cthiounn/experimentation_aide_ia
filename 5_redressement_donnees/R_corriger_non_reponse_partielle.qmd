@@ -1,0 +1,144 @@
+## Comment corriger la non réponse partielle sous R ?
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment corriger la non réponse partielle sous R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+La **non-réponse partielle** sous R (par exemple, des valeurs manquantes dans un jeu de données) peut être gérée de différentes manières selon le contexte et les objectifs de l'analyse. Voici les principales stratégies pour corriger ou traiter ces valeurs manquantes :
+
+---
+
+### 1. **Identifier les valeurs manquantes**
+Commencez par détecter les valeurs manquantes dans votre jeu de données :
+
+```R
+# Vérifier les valeurs manquantes
+sum(is.na(data))            # Nombre total de NA
+colSums(is.na(data))        # Nombre de NA par colonne
+which(is.na(data), arr.ind = TRUE)  # Localisation des NA
+```
+
+---
+
+### 2. **Supprimer les valeurs manquantes**
+#### a. **Supprimer les lignes avec des valeurs manquantes**
+Si les données sont rares et qu'on peut se permettre de perdre des informations :
+
+```R
+data_cleaned <- na.omit(data)  # Supprime toutes les lignes contenant au moins un NA
+```
+
+#### b. **Supprimer des colonnes avec trop de valeurs manquantes**
+Si une colonne est presque entièrement manquante :
+
+```R
+data_cleaned <- data[, colSums(is.na(data)) < threshold]
+```
+
+---
+
+### 3. **Imputer les valeurs manquantes**
+#### a. **Par une statistique simple**
+- Moyenne pour les données continues :
+  ```R
+  data$variable[is.na(data$variable)] <- mean(data$variable, na.rm = TRUE)
+  ```
+- Médiane :
+  ```R
+  data$variable[is.na(data$variable)] <- median(data$variable, na.rm = TRUE)
+  ```
+
+#### b. **Imputation par la méthode des k plus proches voisins (KNN)**
+Utilisez le package `DMwR` ou `impute`.
+
+```R
+install.packages("DMwR")
+library(DMwR)
+
+data_cleaned <- knnImputation(data)
+```
+
+#### c. **Régression ou modèles prédictifs**
+Pour estimer les valeurs manquantes à l'aide des autres variables :
+```R
+install.packages("mice")
+library(mice)
+
+imputed_data <- mice(data, m = 5, method = 'pmm', seed = 123)
+data_cleaned <- complete(imputed_data, 1)
+```
+
+#### d. **Interpolation (pour les séries temporelles)**
+Pour des données ordonnées dans le temps :
+```R
+data$variable <- zoo::na.approx(data$variable)
+```
+
+---
+
+### 4. **Analyser les valeurs manquantes**
+Les valeurs manquantes peuvent contenir des informations importantes. Par exemple :
+- Vérifiez si elles sont liées à d'autres variables.
+- Explorez leur distribution pour identifier des biais potentiels.
+
+```R
+library(VIM)
+aggr(data, col = c("navyblue", "red"), numbers = TRUE, sortVars = TRUE)
+```
+
+---
+
+### 5. **Modélisation robuste face aux valeurs manquantes**
+Certains algorithmes (comme les arbres de décision) peuvent gérer directement les valeurs manquantes. Si possible, optez pour des modèles qui ne nécessitent pas d'imputation préalable.
+
+---
+
+### Choix de la méthode
+- **Si les valeurs manquantes sont aléatoires** (MCAR ou Missing Completely At Random), des méthodes simples comme la suppression ou l'imputation par la moyenne sont suffisantes.
+- **Si elles sont conditionnelles** (MAR ou Missing At Random), utilisez des approches plus sophistiquées comme `mice`.
+- **Si elles sont non aléatoires** (MNAR), envisagez une modélisation explicite de la non-réponse.
+
+N'hésitez pas à préciser votre problème pour que je vous propose une solution adaptée ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour corriger la non-réponse partielle sous R, vous pouvez utiliser plusieurs méthodes d'imputation. Voici quelques-unes des plus courantes :
+
+1. **Imputation par la moyenne ou la médiane** : Remplacer les valeurs manquantes par la moyenne ou la médiane des valeurs observées pour cette variable.
+   ```R
+   data$variable[is.na(data$variable)] <- mean(data$variable, na.rm = TRUE)
+   ```
+
+2. **Imputation par régression** : Utiliser une régression pour prédire les valeurs manquantes en fonction des autres variables.
+   ```R
+   library(mice)
+   imputed_data <- mice(data, method = "norm.predict")
+   complete_data <- complete(imputed_data)
+   ```
+
+3. **Imputation multiple** : Générer plusieurs jeux de données imputés pour mieux refléter l'incertitude liée aux valeurs manquantes.
+   ```R
+   library(mice)
+   imputed_data <- mice(data, m = 5, method = "pmm")
+   complete_data <- complete(imputed_data, action = "long", include = TRUE)
+   ```
+
+4. **Utilisation de packages spécialisés** : Des packages comme `mice` (Multivariate Imputation by Chained Equations) ou `missForest` (imputation par forêts aléatoires) sont très efficaces pour traiter les données manquantes.
+   ```R
+   library(missForest)
+   imputed_data <- missForest(data)
+   ```
+
+Ces méthodes permettent de traiter les valeurs manquantes de manière rigoureuse et de minimiser les biais potentiels[1](https://ssc.ca/fr/etude-de-cas/traitement-non-reponse-a-une-question-dans-enquetes)[2](https://ensai.fr/wp-content/uploads/2019/06/DManquantesCours_Reunion.pdf)[3](https://www.i3s.unice.fr/~crescenz/publications/Florence/valeurs-manquantes-ou-aberrantes.pdf).
+
+Avez-vous une méthode spécifique en tête ou un type de données particulier avec lequel vous travaillez ?
