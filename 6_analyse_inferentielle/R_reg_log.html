@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_reg_log.html">Analyses inférentielles</a></li><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_reg_log.html">Régression logistique en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_reg_lineaire.html">Analyses inférentielles</a></li><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_reg_log.html">Régression logistique</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -453,8 +453,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../6_analyse_inferentielle/R_reg_lineaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression linéaire</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../6_analyse_inferentielle/R_reg_log.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Régression logistique en R</span></a>
+ <span class="menu-text">Régression logistique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_analyse_inferentielle/R_analyse_econometrique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse économétrique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_analyse_inferentielle/R_reg_did.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Régression Diff In Diff</span></a>
   </div>
 </li>
       </ul>
@@ -468,6 +486,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">template</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -554,7 +578,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a></li>
+  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a>
+  <ul class="collapse">
+  <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">1. <strong>Importer les données</strong></a></li>
+  <li><a href="#explorer-et-préparer-les-données" id="toc-explorer-et-préparer-les-données" class="nav-link" data-scroll-target="#explorer-et-préparer-les-données">2. <strong>Explorer et préparer les données</strong></a></li>
+  <li><a href="#ajuster-le-modèle" id="toc-ajuster-le-modèle" class="nav-link" data-scroll-target="#ajuster-le-modèle">3. <strong>Ajuster le modèle</strong></a></li>
+  <li><a href="#interpréter-les-résultats" id="toc-interpréter-les-résultats" class="nav-link" data-scroll-target="#interpréter-les-résultats">4. <strong>Interpréter les résultats</strong></a></li>
+  <li><a href="#vérifier-la-qualité-du-modèle" id="toc-vérifier-la-qualité-du-modèle" class="nav-link" data-scroll-target="#vérifier-la-qualité-du-modèle">5. <strong>Vérifier la qualité du modèle</strong></a></li>
+  <li><a href="#visualiser-les-résultats" id="toc-visualiser-les-résultats" class="nav-link" data-scroll-target="#visualiser-les-résultats">6. <strong>Visualiser les résultats</strong></a></li>
+  <li><a href="#exemple-complet" id="toc-exemple-complet" class="nav-link" data-scroll-target="#exemple-complet">Exemple Complet</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -586,6 +619,97 @@ window.Quarto = {
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
+<p>La régression logistique sous R est un outil statistique permettant de modéliser une variable dépendante binaire (ayant deux modalités, comme 0/1, vrai/faux) en fonction de variables explicatives. Voici les étapes pour effectuer une régression logistique sous R :</p>
+<hr>
+<section id="importer-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="importer-les-données">1. <strong>Importer les données</strong></h3>
+<p>Chargez vos données dans R avec une fonction comme <code>read.csv()</code> ou en utilisant des ensembles de données intégrés (ex. <code>mtcars</code>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de chargement des données</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"votre_fichier.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="explorer-et-préparer-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="explorer-et-préparer-les-données">2. <strong>Explorer et préparer les données</strong></h3>
+<p>Avant d’ajuster le modèle, inspectez vos données.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aperçu des données</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifiez les valeurs manquantes</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertissez la variable cible en facteur (si nécessaire)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>variable_cible <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>variable_cible)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="ajuster-le-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="ajuster-le-modèle">3. <strong>Ajuster le modèle</strong></h3>
+<p>Utilisez la fonction <code>glm()</code> pour effectuer une régression logistique. Spécifiez <code>family = binomial</code> pour indiquer qu’il s’agit d’un modèle logistique.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuster le modèle</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(variable_cible <span class="sc">~</span> var1 <span class="sc">+</span> var2, <span class="at">data =</span> data, <span class="at">family =</span> binomial)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le résumé du modèle</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="interpréter-les-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="interpréter-les-résultats">4. <strong>Interpréter les résultats</strong></h3>
+<p>Le résumé du modèle fournit : - Les coefficients (<code>Estimate</code>) : Log-odds (logarithme des chances). - Les valeurs de p (<code>Pr(&gt;|z|)</code>) : Significativité des variables explicatives.</p>
+<hr>
+</section>
+<section id="vérifier-la-qualité-du-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="vérifier-la-qualité-du-modèle">5. <strong>Vérifier la qualité du modèle</strong></h3>
+<ul>
+<li><strong>Pseudo-R² :</strong> Utilisez des fonctions comme <code>pscl::pR2()</code>.</li>
+<li><strong>Table de confusion et précision :</strong></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prédictions (probabilités)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir en classes (0/1)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>classes_predites <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(predictions <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Table de confusion</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">observed =</span> data<span class="sc">$</span>variable_cible, <span class="at">predicted =</span> classes_predites)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="visualiser-les-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="visualiser-les-résultats">6. <strong>Visualiser les résultats</strong></h3>
+<p>Vous pouvez visualiser la courbe ROC pour évaluer les performances du modèle.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Courbe ROC</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>roc_curve <span class="ot">&lt;-</span> <span class="fu">roc</span>(data<span class="sc">$</span>variable_cible, predictions)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_curve)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_curve) <span class="co"># Aire sous la courbe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="exemple-complet" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-complet">Exemple Complet</h3>
+<p>Voici un exemple basé sur le dataset <code>mtcars</code> pour prédire si une voiture est automatique (<code>am = 0</code>) ou manuelle (<code>am = 1</code>), basé sur la consommation (<code>mpg</code>) et la puissance (<code>hp</code>).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la variable cible en facteur</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuster le modèle</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(am <span class="sc">~</span> mpg <span class="sc">+</span> hp, <span class="at">data =</span> mtcars, <span class="at">family =</span> binomial)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Résumé du modèle</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Prédictions</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>classes_predites <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(predictions <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Table de confusion</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">observed =</span> mtcars<span class="sc">$</span>am, <span class="at">predicted =</span> classes_predites)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Courbe ROC</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>roc_curve <span class="ot">&lt;-</span> <span class="fu">roc</span>(mtcars<span class="sc">$</span>am, predictions)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_curve)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_curve)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>Si vous avez besoin de plus de détails ou d’une adaptation spécifique à vos données, n’hésitez pas à demander !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -611,21 +735,21 @@ window.Quarto = {
 <li>La fonction de lien utilisée pour la régression logistique est le logit (ou log-odds).</li>
 </ul></li>
 <li><p><strong>Exemple de code</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (x: âge, y: achat d'album de death metal)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">40</span>, ...)  <span class="co"># Âges des personnes</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, ...)    <span class="co"># 0: Non, 1: Oui (achat d'album)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Régression logistique</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>myreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> logit))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myreg)  <span class="co"># Affiche les coefficients et les statistiques</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformation inverse pour obtenir les probabilités</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>logit_ypredit <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.12</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">5.95</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ypredit <span class="ot">&lt;-</span> <span class="fu">exp</span>(logit_ypredit) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(logit_ypredit))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé de la courbe</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, ypredit, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (x: âge, y: achat d'album de death metal)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">25</span>, <span class="dv">40</span>, ...)  <span class="co"># Âges des personnes</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, ...)    <span class="co"># 0: Non, 1: Oui (achat d'album)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Régression logistique</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>myreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> logit))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myreg)  <span class="co"># Affiche les coefficients et les statistiques</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformation inverse pour obtenir les probabilités</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>logit_ypredit <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.12</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">5.95</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>ypredit <span class="ot">&lt;-</span> <span class="fu">exp</span>(logit_ypredit) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(logit_ypredit))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé de la courbe</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, ypredit, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Dans l’exemple, l’influence négative de l’âge sur l’achat d’albums de death metal est significative au seuil de 5%.</li>
 </ul></li>
@@ -634,6 +758,7 @@ window.Quarto = {
 <p>Source : conversation avec Copilot, 24/07/2024 (1) Régression Logistique dans Rstudio. Comment faire la régressionlogistique dans R?. https://www.youtube.com/watch?v=sopRAKHtm3g. (2) Regression logistique avec R part2. https://www.youtube.com/watch?v=AekWTxpyjvs. (3) Regression logistique avec R part1. https://www.youtube.com/watch?v=6LTHZgYv6Nc. (4) Réaliser une régression logistique avec R - R-atique. https://perso.ens-lyon.fr/lise.vaudor/realiser-une-regression-logistique-avec-r/. (5) Un guide complet de la régression logistique en R - ICHI.PRO. https://ichi.pro/fr/un-guide-complet-de-la-regression-logistique-en-r-49515274030415. (6) 5 Regression logistique | Analyses statistiques avec R - Bookdown. https://bookdown.org/evraloui/lbira2110/regression-logistique.html. (7) undefined. https://github.com/alibezzaa/Logistic-regression.git. (8) Équation de régression logistique en R : Comprendre la formule avec des …. https://bing.com/search?q=r%c3%a9gression+logistique+R. (9) Équation de régression logistique en R : Comprendre la formule avec des …. https://docs.kanaries.net/fr/topics/R/logistic-regression-equation-in-r. (10) Régression logistique - Explication simple - DATAtab. https://datatab.fr/tutorial/logistic-regression.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
