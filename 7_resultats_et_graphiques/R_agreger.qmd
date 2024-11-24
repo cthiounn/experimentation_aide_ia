@@ -1,0 +1,94 @@
+## Agréger
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment créer une table d'agrégat avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+
+Pour créer une table d'agrégat avec R, vous pouvez utiliser la fonction `aggregate()` ou les fonctions du package `dplyr`. Voici un exemple simple avec les deux méthodes :
+
+### Utilisation de `aggregate()`
+
+```r
+# Exemple de données
+data <- data.frame(
+  group = c('A', 'A', 'B', 'B', 'C', 'C'),
+  value = c(10, 20, 30, 40, 50, 60)
+)
+
+# Agrégation par groupe
+agg_data <- aggregate(value ~ group, data, sum)
+print(agg_data)
+```
+
+### Utilisation de `dplyr`
+
+```r
+# Charger le package dplyr
+library(dplyr)
+
+# Exemple de données
+data <- data.frame(
+  group = c('A', 'A', 'B', 'B', 'C', 'C'),
+  value = c(10, 20, 30, 40, 50, 60)
+)
+
+# Agrégation par groupe
+agg_data <- data %>%
+  group_by(group) %>%
+  summarise(total_value = sum(value))
+
+print(agg_data)
+```
+
+Ces deux méthodes permettent de regrouper les données par une ou plusieurs colonnes et de calculer des statistiques agrégées, comme la somme, la moyenne, etc. Si vous avez des questions supplémentaires ou besoin d'aide avec un autre aspect de R, n'hésitez pas à demander !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour créer une table d'agrégat avec R, vous pouvez utiliser la fonction `aggregate()` ou les fonctions du package `dplyr`. Voici un exemple simple avec les deux méthodes :
+
+### Utilisation de `aggregate()`
+
+```r
+# Exemple de données
+data <- data.frame(
+  group = c('A', 'A', 'B', 'B', 'C', 'C'),
+  value = c(10, 20, 30, 40, 50, 60)
+)
+
+# Agrégation par groupe
+agg_data <- aggregate(value ~ group, data, sum)
+print(agg_data)
+```
+
+### Utilisation de `dplyr`
+
+```r
+# Charger le package dplyr
+library(dplyr)
+
+# Exemple de données
+data <- data.frame(
+  group = c('A', 'A', 'B', 'B', 'C', 'C'),
+  value = c(10, 20, 30, 40, 50, 60)
+)
+
+# Agrégation par groupe
+agg_data <- data %>%
+  group_by(group) %>%
+  summarise(total_value = sum(value))
+
+print(agg_data)
+```
+
+Ces deux méthodes permettent de regrouper les données par une ou plusieurs colonnes et de calculer des statistiques agrégées, comme la somme, la moyenne, etc. Si vous avez des questions supplémentaires ou besoin d'aide avec un autre aspect de R, n'hésitez pas à demander !

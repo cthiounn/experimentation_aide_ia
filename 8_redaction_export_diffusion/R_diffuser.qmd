@@ -1,0 +1,151 @@
+## Diffusion de résultat
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment diffuser un résultat avec R ? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Diffuser un résultat avec R signifie souvent présenter ou communiquer des données, des graphiques, ou des résultats d’analyse d’une manière qui soit facilement compréhensible et accessible aux autres. Voici les étapes clés pour diffuser un résultat avec R :
+
+---
+
+### 1. **Exporter les résultats** :
+Vous pouvez exporter vos résultats sous différents formats :
+
+- **CSV** : Pour partager des données tabulaires :
+  ```R
+  write.csv(data_frame, "resultat.csv", row.names = FALSE)
+  ```
+
+- **Excel** : Avec le package `openxlsx` ou `writexl` :
+  ```R
+  library(writexl)
+  write_xlsx(data_frame, "resultat.xlsx")
+  ```
+
+- **Texte** : Si les résultats sont simples :
+  ```R
+  write.table(data_frame, "resultat.txt", sep = "\t", row.names = FALSE)
+  ```
+
+---
+
+### 2. **Créer des graphiques et les enregistrer** :
+Si vos résultats incluent des graphiques, vous pouvez les sauvegarder au format image ou PDF :
+
+- **PNG** :
+  ```R
+  png("graphique.png", width = 800, height = 600)
+  plot(x, y)
+  dev.off()
+  ```
+
+- **PDF** :
+  ```R
+  pdf("graphique.pdf")
+  plot(x, y)
+  dev.off()
+  ```
+
+- **ggplot2** (graphiques plus avancés) :
+  ```R
+  library(ggplot2)
+  p <- ggplot(data, aes(x, y)) + geom_point()
+  ggsave("graphique.png", plot = p, width = 8, height = 6)
+  ```
+
+---
+
+### 3. **Utiliser des rapports automatiques (R Markdown)** :
+R Markdown permet de combiner texte, code R, et résultats pour produire des documents reproductibles. Vous pouvez générer des rapports au format :
+
+- **HTML** : Lisible dans un navigateur.
+- **PDF** : À imprimer ou partager comme document.
+- **Word** : Facilement éditable.
+
+Voici un exemple de base pour un fichier R Markdown :
+
+```markdown
+---
+title: "Analyse des résultats"
+output: html_document
+---
+
+```{r}
+# Charger les données
+data <- data.frame(x = 1:10, y = rnorm(10))
+
+# Visualiser un graphique
+plot(data$x, data$y)
+```
+```
+
+Pour générer un rapport, installez le package `rmarkdown` :
+```R
+install.packages("rmarkdown")
+library(rmarkdown)
+render("rapport.Rmd")
+```
+
+---
+
+### 4. **Partager via une application interactive (Shiny)** :
+Avec Shiny, vous pouvez construire une application interactive pour explorer les résultats.
+
+Exemple de base d'une application Shiny :
+```R
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("Analyse des données"),
+  plotOutput("graphique")
+)
+
+server <- function(input, output) {
+  output$graphique <- renderPlot({
+    plot(1:10, rnorm(10))
+  })
+}
+
+shinyApp(ui, server)
+```
+
+Lancez cette application dans un navigateur pour partager un outil interactif.
+
+---
+
+### 5. **Publier les résultats en ligne** :
+- **RPubs** : Publiez des rapports R Markdown directement en ligne.
+- **GitHub** : Partagez vos scripts, données et graphiques dans un dépôt public ou privé.
+- **Web avec Shinyapps.io** : Hébergez vos applications Shiny.
+
+---
+
+Avec ces outils, vous pouvez adapter la diffusion de vos résultats selon votre audience et les besoins spécifiques du projet.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour diffuser un résultat avec R, vous pouvez utiliser plusieurs méthodes en fonction de vos besoins. Voici quelques options courantes :
+
+1. **R Markdown** : C'est un outil puissant pour créer des documents dynamiques qui intègrent du code R, des résultats et du texte formaté. Vous pouvez générer des rapports en HTML, PDF, Word, etc. Voici un guide pour commencer avec R Markdown[1](https://tutorials.migale.inrae.fr/posts/share-your-work/).
+
+2. **Exportation de données** : Vous pouvez exporter vos résultats sous différents formats (CSV, Excel, texte, etc.) en utilisant des fonctions comme `write.csv()`, `write.xlsx()`, ou `capture.output()` pour les objets non data frame[2](https://delladata.fr/exporter-donnees-sorties-r/).
+
+3. **Visualisation et partage** : Utilisez des bibliothèques comme `ggplot2` pour créer des graphiques et les enregistrer en tant qu'images avec `ggsave()`. Vous pouvez ensuite les intégrer dans des documents ou les partager directement.
+
+4. **Publication en ligne** : Pour partager vos analyses en ligne, vous pouvez utiliser des plateformes comme Rpubs ou GitHub Pages. Rpubs permet de publier directement des documents R Markdown depuis RStudio[1](https://tutorials.migale.inrae.fr/posts/share-your-work/).
+
+Si vous avez besoin d'aide pour une méthode spécifique ou un exemple de code, n'hésitez pas à demander ! 😊
+
+[1](https://tutorials.migale.inrae.fr/posts/share-your-work/): [Mettre en ligne son rapport d'analyse R markdown](https://tutorials.migale.inrae.fr/posts/share-your-work/)
+[2](https://delladata.fr/exporter-donnees-sorties-r/): [Exporter des données ou des sorties R](https://delladata.fr/exporter-donnees-sorties-r/)
+: [Visualiser les données avec ggplot2](https://bing.com/search?q=)

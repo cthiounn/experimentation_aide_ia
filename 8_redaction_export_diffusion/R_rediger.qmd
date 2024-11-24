@@ -1,0 +1,187 @@
+## Rédaction d'un rapport avec R
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment rédiger un rapport avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil très puissant qui permet de combiner texte, code R, et résultats dans un seul document. Voici un guide étape par étape pour créer un rapport avec R :
+
+---
+
+### 1. **Installer R et RStudio**
+Assurez-vous d'avoir installé :
+- **R** : Le moteur pour exécuter le code.
+- **RStudio** : Un environnement convivial pour travailler avec R.
+
+---
+
+### 2. **Créer un fichier R Markdown**
+1. Ouvrez RStudio.
+2. Allez dans **File > New File > R Markdown...**.
+3. Donnez un titre à votre document et sélectionnez le type de sortie (HTML, PDF ou Word).
+   - Pour générer des fichiers PDF, vous devrez installer LaTeX (par exemple, avec **TinyTeX** : `install.packages("tinytex"); tinytex::install_tinytex()`).
+
+---
+
+### 3. **Structure d'un fichier R Markdown**
+Un fichier R Markdown contient trois parties principales :
+
+#### a. **En-tête YAML**
+L'en-tête YAML contient les métadonnées pour configurer le document. Voici un exemple :
+
+```yaml
+---
+title: "Titre du Rapport"
+author: "Votre Nom"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```
+
+#### b. **Texte en Markdown**
+Le texte est écrit en Markdown, un langage de balisage simple. Par exemple :
+- **Titre** : `# Titre Principal`
+- **Sous-titre** : `## Sous-titre`
+- **Texte en gras** : `**gras**`
+- **Italique** : `*italique*`
+- **Listes** :
+  - À puces : `- Élément`
+  - Numérotée : `1. Élément`
+
+#### c. **Blocs de code R**
+Insérez des blocs de code R avec des balises comme ceci :
+
+<pre>
+```{r}
+# Votre code R ici
+summary(cars)
+```
+</pre>
+
+---
+
+### 4. **Exécuter et générer le rapport**
+1. **Exécutez le code dans les blocs** : Cliquez sur le bouton *Run* au-dessus des blocs ou utilisez le raccourci clavier `Ctrl + Enter`.
+2. **Générez le rapport complet** : Cliquez sur le bouton **Knit** en haut de l'éditeur R Markdown.
+   - Sélectionnez le format souhaité (HTML, PDF, Word, etc.).
+
+---
+
+### 5. **Personnalisation**
+- **Ajoutez des graphiques** :
+  <pre>
+  ```{r}
+  plot(cars)
+  ```
+  </pre>
+
+- **Ajoutez des tables** :
+  <pre>
+  ```{r}
+  library(knitr)
+  kable(head(mtcars), caption = "Tableau Exemple")
+  ```
+  </pre>
+
+- **Modifier le style** : Utilisez des options comme `theme` dans le YAML ou CSS pour personnaliser l'apparence.
+
+---
+
+### 6. **Partager le rapport**
+- Les fichiers HTML peuvent être ouverts directement dans un navigateur.
+- Les rapports PDF et Word peuvent être partagés par email.
+
+---
+
+### Exemple Complet
+
+Voici un fichier R Markdown simple :
+
+```yaml
+---
+title: "Exemple de Rapport"
+author: "Votre Nom"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+Ce rapport présente un exemple de données.
+
+## Résumé des données
+
+```{r}
+summary(mtcars)
+```
+
+## Graphique
+
+```{r}
+plot(mtcars$mpg, mtcars$hp, main = "Puissance vs Consommation")
+```
+```
+
+En cliquant sur **Knit**, vous obtiendrez un rapport contenant du texte, des analyses et des graphiques.
+
+---
+
+### Ressources Utiles
+- [Guide officiel R Markdown](https://rmarkdown.rstudio.com/)
+- [Introduction à R Markdown (RStudio)](https://rmarkdown.rstudio.com/lesson-1.html)
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil puissant et flexible qui permet de combiner du texte, du code R, et des résultats (comme des graphiques et des tableaux) dans un même document. Voici les étapes de base pour commencer :
+
+1. **Installer R Markdown** :
+   ```r
+   install.packages("rmarkdown")
+   ```
+
+2. **Créer un nouveau fichier R Markdown** :
+   - Ouvrez RStudio.
+   - Allez dans `File` > `New File` > `R Markdown...`.
+   - Choisissez le type de document de sortie (HTML, PDF, Word, etc.), donnez un titre et un nom d'auteur, puis cliquez sur `OK`.
+
+3. **Écrire le contenu du rapport** :
+   - Le fichier R Markdown contient trois parties principales : les métadonnées YAML, le texte en Markdown, et les blocs de code R.
+   - Exemple de structure de base :
+     ```markdown
+     ---
+     title: "Titre du Rapport"
+     author: "Votre Nom"
+     date: "`r Sys.Date()`"
+     output: html_document
+     ---
+
+     ## Introduction
+
+     Voici une introduction à votre rapport.
+
+     ```{r}
+     # Code R pour générer un graphique
+     plot(cars)
+     ```
+
+     ## Conclusion
+
+     Voici la conclusion de votre rapport.
+     ```
+
+4. **Compiler le document** :
+   - Cliquez sur le bouton `Knit` dans RStudio pour générer le document final dans le format choisi (HTML, PDF, etc.).
+
+Pour plus de détails, vous pouvez consulter des ressources en ligne comme le [Epi R Handbook](https://epirhandbook.com/fr/new_pages/rmarkdown.fr.html)[1](https://epirhandbook.com/fr/new_pages/rmarkdown.fr.html) ou des tutoriels vidéo comme celui sur [YouTube](https://www.youtube.com/watch?v=lFdB4fIAcLM)[2](https://www.youtube.com/watch?v=lFdB4fIAcLM).
+
+Est-ce que cela vous aide à démarrer ? Avez-vous des questions spécifiques sur l'utilisation de R Markdown ?

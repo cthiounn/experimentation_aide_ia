@@ -14,6 +14,7 @@ website:
     pinned: true
     align: center
     style: "docked"
+    collapse-level: 1
     contents:
       - text: "Accueil"
         href: index.qmd
@@ -109,16 +110,32 @@ website:
             text: "Régression Diff In Diff"
       - section: "Interprétation des résultats"
         contents:
-          - href: R_template.qmd
-            text: ""
-      - section: "Rédaction du rapport"
+          - href: 6_analyse_inferentielle/R_interpretation.qmd
+            text: "Interprétation économétrique"
+          - href: 6_analyse_inferentielle/R_interpretation_reg_log.qmd
+            text: "Interpréter une régression logistique"
+      - section: "Résultats et graphiques"
         contents:
-          - href: R_template.qmd
-            text: ""
-      - section: "Diffusion des résultats"
+          - href: 7_resultats_et_graphiques/R_agreger.qmd
+            text: "Agréger des données"
+          - href: 7_resultats_et_graphiques/R_histogramme.qmd
+            text: "Tracer un histogramme"
+          - href: 7_resultats_et_graphiques/R_nuage_points.qmd
+            text: "Tracer un nuage de points"
+          - href: 7_resultats_et_graphiques/R_droite.qmd
+            text: "Tracer une droite"
+          - href: 7_resultats_et_graphiques/R_multigraphique.qmd
+            text: "Multigraphique"
+      - section: "Rédiger, exporter, diffuser"
         contents:
-          - href: 7_diffusion/R_avancee_openxlsx.qmd
-            text: "Exporter des statistiques avec openxlsx"
+          - href: 8_redaction_export_diffusion/R_rediger.qmd
+            text: "Rédiger"
+          - href: 8_redaction_export_diffusion/R_exporter_parquet.qmd
+            text: "Exporter en parquet"
+          - href: 8_redaction_export_diffusion/R_avancee_openxlsx.qmd
+            text: "Exporter en xls"
+          - href: 8_redaction_export_diffusion/R_diffuser.qmd
+            text: "Diffuser"
       - section: "Évaluation et réflexion"
         contents:
           - href: R_template.qmd

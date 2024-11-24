@@ -1,0 +1,197 @@
+## Multigraphique
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment faire plusieurs graphiques en un seul avec R ? 
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+En R, il est possible de combiner plusieurs graphiques dans une seule visualisation de différentes manières, selon vos besoins et les bibliothèques utilisées. Voici un aperçu des approches les plus courantes :
+
+---
+
+### 1. **Avec la base R : `par()` ou `layout()`**
+#### Utilisation de `par()`
+La fonction `par()` permet de diviser la fenêtre graphique en plusieurs sections.
+
+```R
+# Diviser l'écran en une grille 2x2
+par(mfrow = c(2, 2))  # 2 lignes, 2 colonnes
+
+# Tracer quatre graphiques
+plot(1:10, main = "Graphique 1")
+plot(rnorm(100), main = "Graphique 2")
+hist(rnorm(100), main = "Graphique 3")
+boxplot(rnorm(100), main = "Graphique 4")
+
+# Réinitialiser les paramètres par défaut
+par(mfrow = c(1, 1))
+```
+
+#### Utilisation de `layout()`
+La fonction `layout()` permet plus de flexibilité pour organiser les graphiques.
+
+```R
+# Définir une disposition complexe
+layout(matrix(c(1, 1, 2, 3), nrow = 2, byrow = TRUE))
+
+# Tracer les graphiques
+plot(1:10, main = "Graphique 1 (large)")
+hist(rnorm(100), main = "Graphique 2")
+boxplot(rnorm(100), main = "Graphique 3")
+```
+
+---
+
+### 2. **Avec `ggplot2` et `patchwork`**
+Le package **`patchwork`** est une extension simple et puissante pour combiner des graphiques créés avec `ggplot2`.
+
+```R
+# Charger les bibliothèques
+library(ggplot2)
+library(patchwork)
+
+# Créer des graphiques ggplot
+p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point() + ggtitle("Graphique 1")
+p2 <- ggplot(mpg, aes(class)) + geom_bar() + ggtitle("Graphique 2")
+p3 <- ggplot(mpg, aes(hwy)) + geom_histogram(bins = 20) + ggtitle("Graphique 3")
+
+# Combiner les graphiques
+(p1 | p2) / p3  # Disposition : deux graphiques en haut, un en bas
+```
+
+---
+
+### 3. **Avec `gridExtra`**
+Le package **`gridExtra`** permet de combiner des graphiques ggplot sous forme de tableau.
+
+```R
+# Charger les bibliothèques
+library(ggplot2)
+library(gridExtra)
+
+# Créer des graphiques ggplot
+p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point() + ggtitle("Graphique 1")
+p2 <- ggplot(mpg, aes(class)) + geom_bar() + ggtitle("Graphique 2")
+p3 <- ggplot(mpg, aes(hwy)) + geom_histogram(bins = 20) + ggtitle("Graphique 3")
+
+# Combiner les graphiques
+grid.arrange(p1, p2, p3, nrow = 2)  # Deux lignes
+```
+
+---
+
+### 4. **Avec `cowplot`**
+Le package **`cowplot`** offre une belle mise en page pour les graphiques ggplot.
+
+```R
+# Charger les bibliothèques
+library(ggplot2)
+library(cowplot)
+
+# Créer des graphiques ggplot
+p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point() + ggtitle("Graphique 1")
+p2 <- ggplot(mpg, aes(class)) + geom_bar() + ggtitle("Graphique 2")
+
+# Combiner les graphiques
+plot_grid(p1, p2, labels = "AUTO")  # Ajoute des étiquettes automatiques
+```
+
+---
+
+### 5. **Avec `facet_wrap` ou `facet_grid` (ggplot2)**
+Si vos données se prêtent à une comparaison sur plusieurs facettes, vous pouvez utiliser `facet_wrap()` ou `facet_grid()` dans `ggplot2`.
+
+```R
+library(ggplot2)
+
+# Facettage par catégorie
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  facet_wrap(~ class, nrow = 2)  # Une facette pour chaque catégorie de 'class'
+```
+
+---
+
+Chaque méthode a ses avantages :
+- **Base R** est simple et efficace pour des visualisations rapides.
+- **ggplot2** et ses extensions offrent des présentations modernes et personnalisables.
+- **gridExtra** et **cowplot** facilitent les mises en page avancées.
+
+N'hésitez pas à choisir la méthode qui correspond le mieux à vos besoins !
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour combiner plusieurs graphiques en un seul avec R, vous pouvez utiliser plusieurs packages, notamment `gridExtra`, `patchwork`, `cowplot`, et `ggpubr`. Voici un aperçu de quelques méthodes populaires :
+
+### Utilisation du package `gridExtra`
+Le package `gridExtra` permet d'assembler plusieurs graphiques côte à côte ou en grille. Voici un exemple simple :
+
+```r
+library(ggplot2)
+library(gridExtra)
+
+# Création de deux graphiques
+g1 <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+g2 <- ggplot(mtcars, aes(x=gear, y=mpg)) + geom_boxplot()
+
+# Assemblage des graphiques
+grid.arrange(g1, g2, ncol=2)
+```
+
+### Utilisation du package `patchwork`
+Le package `patchwork` offre une syntaxe intuitive pour combiner des graphiques. Vous pouvez utiliser les opérateurs `+`, `|`, et `/` pour organiser les graphiques.
+
+```r
+library(ggplot2)
+library(patchwork)
+
+# Création de deux graphiques
+g1 <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+g2 <- ggplot(mtcars, aes(x=gear, y=mpg)) + geom_boxplot()
+
+# Assemblage des graphiques
+g1 + g2
+```
+
+### Utilisation du package `cowplot`
+Le package `cowplot` est particulièrement utile pour des publications de haute qualité. Il permet un alignement précis des graphiques.
+
+```r
+library(ggplot2)
+library(cowplot)
+
+# Création de deux graphiques
+g1 <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+g2 <- ggplot(mtcars, aes(x=gear, y=mpg)) + geom_boxplot()
+
+# Assemblage des graphiques
+plot_grid(g1, g2, labels = "AUTO")
+```
+
+### Utilisation du package `ggpubr`
+Le package `ggpubr` propose des fonctions comme `ggarrange()` pour organiser plusieurs graphiques.
+
+```r
+library(ggplot2)
+library(ggpubr)
+
+# Création de deux graphiques
+g1 <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+g2 <- ggplot(mtcars, aes(x=gear, y=mpg)) + geom_boxplot()
+
+# Assemblage des graphiques
+ggarrange(g1, g2, ncol=2, nrow=1)
+```
+
+Ces méthodes vous permettent de créer des visualisations complexes et élégantes en combinant plusieurs graphiques dans une seule figure[1](https://delladata.fr/comment-assembler-plusieurs-graphiques-dans-r/)[2](https://stacklima.com/dessinez-plusieurs-graphiques-et-lignes-dans-le-meme-trace-dans-r/)[3](https://www.datanovia.com/en/fr/lessons/combiner-plusieurs-ggplots-dans-une-figure/).
+
+Si vous avez des questions spécifiques ou besoin d'aide avec un exemple particulier, n'hésitez pas à demander !

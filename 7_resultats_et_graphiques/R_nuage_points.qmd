@@ -1,0 +1,119 @@
+## Nuage de points
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment tracer un nuage de points en R?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Tracer un nuage de points en R est simple grâce à la fonction **`plot()`** ou des bibliothèques comme **`ggplot2`**. Voici des exemples pour chaque méthode.
+
+---
+
+### **Méthode de base avec `plot()`**
+1. Créez des données :
+```R
+# Génération des données
+x <- rnorm(100)  # 100 valeurs aléatoires pour X
+y <- rnorm(100)  # 100 valeurs aléatoires pour Y
+```
+
+2. Tracez le nuage de points :
+```R
+# Nuage de points simple
+plot(x, y, 
+     main = "Nuage de points", 
+     xlab = "Axe X", 
+     ylab = "Axe Y", 
+     pch = 16,    # Style des points
+     col = "blue")  # Couleur des points
+```
+
+---
+
+### **Avec `ggplot2`**
+1. Installez et chargez la bibliothèque si nécessaire :
+```R
+install.packages("ggplot2")  # Une seule fois
+library(ggplot2)
+```
+
+2. Créez un data frame pour les données :
+```R
+# Création du data frame
+data <- data.frame(x = rnorm(100), y = rnorm(100))
+```
+
+3. Tracez le nuage de points avec `ggplot` :
+```R
+ggplot(data, aes(x = x, y = y)) +
+  geom_point(color = "blue") +
+  labs(title = "Nuage de points", x = "Axe X", y = "Axe Y") +
+  theme_minimal()  # Style de graphique épuré
+```
+
+---
+
+### Points à personnaliser
+1. **Taille des points** : 
+   - Avec `plot()` : Ajoutez `cex = 1.5`.
+   - Avec `ggplot2` : Utilisez `geom_point(size = 3)`.
+
+2. **Forme des points** : 
+   - Avec `plot()` : Changez `pch =`.
+   - Avec `ggplot2` : Changez l'argument `shape` dans `geom_point()`.
+
+3. **Couleurs basées sur une catégorie** (avec `ggplot2`) :
+   Si vous avez une variable catégorielle, vous pouvez colorier les points par catégorie :
+   ```R
+   data$category <- factor(sample(c("A", "B"), 100, replace = TRUE))
+   ggplot(data, aes(x = x, y = y, color = category)) +
+     geom_point(size = 3) +
+     labs(title = "Nuage de points par catégorie") +
+     theme_minimal()
+   ```
+
+Ces outils offrent beaucoup de flexibilité pour des visualisations simples ou avancées. 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour tracer un nuage de points en R, vous pouvez utiliser la fonction `plot()` pour une méthode simple ou le package `ggplot2` pour des visualisations plus avancées. Voici un exemple de chaque méthode :
+
+### Utilisation de `plot()`
+
+```R
+# Exemple de données
+x <- rnorm(100)
+y <- rnorm(100)
+
+# Tracer un nuage de points simple
+plot(x, y, main="Nuage de points simple", xlab="X", ylab="Y")
+```
+
+### Utilisation de `ggplot2`
+
+```R
+# Installer et charger le package ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+
+# Exemple de données
+data <- data.frame(x = rnorm(100), y = rnorm(100))
+
+# Tracer un nuage de points avec ggplot2
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title="Nuage de points avec ggplot2", x="X", y="Y")
+```
+
+Ces deux méthodes vous permettent de créer des nuages de points, mais `ggplot2` offre plus de flexibilité et de possibilités de personnalisation[1](https://www.guru99.com/fr/r-scatter-plot-ggplot2.html)[2](https://www.sthda.com/french/wiki/ggplot2-nuage-de-points-guide-de-d-marrage-rapide-logiciel-r-et-visualisation-de-donn-es?title=ggplot2-nuage-de-points-guide-de-d-marrage-rapide-logiciel-r-et-visualisation-de-donn-es).
+
+Si vous avez des questions spécifiques ou besoin d'aide avec un aspect particulier, n'hésitez pas à demander ! 😊

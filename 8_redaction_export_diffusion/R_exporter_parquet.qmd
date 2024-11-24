@@ -1,0 +1,150 @@
+## Export parquet
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment exporter en parquet avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Exporter des données en **Parquet** avec R peut être fait en utilisant des bibliothèques comme **arrow** ou **sparklyr**, qui permettent de travailler avec des fichiers Parquet, un format binaire optimisé pour la performance et la compression.
+
+Voici les étapes pour exporter un fichier en Parquet avec R :
+
+---
+
+### 1. **Avec le package `arrow`**
+Le package **arrow** est une solution légère et rapide pour manipuler des fichiers Parquet.
+
+#### Installation
+```R
+install.packages("arrow")
+```
+
+#### Exemple de code
+```R
+library(arrow)
+
+# Exemple de dataframe
+df <- data.frame(
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva"),
+  score = c(90, 85, 88, 92, 95)
+)
+
+# Exporter en fichier Parquet
+write_parquet(df, "chemin/vers/fichier.parquet")
+
+# Lire le fichier Parquet (optionnel, pour vérifier)
+df_lu <- read_parquet("chemin/vers/fichier.parquet")
+print(df_lu)
+```
+
+---
+
+### 2. **Avec le package `sparklyr`**
+Si vous utilisez Spark pour le traitement de données, vous pouvez aussi exporter en Parquet.
+
+#### Installation
+```R
+install.packages("sparklyr")
+```
+
+#### Exemple de code
+```R
+library(sparklyr)
+
+# Configurer Spark
+sc <- spark_connect(master = "local")
+
+# Exemple de dataframe
+df <- data.frame(
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva"),
+  score = c(90, 85, 88, 92, 95)
+)
+
+# Copier le dataframe dans Spark
+df_tbl <- copy_to(sc, df, overwrite = TRUE)
+
+# Exporter en Parquet
+spark_write_parquet(df_tbl, "chemin/vers/fichier.parquet")
+
+# Déconnecter Spark
+spark_disconnect(sc)
+```
+
+---
+
+### 3. **Avec `dplyr` et `arrow`**
+Pour un flux de travail plus fluide avec `dplyr` :
+```R
+library(dplyr)
+library(arrow)
+
+# Créer un dataframe
+df <- tibble(
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva"),
+  score = c(90, 85, 88, 92, 95)
+)
+
+# Écrire en Parquet
+df %>% write_parquet("chemin/vers/fichier.parquet")
+```
+
+---
+
+### 4. **Vérifier le contenu**
+Pour vérifier rapidement le contenu d’un fichier Parquet :
+```R
+read_parquet("chemin/vers/fichier.parquet") %>% print()
+```
+
+Avec ces approches, vous pouvez facilement exporter des fichiers en Parquet dans R. Choisissez la méthode qui correspond à vos besoins et à votre environnement de travail.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour exporter des données en format Parquet avec R, vous pouvez utiliser le package `arrow`. Voici un exemple simple pour vous guider :
+
+1. **Installer et charger le package `arrow`** :
+   ```r
+   install.packages("arrow")
+   library(arrow)
+   ```
+
+2. **Lire vos données** (par exemple, à partir d'un fichier CSV) :
+   ```r
+   library(data.table)
+   data <- fread("votre_fichier.csv")
+   ```
+
+3. **Exporter les données en format Parquet** :
+   ```r
+   write_parquet(data, "votre_fichier.parquet")
+   ```
+
+Voici un exemple complet :
+```r
+# Installer et charger les packages nécessaires
+install.packages("arrow")
+library(arrow)
+library(data.table)
+
+# Lire les données à partir d'un fichier CSV
+data <- fread("votre_fichier.csv")
+
+# Exporter les données en format Parquet
+write_parquet(data, "votre_fichier.parquet")
+```
+
+Le format Parquet est particulièrement utile pour stocker des données volumineuses car il est plus compact et permet un accès rapide aux données[1](https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html).
+
+Si vous avez des questions supplémentaires ou besoin d'aide avec un autre aspect de R, n'hésitez pas à demander !
