@@ -78,7 +78,7 @@ title: "Analyse des résultats"
 output: html_document
 ---
 
-```{r}
+```
 # Charger les données
 data <- data.frame(x = 1:10, y = rnorm(10))
 
