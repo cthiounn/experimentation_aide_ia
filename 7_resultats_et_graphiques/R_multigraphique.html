@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_detecter_donnees_manquantes – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_multigraphique – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_detecter_donnees_manquantes.html">Détecter les données manquantes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../7_resultats_et_graphiques/R_agreger.html">Résultats et graphiques</a></li><li class="breadcrumb-item"><a href="../7_resultats_et_graphiques/R_multigraphique.html">Multigraphique</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les données manquantes</span></a>
   </div>
 </li>
@@ -473,13 +473,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">Résultats et graphiques</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../7_resultats_et_graphiques/R_agreger.html" class="sidebar-item-text sidebar-link">
@@ -506,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../7_resultats_et_graphiques/R_multigraphique.html" class="sidebar-item-text sidebar-link">
+  <a href="../7_resultats_et_graphiques/R_multigraphique.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Multigraphique</span></a>
   </div>
 </li>
@@ -597,14 +597,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#détecter-les-données-manquantes" id="toc-détecter-les-données-manquantes" class="nav-link active" data-scroll-target="#détecter-les-données-manquantes">Détecter les données manquantes</a>
+  <li><a href="#multigraphique" id="toc-multigraphique" class="nav-link active" data-scroll-target="#multigraphique">Multigraphique</a>
   <ul class="collapse">
-  <li><a href="#utiliser-is.na" id="toc-utiliser-is.na" class="nav-link" data-scroll-target="#utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></a></li>
-  <li><a href="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" id="toc-compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="nav-link" data-scroll-target="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></a></li>
-  <li><a href="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" id="toc-vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="nav-link" data-scroll-target="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></a></li>
-  <li><a href="#utiliser-summary-pour-une-vue-densemble" id="toc-utiliser-summary-pour-une-vue-densemble" class="nav-link" data-scroll-target="#utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></a></li>
-  <li><a href="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" id="toc-vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="nav-link" data-scroll-target="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></a></li>
-  <li><a href="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" id="toc-détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="nav-link" data-scroll-target="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></a></li>
+  <li><a href="#avec-la-base-r-par-ou-layout" id="toc-avec-la-base-r-par-ou-layout" class="nav-link" data-scroll-target="#avec-la-base-r-par-ou-layout">1. <strong>Avec la base R : <code>par()</code> ou <code>layout()</code></strong></a></li>
+  <li><a href="#avec-ggplot2-et-patchwork" id="toc-avec-ggplot2-et-patchwork" class="nav-link" data-scroll-target="#avec-ggplot2-et-patchwork">2. <strong>Avec <code>ggplot2</code> et <code>patchwork</code></strong></a></li>
+  <li><a href="#avec-gridextra" id="toc-avec-gridextra" class="nav-link" data-scroll-target="#avec-gridextra">3. <strong>Avec <code>gridExtra</code></strong></a></li>
+  <li><a href="#avec-cowplot" id="toc-avec-cowplot" class="nav-link" data-scroll-target="#avec-cowplot">4. <strong>Avec <code>cowplot</code></strong></a></li>
+  <li><a href="#avec-facet_wrap-ou-facet_grid-ggplot2" id="toc-avec-facet_wrap-ou-facet_grid-ggplot2" class="nav-link" data-scroll-target="#avec-facet_wrap-ou-facet_grid-ggplot2">5. <strong>Avec <code>facet_wrap</code> ou <code>facet_grid</code> (ggplot2)</strong></a></li>
+  <li><a href="#utilisation-du-package-gridextra" id="toc-utilisation-du-package-gridextra" class="nav-link" data-scroll-target="#utilisation-du-package-gridextra">Utilisation du package <code>gridExtra</code></a></li>
+  <li><a href="#utilisation-du-package-patchwork" id="toc-utilisation-du-package-patchwork" class="nav-link" data-scroll-target="#utilisation-du-package-patchwork">Utilisation du package <code>patchwork</code></a></li>
+  <li><a href="#utilisation-du-package-cowplot" id="toc-utilisation-du-package-cowplot" class="nav-link" data-scroll-target="#utilisation-du-package-cowplot">Utilisation du package <code>cowplot</code></a></li>
+  <li><a href="#utilisation-du-package-ggpubr" id="toc-utilisation-du-package-ggpubr" class="nav-link" data-scroll-target="#utilisation-du-package-ggpubr">Utilisation du package <code>ggpubr</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -615,8 +618,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="détecter-les-données-manquantes" class="level2">
-<h2 class="anchored" data-anchor-id="détecter-les-données-manquantes">Détecter les données manquantes</h2>
+<section id="multigraphique" class="level2">
+<h2 class="anchored" data-anchor-id="multigraphique">Multigraphique</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -625,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment détecter les données manquantes en R ?</li>
+<li>Comment faire plusieurs graphiques en un seul avec R ?</li>
 </ul>
 </div>
 </div>
@@ -637,85 +640,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, il existe plusieurs façons de détecter les données manquantes dans un jeu de données. Voici quelques méthodes courantes :</p>
-<section id="utiliser-is.na" class="level3">
-<h3 class="anchored" data-anchor-id="utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></h3>
-<p>La fonction <code>is.na()</code> permet de tester si des valeurs sont manquantes dans un vecteur, une matrice ou un cadre de données. Elle renvoie un vecteur logique avec <code>TRUE</code> pour les valeurs manquantes et <code>FALSE</code> pour les autres.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur avec des valeurs manquantes</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
+<p>En R, il est possible de combiner plusieurs graphiques dans une seule visualisation de différentes manières, selon vos besoins et les bibliothèques utilisées. Voici un aperçu des approches les plus courantes :</p>
+<hr>
+<section id="avec-la-base-r-par-ou-layout" class="level3">
+<h3 class="anchored" data-anchor-id="avec-la-base-r-par-ou-layout">1. <strong>Avec la base R : <code>par()</code> ou <code>layout()</code></strong></h3>
+<section id="utilisation-de-par" class="level4">
+<h4 class="anchored" data-anchor-id="utilisation-de-par">Utilisation de <code>par()</code></h4>
+<p>La fonction <code>par()</code> permet de diviser la fenêtre graphique en plusieurs sections.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diviser l'écran en une grille 2x2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))  <span class="co"># 2 lignes, 2 colonnes</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier les valeurs manquantes</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra :</p>
-<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracer quatre graphiques</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Graphique 1"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="st">"Graphique 2"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="st">"Graphique 3"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="st">"Graphique 4"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Réinitialiser les paramètres par défaut</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utilisation-de-layout" class="level4">
+<h4 class="anchored" data-anchor-id="utilisation-de-layout">Utilisation de <code>layout()</code></h4>
+<p>La fonction <code>layout()</code> permet plus de flexibilité pour organiser les graphiques.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir une disposition complexe</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracer les graphiques</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Graphique 1 (large)"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="st">"Graphique 2"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="st">"Graphique 3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="level3">
-<h3 class="anchored" data-anchor-id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></h3>
-<p>Vous pouvez utiliser <code>sum(is.na())</code> pour compter le nombre de valeurs manquantes dans un vecteur, une matrice ou un data frame.</p>
-<section id="exemple-1" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-1">Exemple :</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes dans le vecteur x</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(x))  <span class="co"># Résultat : 2 (2 valeurs manquantes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="avec-ggplot2-et-patchwork" class="level3">
+<h3 class="anchored" data-anchor-id="avec-ggplot2-et-patchwork">2. <strong>Avec <code>ggplot2</code> et <code>patchwork</code></strong></h3>
+<p>Le package <strong><code>patchwork</code></strong> est une extension simple et puissante pour combiner des graphiques créés avec <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les bibliothèques</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer des graphiques ggplot</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 1"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 2"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 3"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combiner les graphiques</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span> p3  <span class="co"># Disposition : deux graphiques en haut, un en bas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
+<section id="avec-gridextra" class="level3">
+<h3 class="anchored" data-anchor-id="avec-gridextra">3. <strong>Avec <code>gridExtra</code></strong></h3>
+<p>Le package <strong><code>gridExtra</code></strong> permet de combiner des graphiques ggplot sous forme de tableau.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les bibliothèques</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer des graphiques ggplot</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 1"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 2"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 3"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combiner les graphiques</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">2</span>)  <span class="co"># Deux lignes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="level3">
-<h3 class="anchored" data-anchor-id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></h3>
-<p>Si vous travaillez avec un <strong>data frame</strong>, vous pouvez utiliser <code>colSums()</code> pour compter les valeurs manquantes par colonne.</p>
-<section id="exemple-2" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-2">Exemple :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de data frame avec des valeurs manquantes</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes par colonne</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra :</p>
-<pre><code>a b 
-1 1</code></pre>
+<section id="avec-cowplot" class="level3">
+<h3 class="anchored" data-anchor-id="avec-cowplot">4. <strong>Avec <code>cowplot</code></strong></h3>
+<p>Le package <strong><code>cowplot</code></strong> offre une belle mise en page pour les graphiques ggplot.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les bibliothèques</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer des graphiques ggplot</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 1"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(class)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Graphique 2"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Combiner les graphiques</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p1, p2, <span class="at">labels =</span> <span class="st">"AUTO"</span>)  <span class="co"># Ajoute des étiquettes automatiques</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-</section>
-<section id="utiliser-summary-pour-une-vue-densemble" class="level3">
-<h3 class="anchored" data-anchor-id="utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></h3>
-<p>La fonction <code>summary()</code> fournit un résumé statistique rapide du data frame, et elle indique également le nombre de valeurs manquantes dans chaque colonne.</p>
-<section id="exemple-3" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-3">Exemple :</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela donnera un résumé avec des informations sur les valeurs manquantes, sous forme de <code>NA's</code> :</p>
-<pre><code>      a            b       
- Min.   :1.0   Min.   :2.0  
- 1st Qu.:1.5   1st Qu.:2.0  
- Median :2.5   Median :2.5  
- Mean   :2.3   Mean   :3.0  
- 3rd Qu.:3.0   3rd Qu.:4.0  
- Max.   :4.0   Max.   :4.0  
- NA's   :1     NA's   :1</code></pre>
-</section>
-</section>
-<section id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="level3">
-<h3 class="anchored" data-anchor-id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></h3>
-<p>Si vous voulez vérifier s’il y a des valeurs manquantes dans l’ensemble du data frame (ou tout autre objet), vous pouvez utiliser <code>any(is.na())</code>. Cette fonction renvoie <code>TRUE</code> si des valeurs manquantes existent et <code>FALSE</code> si ce n’est pas le cas.</p>
-<section id="exemple-4" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-4">Exemple :</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier s'il y a des valeurs manquantes dans le data frame</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(df))  <span class="co"># Résultat : TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="level3">
-<h3 class="anchored" data-anchor-id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></h3>
-<p>Si vous souhaitez extraire les lignes ou les colonnes contenant des valeurs manquantes, vous pouvez utiliser des fonctions comme <code>which()</code> ou <code>complete.cases()</code>.</p>
-<section id="exemple-pour-les-lignes-avec-des-données-manquantes" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-avec-des-données-manquantes">Exemple pour les lignes avec des données manquantes :</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes avec des valeurs manquantes</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(df)) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra l’indice des lignes qui contiennent des valeurs manquantes.</p>
-</section>
-<section id="exemple-pour-les-lignes-sans-données-manquantes" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-sans-données-manquantes">Exemple pour les lignes sans données manquantes :</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes sans valeurs manquantes</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">complete.cases</span>(df), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ces méthodes vous permettent d’inspecter et de détecter les valeurs manquantes dans vos données en R.</p>
+<section id="avec-facet_wrap-ou-facet_grid-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="avec-facet_wrap-ou-facet_grid-ggplot2">5. <strong>Avec <code>facet_wrap</code> ou <code>facet_grid</code> (ggplot2)</strong></h3>
+<p>Si vos données se prêtent à une comparaison sur plusieurs facettes, vous pouvez utiliser <code>facet_wrap()</code> ou <code>facet_grid()</code> dans <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Facettage par catégorie</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class, <span class="at">nrow =</span> <span class="dv">2</span>)  <span class="co"># Une facette pour chaque catégorie de 'class'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>Chaque méthode a ses avantages : - <strong>Base R</strong> est simple et efficace pour des visualisations rapides. - <strong>ggplot2</strong> et ses extensions offrent des présentations modernes et personnalisables. - <strong>gridExtra</strong> et <strong>cowplot</strong> facilitent les mises en page avancées.</p>
+<p>N’hésitez pas à choisir la méthode qui correspond le mieux à vos besoins !</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -723,29 +738,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour détecter les données manquantes en R, vous pouvez utiliser plusieurs méthodes et fonctions. Voici quelques-unes des plus courantes :</p>
-<ol type="1">
-<li><p><strong>Utiliser la fonction <code>is.na()</code></strong> :</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de détection des valeurs manquantes dans un vecteur</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Compter les valeurs manquantes avec <code>sum(is.na())</code></strong> :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre de valeurs manquantes dans un vecteur</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Utiliser <code>na.omit()</code> pour supprimer les valeurs manquantes</strong> :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans un data frame</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Visualiser les données manquantes avec des packages comme <code>VIM</code> ou <code>naniar</code></strong> :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et utiliser le package VIM pour visualiser les données manquantes</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"VIM"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(data_frame, <span class="at">col=</span><span class="fu">c</span>(<span class="st">'navyblue'</span>,<span class="st">'red'</span>), <span class="at">numbers=</span><span class="cn">TRUE</span>, <span class="at">sortVars=</span><span class="cn">TRUE</span>, <span class="at">labels=</span><span class="fu">names</span>(data_frame), <span class="at">cex.axis=</span>.<span class="dv">7</span>, <span class="at">gap=</span><span class="dv">3</span>, <span class="at">ylab=</span><span class="fu">c</span>(<span class="st">"Histogramme des données manquantes"</span>,<span class="st">"Modèle de données"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<p>Ces méthodes vous permettent de détecter, compter et gérer les données manquantes efficacement dans vos analyses en R<a href="https://sites.google.com/site/rgraphiques/home/2--ouvrir-des-bases-de-donnees/donnees-manquantes-absentes-ou-vides-sous-r">1</a><a href="https://www.datanovia.com/en/fr/blog/comment-visualiser-les-donnees-manquantes-dans-r-a-laide-dune-heatmap/">2</a><a href="https://thinkr.fr/donnees-manquantes-causes-identification-et-imputation/">3</a>.</p>
-<p>Avez-vous besoin d’aide pour une étape spécifique ou un exemple plus détaillé ?</p>
-
-
+<p>Pour combiner plusieurs graphiques en un seul avec R, vous pouvez utiliser plusieurs packages, notamment <code>gridExtra</code>, <code>patchwork</code>, <code>cowplot</code>, et <code>ggpubr</code>. Voici un aperçu de quelques méthodes populaires :</p>
 </section>
+<section id="utilisation-du-package-gridextra" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-gridextra">Utilisation du package <code>gridExtra</code></h3>
+<p>Le package <code>gridExtra</code> permet d’assembler plusieurs graphiques côte à côte ou en grille. Voici un exemple simple :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de deux graphiques</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(g1, g2, <span class="at">ncol=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utilisation-du-package-patchwork" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-patchwork">Utilisation du package <code>patchwork</code></h3>
+<p>Le package <code>patchwork</code> offre une syntaxe intuitive pour combiner des graphiques. Vous pouvez utiliser les opérateurs <code>+</code>, <code>|</code>, et <code>/</code> pour organiser les graphiques.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de deux graphiques</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>g1 <span class="sc">+</span> g2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utilisation-du-package-cowplot" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-cowplot">Utilisation du package <code>cowplot</code></h3>
+<p>Le package <code>cowplot</code> est particulièrement utile pour des publications de haute qualité. Il permet un alignement précis des graphiques.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de deux graphiques</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(g1, g2, <span class="at">labels =</span> <span class="st">"AUTO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="utilisation-du-package-ggpubr" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-du-package-ggpubr">Utilisation du package <code>ggpubr</code></h3>
+<p>Le package <code>ggpubr</code> propose des fonctions comme <code>ggarrange()</code> pour organiser plusieurs graphiques.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de deux graphiques</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear, <span class="at">y=</span>mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(g1, g2, <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces méthodes vous permettent de créer des visualisations complexes et élégantes en combinant plusieurs graphiques dans une seule figure<a href="https://delladata.fr/comment-assembler-plusieurs-graphiques-dans-r/">1</a><a href="https://stacklima.com/dessinez-plusieurs-graphiques-et-lignes-dans-le-meme-trace-dans-r/">2</a><a href="https://www.datanovia.com/en/fr/lessons/combiner-plusieurs-ggplots-dans-une-figure/">3</a>.</p>
+<p>Si vous avez des questions spécifiques ou besoin d’aide avec un exemple particulier, n’hésitez pas à demander !</p>
+
+
 </section>
 </section>
 

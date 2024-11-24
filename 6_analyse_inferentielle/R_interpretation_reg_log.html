@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_detecter_donnees_manquantes – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_interpretation_reg_log – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_detecter_donnees_manquantes.html">Détecter les données manquantes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_interpretation.html">Interprétation des résultats</a></li><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_interpretation_reg_log.html">Interpréter une régression logistique</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_detecter_donnees_manquantes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Détecter les données manquantes</span></a>
   </div>
 </li>
@@ -450,13 +450,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">Interprétation des résultats</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../6_analyse_inferentielle/R_interpretation.html" class="sidebar-item-text sidebar-link">
@@ -465,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../6_analyse_inferentielle/R_interpretation_reg_log.html" class="sidebar-item-text sidebar-link">
+  <a href="../6_analyse_inferentielle/R_interpretation_reg_log.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Interpréter une régression logistique</span></a>
   </div>
 </li>
@@ -597,14 +597,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#détecter-les-données-manquantes" id="toc-détecter-les-données-manquantes" class="nav-link active" data-scroll-target="#détecter-les-données-manquantes">Détecter les données manquantes</a>
+  <li><a href="#template" id="toc-template" class="nav-link active" data-scroll-target="#template">template</a>
   <ul class="collapse">
-  <li><a href="#utiliser-is.na" id="toc-utiliser-is.na" class="nav-link" data-scroll-target="#utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></a></li>
-  <li><a href="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" id="toc-compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="nav-link" data-scroll-target="#compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></a></li>
-  <li><a href="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" id="toc-vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="nav-link" data-scroll-target="#vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></a></li>
-  <li><a href="#utiliser-summary-pour-une-vue-densemble" id="toc-utiliser-summary-pour-une-vue-densemble" class="nav-link" data-scroll-target="#utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></a></li>
-  <li><a href="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" id="toc-vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="nav-link" data-scroll-target="#vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></a></li>
-  <li><a href="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" id="toc-détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="nav-link" data-scroll-target="#détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></a></li>
+  <li><a href="#visualisation-et-exploration-initiale-des-données" id="toc-visualisation-et-exploration-initiale-des-données" class="nav-link" data-scroll-target="#visualisation-et-exploration-initiale-des-données">1. <strong>Visualisation et exploration initiale des données</strong></a></li>
+  <li><a href="#ajustement-du-modèle" id="toc-ajustement-du-modèle" class="nav-link" data-scroll-target="#ajustement-du-modèle">2. <strong>Ajustement du modèle</strong></a></li>
+  <li><a href="#interprétation-des-coefficients" id="toc-interprétation-des-coefficients" class="nav-link" data-scroll-target="#interprétation-des-coefficients">3. <strong>Interprétation des coefficients</strong></a></li>
+  <li><a href="#tests-de-significativité-globale" id="toc-tests-de-significativité-globale" class="nav-link" data-scroll-target="#tests-de-significativité-globale">4. <strong>Tests de significativité globale</strong></a></li>
+  <li><a href="#validation-des-hypothèses-et-diagnostics" id="toc-validation-des-hypothèses-et-diagnostics" class="nav-link" data-scroll-target="#validation-des-hypothèses-et-diagnostics">5. <strong>Validation des hypothèses et diagnostics</strong></a></li>
+  <li><a href="#performance-du-modèle" id="toc-performance-du-modèle" class="nav-link" data-scroll-target="#performance-du-modèle">6. <strong>Performance du modèle</strong></a></li>
+  <li><a href="#visualisation-des-effets" id="toc-visualisation-des-effets" class="nav-link" data-scroll-target="#visualisation-des-effets">7. <strong>Visualisation des effets</strong></a></li>
+  <li><a href="#rapports-automatisés" id="toc-rapports-automatisés" class="nav-link" data-scroll-target="#rapports-automatisés">8. <strong>Rapports automatisés</strong></a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -615,8 +618,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="détecter-les-données-manquantes" class="level2">
-<h2 class="anchored" data-anchor-id="détecter-les-données-manquantes">Détecter les données manquantes</h2>
+<section id="template" class="level2">
+<h2 class="anchored" data-anchor-id="template">template</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -625,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment détecter les données manquantes en R ?</li>
+<li>Quels outils pour interpréter les résultats d’une régression logistique avec R?</li>
 </ul>
 </div>
 </div>
@@ -637,85 +640,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, il existe plusieurs façons de détecter les données manquantes dans un jeu de données. Voici quelques méthodes courantes :</p>
-<section id="utiliser-is.na" class="level3">
-<h3 class="anchored" data-anchor-id="utiliser-is.na">1. <strong>Utiliser <code>is.na()</code></strong></h3>
-<p>La fonction <code>is.na()</code> permet de tester si des valeurs sont manquantes dans un vecteur, une matrice ou un cadre de données. Elle renvoie un vecteur logique avec <code>TRUE</code> pour les valeurs manquantes et <code>FALSE</code> pour les autres.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur avec des valeurs manquantes</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier les valeurs manquantes</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra :</p>
-<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<p>L’interprétation des résultats d’une <strong>régression logistique</strong> avec R peut être réalisée à l’aide d’une combinaison d’outils, de packages et de techniques. Voici un guide structuré des étapes et des outils :</p>
+<hr>
+<section id="visualisation-et-exploration-initiale-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-et-exploration-initiale-des-données">1. <strong>Visualisation et exploration initiale des données</strong></h3>
+<ul>
+<li><strong>Packages :</strong> <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code></li>
+<li>Objectifs :
+<ul>
+<li>Explorer les distributions des variables explicatives et de la variable réponse (binaire).</li>
+<li>Visualiser les relations entre les variables.</li>
+<li>Rechercher des relations non linéaires ou des interactions.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
+<section id="ajustement-du-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="ajustement-du-modèle">2. <strong>Ajustement du modèle</strong></h3>
+<ul>
+<li><strong>Commande de base :</strong> <code>R      model &lt;- glm(response ~ predictors, family = binomial, data = dataset)</code></li>
+<li>Le modèle ajusté peut être exploré avec :
+<ul>
+<li><strong><code>summary(model)</code></strong> : fournit les coefficients estimés, les erreurs standard, les valeurs z, et les p-valeurs.</li>
+<li><strong><code>coef(model)</code></strong> : affiche uniquement les coefficients.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na" class="level3">
-<h3 class="anchored" data-anchor-id="compter-le-nombre-de-valeurs-manquantes-avec-sumis.na">2. <strong>Compter le nombre de valeurs manquantes avec <code>sum(is.na())</code></strong></h3>
-<p>Vous pouvez utiliser <code>sum(is.na())</code> pour compter le nombre de valeurs manquantes dans un vecteur, une matrice ou un data frame.</p>
-<section id="exemple-1" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-1">Exemple :</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes dans le vecteur x</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(x))  <span class="co"># Résultat : 2 (2 valeurs manquantes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="interprétation-des-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="interprétation-des-coefficients">3. <strong>Interprétation des coefficients</strong></h3>
+<ul>
+<li><strong>Odds ratios</strong> : Les coefficients de la régression logistique sont en log-odds. Vous pouvez les transformer en odds ratios (OR) pour une meilleure interprétation : <code>R      exp(coef(model)) # Calcul des odds ratios</code></li>
+<li><strong>Intervalle de confiance des OR</strong> : <code>R      exp(confint(model)) # Calcul des IC pour les OR</code></li>
+</ul>
+<hr>
 </section>
+<section id="tests-de-significativité-globale" class="level3">
+<h3 class="anchored" data-anchor-id="tests-de-significativité-globale">4. <strong>Tests de significativité globale</strong></h3>
+<ul>
+<li><strong>Test du modèle :</strong>
+<ul>
+<li><strong><code>anova(model, test = "Chisq")</code></strong> : teste si le modèle apporte une amélioration par rapport à un modèle réduit.</li>
+</ul></li>
+<li><strong>Pseudo R²</strong> :
+<ul>
+<li><strong><code>pscl::pR2(model)</code></strong> (du package <code>pscl</code>) : calcule des métriques pseudo-R² comme le McFadden R².</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums" class="level3">
-<h3 class="anchored" data-anchor-id="vérifier-les-valeurs-manquantes-dans-un-dataframe-avec-colsums">3. <strong>Vérifier les valeurs manquantes dans un DataFrame avec <code>colSums()</code></strong></h3>
-<p>Si vous travaillez avec un <strong>data frame</strong>, vous pouvez utiliser <code>colSums()</code> pour compter les valeurs manquantes par colonne.</p>
-<section id="exemple-2" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-2">Exemple :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de data frame avec des valeurs manquantes</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter les valeurs manquantes par colonne</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra :</p>
-<pre><code>a b 
-1 1</code></pre>
+<section id="validation-des-hypothèses-et-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="validation-des-hypothèses-et-diagnostics">5. <strong>Validation des hypothèses et diagnostics</strong></h3>
+<ul>
+<li><strong>Analyse des résidus :</strong>
+<ul>
+<li><p>Résidus de deviance ou Pearson :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residuals</span>(model, <span class="at">type =</span> <span class="st">"deviance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Package <code>DHARMa</code> : Utilisé pour vérifier la qualité de l’ajustement, les valeurs atypiques, et les hypothèses.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DHARMa)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">simulateResiduals</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Multicolinéarité :</strong>
+<ul>
+<li><code>car::vif(model)</code> pour vérifier le facteur d’inflation de variance.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
+<section id="performance-du-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="performance-du-modèle">6. <strong>Performance du modèle</strong></h3>
+<ul>
+<li><strong>Courbes ROC et AUC :</strong>
+<ul>
+<li><p>Package <code>pROC</code> pour tracer une courbe ROC et calculer l’AUC.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>roc_curve <span class="ot">&lt;-</span> <span class="fu">roc</span>(dataset<span class="sc">$</span>response, <span class="fu">fitted</span>(model))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_curve)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_curve)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Courbes de calibration :</strong>
+<ul>
+<li>Package <code>rms</code> pour vérifier si les probabilités prédites sont bien calibrées.</li>
+</ul></li>
+</ul>
+<hr>
 </section>
-<section id="utiliser-summary-pour-une-vue-densemble" class="level3">
-<h3 class="anchored" data-anchor-id="utiliser-summary-pour-une-vue-densemble">4. <strong>Utiliser <code>summary()</code> pour une vue d’ensemble</strong></h3>
-<p>La fonction <code>summary()</code> fournit un résumé statistique rapide du data frame, et elle indique également le nombre de valeurs manquantes dans chaque colonne.</p>
-<section id="exemple-3" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-3">Exemple :</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela donnera un résumé avec des informations sur les valeurs manquantes, sous forme de <code>NA's</code> :</p>
-<pre><code>      a            b       
- Min.   :1.0   Min.   :2.0  
- 1st Qu.:1.5   1st Qu.:2.0  
- Median :2.5   Median :2.5  
- Mean   :2.3   Mean   :3.0  
- 3rd Qu.:3.0   3rd Qu.:4.0  
- Max.   :4.0   Max.   :4.0  
- NA's   :1     NA's   :1</code></pre>
+<section id="visualisation-des-effets" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-des-effets">7. <strong>Visualisation des effets</strong></h3>
+<ul>
+<li><strong>Effets marginaux :</strong>
+<ul>
+<li><p>Package <code>effects</code> pour visualiser l’effet des variables :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>ggplot2</strong> pour des visualisations personnalisées :
+<ul>
+<li><p>Tracer les probabilités prédites selon une variable explicative :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dataset, <span class="fu">aes</span>(<span class="at">x =</span> predictor, <span class="at">y =</span> predicted)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Probabilités prédites"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ul>
+<hr>
 </section>
+<section id="rapports-automatisés" class="level3">
+<h3 class="anchored" data-anchor-id="rapports-automatisés">8. <strong>Rapports automatisés</strong></h3>
+<ul>
+<li><strong>Package <code>sjPlot</code> :</strong> Pour créer des tableaux de résultats clairs et des graphiques. <code>R      library(sjPlot)      tab_model(model, show.ci = TRUE)</code></li>
+</ul>
+<hr>
 </section>
-<section id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na" class="level3">
-<h3 class="anchored" data-anchor-id="vérifier-si-tout-un-data-frame-contient-des-valeurs-manquantes-avec-anyis.na">5. <strong>Vérifier si tout un data frame contient des valeurs manquantes avec <code>any(is.na())</code></strong></h3>
-<p>Si vous voulez vérifier s’il y a des valeurs manquantes dans l’ensemble du data frame (ou tout autre objet), vous pouvez utiliser <code>any(is.na())</code>. Cette fonction renvoie <code>TRUE</code> si des valeurs manquantes existent et <code>FALSE</code> si ce n’est pas le cas.</p>
-<section id="exemple-4" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-4">Exemple :</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifier s'il y a des valeurs manquantes dans le data frame</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(df))  <span class="co"># Résultat : TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes" class="level3">
-<h3 class="anchored" data-anchor-id="détecter-les-lignes-ou-colonnes-avec-des-valeurs-manquantes">6. <strong>Détecter les lignes ou colonnes avec des valeurs manquantes</strong></h3>
-<p>Si vous souhaitez extraire les lignes ou les colonnes contenant des valeurs manquantes, vous pouvez utiliser des fonctions comme <code>which()</code> ou <code>complete.cases()</code>.</p>
-<section id="exemple-pour-les-lignes-avec-des-données-manquantes" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-avec-des-données-manquantes">Exemple pour les lignes avec des données manquantes :</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes avec des valeurs manquantes</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(df)) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cela renverra l’indice des lignes qui contiennent des valeurs manquantes.</p>
-</section>
-<section id="exemple-pour-les-lignes-sans-données-manquantes" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-pour-les-lignes-sans-données-manquantes">Exemple pour les lignes sans données manquantes :</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lignes sans valeurs manquantes</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">complete.cases</span>(df), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ces méthodes vous permettent d’inspecter et de détecter les valeurs manquantes dans vos données en R.</p>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Ces outils vous permettent de construire, analyser et interpréter une régression logistique efficacement avec R. L’approche dépend du niveau de détail souhaité et des besoins spécifiques du projet.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -723,29 +763,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour détecter les données manquantes en R, vous pouvez utiliser plusieurs méthodes et fonctions. Voici quelques-unes des plus courantes :</p>
+<p>Pour interpréter les résultats d’une régression logistique avec R, vous pouvez utiliser plusieurs outils et fonctions. Voici quelques étapes et outils clés :</p>
 <ol type="1">
-<li><p><strong>Utiliser la fonction <code>is.na()</code></strong> :</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de détection des valeurs manquantes dans un vecteur</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">6</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Compter les valeurs manquantes avec <code>sum(is.na())</code></strong> :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre de valeurs manquantes dans un vecteur</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(vecteur))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Utiliser <code>na.omit()</code> pour supprimer les valeurs manquantes</strong> :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans un data frame</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Visualiser les données manquantes avec des packages comme <code>VIM</code> ou <code>naniar</code></strong> :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et utiliser le package VIM pour visualiser les données manquantes</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"VIM"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">aggr</span>(data_frame, <span class="at">col=</span><span class="fu">c</span>(<span class="st">'navyblue'</span>,<span class="st">'red'</span>), <span class="at">numbers=</span><span class="cn">TRUE</span>, <span class="at">sortVars=</span><span class="cn">TRUE</span>, <span class="at">labels=</span><span class="fu">names</span>(data_frame), <span class="at">cex.axis=</span>.<span class="dv">7</span>, <span class="at">gap=</span><span class="dv">3</span>, <span class="at">ylab=</span><span class="fu">c</span>(<span class="st">"Histogramme des données manquantes"</span>,<span class="st">"Modèle de données"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Fonction <code>summary()</code></strong> :
+<ul>
+<li>Après avoir ajusté votre modèle avec la fonction <code>glm()</code>, utilisez <code>summary(votre_modele)</code> pour obtenir un résumé détaillé des coefficients, des erreurs standard, des valeurs z et des p-valeurs. Cela vous aide à déterminer la signification statistique de chaque prédicteur.</li>
+</ul></li>
+<li><strong>Fonction <code>exp()</code></strong> :
+<ul>
+<li>Pour interpréter les coefficients de la régression logistique, vous pouvez utiliser <code>exp(coef(votre_modele))</code> pour obtenir les rapports de cotes (odds ratios). Ces rapports indiquent l’effet de chaque variable indépendante sur la probabilité de l’événement.</li>
+</ul></li>
+<li><strong>Fonction <code>confint()</code></strong> :
+<ul>
+<li>Utilisez <code>confint(votre_modele)</code> pour obtenir les intervalles de confiance des coefficients. Cela vous donne une idée de la précision de vos estimations.</li>
+</ul></li>
+<li><strong>Visualisation avec <code>ggplot2</code></strong> :
+<ul>
+<li>Le package <code>ggplot2</code> peut être utilisé pour visualiser les effets des prédicteurs. Par exemple, vous pouvez créer des courbes de probabilité prédite pour différentes valeurs des prédicteurs.</li>
+</ul></li>
+<li><strong>Fonction <code>predict()</code></strong> :
+<ul>
+<li>Utilisez <code>predict(votre_modele, type = "response")</code> pour obtenir les probabilités prédites pour chaque observation. Cela peut être utile pour évaluer la performance de votre modèle.</li>
+</ul></li>
 </ol>
-<p>Ces méthodes vous permettent de détecter, compter et gérer les données manquantes efficacement dans vos analyses en R<a href="https://sites.google.com/site/rgraphiques/home/2--ouvrir-des-bases-de-donnees/donnees-manquantes-absentes-ou-vides-sous-r">1</a><a href="https://www.datanovia.com/en/fr/blog/comment-visualiser-les-donnees-manquantes-dans-r-a-laide-dune-heatmap/">2</a><a href="https://thinkr.fr/donnees-manquantes-causes-identification-et-imputation/">3</a>.</p>
-<p>Avez-vous besoin d’aide pour une étape spécifique ou un exemple plus détaillé ?</p>
+<p>Voici un exemple de code pour ajuster et interpréter une régression logistique simple :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les packages nécessaires</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les données</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>mes_donnees <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"votre_fichier.csv"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuster le modèle de régression logistique</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">glm</span>(variable_dependante <span class="sc">~</span> variable_independante, <span class="at">data =</span> mes_donnees, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Résumé du modèle</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des odds ratios</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(modele))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalles de confiance</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(modele)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Prédictions</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(modele, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ces outils et fonctions devraient vous aider à interpréter efficacement les résultats de votre régression logistique<a href="https://allostatsesg.uqam.ca/regression-logistique-avec-r/">1</a><a href="https://pmarchand1.github.io/ECL7102/notes_cours/9-Regression_logistique.html">2</a>. Si vous avez des questions spécifiques sur une partie du processus, n’hésitez pas à demander !</p>
 
 
-</section>
 </section>
 </section>
 

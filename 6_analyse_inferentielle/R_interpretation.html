@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_avancee_openxlsx – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_interpretation – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../7_diffusion/R_avancee_openxlsx.html">Diffusion des résultats</a></li><li class="breadcrumb-item"><a href="../7_diffusion/R_avancee_openxlsx.html">Exporter des statistiques avec openxlsx</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_interpretation.html">Interprétation des résultats</a></li><li class="breadcrumb-item"><a href="../6_analyse_inferentielle/R_interpretation.html">Interprétation économétrique</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,13 +116,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Bien démarrer en R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../1_demarrer/R_starter.html" class="sidebar-item-text sidebar-link">
@@ -185,13 +151,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Importer des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../2_import_donnees/R_import_donnees.html" class="sidebar-item-text sidebar-link">
@@ -244,13 +210,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -309,13 +275,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Analyse des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../4_analyse_donnees/R_analyser_donnees.html" class="sidebar-item-text sidebar-link">
@@ -374,13 +340,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Redressement des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../5_redressement_donnees/R_redresser_variable_manquante.html" class="sidebar-item-text sidebar-link">
@@ -415,13 +381,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Analyses inférentielles</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../6_analyse_inferentielle/R_reg_lineaire.html" class="sidebar-item-text sidebar-link">
@@ -459,55 +425,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">template</span></a>
+  <a href="../6_analyse_inferentielle/R_interpretation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Interprétation économétrique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_analyse_inferentielle/R_interpretation_reg_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpréter une régression logistique</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Rédaction du rapport</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Résultats et graphiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../R_template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">template</span></a>
+  <a href="../7_resultats_et_graphiques/R_agreger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agréger des données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_resultats_et_graphiques/R_histogramme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tracer un histogramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_resultats_et_graphiques/R_nuage_points.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tracer un nuage de points</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_resultats_et_graphiques/R_droite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tracer une droite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_resultats_et_graphiques/R_multigraphique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multigraphique</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Diffusion des résultats</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Rédiger, exporter, diffuser</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../7_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exporter des statistiques avec openxlsx</span></a>
+  <a href="../8_redaction_export_diffusion/R_rediger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rédiger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_redaction_export_diffusion/R_exporter_parquet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exporter en parquet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_redaction_export_diffusion/R_avancee_openxlsx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exporter en xls</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_redaction_export_diffusion/R_diffuser.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diffuser</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
  <span class="menu-text">Évaluation et réflexion</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_template.html" class="sidebar-item-text sidebar-link">
@@ -518,13 +532,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
  <span class="menu-text">Usage avancé</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
@@ -549,7 +563,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exporter-des-résultats-avec-openxlsx" id="toc-exporter-des-résultats-avec-openxlsx" class="nav-link active" data-scroll-target="#exporter-des-résultats-avec-openxlsx">Exporter des résultats avec openxlsx</a></li>
+  <li><a href="#outils-pour-linterprétation-économétrique" id="toc-outils-pour-linterprétation-économétrique" class="nav-link active" data-scroll-target="#outils-pour-linterprétation-économétrique">Outils pour l’interprétation économétrique</a>
+  <ul class="collapse">
+  <li><a href="#packages-pour-lestimation-des-modèles" id="toc-packages-pour-lestimation-des-modèles" class="nav-link" data-scroll-target="#packages-pour-lestimation-des-modèles"><strong>1. Packages pour l’estimation des modèles</strong></a></li>
+  <li><a href="#diagnostics-et-évaluation-de-la-qualité-du-modèle" id="toc-diagnostics-et-évaluation-de-la-qualité-du-modèle" class="nav-link" data-scroll-target="#diagnostics-et-évaluation-de-la-qualité-du-modèle"><strong>2. Diagnostics et évaluation de la qualité du modèle</strong></a></li>
+  <li><a href="#visualisation-des-résultats" id="toc-visualisation-des-résultats" class="nav-link" data-scroll-target="#visualisation-des-résultats"><strong>3. Visualisation des résultats</strong></a></li>
+  <li><a href="#résumé-et-extraction-des-coefficients" id="toc-résumé-et-extraction-des-coefficients" class="nav-link" data-scroll-target="#résumé-et-extraction-des-coefficients"><strong>4. Résumé et extraction des coefficients</strong></a></li>
+  <li><a href="#comparaison-de-modèles" id="toc-comparaison-de-modèles" class="nav-link" data-scroll-target="#comparaison-de-modèles"><strong>5. Comparaison de modèles</strong></a></li>
+  <li><a href="#prise-en-compte-des-problèmes-spécifiques" id="toc-prise-en-compte-des-problèmes-spécifiques" class="nav-link" data-scroll-target="#prise-en-compte-des-problèmes-spécifiques"><strong>6. Prise en compte des problèmes spécifiques</strong></a></li>
+  <li><a href="#rapport-et-communication-des-résultats" id="toc-rapport-et-communication-des-résultats" class="nav-link" data-scroll-target="#rapport-et-communication-des-résultats"><strong>7. Rapport et communication des résultats</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -559,8 +582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="exporter-des-résultats-avec-openxlsx" class="level2">
-<h2 class="anchored" data-anchor-id="exporter-des-résultats-avec-openxlsx">Exporter des résultats avec openxlsx</h2>
+<section id="outils-pour-linterprétation-économétrique" class="level2">
+<h2 class="anchored" data-anchor-id="outils-pour-linterprétation-économétrique">Outils pour l’interprétation économétrique</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -569,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment exporter des résultats avec openxlsx ?</li>
+<li>Quels outils pour interpréter les résultats économétriques avec R?</li>
 </ul>
 </div>
 </div>
@@ -581,62 +604,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p><code>openxlsx</code> est un package R très pratique pour créer, lire et modifier des fichiers Excel. Si tu souhaites exporter des résultats vers un fichier Excel avec <code>openxlsx</code>, voici comment procéder :</p>
-<ol type="1">
-<li><p><strong>Installation et chargement du package</strong></p>
-<p>Si tu n’as pas encore installé <code>openxlsx</code>, tu peux le faire avec :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ensuite, charge le package dans ta session R :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Préparation des données</strong></p>
-<p>Assure-toi que tes données sont prêtes à être exportées. Par exemple, disons que tu as un dataframe <code>df</code> :</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nom =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Â<span class="at">ge =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ville =</span> <span class="fu">c</span>(<span class="st">"Paris"</span>, <span class="st">"Londres"</span>, <span class="st">"Berlin"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Création d’un fichier Excel</strong></p>
-<p>Pour créer un fichier Excel avec <code>openxlsx</code>, utilise la fonction <code>write.xlsx</code>. Voici un exemple de base :</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(df, <span class="at">file =</span> <span class="st">"mon_fichier.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>df</code> est le dataframe que tu souhaites exporter, et <code>file</code> spécifie le nom du fichier Excel que tu veux créer.</p></li>
-<li><p><strong>Ajouter plusieurs feuilles</strong></p>
-<p>Si tu souhaites ajouter plusieurs feuilles dans le même fichier Excel, tu peux le faire en utilisant l’argument <code>sheetName</code> :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()  <span class="co"># Crée un nouveau fichier Excel</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)  <span class="co"># Ajoute une feuille nommée "Feuille1"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille2"</span>)  <span class="co"># Ajoute une autre feuille nommée "Feuille2"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille1"</span>, <span class="at">x =</span> df)  <span class="co"># Écrit les données dans la première feuille</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille2"</span>, <span class="at">x =</span> df)  <span class="co"># Écrit les mêmes données dans la deuxième feuille</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="at">file =</span> <span class="st">"mon_fichier_multifeuilles.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, nous avons créé un classeur Excel avec deux feuilles, chacune contenant les données du dataframe <code>df</code>.</p></li>
-<li><p><strong>Personnalisation</strong></p>
-<p><code>openxlsx</code> offre plusieurs options pour personnaliser le format de tes feuilles Excel, comme ajouter des styles, des formats de cellules, et bien plus. Voici un exemple pour ajouter du style :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un classeur</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une feuille</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir un style</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>style <span class="ot">&lt;-</span> <span class="fu">createStyle</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fontSize =</span> <span class="dv">12</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">fontColour =</span> <span class="st">"#FFFFFF"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">bgFill =</span> <span class="st">"#4F81BD"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">halign =</span> <span class="st">"center"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">valign =</span> <span class="st">"center"</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">textDecoration =</span> <span class="st">"bold"</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire des données et appliquer le style</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="st">"Feuille1"</span>, <span class="at">x =</span> df, <span class="at">headerStyle =</span> style)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sauvegarder le classeur</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="at">file =</span> <span class="st">"mon_fichier_stylise.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<p>Avec ces étapes, tu devrais pouvoir exporter efficacement tes résultats vers un fichier Excel en utilisant <code>openxlsx</code>. Si tu as des besoins spécifiques ou des questions supplémentaires, n’hésite pas !</p>
+<p>Interpréter les résultats économétriques dans R nécessite une combinaison d’outils et de techniques pour comprendre les sorties des modèles, évaluer leur qualité, et en tirer des conclusions. Voici une liste des outils et approches utiles :</p>
+<hr>
+<section id="packages-pour-lestimation-des-modèles" class="level3">
+<h3 class="anchored" data-anchor-id="packages-pour-lestimation-des-modèles"><strong>1. Packages pour l’estimation des modèles</strong></h3>
+<p>Certains packages sont particulièrement adaptés pour estimer et analyser les modèles économétriques : - <strong><code>lm()</code> (modèles linéaires)</strong> : Outil de base pour les régressions linéaires. - <strong><code>glm()</code> (modèles linéaires généralisés)</strong> : Pour des modèles comme la régression logistique ou Poisson. - <strong><code>plm</code></strong> : Pour les données de panel. - <strong><code>AER</code></strong> : Inclut des outils pour des modèles économétriques avancés. - <strong><code>lme4</code></strong> : Pour les modèles à effets mixtes (effets fixes et aléatoires). - <strong><code>nlme</code></strong> : Pour des modèles non linéaires ou de panel. - <strong><code>car</code></strong> : Fournit des outils de diagnostic et des tests spécifiques.</p>
+<hr>
+</section>
+<section id="diagnostics-et-évaluation-de-la-qualité-du-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="diagnostics-et-évaluation-de-la-qualité-du-modèle"><strong>2. Diagnostics et évaluation de la qualité du modèle</strong></h3>
+<p>Pour vérifier la validité et la fiabilité des modèles : - <strong>Tests de multicolinéarité</strong> : - Utiliser le <strong><code>vif()</code></strong> du package <code>car</code> (Variance Inflation Factor). - <strong>Normalité des résidus</strong> : - Histogramme : <code>hist(residuals(model))</code>. - Test de Shapiro-Wilk : <code>shapiro.test(residuals(model))</code>. - <strong>Hétéroscédasticité</strong> : - Test de Breusch-Pagan : <code>bptest(model)</code> du package <code>lmtest</code>. - Test de White (dans <code>car</code> ou <code>sandwich</code>). - <strong>Autocorrélation</strong> (pour les séries temporelles) : - Test de Durbin-Watson : <code>dwtest()</code> du package <code>lmtest</code>.</p>
+<hr>
+</section>
+<section id="visualisation-des-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-des-résultats"><strong>3. Visualisation des résultats</strong></h3>
+<p>La visualisation aide à interpréter les résultats : - <strong>Diagnostics graphiques</strong> : - Résidus vs Valeurs ajustées : <code>plot(model)</code> ou <code>ggplot2</code> pour des graphiques personnalisés. - QQ-plot des résidus : <code>qqnorm(residuals(model)); qqline(residuals(model))</code>. - <strong>Effets marginaux</strong> : - <code>effects</code> ou <code>margins</code> : Calcul et visualisation des effets marginaux. - <strong>Interprétation visuelle des coefficients</strong> : - <code>ggcoef()</code> du package <code>ggstance</code> ou <code>broom</code>.</p>
+<hr>
+</section>
+<section id="résumé-et-extraction-des-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-et-extraction-des-coefficients"><strong>4. Résumé et extraction des coefficients</strong></h3>
+<ul>
+<li><strong>Résumé du modèle</strong> :
+<ul>
+<li><code>summary(model)</code> : Fournit les coefficients, leurs significations, R², etc.</li>
+</ul></li>
+<li><strong>Extraction structurée</strong> :
+<ul>
+<li><code>broom::tidy(model)</code> : Présente les coefficients, p-valeurs et autres dans un data.frame.</li>
+<li><code>broom::glance(model)</code> : Résumé global du modèle (R², AIC, BIC, etc.).</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="comparaison-de-modèles" class="level3">
+<h3 class="anchored" data-anchor-id="comparaison-de-modèles"><strong>5. Comparaison de modèles</strong></h3>
+<ul>
+<li><strong>Critères d’ajustement</strong> :
+<ul>
+<li>AIC/BIC : <code>AIC(model1, model2)</code> ; <code>BIC(model1, model2)</code>.</li>
+</ul></li>
+<li><strong>Tests de spécification</strong> :
+<ul>
+<li>Test F (modèles emboîtés) : Comparer deux modèles avec <code>anova(model1, model2)</code>.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="prise-en-compte-des-problèmes-spécifiques" class="level3">
+<h3 class="anchored" data-anchor-id="prise-en-compte-des-problèmes-spécifiques"><strong>6. Prise en compte des problèmes spécifiques</strong></h3>
+<ul>
+<li><strong>Endogénéité</strong> :
+<ul>
+<li>Utiliser les modèles IV (variables instrumentales) avec <code>ivreg()</code> du package <code>AER</code>.</li>
+</ul></li>
+<li><strong>Séries temporelles</strong> :
+<ul>
+<li>Tests d’intégration (ADF, KPSS) : <code>urca</code> ou <code>tseries</code>.</li>
+<li>Modèles ARIMA, GARCH : Packages <code>forecast</code>, <code>rugarch</code>.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="rapport-et-communication-des-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="rapport-et-communication-des-résultats"><strong>7. Rapport et communication des résultats</strong></h3>
+<ul>
+<li><strong>Texte formaté</strong> :
+<ul>
+<li><code>stargazer</code> ou <code>texreg</code> : Pour produire des tableaux de résultats (HTML, LaTeX, texte).</li>
+</ul></li>
+<li><strong>Visualisation interactive</strong> :
+<ul>
+<li><code>shiny</code> ou <code>plotly</code> pour des applications interactives.</li>
+</ul></li>
+</ul>
+<hr>
+<p>Ces outils vous permettent d’explorer, d’évaluer et de communiquer les résultats des analyses économétriques de manière approfondie et claire. Besoin de détails ou d’exemples de code sur un point spécifique ?</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -644,41 +686,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Pour exporter des résultats avec le package <code>openxlsx</code> en R, vous pouvez suivre les étapes suivantes :</p>
+<p>Pour interpréter les résultats économétriques avec R, plusieurs outils et packages peuvent être très utiles. Voici quelques-uns des plus couramment utilisés :</p>
 <ol type="1">
-<li>Installez et chargez le package <code>openxlsx</code> avec les commandes suivantes :</li>
+<li><p><strong>lm()</strong> : Cette fonction de base permet de réaliser des régressions linéaires simples et multiples. Les résultats peuvent être interprétés à l’aide des fonctions summary() pour obtenir les coefficients, les erreurs standard, les valeurs t et les p-values.</p></li>
+<li><p><strong>stargazer</strong> : Ce package est très pratique pour créer des tableaux de résultats de régressions bien formatés, que ce soit pour des rapports ou des publications.</p></li>
+<li><p><strong>broom</strong> : Ce package permet de convertir les résultats des modèles en data frames, facilitant ainsi leur manipulation et leur visualisation.</p></li>
+<li><p><strong>ggplot2</strong> : Pour la visualisation des résultats économétriques, ggplot2 est un outil puissant qui permet de créer des graphiques de haute qualité.</p></li>
+<li><p><strong>sandwich</strong> et <strong>lmtest</strong> : Ces packages sont utilisés pour des tests de robustesse et pour corriger les erreurs standard hétéroscédastiques.</p></li>
+<li><p><strong>plm</strong> : Pour les données de panel, le package plm offre des fonctions spécifiques pour estimer des modèles de panel et interpréter les résultats.</p></li>
+<li><p><strong>car</strong> : Ce package fournit des outils pour les diagnostics de régression, comme les tests de multicolinéarité et les tests de normalité des résidus.</p></li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"openxlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Créez un nouvel objet de classeur avec la fonction <code>createWorkbook()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">createWorkbook</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li>Ajoutez une feuille de calcul à l’objet de classeur avec la fonction <code>addWorksheet()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addWorksheet</span>(wb, <span class="st">"Feuille1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" type="1">
-<li>Écrivez des données dans la feuille de calcul avec la fonction <code>writeData()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="st">"Feuille1"</span>, <span class="at">x =</span> votre_dataframe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="5" type="1">
-<li>Enregistrez le classeur avec la fonction <code>saveWorkbook()</code> :</li>
-</ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="st">"nom_du_fichier.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, <code>votre_dataframe</code> est le dataframe que vous souhaitez exporter et <code>nom_du_fichier.xlsx</code> est le nom du fichier Excel que vous souhaitez créer⁴.</p>
-<p>Si vous avez plusieurs dataframes à exporter dans des feuilles de calcul différentes d’un même classeur, vous pouvez utiliser une boucle <code>lapply</code> pour écrire chaque dataframe dans une nouvelle feuille de calcul⁵. Voici un exemple :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que 'myList' est une liste de dataframes</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>noms_des_feuilles <span class="ot">&lt;-</span> <span class="fu">names</span>(myList)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">seq_along</span>(myList), <span class="cf">function</span>(i) {</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addWorksheet</span>(wb, noms_des_feuilles[i])</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeData</span>(wb, noms_des_feuilles[i], myList[[i]])</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, <span class="st">"nom_du_fichier.xlsx"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans cet exemple, chaque dataframe dans <code>myList</code> est écrit dans une nouvelle feuille de calcul. Les noms des feuilles de calcul correspondent aux noms des dataframes dans <code>myList</code>⁵.</p>
-<p>Source : conversation avec Copilot, 24/07/2024 (1) xlsx : le meilleur package pour connecter Excel avec le logiciel R - STHDA. http://www.sthda.com/french/wiki/xlsx-le-meilleur-package-pour-connecter-excel-avec-le-logiciel-r. (2) Use R and Openxlsx to output a list of dataframes as worksheets in a …. https://stackoverflow.com/questions/43176266/use-r-and-openxlsx-to-output-a-list-of-dataframes-as-worksheets-in-a-single-exce. (3) How to use the Openxlsx package. Import, export, and style multiple XLSX files in one workbook.. https://www.youtube.com/watch?v=nI-IlHvf1-c. (4) 10 - logiciel R - Exportation de données (écriture dans un fichier). https://www.youtube.com/watch?v=dpJ4CupNqdo. (5) Du logiciel R à l’Excel - Exporter des données ou résultats sous format CSV et xlsx (EXCEL). https://www.youtube.com/watch?v=EzthAcCP6-8. (6) Comment exporter les résultats d’une requête SQL Server vers Excel. https://bing.com/search?q=Comment+exporter+des+r%c3%a9sultats+avec+openxlsx. (7) Comment exporter les résultats d’une requête SQL Server vers Excel. https://axial-sql.com/fr/comment-exporter-les-resultats-dune-requete-sql-server-vers-excel/.</p>
+<p>Pour une introduction plus détaillée et des exemples pratiques, vous pouvez consulter des ressources comme le guide “R pour l’économétrie”<a href="https://bookdown.org/AODiakite/r4econometrics/">1</a> ou les cours en ligne disponibles sur des plateformes éducatives<a href="https://guides.data.gouv.fr/reutiliser-des-donnees/guide-traitement-et-analyse-de-donnees/analyser-des-donnees/analyser-des-donnees-avec-r">2</a>.</p>
+<p>Avez-vous déjà utilisé certains de ces outils ou avez-vous besoin d’aide pour commencer avec l’un d’eux?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
