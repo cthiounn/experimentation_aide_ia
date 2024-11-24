@@ -158,7 +158,7 @@
     "href": "8_redaction_export_diffusion/R_rediger.html",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
     "section": "",
-    "text": "Prompt :\n\nComment rédiger un rapport avec R ?",
+    "text": "Prompt :\n\nComment rédiger un rapport avec R ?\n\n\n\n\n\n\n\n\nChatGPT\n\n\nPour rédiger un rapport avec R, vous pouvez utiliser R Markdown, un outil très puissant qui permet de combiner texte, code R, et résultats dans un seul document. Voici un guide étape par étape pour créer un rapport avec R :\n\n\n\nAssurez-vous d’avoir installé : - R : Le moteur pour exécuter le code. - RStudio : Un environnement convivial pour travailler avec R.\n\n\n\n\n\nOuvrez RStudio.\nAllez dans File &gt; New File &gt; R Markdown….\nDonnez un titre à votre document et sélectionnez le type de sortie (HTML, PDF ou Word).\n\nPour générer des fichiers PDF, vous devrez installer LaTeX (par exemple, avec TinyTeX : install.packages(\"tinytex\"); tinytex::install_tinytex()).\n\n\n\n\n\n\nUn fichier R Markdown contient trois parties principales :\n\n\nL’en-tête YAML contient les métadonnées pour configurer le document. Voici un exemple :\n---\ntitle: \"Titre du Rapport\"\nauthor: \"Votre Nom\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---",
     "crumbs": [
       "Rédiger, exporter, diffuser",
       "Rédiger"
@@ -169,7 +169,7 @@
     "href": "8_redaction_export_diffusion/R_rediger.html#rédaction-dun-rapport-avec-r",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
     "section": "",
-    "text": "Prompt :\n\nComment rédiger un rapport avec R ?",
+    "text": "Prompt :\n\nComment rédiger un rapport avec R ?\n\n\n\n\n\n\n\n\nChatGPT\n\n\nPour rédiger un rapport avec R, vous pouvez utiliser R Markdown, un outil très puissant qui permet de combiner texte, code R, et résultats dans un seul document. Voici un guide étape par étape pour créer un rapport avec R :\n\n\n\nAssurez-vous d’avoir installé : - R : Le moteur pour exécuter le code. - RStudio : Un environnement convivial pour travailler avec R.\n\n\n\n\n\nOuvrez RStudio.\nAllez dans File &gt; New File &gt; R Markdown….\nDonnez un titre à votre document et sélectionnez le type de sortie (HTML, PDF ou Word).\n\nPour générer des fichiers PDF, vous devrez installer LaTeX (par exemple, avec TinyTeX : install.packages(\"tinytex\"); tinytex::install_tinytex()).\n\n\n\n\n\n\nUn fichier R Markdown contient trois parties principales :\n\n\nL’en-tête YAML contient les métadonnées pour configurer le document. Voici un exemple :\n---\ntitle: \"Titre du Rapport\"\nauthor: \"Votre Nom\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---",
     "crumbs": [
       "Rédiger, exporter, diffuser",
       "Rédiger"
