@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -602,6 +631,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installer-r-et-rstudio" id="toc-installer-r-et-rstudio" class="nav-link" data-scroll-target="#installer-r-et-rstudio">1. <strong>Installer R et RStudio</strong></a></li>
   <li><a href="#créer-un-fichier-r-markdown" id="toc-créer-un-fichier-r-markdown" class="nav-link" data-scroll-target="#créer-un-fichier-r-markdown">2. <strong>Créer un fichier R Markdown</strong></a></li>
   <li><a href="#structure-dun-fichier-r-markdown" id="toc-structure-dun-fichier-r-markdown" class="nav-link" data-scroll-target="#structure-dun-fichier-r-markdown">3. <strong>Structure d’un fichier R Markdown</strong></a></li>
+  <li><a href="#exécuter-et-générer-le-rapport" id="toc-exécuter-et-générer-le-rapport" class="nav-link" data-scroll-target="#exécuter-et-générer-le-rapport">4. <strong>Exécuter et générer le rapport</strong></a></li>
+  <li><a href="#personnalisation" id="toc-personnalisation" class="nav-link" data-scroll-target="#personnalisation">5. <strong>Personnalisation</strong></a></li>
+  <li><a href="#partager-le-rapport" id="toc-partager-le-rapport" class="nav-link" data-scroll-target="#partager-le-rapport">6. <strong>Partager le rapport</strong></a></li>
+  <li><a href="#exemple-complet" id="toc-exemple-complet" class="nav-link" data-scroll-target="#exemple-complet">Exemple Complet</a></li>
+  <li><a href="#ressources-utiles" id="toc-ressources-utiles" class="nav-link" data-scroll-target="#ressources-utiles">Ressources Utiles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -665,9 +699,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r Sys.Date()`"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
+<section id="b.-texte-en-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="b.-texte-en-markdown">b. <strong>Texte en Markdown</strong></h4>
+<p>Le texte est écrit en Markdown, un langage de balisage simple. Par exemple : - <strong>Titre</strong> : <code># Titre Principal</code> - <strong>Sous-titre</strong> : <code>## Sous-titre</code> - <strong>Texte en gras</strong> : <code>**gras**</code> - <strong>Italique</strong> : <code>*italique*</code> - <strong>Listes</strong> : - À puces : <code>- Élément</code> - Numérotée : <code>1. Élément</code></p>
+</section>
+<section id="c.-blocs-de-code-r" class="level4">
+<h4 class="anchored" data-anchor-id="c.-blocs-de-code-r">c.&nbsp;<strong>Blocs de code R</strong></h4>
+<p>Insérez des blocs de code R avec des balises comme ceci :</p>
+<pre>```
+# Votre code R ici
+summary(cars)
+```
+</pre>
+<hr>
+</section>
+</section>
+<section id="exécuter-et-générer-le-rapport" class="level3">
+<h3 class="anchored" data-anchor-id="exécuter-et-générer-le-rapport">4. <strong>Exécuter et générer le rapport</strong></h3>
+<ol type="1">
+<li><strong>Exécutez le code dans les blocs</strong> : Cliquez sur le bouton <em>Run</em> au-dessus des blocs ou utilisez le raccourci clavier <code>Ctrl + Enter</code>.</li>
+<li><strong>Générez le rapport complet</strong> : Cliquez sur le bouton <strong>Knit</strong> en haut de l’éditeur R Markdown.
+<ul>
+<li>Sélectionnez le format souhaité (HTML, PDF, Word, etc.).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="personnalisation" class="level3">
+<h3 class="anchored" data-anchor-id="personnalisation">5. <strong>Personnalisation</strong></h3>
+<ul>
+<li><strong>Ajoutez des graphiques</strong> :
+<pre>```
+plot(cars)
+```
+</pre></li>
+<li><strong>Ajoutez des tables</strong> :
+<pre>```
+library(knitr)
+kable(head(mtcars), caption = "Tableau Exemple")
+```
+</pre></li>
+<li><strong>Modifier le style</strong> : Utilisez des options comme <code>theme</code> dans le YAML ou CSS pour personnaliser l’apparence.</li>
+</ul>
+<hr>
+</section>
+<section id="partager-le-rapport" class="level3">
+<h3 class="anchored" data-anchor-id="partager-le-rapport">6. <strong>Partager le rapport</strong></h3>
+<ul>
+<li>Les fichiers HTML peuvent être ouverts directement dans un navigateur.</li>
+<li>Les rapports PDF et Word peuvent être partagés par email.</li>
+</ul>
+<hr>
+</section>
+<section id="exemple-complet" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-complet">Exemple Complet</h3>
+<p>Voici un fichier R Markdown simple :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Exemple de Rapport"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Votre Nom"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduction</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">Ce rapport présente un exemple de données.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Résumé des données</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>summary(mtcars)</p>
+<pre><code>
+## Graphique
+</code></pre>
+<p>plot(mtcars<span class="math inline">\(mpg, mtcars\)</span>hp, main = “Puissance vs Consommation”)</p>
+<pre><code></code></pre>
+<p>En cliquant sur <strong>Knit</strong>, vous obtiendrez un rapport contenant du texte, des analyses et des graphiques.</p>
+<hr>
+</section>
+<section id="ressources-utiles" class="level3">
+<h3 class="anchored" data-anchor-id="ressources-utiles">Ressources Utiles</h3>
+<ul>
+<li><a href="https://rmarkdown.rstudio.com/">Guide officiel R Markdown</a></li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">Introduction à R Markdown (RStudio)</a></li>
+</ul>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/copilot.PNG" class="img-fluid figure-img"></p>
+<figcaption>Copilot</figcaption>
+</figure>
+</div>
+<p>Pour rédiger un rapport avec R, vous pouvez utiliser <strong>R Markdown</strong>, un outil puissant et flexible qui permet de combiner du texte, du code R, et des résultats (comme des graphiques et des tableaux) dans un même document. Voici les étapes de base pour commencer :</p>
+<ol type="1">
+<li><p><strong>Installer R Markdown</strong> :</p>
+<pre><code>install.packages("rmarkdown")</code></pre></li>
+<li><p><strong>Créer un nouveau fichier R Markdown</strong> :</p>
+<ul>
+<li>Ouvrez RStudio.</li>
+<li>Allez dans <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown...</code>.</li>
+<li>Choisissez le type de document de sortie (HTML, PDF, Word, etc.), donnez un titre et un nom d’auteur, puis cliquez sur <code>OK</code>.</li>
+</ul></li>
+<li><p><strong>Écrire le contenu du rapport</strong> :</p>
+<ul>
+<li><p>Le fichier R Markdown contient trois parties principales : les métadonnées YAML, le texte en Markdown, et les blocs de code R.</p></li>
+<li><p>Exemple de structure de base :</p>
+<pre><code>---
+title: "Titre du Rapport"
+author: "Votre Nom"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Introduction
+
+Voici une introduction à votre rapport.
+</code></pre>
+<h1 id="code-r-pour-générer-un-graphique">Code R pour générer un graphique</h1>
+<p>plot(cars)</p>
+<pre><code>
+## Conclusion
+
+Voici la conclusion de votre rapport.</code></pre></li>
+</ul></li>
+<li><p><strong>Compiler le document</strong> :</p>
+<ul>
+<li>Cliquez sur le bouton <code>Knit</code> dans RStudio pour générer le document final dans le format choisi (HTML, PDF, etc.).</li>
+</ul></li>
+</ol>
+<p>Pour plus de détails, vous pouvez consulter des ressources en ligne comme le <a href="https://epirhandbook.com/fr/new_pages/rmarkdown.fr.html">Epi R Handbook</a><a href="https://epirhandbook.com/fr/new_pages/rmarkdown.fr.html">1</a> ou des tutoriels vidéo comme celui sur <a href="https://www.youtube.com/watch?v=lFdB4fIAcLM">YouTube</a><a href="https://www.youtube.com/watch?v=lFdB4fIAcLM">2</a>.</p>
+<p>Est-ce que cela vous aide à démarrer ? Avez-vous des questions spécifiques sur l’utilisation de R Markdown ?</p>
+
+
 </section>
 </section>
 
