@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_creer_filtre – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_rshiny – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_filtre.html">Appliquer un filtre</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Z_usage_avance/R_avancee_partie_entiere.html">Usage avancé</a></li><li class="breadcrumb-item"><a href="../Z_usage_avance/R_Rshiny.html">Rshiny</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
@@ -590,13 +590,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
  <span class="menu-text">Usage avancé</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Z_usage_avance/R_avancee_partie_entiere.html" class="sidebar-item-text sidebar-link">
@@ -605,7 +605,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Z_usage_avance/R_Rshiny.html" class="sidebar-item-text sidebar-link">
+  <a href="../Z_usage_avance/R_Rshiny.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Rshiny</span></a>
   </div>
 </li>
@@ -621,13 +621,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#appliquer-un-filtre" id="toc-appliquer-un-filtre" class="nav-link active" data-scroll-target="#appliquer-un-filtre">Appliquer un filtre</a>
+  <li><a href="#créer-une-application-rshiny" id="toc-créer-une-application-rshiny" class="nav-link active" data-scroll-target="#créer-une-application-rshiny">Créer une application RShiny</a>
   <ul class="collapse">
-  <li><a href="#filtrer-un-data.frame-avec-la-fonction-subset" id="toc-filtrer-un-data.frame-avec-la-fonction-subset" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></a></li>
-  <li><a href="#filtrer-un-data.frame-avec-dplyr" id="toc-filtrer-un-data.frame-avec-dplyr" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></a></li>
-  <li><a href="#filtrer-avec-des-conditions-complexes" id="toc-filtrer-avec-des-conditions-complexes" class="nav-link" data-scroll-target="#filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</a></li>
-  <li><a href="#filtrer-un-vecteur" id="toc-filtrer-un-vecteur" class="nav-link" data-scroll-target="#filtrer-un-vecteur">4. Filtrer un vecteur</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#préparer-les-prérequis" id="toc-préparer-les-prérequis" class="nav-link" data-scroll-target="#préparer-les-prérequis">1. <strong>Préparer les prérequis</strong></a></li>
+  <li><a href="#structure-de-base-dune-application-shiny" id="toc-structure-de-base-dune-application-shiny" class="nav-link" data-scroll-target="#structure-de-base-dune-application-shiny">2. <strong>Structure de base d’une application Shiny</strong></a></li>
+  <li><a href="#développer-une-application-shiny" id="toc-développer-une-application-shiny" class="nav-link" data-scroll-target="#développer-une-application-shiny">3. <strong>Développer une application Shiny</strong></a></li>
+  <li><a href="#exemples-daméliorations" id="toc-exemples-daméliorations" class="nav-link" data-scroll-target="#exemples-daméliorations">4. <strong>Exemples d’améliorations</strong></a></li>
+  <li><a href="#tester-et-déployer-lapplication" id="toc-tester-et-déployer-lapplication" class="nav-link" data-scroll-target="#tester-et-déployer-lapplication">5. <strong>Tester et déployer l’application</strong></a></li>
+  <li><a href="#astuces-et-bonnes-pratiques" id="toc-astuces-et-bonnes-pratiques" class="nav-link" data-scroll-target="#astuces-et-bonnes-pratiques">6. <strong>Astuces et bonnes pratiques</strong></a></li>
+  <li><a href="#ressources-supplémentaires" id="toc-ressources-supplémentaires" class="nav-link" data-scroll-target="#ressources-supplémentaires">7. <strong>Ressources supplémentaires</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -638,8 +640,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="appliquer-un-filtre" class="level2">
-<h2 class="anchored" data-anchor-id="appliquer-un-filtre">Appliquer un filtre</h2>
+<section id="créer-une-application-rshiny" class="level2">
+<h2 class="anchored" data-anchor-id="créer-une-application-rshiny">Créer une application RShiny</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -648,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire un filtre en R ?</li>
+<li>Comment coder une application Rshiny ?</li>
 </ul>
 </div>
 </div>
@@ -660,85 +662,129 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l’objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :</p>
-<section id="filtrer-un-data.frame-avec-la-fonction-subset" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></h3>
-<p>Si vous avez un <code>data.frame</code> et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction <code>subset()</code>.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="filtrer-un-data.frame-avec-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></h3>
-<p>Le package <code>dplyr</code> de la suite <code>tidyverse</code> offre une syntaxe plus concise et expressive pour effectuer des filtres.</p>
-<section id="exemple-avec-dplyr" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr">Exemple avec <code>dplyr</code> :</h4>
-<ol type="1">
-<li>Installez et chargez le package <code>dplyr</code> si nécessaire :</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Utilisez la fonction <code>filter()</code> pour appliquer des conditions de filtrage.</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="filtrer-avec-des-conditions-complexes" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</h3>
-<p>Vous pouvez aussi combiner plusieurs conditions de filtrage dans <code>subset()</code> ou <code>filter()</code>.</p>
-<section id="exemple-avec-dplyr-conditions-multiples" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-conditions-multiples">Exemple avec <code>dplyr</code> (conditions multiples) :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> sexe <span class="sc">==</span> <span class="st">'Homme'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="filtrer-un-vecteur" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-vecteur">4. Filtrer un vecteur</h3>
-<p>Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :</p>
-<section id="exemple-avec-un-vecteur" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-un-vecteur">Exemple avec un vecteur :</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un vecteur d'âges</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les âges supérieurs ou égaux à 25</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ages_filtrés <span class="ot">&lt;-</span> ages[ages <span class="sc">&gt;=</span> <span class="dv">25</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ages_filtrés)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Créer une application R Shiny implique de maîtriser le langage <strong>R</strong> et d’utiliser le framework <strong>Shiny</strong> pour créer une interface web interactive. Voici un guide étape par étape pour coder une application Shiny :</p>
+<hr>
+<section id="préparer-les-prérequis" class="level3">
+<h3 class="anchored" data-anchor-id="préparer-les-prérequis">1. <strong>Préparer les prérequis</strong></h3>
 <ul>
-<li>Pour des filtrages simples sur des <code>data.frame</code>, <code>subset()</code> est une solution rapide.</li>
-<li>Pour un filtrage plus puissant, flexible et facile à combiner avec d’autres opérations, <code>dplyr::filter()</code> est idéal.</li>
-<li>Si vous travaillez avec des vecteurs, vous pouvez utiliser l’indexation logique directement.</li>
+<li><p><strong>Installer R</strong> : Télécharger et installer R depuis <a href="https://cran.r-project.org/">CRAN</a>.</p></li>
+<li><p><strong>Installer RStudio</strong> : Une interface utilisateur populaire pour R.</p></li>
+<li><p><strong>Installer le package Shiny</strong> :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
-<p>Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.</p>
+<hr>
+</section>
+<section id="structure-de-base-dune-application-shiny" class="level3">
+<h3 class="anchored" data-anchor-id="structure-de-base-dune-application-shiny">2. <strong>Structure de base d’une application Shiny</strong></h3>
+<p>Une application Shiny typique comprend deux parties principales : 1. <strong><code>ui</code> (User Interface)</strong> : Définit l’apparence de l’application. 2. <strong><code>server</code></strong> : Contient la logique R pour gérer les interactions utilisateur et produire les résultats.</p>
+<p>Un fichier Shiny est souvent nommé <code>app.R</code> et ressemble à ceci :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Interface utilisateur</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Titre de l'Application"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="st">"num"</span>, <span class="st">"Choisissez un nombre :"</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>, <span class="at">value =</span> <span class="dv">50</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textOutput</span>(<span class="st">"result"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Serveur</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>result <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Vous avez choisi le nombre :"</span>, input<span class="sc">$</span>num)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Lancement de l'application</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="développer-une-application-shiny" class="level3">
+<h3 class="anchored" data-anchor-id="développer-une-application-shiny">3. <strong>Développer une application Shiny</strong></h3>
+<section id="a.-créer-linterface-utilisateur" class="level4">
+<h4 class="anchored" data-anchor-id="a.-créer-linterface-utilisateur">a. <strong>Créer l’interface utilisateur</strong></h4>
+<p>Shiny propose plusieurs fonctions pour structurer l’interface : - <strong><code>fluidPage()</code></strong> : Crée une page flexible. - <strong><code>sidebarLayout()</code></strong> : Ajoute une barre latérale. - <strong><code>mainPanel()</code></strong> et <strong><code>sidebarPanel()</code></strong> : Contiennent les éléments de contenu.</p>
+</section>
+<section id="b.-ajouter-des-widgets-interactifs" class="level4">
+<h4 class="anchored" data-anchor-id="b.-ajouter-des-widgets-interactifs">b. <strong>Ajouter des widgets interactifs</strong></h4>
+<p>Les widgets permettent aux utilisateurs de fournir des entrées. Exemples : - <strong><code>sliderInput()</code></strong> : Un curseur numérique. - <strong><code>textInput()</code></strong> : Champ texte. - <strong><code>selectInput()</code></strong> : Menu déroulant. - <strong><code>actionButton()</code></strong> : Bouton d’action.</p>
+</section>
+<section id="c.-gérer-la-logique-avec-le-serveur" class="level4">
+<h4 class="anchored" data-anchor-id="c.-gérer-la-logique-avec-le-serveur">c.&nbsp;<strong>Gérer la logique avec le serveur</strong></h4>
+<p>Dans la fonction serveur, utilisez : - <strong><code>input$</code></strong> : Pour récupérer les valeurs des widgets. - <strong><code>output$</code></strong> : Pour afficher des résultats dans l’interface. - <strong>Fonctions <code>render...()</code></strong> : Pour produire des sorties (ex. <code>renderText</code>, <code>renderPlot</code>, <code>renderTable</code>).</p>
+</section>
+<section id="d.-relier-ui-et-server-avec-shinyapp" class="level4">
+<h4 class="anchored" data-anchor-id="d.-relier-ui-et-server-avec-shinyapp">d.&nbsp;<strong>Relier <code>ui</code> et <code>server</code> avec <code>shinyApp()</code></strong></h4>
+<hr>
+</section>
+</section>
+<section id="exemples-daméliorations" class="level3">
+<h3 class="anchored" data-anchor-id="exemples-daméliorations">4. <strong>Exemples d’améliorations</strong></h3>
+<section id="a.-ajouter-des-graphiques" class="level4">
+<h4 class="anchored" data-anchor-id="a.-ajouter-des-graphiques">a. <strong>Ajouter des graphiques</strong></h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>num), <span class="at">main =</span> <span class="st">"Histogramme"</span>, <span class="at">xlab =</span> <span class="st">"Valeurs"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ajoutez un élément <code>plotOutput</code> dans l’interface :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mainPanel</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b.-utiliser-des-onglets" class="level4">
+<h4 class="anchored" data-anchor-id="b.-utiliser-des-onglets">b. <strong>Utiliser des onglets</strong></h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">navbarPage</span>(<span class="st">"Application Shiny"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Tab 1"</span>, <span class="fu">sidebarLayout</span>(...)),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Tab 2"</span>, <span class="fu">sidebarLayout</span>(...))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="c.-rendre-lapplication-plus-réactive" class="level4">
+<h4 class="anchored" data-anchor-id="c.-rendre-lapplication-plus-réactive">c.&nbsp;<strong>Rendre l’application plus réactive</strong></h4>
+<p>Utilisez des fonctions comme <strong><code>observeEvent()</code></strong> et <strong><code>reactive()</code></strong> pour mieux gérer les interactions complexes.</p>
+<hr>
+</section>
+</section>
+<section id="tester-et-déployer-lapplication" class="level3">
+<h3 class="anchored" data-anchor-id="tester-et-déployer-lapplication">5. <strong>Tester et déployer l’application</strong></h3>
+<ul>
+<li><strong>Tester localement</strong> : Utilisez <code>Run App</code> dans RStudio.</li>
+<li><strong>Déployer sur ShinyApps.io</strong> :
+<ol type="1">
+<li><p>Créez un compte sur <a href="https://www.shinyapps.io/">ShinyApps.io</a>.</p></li>
+<li><p>Installez le package <strong>rsconnect</strong> :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rsconnect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Connectez-vous et déployez :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsconnect)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">deployApp</span>(<span class="st">"chemin/vers/votre/app"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol></li>
+</ul>
+<hr>
+</section>
+<section id="astuces-et-bonnes-pratiques" class="level3">
+<h3 class="anchored" data-anchor-id="astuces-et-bonnes-pratiques">6. <strong>Astuces et bonnes pratiques</strong></h3>
+<ul>
+<li><p><strong>Modularisez</strong> votre code pour les grandes applications (utilisez des fonctions pour structurer les éléments de l’interface et du serveur).</p></li>
+<li><p>Ajoutez des <strong>messages d’erreur</strong> et des validations avec <strong><code>validate()</code></strong> et <strong><code>req()</code></strong>.</p></li>
+<li><p>Personnalisez l’interface avec le package <strong><code>shinythemes</code></strong> :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinythemes)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="at">theme =</span> <span class="fu">shinytheme</span>(<span class="st">"cerulean"</span>), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<hr>
+</section>
+<section id="ressources-supplémentaires" class="level3">
+<h3 class="anchored" data-anchor-id="ressources-supplémentaires">7. <strong>Ressources supplémentaires</strong></h3>
+<ul>
+<li>Documentation officielle : <a href="https://shiny.rstudio.com/">Shiny RStudio</a></li>
+<li>Exemples interactifs : <a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a></li>
+<li>Livres et tutoriels : “Mastering Shiny” par Hadley Wickham.</li>
+</ul>
+<p>Commencez petit, puis ajoutez des fonctionnalités progressivement. 😊</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -746,15 +792,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package <code>dplyr</code> :</p>
+<p>Pour coder une application RShiny, vous pouvez suivre ces étapes de base :</p>
 <ol type="1">
-<li><p><strong>Installer et charger le package <code>dplyr</code></strong> : <code>R     install.packages("dplyr")     library(dplyr)</code></p></li>
-<li><p><strong>Créer un dataframe d’exemple</strong> : <code>R     data &lt;- data.frame(       id = 1:10,       score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)     )</code></p></li>
-<li><p><strong>Filtrer les lignes où le score est supérieur à 100</strong> : <code>R     filtered_data &lt;- data %&gt;%       filter(score &gt; 100)</code></p></li>
-<li><p><strong>Afficher le résultat</strong> : <code>R     print(filtered_data)</code></p></li>
+<li><p><strong>Installer le package Shiny</strong> :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Charger le package Shiny</strong> :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Créer l’interface utilisateur (UI)</strong> :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Titre de l'application"</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="st">"slider"</span>, <span class="st">"Choisissez une valeur :"</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>, <span class="at">value =</span> <span class="dv">50</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textOutput</span>(<span class="st">"text"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Créer la logique serveur</strong> :</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"La valeur choisie est :"</span>, input<span class="sc">$</span>slider)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lancer l’application Shiny</strong> :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Ce code va filtrer le dataframe <code>data</code> pour ne garder que les lignes où la colonne <code>score</code> est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d’autres critères ou utiliser d’autres fonctions de <code>dplyr</code> pour des filtrages plus complexes.</p>
-<p>Si vous avez des besoins spécifiques ou des questions supplémentaires, n’hésitez pas à me le faire savoir ! 😊</p>
+<p>Cette structure de base vous permet de créer une application simple avec une interface utilisateur et une logique serveur. Vous pouvez ensuite ajouter des fonctionnalités plus complexes comme des graphiques, des tableaux, et des interactions plus sophistiquées<a href="https://www.christophenicault.com/fr/post/introduction_to_shiny/">1</a><a href="https://shiny.posit.co/r/getstarted/build-an-app/hello-shiny/getting-started.html">2</a>.</p>
+<p>Si vous souhaitez approfondir, il existe de nombreuses ressources en ligne, y compris des tutoriels vidéo et des articles détaillés<a href="https://www.youtube.com/watch?v=G_n2svA1-eY">3</a><a href="https://www.youtube.com/watch?v=jxsKUxkiaLI">4</a><a href="https://www.youtube.com/watch?v=tfN10IUX9Lo">5</a>.</p>
+<p>Est-ce que vous avez un projet spécifique en tête pour votre application RShiny ?</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_creer_filtre – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_evaluer – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_filtre.html">Appliquer un filtre</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../9_evaluation_reproduction/R_evaluer.html">Évaluation et réflexion</a></li><li class="breadcrumb-item"><a href="../9_evaluation_reproduction/R_evaluer.html">Evaluer</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
@@ -561,16 +561,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Évaluation et réflexion</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../9_evaluation_reproduction/R_evaluer.html" class="sidebar-item-text sidebar-link">
+  <a href="../9_evaluation_reproduction/R_evaluer.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Evaluer</span></a>
   </div>
 </li>
@@ -621,13 +621,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#appliquer-un-filtre" id="toc-appliquer-un-filtre" class="nav-link active" data-scroll-target="#appliquer-un-filtre">Appliquer un filtre</a>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link active" data-scroll-target="#evaluation">Evaluation</a>
   <ul class="collapse">
-  <li><a href="#filtrer-un-data.frame-avec-la-fonction-subset" id="toc-filtrer-un-data.frame-avec-la-fonction-subset" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></a></li>
-  <li><a href="#filtrer-un-data.frame-avec-dplyr" id="toc-filtrer-un-data.frame-avec-dplyr" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></a></li>
-  <li><a href="#filtrer-avec-des-conditions-complexes" id="toc-filtrer-avec-des-conditions-complexes" class="nav-link" data-scroll-target="#filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</a></li>
-  <li><a href="#filtrer-un-vecteur" id="toc-filtrer-un-vecteur" class="nav-link" data-scroll-target="#filtrer-un-vecteur">4. Filtrer un vecteur</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#chargement-des-données" id="toc-chargement-des-données" class="nav-link" data-scroll-target="#chargement-des-données">1. <strong>Chargement des données</strong></a></li>
+  <li><a href="#exploration-et-visualisation-des-données" id="toc-exploration-et-visualisation-des-données" class="nav-link" data-scroll-target="#exploration-et-visualisation-des-données">2. <strong>Exploration et visualisation des données</strong></a></li>
+  <li><a href="#test-dhypothèse" id="toc-test-dhypothèse" class="nav-link" data-scroll-target="#test-dhypothèse">3. <strong>Test d’hypothèse</strong></a></li>
+  <li><a href="#évaluation-de-la-signification-statistique" id="toc-évaluation-de-la-signification-statistique" class="nav-link" data-scroll-target="#évaluation-de-la-signification-statistique">4. <strong>Évaluation de la signification statistique</strong></a></li>
+  <li><a href="#vérification-des-hypothèses" id="toc-vérification-des-hypothèses" class="nav-link" data-scroll-target="#vérification-des-hypothèses">5. <strong>Vérification des hypothèses</strong></a></li>
+  <li><a href="#modélisation-avancée-si-nécessaire" id="toc-modélisation-avancée-si-nécessaire" class="nav-link" data-scroll-target="#modélisation-avancée-si-nécessaire">6. <strong>Modélisation avancée (si nécessaire)</strong></a></li>
+  <li><a href="#interprétation-et-rapport" id="toc-interprétation-et-rapport" class="nav-link" data-scroll-target="#interprétation-et-rapport">7. <strong>Interprétation et rapport</strong></a></li>
+  <li><a href="#documentation-des-résultats" id="toc-documentation-des-résultats" class="nav-link" data-scroll-target="#documentation-des-résultats">8. <strong>Documentation des résultats</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -638,8 +641,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="appliquer-un-filtre" class="level2">
-<h2 class="anchored" data-anchor-id="appliquer-un-filtre">Appliquer un filtre</h2>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -648,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire un filtre en R ?</li>
+<li>Comment évaluer un résultat statistique avec R ?</li>
 </ul>
 </div>
 </div>
@@ -660,85 +663,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l’objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :</p>
-<section id="filtrer-un-data.frame-avec-la-fonction-subset" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></h3>
-<p>Si vous avez un <code>data.frame</code> et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction <code>subset()</code>.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Évaluer un résultat statistique avec <strong>R</strong> consiste généralement à analyser des données, interpréter les résultats, et vérifier leur signification statistique. Voici un guide pas à pas pour évaluer un résultat statistique avec R :</p>
+<hr>
+<section id="chargement-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="chargement-des-données">1. <strong>Chargement des données</strong></h3>
+<p>Assurez-vous que vos données sont prêtes et correctement importées dans R. Cela peut être fait à l’aide de fonctions comme :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"fichier.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="exploration-et-visualisation-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="exploration-et-visualisation-des-données">2. <strong>Exploration et visualisation des données</strong></h3>
+<p>Commencez par examiner vos données :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)      <span class="co"># Résumé statistique</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)          <span class="co"># Structure des données</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)         <span class="co"># Premier aperçu des données</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Visualisez les données pour mieux comprendre les relations :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>var1, data<span class="sc">$</span>var2)  <span class="co"># Diagramme de dispersion</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>var1)            <span class="co"># Histogramme</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>var1 <span class="sc">~</span> data<span class="sc">$</span>var2)  <span class="co"># Boxplot par groupe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="test-dhypothèse" class="level3">
+<h3 class="anchored" data-anchor-id="test-dhypothèse">3. <strong>Test d’hypothèse</strong></h3>
+<p>Si vous avez un test statistique en tête, identifiez le bon test pour votre objectif : - Comparaison de moyennes : <strong>t-test</strong> ou <strong>ANOVA</strong> - Corrélation : <strong>cor.test</strong> - Régression : <strong>lm</strong> - Tests non paramétriques : <strong>wilcox.test</strong>, <strong>kruskal.test</strong>, etc.</p>
+<section id="exemple-test-de-student-t-test" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-test-de-student-t-test">Exemple : Test de Student (t-test)</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>var1 <span class="sc">~</span> data<span class="sc">$</span>groupe)  <span class="co"># Comparaison de deux groupes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-anova" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-anova">Exemple : ANOVA</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(var1 <span class="sc">~</span> facteur, <span class="at">data =</span> data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="filtrer-un-data.frame-avec-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></h3>
-<p>Le package <code>dplyr</code> de la suite <code>tidyverse</code> offre une syntaxe plus concise et expressive pour effectuer des filtres.</p>
-<section id="exemple-avec-dplyr" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr">Exemple avec <code>dplyr</code> :</h4>
-<ol type="1">
-<li>Installez et chargez le package <code>dplyr</code> si nécessaire :</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Utilisez la fonction <code>filter()</code> pour appliquer des conditions de filtrage.</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="évaluation-de-la-signification-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="évaluation-de-la-signification-statistique">4. <strong>Évaluation de la signification statistique</strong></h3>
+<p>Les résultats des tests fourniront une <em>p-value</em>. - Si <strong>p-value &lt; 0.05</strong> (ou le seuil défini), vous rejetez l’hypothèse nulle. - Si <strong>p-value &gt;= 0.05</strong>, vous ne pouvez pas rejeter l’hypothèse nulle.</p>
+<section id="exemple-dinterprétation-dun-test-t" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dinterprétation-dun-test-t">Exemple d’interprétation d’un test t</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(data<span class="sc">$</span>var1 <span class="sc">~</span> data<span class="sc">$</span>groupe)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>p.value   <span class="co"># Affiche la p-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="filtrer-avec-des-conditions-complexes" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</h3>
-<p>Vous pouvez aussi combiner plusieurs conditions de filtrage dans <code>subset()</code> ou <code>filter()</code>.</p>
-<section id="exemple-avec-dplyr-conditions-multiples" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-conditions-multiples">Exemple avec <code>dplyr</code> (conditions multiples) :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> sexe <span class="sc">==</span> <span class="st">'Homme'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="vérification-des-hypothèses" class="level3">
+<h3 class="anchored" data-anchor-id="vérification-des-hypothèses">5. <strong>Vérification des hypothèses</strong></h3>
+<p>Pour des modèles comme la régression ou ANOVA, vérifiez les hypothèses sous-jacentes : - Normalité des résidus : <strong>shapiro.test()</strong> - Homogénéité des variances : <strong>leveneTest()</strong> du package <em>car</em> - Indépendance des observations.</p>
+<section id="vérification-de-la-normalité-des-résidus" class="level4">
+<h4 class="anchored" data-anchor-id="vérification-de-la-normalité-des-résidus">Vérification de la normalité des résidus :</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(anova_result))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="vérification-de-lhomogénéité-des-variances" class="level4">
+<h4 class="anchored" data-anchor-id="vérification-de-lhomogénéité-des-variances">Vérification de l’homogénéité des variances :</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(data<span class="sc">$</span>var1 <span class="sc">~</span> data<span class="sc">$</span>groupe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="filtrer-un-vecteur" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-vecteur">4. Filtrer un vecteur</h3>
-<p>Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :</p>
-<section id="exemple-avec-un-vecteur" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-un-vecteur">Exemple avec un vecteur :</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un vecteur d'âges</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les âges supérieurs ou égaux à 25</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ages_filtrés <span class="ot">&lt;-</span> ages[ages <span class="sc">&gt;=</span> <span class="dv">25</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ages_filtrés)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<section id="modélisation-avancée-si-nécessaire" class="level3">
+<h3 class="anchored" data-anchor-id="modélisation-avancée-si-nécessaire">6. <strong>Modélisation avancée (si nécessaire)</strong></h3>
+<p>Pour une analyse plus complexe, vous pouvez utiliser des modèles : - <strong>Régression linéaire</strong> :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(var1 <span class="sc">~</span> var2 <span class="sc">+</span> var3, <span class="at">data =</span> data)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Pour des filtrages simples sur des <code>data.frame</code>, <code>subset()</code> est une solution rapide.</li>
-<li>Pour un filtrage plus puissant, flexible et facile à combiner avec d’autres opérations, <code>dplyr::filter()</code> est idéal.</li>
-<li>Si vous travaillez avec des vecteurs, vous pouvez utiliser l’indexation logique directement.</li>
+<li><strong>Régression logistique</strong> :</li>
 </ul>
-<p>Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(var1 <span class="sc">~</span> var2, <span class="at">data =</span> data, <span class="at">family =</span> binomial)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logit_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="interprétation-et-rapport" class="level3">
+<h3 class="anchored" data-anchor-id="interprétation-et-rapport">7. <strong>Interprétation et rapport</strong></h3>
+<p>Une fois les résultats obtenus : - Résumez les coefficients, les intervalles de confiance, et les p-values. - Vérifiez les tailles d’effet avec des mesures comme <strong>Cohen’s d</strong> ou <strong>R²</strong>. - Comparez les résultats avec les hypothèses initiales.</p>
+<section id="exemple-dextraction-des-coefficients" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dextraction-des-coefficients">Exemple d’extraction des coefficients :</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(model))  <span class="co"># Affiche les coefficients de la régression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="documentation-des-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-des-résultats">8. <strong>Documentation des résultats</strong></h3>
+<p>Créez un rapport clair : - Présentez les tableaux et graphiques. - Expliquez la signification pratique des résultats (pas uniquement statistique).</p>
+<hr>
+<p>En fonction de votre question spécifique, je peux fournir des scripts ou analyser un exemple concret. 😊</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -746,15 +754,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package <code>dplyr</code> :</p>
+<p>Pour évaluer un résultat statistique avec R, vous pouvez suivre plusieurs étapes en fonction du type d’analyse que vous souhaitez réaliser. Voici quelques étapes de base pour commencer :</p>
 <ol type="1">
-<li><p><strong>Installer et charger le package <code>dplyr</code></strong> : <code>R     install.packages("dplyr")     library(dplyr)</code></p></li>
-<li><p><strong>Créer un dataframe d’exemple</strong> : <code>R     data &lt;- data.frame(       id = 1:10,       score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)     )</code></p></li>
-<li><p><strong>Filtrer les lignes où le score est supérieur à 100</strong> : <code>R     filtered_data &lt;- data %&gt;%       filter(score &gt; 100)</code></p></li>
-<li><p><strong>Afficher le résultat</strong> : <code>R     print(filtered_data)</code></p></li>
+<li><p><strong>Importer les données</strong> : Utilisez des fonctions comme <code>read.csv()</code> ou <code>read.table()</code> pour importer vos données dans R.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"votre_fichier.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Résumé des données</strong> : Utilisez la fonction <code>summary()</code> pour obtenir un résumé statistique de vos données.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Calculer des statistiques descriptives</strong> : Utilisez des fonctions comme <code>mean()</code>, <code>median()</code>, <code>sd()</code>, et <code>var()</code> pour calculer la moyenne, la médiane, l’écart-type et la variance.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>variable)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>variable)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>variable)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Visualisation des données</strong> : Utilisez des bibliothèques comme <code>ggplot2</code> pour créer des graphiques qui aident à visualiser vos données.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>variable)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Tests statistiques</strong> : Effectuez des tests statistiques comme le test t de Student, le test de Wilcoxon, ou le test du khi-carré.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>variable1, data<span class="sc">$</span>variable2)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(data<span class="sc">$</span>variable1, data<span class="sc">$</span>variable2)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(data<span class="sc">$</span>variable1, data<span class="sc">$</span>variable2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Ce code va filtrer le dataframe <code>data</code> pour ne garder que les lignes où la colonne <code>score</code> est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d’autres critères ou utiliser d’autres fonctions de <code>dplyr</code> pour des filtrages plus complexes.</p>
-<p>Si vous avez des besoins spécifiques ou des questions supplémentaires, n’hésitez pas à me le faire savoir ! 😊</p>
+<p>Pour plus de détails, vous pouvez consulter des ressources en ligne comme des tutoriels vidéo ou des articles spécialisés<a href="https://www.youtube.com/watch?v=LUTZFToedmY">1</a><a href="https://www.youtube.com/watch?v=qZ_tRdOSUEQ">2</a><a href="https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/">3</a><a href="https://epirhandbook.com/fr/new_pages/stat_tests.fr.html">4</a>.</p>
+<p>Si vous avez des questions spécifiques ou si vous travaillez sur un projet particulier, n’hésitez pas à me donner plus de détails pour que je puisse vous aider davantage ! 😊</p>
+<p><a href="https://www.youtube.com/watch?v=LUTZFToedmY">1</a>: <a href="https://www.youtube.com/watch?v=LUTZFToedmY">Statistique univariée avec logiciel R</a> <a href="https://www.youtube.com/watch?v=qZ_tRdOSUEQ">2</a>: <a href="https://www.youtube.com/watch?v=qZ_tRdOSUEQ">Introduction à l’analyse des données statistiques avec R</a> <a href="https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/">3</a>: <a href="https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/">Analyses statistiques descriptives de données numériques – partie 2</a> <a href="https://epirhandbook.com/fr/new_pages/stat_tests.fr.html">4</a>: <a href="https://epirhandbook.com/fr/new_pages/stat_tests.fr.html">18 Tests statistiques simples – Le Epi R Handbook</a></p>
 
 
 </section>

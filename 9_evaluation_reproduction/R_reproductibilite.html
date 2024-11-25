@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_creer_filtre – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_reproductibilite – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_filtre.html">Appliquer un filtre</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../9_evaluation_reproduction/R_evaluer.html">Évaluation et réflexion</a></li><li class="breadcrumb-item"><a href="../9_evaluation_reproduction/R_reproductibilite.html">Assurer la reproductibilité</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
@@ -561,13 +561,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Évaluation et réflexion</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../9_evaluation_reproduction/R_evaluer.html" class="sidebar-item-text sidebar-link">
@@ -582,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../9_evaluation_reproduction/R_reproductibilite.html" class="sidebar-item-text sidebar-link">
+  <a href="../9_evaluation_reproduction/R_reproductibilite.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Assurer la reproductibilité</span></a>
   </div>
 </li>
@@ -621,13 +621,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#appliquer-un-filtre" id="toc-appliquer-un-filtre" class="nav-link active" data-scroll-target="#appliquer-un-filtre">Appliquer un filtre</a>
+  <li><a href="#assurer-la-reproductibilité" id="toc-assurer-la-reproductibilité" class="nav-link active" data-scroll-target="#assurer-la-reproductibilité">Assurer la reproductibilité</a>
   <ul class="collapse">
-  <li><a href="#filtrer-un-data.frame-avec-la-fonction-subset" id="toc-filtrer-un-data.frame-avec-la-fonction-subset" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></a></li>
-  <li><a href="#filtrer-un-data.frame-avec-dplyr" id="toc-filtrer-un-data.frame-avec-dplyr" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></a></li>
-  <li><a href="#filtrer-avec-des-conditions-complexes" id="toc-filtrer-avec-des-conditions-complexes" class="nav-link" data-scroll-target="#filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</a></li>
-  <li><a href="#filtrer-un-vecteur" id="toc-filtrer-un-vecteur" class="nav-link" data-scroll-target="#filtrer-un-vecteur">4. Filtrer un vecteur</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#fixer-une-graine-aléatoire-random-seed" id="toc-fixer-une-graine-aléatoire-random-seed" class="nav-link" data-scroll-target="#fixer-une-graine-aléatoire-random-seed">1. <strong>Fixer une graine aléatoire (random seed)</strong></a></li>
+  <li><a href="#utiliser-des-scripts-bien-organisés" id="toc-utiliser-des-scripts-bien-organisés" class="nav-link" data-scroll-target="#utiliser-des-scripts-bien-organisés">2. <strong>Utiliser des scripts bien organisés</strong></a></li>
+  <li><a href="#documenter-lenvironnement-r" id="toc-documenter-lenvironnement-r" class="nav-link" data-scroll-target="#documenter-lenvironnement-r">3. <strong>Documenter l’environnement R</strong></a></li>
+  <li><a href="#utiliser-des-dépendances-explicites" id="toc-utiliser-des-dépendances-explicites" class="nav-link" data-scroll-target="#utiliser-des-dépendances-explicites">4. <strong>Utiliser des dépendances explicites</strong></a></li>
+  <li><a href="#créer-un-script-ou-un-document-auto-exécutable" id="toc-créer-un-script-ou-un-document-auto-exécutable" class="nav-link" data-scroll-target="#créer-un-script-ou-un-document-auto-exécutable">5. <strong>Créer un script ou un document auto-exécutable</strong></a></li>
+  <li><a href="#sauvegarder-et-charger-vos-objets-r" id="toc-sauvegarder-et-charger-vos-objets-r" class="nav-link" data-scroll-target="#sauvegarder-et-charger-vos-objets-r">9. <strong>Sauvegarder et charger vos objets R</strong></a></li>
+  <li><a href="#tester-votre-code" id="toc-tester-votre-code" class="nav-link" data-scroll-target="#tester-votre-code">10. <strong>Tester votre code</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -638,8 +640,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="appliquer-un-filtre" class="level2">
-<h2 class="anchored" data-anchor-id="appliquer-un-filtre">Appliquer un filtre</h2>
+<section id="assurer-la-reproductibilité" class="level2">
+<h2 class="anchored" data-anchor-id="assurer-la-reproductibilité">Assurer la reproductibilité</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -648,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire un filtre en R ?</li>
+<li>Comment assurer la reproductibilité de ses résultats en R?</li>
 </ul>
 </div>
 </div>
@@ -660,85 +662,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l’objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :</p>
-<section id="filtrer-un-data.frame-avec-la-fonction-subset" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></h3>
-<p>Si vous avez un <code>data.frame</code> et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction <code>subset()</code>.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Assurer la <strong>reproductibilité</strong> des résultats en R est crucial pour garantir que vos analyses peuvent être reproduites et vérifiées par vous-même ou d’autres personnes à l’avenir. Voici les meilleures pratiques pour y parvenir :</p>
+<hr>
+<section id="fixer-une-graine-aléatoire-random-seed" class="level3">
+<h3 class="anchored" data-anchor-id="fixer-une-graine-aléatoire-random-seed">1. <strong>Fixer une graine aléatoire (random seed)</strong></h3>
+<p>Si vous utilisez des fonctions qui impliquent de la randomisation (par exemple, échantillonnage, génération de nombres aléatoires), fixez une graine aléatoire pour obtenir les mêmes résultats à chaque exécution.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Exemple de graine fixe</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">5</span>)  <span class="co"># Résultat reproductible</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-</section>
-<section id="filtrer-un-data.frame-avec-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></h3>
-<p>Le package <code>dplyr</code> de la suite <code>tidyverse</code> offre une syntaxe plus concise et expressive pour effectuer des filtres.</p>
-<section id="exemple-avec-dplyr" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr">Exemple avec <code>dplyr</code> :</h4>
-<ol type="1">
-<li>Installez et chargez le package <code>dplyr</code> si nécessaire :</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Utilisez la fonction <code>filter()</code> pour appliquer des conditions de filtrage.</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="filtrer-avec-des-conditions-complexes" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</h3>
-<p>Vous pouvez aussi combiner plusieurs conditions de filtrage dans <code>subset()</code> ou <code>filter()</code>.</p>
-<section id="exemple-avec-dplyr-conditions-multiples" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-conditions-multiples">Exemple avec <code>dplyr</code> (conditions multiples) :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> sexe <span class="sc">==</span> <span class="st">'Homme'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="filtrer-un-vecteur" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-vecteur">4. Filtrer un vecteur</h3>
-<p>Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :</p>
-<section id="exemple-avec-un-vecteur" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-un-vecteur">Exemple avec un vecteur :</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un vecteur d'âges</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les âges supérieurs ou égaux à 25</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ages_filtrés <span class="ot">&lt;-</span> ages[ages <span class="sc">&gt;=</span> <span class="dv">25</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ages_filtrés)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<section id="utiliser-des-scripts-bien-organisés" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-des-scripts-bien-organisés">2. <strong>Utiliser des scripts bien organisés</strong></h3>
 <ul>
-<li>Pour des filtrages simples sur des <code>data.frame</code>, <code>subset()</code> est une solution rapide.</li>
-<li>Pour un filtrage plus puissant, flexible et facile à combiner avec d’autres opérations, <code>dplyr::filter()</code> est idéal.</li>
-<li>Si vous travaillez avec des vecteurs, vous pouvez utiliser l’indexation logique directement.</li>
+<li><strong>Modularisez vos scripts</strong> : Séparez vos analyses en étapes logiques (importation des données, nettoyage, analyse, visualisation).</li>
+<li>Commentez clairement chaque étape du script.</li>
+<li>Utilisez des noms de variables explicites.</li>
 </ul>
-<p>Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.</p>
+<hr>
+</section>
+<section id="documenter-lenvironnement-r" class="level3">
+<h3 class="anchored" data-anchor-id="documenter-lenvironnement-r">3. <strong>Documenter l’environnement R</strong></h3>
+<p>Enregistrez les versions des packages et de R utilisés dans vos analyses. Le package <code>sessioninfo</code> ou <code>sessionInfo()</code> peut fournir ces informations.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ou utilisez :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sessioninfo)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="utiliser-des-dépendances-explicites" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-des-dépendances-explicites">4. <strong>Utiliser des dépendances explicites</strong></h3>
+<ul>
+<li>Gérez vos packages avec des outils comme <code>renv</code>, qui permet de créer un environnement R isolé et de documenter les versions exactes des packages utilisés.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(renv)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()  <span class="co"># Initialise un environnement isolé</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()  <span class="co"># Enregistre les versions actuelles des packages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela garantit que votre projet reste compatible avec les versions de vos packages.</p>
+<hr>
+</section>
+<section id="créer-un-script-ou-un-document-auto-exécutable" class="level3">
+<h3 class="anchored" data-anchor-id="créer-un-script-ou-un-document-auto-exécutable">5. <strong>Créer un script ou un document auto-exécutable</strong></h3>
+<ul>
+<li>Utilisez <strong>R Markdown</strong> pour combiner code, texte explicatif et résultats dans un seul document reproductible.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Analyse reproductible"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">r</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at"># Votre code ici</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">set.seed(123)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">sample(1:100, 5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>
+- Exportez en différents formats (`HTML`, `PDF`, etc.) pour partager votre analyse.
+
+---
+
+### 6. **Versionner votre code**
+- Utilisez un système de contrôle de version comme **Git** pour suivre les modifications de votre code.
+- Hébergez vos projets sur des plateformes comme **GitHub**, ce qui facilite la collaboration et la documentation.
+
+---
+
+### 7. **Inclure les données (ou leur source)**
+- Si possible, incluez les données utilisées ou documentez précisément leur source (URL, base de données, etc.).
+- Si vos données nécessitent un prétraitement, partagez également les scripts de nettoyage.
+
+---
+
+### 8. **Utiliser des pipelines de workflow**
+Utilisez des outils comme `targets` ou `drake` pour structurer vos analyses de manière reproductible et systématique.
+
+```R
+library(targets)
+# Exemple d'un pipeline avec targets
+tar_script({
+  list(
+    tar_target(raw_data, read.csv("data.csv")),
+    tar_target(clean_data, clean_function(raw_data)),
+    tar_target(result, analyze(clean_data))
+  )
+})</code></pre>
+<hr>
+</section>
+<section id="sauvegarder-et-charger-vos-objets-r" class="level3">
+<h3 class="anchored" data-anchor-id="sauvegarder-et-charger-vos-objets-r">9. <strong>Sauvegarder et charger vos objets R</strong></h3>
+<ul>
+<li>Sauvegardez les objets de votre environnement avec des formats comme <code>.RDS</code> ou <code>.RData</code> pour permettre une réutilisation facile.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(my_data, <span class="st">"my_data.rds"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"my_data.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="tester-votre-code" class="level3">
+<h3 class="anchored" data-anchor-id="tester-votre-code">10. <strong>Tester votre code</strong></h3>
+<p>Testez votre code sur une nouvelle machine pour vérifier qu’il fonctionne correctement avec un environnement neuf.</p>
+<hr>
+<p>En suivant ces étapes, vous maximisez la reproductibilité de vos analyses en R, ce qui est bénéfique tant pour la transparence scientifique que pour votre propre productivité.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -746,15 +767,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package <code>dplyr</code> :</p>
+<p>Assurer la reproductibilité de vos résultats en R est essentiel pour garantir la transparence et la fiabilité de vos analyses. Voici quelques bonnes pratiques pour y parvenir :</p>
 <ol type="1">
-<li><p><strong>Installer et charger le package <code>dplyr</code></strong> : <code>R     install.packages("dplyr")     library(dplyr)</code></p></li>
-<li><p><strong>Créer un dataframe d’exemple</strong> : <code>R     data &lt;- data.frame(       id = 1:10,       score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)     )</code></p></li>
-<li><p><strong>Filtrer les lignes où le score est supérieur à 100</strong> : <code>R     filtered_data &lt;- data %&gt;%       filter(score &gt; 100)</code></p></li>
-<li><p><strong>Afficher le résultat</strong> : <code>R     print(filtered_data)</code></p></li>
+<li><p><strong>Utiliser des scripts bien documentés</strong> : Commentez votre code pour expliquer chaque étape de votre analyse. Utilisez des fichiers RMarkdown (<code>.Rmd</code>) pour combiner code et documentation.</p></li>
+<li><p><strong>Gérer les versions des packages</strong> : Utilisez des outils comme <code>renv</code> pour créer des environnements isolés et gérer les versions des packages utilisés dans votre projet<a href="https://rcarto.github.io/spectre-reproductibilite-r/">1</a>.</p></li>
+<li><p><strong>Organiser vos fichiers</strong> : Structurez votre projet avec des dossiers clairs pour les données, les scripts, les résultats et les métadonnées. Par exemple : <code>├── data     │   ├── raw_data.csv     ├── scripts     │   ├── analysis.R     ├── results     │   ├── figures     └── metadata         ├── README.md</code></p></li>
+<li><p><strong>Utiliser des notebooks</strong> : Les notebooks comme Jupyter ou RMarkdown permettent de combiner code, texte, et résultats dans un même document, facilitant ainsi la reproductibilité.</p></li>
+<li><p><strong>Contrôle de version</strong> : Utilisez Git et des plateformes comme GitHub ou GitLab pour suivre les modifications de votre code et collaborer avec d’autres chercheurs<a href="https://so.site.ined.fr/fr/methodes_outils/reproductibilite/">2</a>.</p></li>
+<li><p><strong>Automatisation des analyses</strong> : Utilisez des outils comme <code>Make</code> ou le package <code>targets</code> pour automatiser et documenter les étapes de votre analyse<a href="https://rcarto.github.io/spectre-reproductibilite-r/">1</a>.</p></li>
+<li><p><strong>Partager les données et le code</strong> : Publiez vos données et votre code sur des dépôts publics ou institutionnels, en respectant les principes FAIR (Findable, Accessible, Interoperable, Reusable)<a href="https://so.site.ined.fr/fr/methodes_outils/reproductibilite/">2</a>.</p></li>
 </ol>
-<p>Ce code va filtrer le dataframe <code>data</code> pour ne garder que les lignes où la colonne <code>score</code> est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d’autres critères ou utiliser d’autres fonctions de <code>dplyr</code> pour des filtrages plus complexes.</p>
-<p>Si vous avez des besoins spécifiques ou des questions supplémentaires, n’hésitez pas à me le faire savoir ! 😊</p>
+<p>En suivant ces pratiques, vous pouvez améliorer la reproductibilité de vos analyses en R et faciliter leur réutilisation par d’autres chercheurs.</p>
+<p>Avez-vous des questions spécifiques sur l’une de ces pratiques?</p>
 
 
 </section>

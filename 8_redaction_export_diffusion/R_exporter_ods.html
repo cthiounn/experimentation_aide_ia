@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>r_creer_filtre – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
+<title>r_exporter_ods – Expérimentation des IA pour l'utilisation de logiciels statistiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_prep_donnees/R_operations_apres_import.html">Nettoyage et préparation des données</a></li><li class="breadcrumb-item"><a href="../3_prep_donnees/R_creer_filtre.html">Appliquer un filtre</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../8_redaction_export_diffusion/R_rediger.html">Rédiger, exporter, diffuser</a></li><li class="breadcrumb-item"><a href="../8_redaction_export_diffusion/R_exporter_ods.html">Exporter en ods</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -244,13 +244,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Nettoyage et préparation des données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../3_prep_donnees/R_operations_apres_import.html" class="sidebar-item-text sidebar-link">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link active">
+  <a href="../3_prep_donnees/R_creer_filtre.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appliquer un filtre</span></a>
   </div>
 </li>
@@ -514,13 +514,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
  <span class="menu-text">Rédiger, exporter, diffuser</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../8_redaction_export_diffusion/R_rediger.html" class="sidebar-item-text sidebar-link">
@@ -541,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../8_redaction_export_diffusion/R_exporter_ods.html" class="sidebar-item-text sidebar-link">
+  <a href="../8_redaction_export_diffusion/R_exporter_ods.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exporter en ods</span></a>
   </div>
 </li>
@@ -621,13 +621,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#appliquer-un-filtre" id="toc-appliquer-un-filtre" class="nav-link active" data-scroll-target="#appliquer-un-filtre">Appliquer un filtre</a>
+  <li><a href="#export-en-ods" id="toc-export-en-ods" class="nav-link active" data-scroll-target="#export-en-ods">Export en ODS</a>
   <ul class="collapse">
-  <li><a href="#filtrer-un-data.frame-avec-la-fonction-subset" id="toc-filtrer-un-data.frame-avec-la-fonction-subset" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></a></li>
-  <li><a href="#filtrer-un-data.frame-avec-dplyr" id="toc-filtrer-un-data.frame-avec-dplyr" class="nav-link" data-scroll-target="#filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></a></li>
-  <li><a href="#filtrer-avec-des-conditions-complexes" id="toc-filtrer-avec-des-conditions-complexes" class="nav-link" data-scroll-target="#filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</a></li>
-  <li><a href="#filtrer-un-vecteur" id="toc-filtrer-un-vecteur" class="nav-link" data-scroll-target="#filtrer-un-vecteur">4. Filtrer un vecteur</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#méthode-1-utiliser-le-package-readods" id="toc-méthode-1-utiliser-le-package-readods" class="nav-link" data-scroll-target="#méthode-1-utiliser-le-package-readods"><strong>Méthode 1 : Utiliser le package <code>readODS</code></strong></a></li>
+  <li><a href="#méthode-2-utiliser-le-package-openxlsx-via-libreoffice-ou-apache-poi" id="toc-méthode-2-utiliser-le-package-openxlsx-via-libreoffice-ou-apache-poi" class="nav-link" data-scroll-target="#méthode-2-utiliser-le-package-openxlsx-via-libreoffice-ou-apache-poi"><strong>Méthode 2 : Utiliser le package <code>openxlsx</code> (via LibreOffice ou Apache POI)</strong></a></li>
+  <li><a href="#méthode-alternative-utiliser-des-scripts-python-via-r" id="toc-méthode-alternative-utiliser-des-scripts-python-via-r" class="nav-link" data-scroll-target="#méthode-alternative-utiliser-des-scripts-python-via-r"><strong>Méthode alternative : Utiliser des scripts Python via R</strong></a></li>
+  <li><a href="#comparaison-des-options" id="toc-comparaison-des-options" class="nav-link" data-scroll-target="#comparaison-des-options">Comparaison des options</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -638,8 +637,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="appliquer-un-filtre" class="level2">
-<h2 class="anchored" data-anchor-id="appliquer-un-filtre">Appliquer un filtre</h2>
+<section id="export-en-ods" class="level2">
+<h2 class="anchored" data-anchor-id="export-en-ods">Export en ODS</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -648,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p>Prompt :</p>
 <ul>
-<li>Comment faire un filtre en R ?</li>
+<li>Comment exporter en ods avec R ?</li>
 </ul>
 </div>
 </div>
@@ -660,85 +659,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l’objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :</p>
-<section id="filtrer-un-data.frame-avec-la-fonction-subset" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-la-fonction-subset">1. Filtrer un <code>data.frame</code> avec la fonction <code>subset()</code></h3>
-<p>Si vous avez un <code>data.frame</code> et souhaitez filtrer les lignes selon une condition spécifique, vous pouvez utiliser la fonction <code>subset()</code>.</p>
-<section id="exemple" class="level4">
-<h4 class="anchored" data-anchor-id="exemple">Exemple :</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Exporter un fichier au format <strong>ODS</strong> (OpenDocument Spreadsheet) avec R peut être fait grâce à des packages comme <code>readODS</code> ou <code>openxlsx</code>. Voici les étapes pour utiliser ces options :</p>
+<hr>
+<section id="méthode-1-utiliser-le-package-readods" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-1-utiliser-le-package-readods"><strong>Méthode 1 : Utiliser le package <code>readODS</code></strong></h3>
+<p>Le package <code>readODS</code> permet de lire et d’écrire des fichiers ODS. Pour exporter un fichier au format ODS, vous pouvez utiliser la fonction <code>write_ods</code>.</p>
+<section id="installation-du-package" class="level4">
+<h4 class="anchored" data-anchor-id="installation-du-package"><strong>Installation du package :</strong></h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readODS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-dexportation" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dexportation"><strong>Exemple d’exportation :</strong></h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readODS)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nom =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ville =</span> <span class="fu">c</span>(<span class="st">"Paris"</span>, <span class="st">"Lyon"</span>, <span class="st">"Marseille"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter les données en ODS</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_ods</span>(data, <span class="at">path =</span> <span class="st">"exemple.ods"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="filtrer-un-data.frame-avec-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-data.frame-avec-dplyr">2. Filtrer un <code>data.frame</code> avec <code>dplyr</code></h3>
-<p>Le package <code>dplyr</code> de la suite <code>tidyverse</code> offre une syntaxe plus concise et expressive pour effectuer des filtres.</p>
-<section id="exemple-avec-dplyr" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr">Exemple avec <code>dplyr</code> :</h4>
+<section id="méthode-2-utiliser-le-package-openxlsx-via-libreoffice-ou-apache-poi" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-2-utiliser-le-package-openxlsx-via-libreoffice-ou-apache-poi"><strong>Méthode 2 : Utiliser le package <code>openxlsx</code> (via LibreOffice ou Apache POI)</strong></h3>
+<p><code>openxlsx</code> ne supporte pas directement ODS, mais peut être combiné avec des outils comme LibreOffice en ligne de commande.</p>
+<section id="étapes" class="level4">
+<h4 class="anchored" data-anchor-id="étapes"><strong>Étapes :</strong></h4>
 <ol type="1">
-<li>Installez et chargez le package <code>dplyr</code> si nécessaire :</li>
+<li>Exportez les données en Excel (<code>.xlsx</code>) avec <code>openxlsx</code>.</li>
+<li>Convertissez le fichier <code>.xlsx</code> en <code>.ods</code> via un script externe.</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Utilisez la fonction <code>filter()</code> pour appliquer des conditions de filtrage.</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un exemple de data.frame</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>, <span class="st">'Femme'</span>, <span class="st">'Homme'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les lignes où l'âge est supérieur ou égal à 25</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemple-dexportation-intermédiaire" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dexportation-intermédiaire"><strong>Exemple d’exportation intermédiaire :</strong></h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openxlsx"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter en Excel</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(data, <span class="at">file =</span> <span class="st">"exemple.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ensuite, utilisez un outil comme LibreOffice en ligne de commande pour convertir :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">libreoffice</span> <span class="at">--convert-to</span> ods exemple.xlsx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="filtrer-avec-des-conditions-complexes" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-avec-des-conditions-complexes">3. Filtrer avec des conditions complexes</h3>
-<p>Vous pouvez aussi combiner plusieurs conditions de filtrage dans <code>subset()</code> ou <code>filter()</code>.</p>
-<section id="exemple-avec-dplyr-conditions-multiples" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-dplyr-conditions-multiples">Exemple avec <code>dplyr</code> (conditions multiples) :</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> sexe <span class="sc">==</span> <span class="st">'Homme'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_filtré)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="méthode-alternative-utiliser-des-scripts-python-via-r" class="level3">
+<h3 class="anchored" data-anchor-id="méthode-alternative-utiliser-des-scripts-python-via-r"><strong>Méthode alternative : Utiliser des scripts Python via R</strong></h3>
+<p>Si vous avez besoin d’une solution avancée, vous pouvez utiliser des packages R comme <code>reticulate</code> pour appeler des scripts Python (via <code>odfpy</code> ou <code>pandas</code>).</p>
+<hr>
 </section>
-</section>
-<section id="filtrer-un-vecteur" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-un-vecteur">4. Filtrer un vecteur</h3>
-<p>Si vous avez un vecteur et souhaitez le filtrer, vous pouvez utiliser la syntaxe des indices logiques :</p>
-<section id="exemple-avec-un-vecteur" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-avec-un-vecteur">Exemple avec un vecteur :</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un vecteur d'âges</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">22</span>, <span class="dv">30</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrer les âges supérieurs ou égaux à 25</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ages_filtrés <span class="ot">&lt;-</span> ages[ages <span class="sc">&gt;=</span> <span class="dv">25</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ages_filtrés)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<ul>
-<li>Pour des filtrages simples sur des <code>data.frame</code>, <code>subset()</code> est une solution rapide.</li>
-<li>Pour un filtrage plus puissant, flexible et facile à combiner avec d’autres opérations, <code>dplyr::filter()</code> est idéal.</li>
-<li>Si vous travaillez avec des vecteurs, vous pouvez utiliser l’indexation logique directement.</li>
-</ul>
-<p>Le choix entre ces méthodes dépend de votre préférence personnelle ou du contexte dans lequel vous travaillez.</p>
+<section id="comparaison-des-options" class="level3">
+<h3 class="anchored" data-anchor-id="comparaison-des-options">Comparaison des options</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Fonctionalité</th>
+<th>Simplicité</th>
+<th>Conversion directe ODS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>readODS</code></td>
+<td>Lecture/Écriture ODS native</td>
+<td>✅ Facile</td>
+<td>✅ Oui</td>
+</tr>
+<tr class="even">
+<td><code>openxlsx</code> + outil externe</td>
+<td>Puissant pour Excel</td>
+<td>⚠ Moyenne</td>
+<td>❌ Non</td>
+</tr>
+</tbody>
+</table>
+<p>Si vous cherchez une solution purement R, <code>readODS</code> est le choix recommandé.</p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -746,15 +751,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Copilot</figcaption>
 </figure>
 </div>
-<p>Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package <code>dplyr</code> :</p>
+<p>Pour exporter des données en format ODS (OpenDocument Spreadsheet) avec R, vous pouvez utiliser le package <code>readODS</code>. Voici un exemple simple :</p>
 <ol type="1">
-<li><p><strong>Installer et charger le package <code>dplyr</code></strong> : <code>R     install.packages("dplyr")     library(dplyr)</code></p></li>
-<li><p><strong>Créer un dataframe d’exemple</strong> : <code>R     data &lt;- data.frame(       id = 1:10,       score = c(50, 60, 70, 80, 90, 100, 110, 120, 130, 140)     )</code></p></li>
-<li><p><strong>Filtrer les lignes où le score est supérieur à 100</strong> : <code>R     filtered_data &lt;- data %&gt;%       filter(score &gt; 100)</code></p></li>
-<li><p><strong>Afficher le résultat</strong> : <code>R     print(filtered_data)</code></p></li>
+<li><p><strong>Installer le package</strong> (si ce n’est pas déjà fait) : <code>R     install.packages("readODS")</code></p></li>
+<li><p><strong>Charger le package</strong> : <code>R     library(readODS)</code></p></li>
+<li><p><strong>Créer un exemple de data frame</strong> : <code>R     df &lt;- data.frame(       Nom = c("Alice", "Bob", "Charlie"),       Age = c(25, 30, 35),       Ville = c("Paris", "Lyon", "Marseille")     )</code></p></li>
+<li><p><strong>Exporter le data frame en fichier ODS</strong> : <code>R     write_ods(df, path = "exemple.ods")</code></p></li>
 </ol>
-<p>Ce code va filtrer le dataframe <code>data</code> pour ne garder que les lignes où la colonne <code>score</code> est supérieure à 100. Vous pouvez adapter ce code pour filtrer selon d’autres critères ou utiliser d’autres fonctions de <code>dplyr</code> pour des filtrages plus complexes.</p>
-<p>Si vous avez des besoins spécifiques ou des questions supplémentaires, n’hésitez pas à me le faire savoir ! 😊</p>
+<p>Ce code crée un fichier <code>exemple.ods</code> dans votre répertoire de travail actuel<a href="https://cran.r-project.org/web/packages/readODS/readODS.pdf">1</a><a href="https://docs.ropensci.org/readODS/">2</a>.</p>
+<p>Si vous avez d’autres questions ou besoin d’aide supplémentaire, n’hésitez pas à demander ! 😊</p>
+<p><a href="https://cran.r-project.org/web/packages/readODS/readODS.pdf">1</a>: <a href="https://cran.r-project.org/web/packages/readODS/readODS.pdf">readODS: Read and Write ODS Files</a> <a href="https://docs.ropensci.org/readODS/">2</a>: <a href="https://docs.ropensci.org/readODS/">Read and Write ODS Files • readODS</a></p>
 
 
 </section>
