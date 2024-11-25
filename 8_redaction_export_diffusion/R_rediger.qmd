@@ -120,15 +120,14 @@ Ce rapport présente un exemple de données.
 
 ## Résumé des données
 
-```
 summary(mtcars)
-```
+
 
 ## Graphique
 
-```
+
 plot(mtcars$mpg, mtcars$hp, main = "Puissance vs Consommation")
-```
+
 ```
 
 En cliquant sur **Knit**, vous obtiendrez un rapport contenant du texte, des analyses et des graphiques.
