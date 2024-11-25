@@ -132,7 +132,7 @@ Avec ces outils, vous pouvez adapter la diffusion de vos résultats selon votre 
 
 ----
 
-## Copilot {style="background-color: #f8f8ff; padding: 20px;"}
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour diffuser un résultat avec R, vous pouvez utiliser plusieurs méthodes en fonction de vos besoins. Voici quelques options courantes :

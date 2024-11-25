@@ -77,7 +77,9 @@ Prompt :
 
 ----
 
-![ChatGPT](img/ChatGPT.PNG)
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
+![ChatGPT](../img/ChatGPT.PNG)
+
 
 Pour obtenir la partie entière d'un nombre représenté sous forme de chaîne de caractères dans un fichier Parquet ouvert en mode lazy avec `arrow::open_dataset`, vous pouvez utiliser les fonctionnalités de manipulation de colonnes fournies par `dplyr` et `arrow`. Voici un exemple de comment faire cela :
 
@@ -138,6 +140,8 @@ Call collect() first to pull data into R.
 
 :::
 
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
+![ChatGPT](../img/ChatGPT.PNG)
 
 L'erreur indique que l'expression `extract_integer_part(result)` n'est pas supportée par Arrow en mode lazy et qu'il faudrait utiliser `collect()` pour tirer les données en mémoire avant de faire des transformations non supportées par Arrow.
 
@@ -199,7 +203,8 @@ Ce script permet de contourner les limitations d'Arrow pour certaines opération
 
 ----
 
-## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}
+![Copilot](../img/copilot.PNG)
 
 
 Pour obtenir la partie entière d'un nombre représenté sous format string dans R, vous pouvez utiliser la fonction `as.integer()`. Cependant, cette fonction convertit le string en un nombre entier seulement si le string est déjà un nombre. Si le string contient des caractères non numériques ou des décimales, vous devez d'abord le convertir en un nombre à virgule flottante avec `as.numeric()` puis utiliser `floor()` pour obtenir la partie entière. Voici comment vous pouvez le faire:
