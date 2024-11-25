@@ -60,7 +60,7 @@ Le texte est écrit en Markdown, un langage de balisage simple. Par exemple :
 Insérez des blocs de code R avec des balises comme ceci :
 
 <pre>
-```{r}
+```
 # Votre code R ici
 summary(cars)
 ```
@@ -78,14 +78,14 @@ summary(cars)
 ### 5. **Personnalisation**
 - **Ajoutez des graphiques** :
   <pre>
-  ```{r}
+  ```
   plot(cars)
   ```
   </pre>
 
 - **Ajoutez des tables** :
   <pre>
-  ```{r}
+  ```
   library(knitr)
   kable(head(mtcars), caption = "Tableau Exemple")
   ```
@@ -119,13 +119,13 @@ Ce rapport présente un exemple de données.
 
 ## Résumé des données
 
-```{r}
+```
 summary(mtcars)
 ```
 
 ## Graphique
 
-```{r}
+```
 plot(mtcars$mpg, mtcars$hp, main = "Puissance vs Consommation")
 ```
 ```
@@ -169,7 +169,7 @@ Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil p
 
      Voici une introduction à votre rapport.
 
-     ```{r}
+     ```
      # Code R pour générer un graphique
      plot(cars)
      ```
