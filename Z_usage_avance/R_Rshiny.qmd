@@ -1,0 +1,201 @@
+## Créer une application RShiny
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment coder une application Rshiny ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Créer une application R Shiny implique de maîtriser le langage **R** et d'utiliser le framework **Shiny** pour créer une interface web interactive. Voici un guide étape par étape pour coder une application Shiny :
+
+---
+
+### 1. **Préparer les prérequis**
+- **Installer R** : Télécharger et installer R depuis [CRAN](https://cran.r-project.org/).
+- **Installer RStudio** : Une interface utilisateur populaire pour R.
+- **Installer le package Shiny** : 
+  ```R
+  install.packages("shiny")
+  ```
+
+---
+
+### 2. **Structure de base d'une application Shiny**
+Une application Shiny typique comprend deux parties principales :
+1. **`ui` (User Interface)** : Définit l'apparence de l'application.
+2. **`server`** : Contient la logique R pour gérer les interactions utilisateur et produire les résultats.
+
+Un fichier Shiny est souvent nommé `app.R` et ressemble à ceci :
+
+```R
+library(shiny)
+
+# Interface utilisateur
+ui <- fluidPage(
+  titlePanel("Titre de l'Application"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("num", "Choisissez un nombre :", min = 1, max = 100, value = 50)
+    ),
+    mainPanel(
+      textOutput("result")
+    )
+  )
+)
+
+# Serveur
+server <- function(input, output) {
+  output$result <- renderText({
+    paste("Vous avez choisi le nombre :", input$num)
+  })
+}
+
+# Lancement de l'application
+shinyApp(ui = ui, server = server)
+```
+
+---
+
+### 3. **Développer une application Shiny**
+#### a. **Créer l'interface utilisateur**
+Shiny propose plusieurs fonctions pour structurer l'interface :
+- **`fluidPage()`** : Crée une page flexible.
+- **`sidebarLayout()`** : Ajoute une barre latérale.
+- **`mainPanel()`** et **`sidebarPanel()`** : Contiennent les éléments de contenu.
+
+#### b. **Ajouter des widgets interactifs**
+Les widgets permettent aux utilisateurs de fournir des entrées. Exemples :
+- **`sliderInput()`** : Un curseur numérique.
+- **`textInput()`** : Champ texte.
+- **`selectInput()`** : Menu déroulant.
+- **`actionButton()`** : Bouton d'action.
+
+#### c. **Gérer la logique avec le serveur**
+Dans la fonction serveur, utilisez :
+- **`input$`** : Pour récupérer les valeurs des widgets.
+- **`output$`** : Pour afficher des résultats dans l'interface.
+- **Fonctions `render...()`** : Pour produire des sorties (ex. `renderText`, `renderPlot`, `renderTable`).
+
+#### d. **Relier `ui` et `server` avec `shinyApp()`**
+
+---
+
+### 4. **Exemples d'améliorations**
+#### a. **Ajouter des graphiques**
+```R
+output$plot <- renderPlot({
+  hist(rnorm(input$num), main = "Histogramme", xlab = "Valeurs")
+})
+```
+Ajoutez un élément `plotOutput` dans l'interface :
+```R
+mainPanel(
+  plotOutput("plot")
+)
+```
+
+#### b. **Utiliser des onglets**
+```R
+ui <- fluidPage(
+  navbarPage("Application Shiny",
+    tabPanel("Tab 1", sidebarLayout(...)),
+    tabPanel("Tab 2", sidebarLayout(...))
+  )
+)
+```
+
+#### c. **Rendre l'application plus réactive**
+Utilisez des fonctions comme **`observeEvent()`** et **`reactive()`** pour mieux gérer les interactions complexes.
+
+---
+
+### 5. **Tester et déployer l'application**
+- **Tester localement** : Utilisez `Run App` dans RStudio.
+- **Déployer sur ShinyApps.io** :
+  1. Créez un compte sur [ShinyApps.io](https://www.shinyapps.io/).
+  2. Installez le package **rsconnect** :
+     ```R
+     install.packages("rsconnect")
+     ```
+  3. Connectez-vous et déployez :
+     ```R
+     library(rsconnect)
+     deployApp("chemin/vers/votre/app")
+     ```
+
+---
+
+### 6. **Astuces et bonnes pratiques**
+- **Modularisez** votre code pour les grandes applications (utilisez des fonctions pour structurer les éléments de l'interface et du serveur).
+- Ajoutez des **messages d'erreur** et des validations avec **`validate()`** et **`req()`**.
+- Personnalisez l'interface avec le package **`shinythemes`** :
+  ```R
+  library(shinythemes)
+  ui <- fluidPage(theme = shinytheme("cerulean"), ...)
+  ```
+
+---
+
+### 7. **Ressources supplémentaires**
+- Documentation officielle : [Shiny RStudio](https://shiny.rstudio.com/)
+- Exemples interactifs : [Shiny Gallery](https://shiny.rstudio.com/gallery/)
+- Livres et tutoriels : "Mastering Shiny" par Hadley Wickham.
+
+Commencez petit, puis ajoutez des fonctionnalités progressivement. 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour coder une application RShiny, vous pouvez suivre ces étapes de base :
+
+1. **Installer le package Shiny** :
+   ```R
+   install.packages("shiny")
+   ```
+
+2. **Charger le package Shiny** :
+   ```R
+   library(shiny)
+   ```
+
+3. **Créer l'interface utilisateur (UI)** :
+   ```R
+   ui <- fluidPage(
+     titlePanel("Titre de l'application"),
+     sidebarLayout(
+       sidebarPanel(
+         sliderInput("slider", "Choisissez une valeur :", min = 1, max = 100, value = 50)
+       ),
+       mainPanel(
+         textOutput("text")
+       )
+     )
+   )
+   ```
+
+4. **Créer la logique serveur** :
+   ```R
+   server <- function(input, output) {
+     output$text <- renderText({
+       paste("La valeur choisie est :", input$slider)
+     })
+   }
+   ```
+
+5. **Lancer l'application Shiny** :
+   ```R
+   shinyApp(ui = ui, server = server)
+   ```
+
+Cette structure de base vous permet de créer une application simple avec une interface utilisateur et une logique serveur. Vous pouvez ensuite ajouter des fonctionnalités plus complexes comme des graphiques, des tableaux, et des interactions plus sophistiquées[1](https://www.christophenicault.com/fr/post/introduction_to_shiny/)[2](https://shiny.posit.co/r/getstarted/build-an-app/hello-shiny/getting-started.html).
+
+Si vous souhaitez approfondir, il existe de nombreuses ressources en ligne, y compris des tutoriels vidéo et des articles détaillés[3](https://www.youtube.com/watch?v=G_n2svA1-eY)[4](https://www.youtube.com/watch?v=jxsKUxkiaLI)[5](https://www.youtube.com/watch?v=tfN10IUX9Lo).
+
+Est-ce que vous avez un projet spécifique en tête pour votre application RShiny ?

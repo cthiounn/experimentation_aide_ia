@@ -132,20 +132,28 @@ website:
             text: "Rédiger"
           - href: 8_redaction_export_diffusion/R_exporter_parquet.qmd
             text: "Exporter en parquet"
+          - href: 8_redaction_export_diffusion/R_exporter_csv.qmd
+            text: "Exporter en csv"
+          - href: 8_redaction_export_diffusion/R_exporter_ods.qmd
+            text: "Exporter en ods"
           - href: 8_redaction_export_diffusion/R_avancee_openxlsx.qmd
             text: "Exporter en xls"
           - href: 8_redaction_export_diffusion/R_diffuser.qmd
             text: "Diffuser"
       - section: "Évaluation et réflexion"
         contents:
-          - href: R_template.qmd
-            text: ""
+          - href: 9_evaluation_reproduction/R_evaluer.qmd
+            text: "Evaluer"
+          - href: 9_evaluation_reproduction/R_reproduire.qmd
+            text: "Reproduire"
+          - href: 9_evaluation_reproduction/R_reproductibilite.qmd
+            text: "Assurer la reproductibilité"
       - section: "Usage avancé"
         contents:
           - href: Z_usage_avance/R_avancee_partie_entiere.qmd
             text: "Partie entière en R"
-          - href: R_template.qmd
-            text: "Template de fiche"
+          - href: Z_usage_avance/R_Rshiny.qmd
+            text: "Rshiny"
         
 format:
   html:

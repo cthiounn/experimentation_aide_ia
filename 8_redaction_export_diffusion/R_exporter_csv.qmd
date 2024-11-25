@@ -1,0 +1,134 @@
+## Export en CSV
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment exporter en csv avec R ?
+
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Exporter des données en CSV avec **R** est une tâche courante et simple grâce aux fonctions de base et aux packages spécialisés. Voici plusieurs méthodes que vous pouvez utiliser :
+
+---
+
+### 1. **Utiliser `write.csv` ou `write.csv2`**
+Les fonctions de base pour exporter un fichier CSV sont **`write.csv`** (séparateur `,`) et **`write.csv2`** (séparateur `;`).
+
+#### Exemple :
+```R
+# Créer un data.frame
+data <- data.frame(
+  Nom = c("Alice", "Bob", "Claire"),
+  Age = c(25, 30, 27),
+  Ville = c("Paris", "Lyon", "Marseille")
+)
+
+# Exporter en CSV avec une virgule comme séparateur
+write.csv(data, "data.csv", row.names = FALSE)
+
+# Exporter en CSV avec un point-virgule comme séparateur (fréquent en Europe)
+write.csv2(data, "data2.csv", row.names = FALSE)
+```
+
+- **`row.names = FALSE`** empêche l'ajout d'une colonne pour les noms de lignes.
+- Le fichier sera enregistré dans le répertoire de travail actuel (que vous pouvez vérifier avec `getwd()`).
+
+---
+
+### 2. **Utiliser `write.table`**
+Pour plus de flexibilité, vous pouvez utiliser **`write.table`**, qui permet de définir des options plus détaillées comme le séparateur (`sep`).
+
+#### Exemple :
+```R
+write.table(data, "data_custom.csv", sep = ",", row.names = FALSE, col.names = TRUE, quote = TRUE)
+```
+
+- **`sep = ","`** définit le séparateur (par exemple, utilisez `"\t"` pour un fichier TSV).
+- **`quote = TRUE`** encadre les chaînes de caractères avec des guillemets.
+
+---
+
+### 3. **Utiliser le package `readr`**
+Le package **`readr`** (du tidyverse) offre des fonctions plus rapides et intuitives comme **`write_csv`** et **`write_delim`**.
+
+#### Exemple :
+```R
+library(readr)
+
+# Exporter un fichier CSV
+write_csv(data, "data_readr.csv")
+
+# Exporter un fichier avec un séparateur personnalisé
+write_delim(data, "data_tab.txt", delim = "\t")
+```
+
+- Ces fonctions sont optimisées pour de meilleures performances et lisibilité.
+
+---
+
+### 4. **Utiliser le package `data.table`**
+Si vous travaillez avec de grands ensembles de données, **data.table::fwrite** est très rapide et flexible.
+
+#### Exemple :
+```R
+library(data.table)
+
+# Exporter un fichier CSV
+fwrite(data, "data_fast.csv", sep = ",")
+```
+
+- **`fwrite`** est particulièrement utile pour des fichiers volumineux grâce à sa vitesse.
+
+---
+
+### 5. **Personnaliser l'encodage**
+Si vous avez besoin de gérer des problèmes d'encodage (comme UTF-8 ou Latin-1), ajoutez l'argument **`fileEncoding`** dans `write.csv` ou `write.table`.
+
+#### Exemple :
+```R
+write.csv(data, "data_utf8.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+---
+
+### Vérification
+Pour vérifier que votre fichier a été correctement exporté :
+```R
+# Lire le fichier exporté
+read.csv("data.csv")
+```
+
+Avec ces méthodes, vous pouvez facilement exporter des données en CSV selon vos besoins ! 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour exporter des données en CSV avec R, vous pouvez utiliser la fonction `write.csv()`. Voici un exemple simple :
+
+```r
+# Supposons que vous avez un dataframe nommé df
+df <- data.frame(
+  Nom = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 35),
+  Ville = c("Paris", "Lyon", "Marseille")
+)
+
+# Exporter le dataframe en fichier CSV
+write.csv(df, file = "chemin/vers/votre/fichier.csv", row.names = FALSE)
+```
+
+Quelques points importants :
+- **`df`** est le nom de votre dataframe.
+- **`file`** spécifie le chemin et le nom du fichier CSV que vous souhaitez créer.
+- **`row.names = FALSE`** empêche l'ajout d'une colonne supplémentaire avec les numéros de ligne[1](https://oseox.fr/langage-r/ecrire-fichier-csv.html).
+
+Si vous avez des questions supplémentaires ou besoin d'aide avec autre chose, n'hésitez pas à demander ! 😊
+
+[1](https://oseox.fr/langage-r/ecrire-fichier-csv.html): [Oseox - Ecriture fichier CSV en R](https://oseox.fr/langage-r/ecrire-fichier-csv.html)

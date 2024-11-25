@@ -1,0 +1,163 @@
+## Assurer la reproductibilité
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment assurer la reproductibilité de ses résultats en R?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Assurer la **reproductibilité** des résultats en R est crucial pour garantir que vos analyses peuvent être reproduites et vérifiées par vous-même ou d'autres personnes à l'avenir. Voici les meilleures pratiques pour y parvenir :
+
+---
+
+### 1. **Fixer une graine aléatoire (random seed)**
+Si vous utilisez des fonctions qui impliquent de la randomisation (par exemple, échantillonnage, génération de nombres aléatoires), fixez une graine aléatoire pour obtenir les mêmes résultats à chaque exécution.
+
+```R
+set.seed(123)  # Exemple de graine fixe
+sample(1:100, 5)  # Résultat reproductible
+```
+
+---
+
+### 2. **Utiliser des scripts bien organisés**
+- **Modularisez vos scripts** : Séparez vos analyses en étapes logiques (importation des données, nettoyage, analyse, visualisation).
+- Commentez clairement chaque étape du script.
+- Utilisez des noms de variables explicites.
+
+---
+
+### 3. **Documenter l’environnement R**
+Enregistrez les versions des packages et de R utilisés dans vos analyses. Le package `sessioninfo` ou `sessionInfo()` peut fournir ces informations.
+
+```R
+sessionInfo()
+```
+
+Ou utilisez :
+
+```R
+library(sessioninfo)
+session_info()
+```
+
+---
+
+### 4. **Utiliser des dépendances explicites**
+- Gérez vos packages avec des outils comme `renv`, qui permet de créer un environnement R isolé et de documenter les versions exactes des packages utilisés.
+
+```R
+library(renv)
+renv::init()  # Initialise un environnement isolé
+renv::snapshot()  # Enregistre les versions actuelles des packages
+```
+
+Cela garantit que votre projet reste compatible avec les versions de vos packages.
+
+---
+
+### 5. **Créer un script ou un document auto-exécutable**
+- Utilisez **R Markdown** pour combiner code, texte explicatif et résultats dans un seul document reproductible.
+
+```r
+---
+title: "Analyse reproductible"
+output: html_document
+---
+
+```r
+# Votre code ici
+set.seed(123)
+sample(1:100, 5)
+```
+```
+
+- Exportez en différents formats (`HTML`, `PDF`, etc.) pour partager votre analyse.
+
+---
+
+### 6. **Versionner votre code**
+- Utilisez un système de contrôle de version comme **Git** pour suivre les modifications de votre code.
+- Hébergez vos projets sur des plateformes comme **GitHub**, ce qui facilite la collaboration et la documentation.
+
+---
+
+### 7. **Inclure les données (ou leur source)**
+- Si possible, incluez les données utilisées ou documentez précisément leur source (URL, base de données, etc.).
+- Si vos données nécessitent un prétraitement, partagez également les scripts de nettoyage.
+
+---
+
+### 8. **Utiliser des pipelines de workflow**
+Utilisez des outils comme `targets` ou `drake` pour structurer vos analyses de manière reproductible et systématique.
+
+```R
+library(targets)
+# Exemple d'un pipeline avec targets
+tar_script({
+  list(
+    tar_target(raw_data, read.csv("data.csv")),
+    tar_target(clean_data, clean_function(raw_data)),
+    tar_target(result, analyze(clean_data))
+  )
+})
+```
+
+---
+
+### 9. **Sauvegarder et charger vos objets R**
+- Sauvegardez les objets de votre environnement avec des formats comme `.RDS` ou `.RData` pour permettre une réutilisation facile.
+
+```R
+saveRDS(my_data, "my_data.rds")
+my_data <- readRDS("my_data.rds")
+```
+
+---
+
+### 10. **Tester votre code**
+Testez votre code sur une nouvelle machine pour vérifier qu'il fonctionne correctement avec un environnement neuf.
+
+---
+
+En suivant ces étapes, vous maximisez la reproductibilité de vos analyses en R, ce qui est bénéfique tant pour la transparence scientifique que pour votre propre productivité.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Assurer la reproductibilité de vos résultats en R est essentiel pour garantir la transparence et la fiabilité de vos analyses. Voici quelques bonnes pratiques pour y parvenir :
+
+1. **Utiliser des scripts bien documentés** : Commentez votre code pour expliquer chaque étape de votre analyse. Utilisez des fichiers RMarkdown (`.Rmd`) pour combiner code et documentation.
+
+2. **Gérer les versions des packages** : Utilisez des outils comme `renv` pour créer des environnements isolés et gérer les versions des packages utilisés dans votre projet[1](https://rcarto.github.io/spectre-reproductibilite-r/).
+
+3. **Organiser vos fichiers** : Structurez votre projet avec des dossiers clairs pour les données, les scripts, les résultats et les métadonnées. Par exemple :
+    ```
+    ├── data
+    │   ├── raw_data.csv
+    ├── scripts
+    │   ├── analysis.R
+    ├── results
+    │   ├── figures
+    └── metadata
+        ├── README.md
+    ```
+
+4. **Utiliser des notebooks** : Les notebooks comme Jupyter ou RMarkdown permettent de combiner code, texte, et résultats dans un même document, facilitant ainsi la reproductibilité.
+
+5. **Contrôle de version** : Utilisez Git et des plateformes comme GitHub ou GitLab pour suivre les modifications de votre code et collaborer avec d'autres chercheurs[2](https://so.site.ined.fr/fr/methodes_outils/reproductibilite/).
+
+6. **Automatisation des analyses** : Utilisez des outils comme `Make` ou le package `targets` pour automatiser et documenter les étapes de votre analyse[1](https://rcarto.github.io/spectre-reproductibilite-r/).
+
+7. **Partager les données et le code** : Publiez vos données et votre code sur des dépôts publics ou institutionnels, en respectant les principes FAIR (Findable, Accessible, Interoperable, Reusable)[2](https://so.site.ined.fr/fr/methodes_outils/reproductibilite/).
+
+En suivant ces pratiques, vous pouvez améliorer la reproductibilité de vos analyses en R et faciliter leur réutilisation par d'autres chercheurs.
+
+Avez-vous des questions spécifiques sur l'une de ces pratiques?

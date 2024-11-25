@@ -1,0 +1,115 @@
+## Export en ODS
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment exporter en ods avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+Exporter un fichier au format **ODS** (OpenDocument Spreadsheet) avec R peut être fait grâce à des packages comme `readODS` ou `openxlsx`. Voici les étapes pour utiliser ces options :
+
+---
+
+### **Méthode 1 : Utiliser le package `readODS`**
+Le package `readODS` permet de lire et d'écrire des fichiers ODS. Pour exporter un fichier au format ODS, vous pouvez utiliser la fonction `write_ods`.
+
+#### **Installation du package :**
+```R
+install.packages("readODS")
+```
+
+#### **Exemple d'exportation :**
+```R
+library(readODS)
+
+# Exemple de données
+data <- data.frame(
+  Nom = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 35),
+  Ville = c("Paris", "Lyon", "Marseille")
+)
+
+# Exporter les données en ODS
+write_ods(data, path = "exemple.ods")
+```
+
+---
+
+### **Méthode 2 : Utiliser le package `openxlsx` (via LibreOffice ou Apache POI)**
+`openxlsx` ne supporte pas directement ODS, mais peut être combiné avec des outils comme LibreOffice en ligne de commande.
+
+#### **Étapes :**
+1. Exportez les données en Excel (`.xlsx`) avec `openxlsx`.
+2. Convertissez le fichier `.xlsx` en `.ods` via un script externe.
+
+#### **Exemple d'exportation intermédiaire :**
+```R
+install.packages("openxlsx")
+library(openxlsx)
+
+# Exporter en Excel
+write.xlsx(data, file = "exemple.xlsx")
+```
+
+Ensuite, utilisez un outil comme LibreOffice en ligne de commande pour convertir :
+```bash
+libreoffice --convert-to ods exemple.xlsx
+```
+
+---
+
+### **Méthode alternative : Utiliser des scripts Python via R**
+Si vous avez besoin d'une solution avancée, vous pouvez utiliser des packages R comme `reticulate` pour appeler des scripts Python (via `odfpy` ou `pandas`).
+
+---
+
+### Comparaison des options
+| Package          | Fonctionalité | Simplicité | Conversion directe ODS |
+|-------------------|---------------|------------|-------------------------|
+| `readODS`        | Lecture/Écriture ODS native | ✅ Facile  | ✅ Oui                 |
+| `openxlsx` + outil externe | Puissant pour Excel | ⚠ Moyenne | ❌ Non                 |
+
+Si vous cherchez une solution purement R, `readODS` est le choix recommandé.
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour exporter des données en format ODS (OpenDocument Spreadsheet) avec R, vous pouvez utiliser le package `readODS`. Voici un exemple simple :
+
+1. **Installer le package** (si ce n'est pas déjà fait) :
+    ```R
+    install.packages("readODS")
+    ```
+
+2. **Charger le package** :
+    ```R
+    library(readODS)
+    ```
+
+3. **Créer un exemple de data frame** :
+    ```R
+    df <- data.frame(
+      Nom = c("Alice", "Bob", "Charlie"),
+      Age = c(25, 30, 35),
+      Ville = c("Paris", "Lyon", "Marseille")
+    )
+    ```
+
+4. **Exporter le data frame en fichier ODS** :
+    ```R
+    write_ods(df, path = "exemple.ods")
+    ```
+
+Ce code crée un fichier `exemple.ods` dans votre répertoire de travail actuel[1](https://cran.r-project.org/web/packages/readODS/readODS.pdf)[2](https://docs.ropensci.org/readODS/).
+
+Si vous avez d'autres questions ou besoin d'aide supplémentaire, n'hésitez pas à demander ! 😊
+
+[1](https://cran.r-project.org/web/packages/readODS/readODS.pdf): [readODS: Read and Write ODS Files](https://cran.r-project.org/web/packages/readODS/readODS.pdf)
+[2](https://docs.ropensci.org/readODS/): [Read and Write ODS Files • readODS](https://docs.ropensci.org/readODS/)

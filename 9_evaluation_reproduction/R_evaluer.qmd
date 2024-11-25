@@ -1,0 +1,178 @@
+## Evaluation
+
+::: {.callout-note appearance="simple"}
+Prompt : 
+
+* Comment évaluer un résultat statistique avec R ?
+
+
+:::
+
+----
+
+![ChatGPT](../img/ChatGPT.PNG)
+
+
+Évaluer un résultat statistique avec **R** consiste généralement à analyser des données, interpréter les résultats, et vérifier leur signification statistique. Voici un guide pas à pas pour évaluer un résultat statistique avec R :
+
+---
+
+### 1. **Chargement des données**
+Assurez-vous que vos données sont prêtes et correctement importées dans R. Cela peut être fait à l'aide de fonctions comme :
+```R
+data <- read.csv("fichier.csv")
+```
+
+---
+
+### 2. **Exploration et visualisation des données**
+Commencez par examiner vos données :
+```R
+summary(data)      # Résumé statistique
+str(data)          # Structure des données
+head(data)         # Premier aperçu des données
+```
+Visualisez les données pour mieux comprendre les relations :
+```R
+plot(data$var1, data$var2)  # Diagramme de dispersion
+hist(data$var1)            # Histogramme
+boxplot(data$var1 ~ data$var2)  # Boxplot par groupe
+```
+
+---
+
+### 3. **Test d'hypothèse**
+Si vous avez un test statistique en tête, identifiez le bon test pour votre objectif :
+- Comparaison de moyennes : **t-test** ou **ANOVA**
+- Corrélation : **cor.test**
+- Régression : **lm**
+- Tests non paramétriques : **wilcox.test**, **kruskal.test**, etc.
+
+#### Exemple : Test de Student (t-test)
+```R
+t.test(data$var1 ~ data$groupe)  # Comparaison de deux groupes
+```
+
+#### Exemple : ANOVA
+```R
+anova_result <- aov(var1 ~ facteur, data = data)
+summary(anova_result)
+```
+
+---
+
+### 4. **Évaluation de la signification statistique**
+Les résultats des tests fourniront une *p-value*. 
+- Si **p-value < 0.05** (ou le seuil défini), vous rejetez l'hypothèse nulle.
+- Si **p-value >= 0.05**, vous ne pouvez pas rejeter l'hypothèse nulle.
+
+#### Exemple d'interprétation d'un test t
+```R
+result <- t.test(data$var1 ~ data$groupe)
+result$p.value   # Affiche la p-value
+```
+
+---
+
+### 5. **Vérification des hypothèses**
+Pour des modèles comme la régression ou ANOVA, vérifiez les hypothèses sous-jacentes :
+- Normalité des résidus : **shapiro.test()**
+- Homogénéité des variances : **leveneTest()** du package *car*
+- Indépendance des observations.
+
+#### Vérification de la normalité des résidus :
+```R
+shapiro.test(residuals(anova_result))
+```
+
+#### Vérification de l’homogénéité des variances :
+```R
+library(car)
+leveneTest(data$var1 ~ data$groupe)
+```
+
+---
+
+### 6. **Modélisation avancée (si nécessaire)**
+Pour une analyse plus complexe, vous pouvez utiliser des modèles :
+- **Régression linéaire** :
+```R
+model <- lm(var1 ~ var2 + var3, data = data)
+summary(model)
+```
+
+- **Régression logistique** :
+```R
+logit_model <- glm(var1 ~ var2, data = data, family = binomial)
+summary(logit_model)
+```
+
+---
+
+### 7. **Interprétation et rapport**
+Une fois les résultats obtenus :
+- Résumez les coefficients, les intervalles de confiance, et les p-values.
+- Vérifiez les tailles d’effet avec des mesures comme **Cohen’s d** ou **R²**.
+- Comparez les résultats avec les hypothèses initiales.
+
+#### Exemple d'extraction des coefficients :
+```R
+coef(summary(model))  # Affiche les coefficients de la régression
+```
+
+---
+
+### 8. **Documentation des résultats**
+Créez un rapport clair :
+- Présentez les tableaux et graphiques.
+- Expliquez la signification pratique des résultats (pas uniquement statistique).
+
+---
+
+En fonction de votre question spécifique, je peux fournir des scripts ou analyser un exemple concret. 😊
+
+----
+
+![Copilot](../img/copilot.PNG)
+
+Pour évaluer un résultat statistique avec R, vous pouvez suivre plusieurs étapes en fonction du type d'analyse que vous souhaitez réaliser. Voici quelques étapes de base pour commencer :
+
+1. **Importer les données** : Utilisez des fonctions comme `read.csv()` ou `read.table()` pour importer vos données dans R.
+   ```R
+   data <- read.csv("votre_fichier.csv")
+   ```
+
+2. **Résumé des données** : Utilisez la fonction `summary()` pour obtenir un résumé statistique de vos données.
+   ```R
+   summary(data)
+   ```
+
+3. **Calculer des statistiques descriptives** : Utilisez des fonctions comme `mean()`, `median()`, `sd()`, et `var()` pour calculer la moyenne, la médiane, l'écart-type et la variance.
+   ```R
+   mean(data$variable)
+   median(data$variable)
+   sd(data$variable)
+   var(data$variable)
+   ```
+
+4. **Visualisation des données** : Utilisez des bibliothèques comme `ggplot2` pour créer des graphiques qui aident à visualiser vos données.
+   ```R
+   library(ggplot2)
+   ggplot(data, aes(x=variable)) + geom_histogram()
+   ```
+
+5. **Tests statistiques** : Effectuez des tests statistiques comme le test t de Student, le test de Wilcoxon, ou le test du khi-carré.
+   ```R
+   t.test(data$variable1, data$variable2)
+   wilcox.test(data$variable1, data$variable2)
+   chisq.test(data$variable1, data$variable2)
+   ```
+
+Pour plus de détails, vous pouvez consulter des ressources en ligne comme des tutoriels vidéo ou des articles spécialisés[1](https://www.youtube.com/watch?v=LUTZFToedmY)[2](https://www.youtube.com/watch?v=qZ_tRdOSUEQ)[3](https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/)[4](https://epirhandbook.com/fr/new_pages/stat_tests.fr.html).
+
+Si vous avez des questions spécifiques ou si vous travaillez sur un projet particulier, n'hésitez pas à me donner plus de détails pour que je puisse vous aider davantage ! 😊
+
+[1](https://www.youtube.com/watch?v=LUTZFToedmY): [Statistique univariée avec logiciel R](https://www.youtube.com/watch?v=LUTZFToedmY)
+[2](https://www.youtube.com/watch?v=qZ_tRdOSUEQ): [Introduction à l’analyse des données statistiques avec R](https://www.youtube.com/watch?v=qZ_tRdOSUEQ)
+[3](https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/): [Analyses statistiques descriptives de données numériques – partie 2](https://delladata.fr/analyses-statistiques-descriptives-de-donnees-numeriques-partie-2/)
+[4](https://epirhandbook.com/fr/new_pages/stat_tests.fr.html): [18 Tests statistiques simples – Le Epi R Handbook](https://epirhandbook.com/fr/new_pages/stat_tests.fr.html)
