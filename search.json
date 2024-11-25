@@ -121,11 +121,11 @@
     ]
   },
   {
-    "objectID": "7_resultats_et_graphiques/R_agreger.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
-    "href": "7_resultats_et_graphiques/R_agreger.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
+    "objectID": "7_resultats_et_graphiques/R_agreger.html#copilot",
+    "href": "7_resultats_et_graphiques/R_agreger.html#copilot",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
-    "section": "Copilot {style=“background-color: #faa555; padding: 20px;”}",
-    "text": "Copilot {style=“background-color: #faa555; padding: 20px;”}\nPour créer une table d’agrégat avec R, vous pouvez utiliser la fonction aggregate() ou les fonctions du package dplyr. Voici un exemple simple avec les deux méthodes :\n\nUtilisation de aggregate()\n# Exemple de données\ndata &lt;- data.frame(\n  group = c('A', 'A', 'B', 'B', 'C', 'C'),\n  value = c(10, 20, 30, 40, 50, 60)\n)\n\n# Agrégation par groupe\nagg_data &lt;- aggregate(value ~ group, data, sum)\nprint(agg_data)\n\n\nUtilisation de dplyr\n# Charger le package dplyr\nlibrary(dplyr)\n\n# Exemple de données\ndata &lt;- data.frame(\n  group = c('A', 'A', 'B', 'B', 'C', 'C'),\n  value = c(10, 20, 30, 40, 50, 60)\n)\n\n# Agrégation par groupe\nagg_data &lt;- data %&gt;%\n  group_by(group) %&gt;%\n  summarise(total_value = sum(value))\n\nprint(agg_data)\nCes deux méthodes permettent de regrouper les données par une ou plusieurs colonnes et de calculer des statistiques agrégées, comme la somme, la moyenne, etc. Si vous avez des questions supplémentaires ou besoin d’aide avec un autre aspect de R, n’hésitez pas à demander !",
+    "section": "Copilot",
+    "text": "Copilot\n\n\n\nCopilot\n\n\nPour créer une table d’agrégat avec R, vous pouvez utiliser la fonction aggregate() ou les fonctions du package dplyr. Voici un exemple simple avec les deux méthodes :\n\nUtilisation de aggregate()\n# Exemple de données\ndata &lt;- data.frame(\n  group = c('A', 'A', 'B', 'B', 'C', 'C'),\n  value = c(10, 20, 30, 40, 50, 60)\n)\n\n# Agrégation par groupe\nagg_data &lt;- aggregate(value ~ group, data, sum)\nprint(agg_data)\n\n\nUtilisation de dplyr\n# Charger le package dplyr\nlibrary(dplyr)\n\n# Exemple de données\ndata &lt;- data.frame(\n  group = c('A', 'A', 'B', 'B', 'C', 'C'),\n  value = c(10, 20, 30, 40, 50, 60)\n)\n\n# Agrégation par groupe\nagg_data &lt;- data %&gt;%\n  group_by(group) %&gt;%\n  summarise(total_value = sum(value))\n\nprint(agg_data)\nCes deux méthodes permettent de regrouper les données par une ou plusieurs colonnes et de calculer des statistiques agrégées, comme la somme, la moyenne, etc. Si vous avez des questions supplémentaires ou besoin d’aide avec un autre aspect de R, n’hésitez pas à demander !",
     "crumbs": [
       "Résultats et graphiques",
       "Agréger des données"
@@ -429,11 +429,11 @@
     ]
   },
   {
-    "objectID": "8_redaction_export_diffusion/R_exporter_csv.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
-    "href": "8_redaction_export_diffusion/R_exporter_csv.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
+    "objectID": "8_redaction_export_diffusion/R_exporter_csv.html#copilot",
+    "href": "8_redaction_export_diffusion/R_exporter_csv.html#copilot",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
-    "section": "Copilot {style=“background-color: #faa555; padding: 20px;”}",
-    "text": "Copilot {style=“background-color: #faa555; padding: 20px;”}\nPour exporter des données en CSV avec R, vous pouvez utiliser la fonction write.csv(). Voici un exemple simple :\n# Supposons que vous avez un dataframe nommé df\ndf &lt;- data.frame(\n  Nom = c(\"Alice\", \"Bob\", \"Charlie\"),\n  Age = c(25, 30, 35),\n  Ville = c(\"Paris\", \"Lyon\", \"Marseille\")\n)\n\n# Exporter le dataframe en fichier CSV\nwrite.csv(df, file = \"chemin/vers/votre/fichier.csv\", row.names = FALSE)\nQuelques points importants : - df est le nom de votre dataframe. - file spécifie le chemin et le nom du fichier CSV que vous souhaitez créer. - row.names = FALSE empêche l’ajout d’une colonne supplémentaire avec les numéros de ligne1.\nSi vous avez des questions supplémentaires ou besoin d’aide avec autre chose, n’hésitez pas à demander ! 😊\n1: Oseox - Ecriture fichier CSV en R",
+    "section": "Copilot",
+    "text": "Copilot\n\n\n\nCopilot\n\n\nPour exporter des données en CSV avec R, vous pouvez utiliser la fonction write.csv(). Voici un exemple simple :\n# Supposons que vous avez un dataframe nommé df\ndf &lt;- data.frame(\n  Nom = c(\"Alice\", \"Bob\", \"Charlie\"),\n  Age = c(25, 30, 35),\n  Ville = c(\"Paris\", \"Lyon\", \"Marseille\")\n)\n\n# Exporter le dataframe en fichier CSV\nwrite.csv(df, file = \"chemin/vers/votre/fichier.csv\", row.names = FALSE)\nQuelques points importants : - df est le nom de votre dataframe. - file spécifie le chemin et le nom du fichier CSV que vous souhaitez créer. - row.names = FALSE empêche l’ajout d’une colonne supplémentaire avec les numéros de ligne1.\nSi vous avez des questions supplémentaires ou besoin d’aide avec autre chose, n’hésitez pas à demander ! 😊\n1: Oseox - Ecriture fichier CSV en R",
     "crumbs": [
       "Rédiger, exporter, diffuser",
       "Exporter en csv"
@@ -2113,11 +2113,11 @@
     ]
   },
   {
-    "objectID": "6_analyse_inferentielle/R_reg_lineaire.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
-    "href": "6_analyse_inferentielle/R_reg_lineaire.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
+    "objectID": "6_analyse_inferentielle/R_reg_lineaire.html#copilot",
+    "href": "6_analyse_inferentielle/R_reg_lineaire.html#copilot",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
-    "section": "Copilot {style=“background-color: #faa555; padding: 20px;”}",
-    "text": "Copilot {style=“background-color: #faa555; padding: 20px;”}\nPour effectuer une régression linéaire en R, vous pouvez suivre ces étapes :\n\nImporter les données :\ndata &lt;- read.csv(\"votre_fichier.csv\")\nVisualiser les données :\nplot(data$variable_indépendante, data$variable_dépendante)\nAjuster le modèle de régression linéaire :\nmodel &lt;- lm(variable_dépendante ~ variable_indépendante, data = data)\nsummary(model)\nVisualiser la ligne de régression :\nplot(data$variable_indépendante, data$variable_dépendante)\nabline(model, col = \"red\")\nÉvaluer les résidus :\nplot(model$residuals)\n\nCes étapes vous permettent de réaliser une régression linéaire simple et d’analyser les résultats. Pour plus de détails, vous pouvez consulter des tutoriels en ligne comme ceux de DellaData ou des vidéos explicatives sur YouTube12.\nSi vous avez des questions spécifiques ou des données particulières à analyser, n’hésitez pas à me le faire savoir ! 😊",
+    "section": "Copilot",
+    "text": "Copilot\n\n\n\nCopilot\n\n\nPour effectuer une régression linéaire en R, vous pouvez suivre ces étapes :\n\nImporter les données :\ndata &lt;- read.csv(\"votre_fichier.csv\")\nVisualiser les données :\nplot(data$variable_indépendante, data$variable_dépendante)\nAjuster le modèle de régression linéaire :\nmodel &lt;- lm(variable_dépendante ~ variable_indépendante, data = data)\nsummary(model)\nVisualiser la ligne de régression :\nplot(data$variable_indépendante, data$variable_dépendante)\nabline(model, col = \"red\")\nÉvaluer les résidus :\nplot(model$residuals)\n\nCes étapes vous permettent de réaliser une régression linéaire simple et d’analyser les résultats. Pour plus de détails, vous pouvez consulter des tutoriels en ligne comme ceux de DellaData ou des vidéos explicatives sur YouTube12.\nSi vous avez des questions spécifiques ou des données particulières à analyser, n’hésitez pas à me le faire savoir ! 😊",
     "crumbs": [
       "Analyses inférentielles",
       "Régression linéaire"
@@ -2529,11 +2529,11 @@
     ]
   },
   {
-    "objectID": "7_resultats_et_graphiques/R_nuage_points.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
-    "href": "7_resultats_et_graphiques/R_nuage_points.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
+    "objectID": "7_resultats_et_graphiques/R_nuage_points.html#copilot",
+    "href": "7_resultats_et_graphiques/R_nuage_points.html#copilot",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
-    "section": "Copilot {style=“background-color: #faa555; padding: 20px;”}",
-    "text": "Copilot {style=“background-color: #faa555; padding: 20px;”}\nPour tracer un nuage de points en R, vous pouvez utiliser la fonction plot() pour une méthode simple ou le package ggplot2 pour des visualisations plus avancées. Voici un exemple de chaque méthode :\n\nUtilisation de plot()\n# Exemple de données\nx &lt;- rnorm(100)\ny &lt;- rnorm(100)\n\n# Tracer un nuage de points simple\nplot(x, y, main=\"Nuage de points simple\", xlab=\"X\", ylab=\"Y\")\n\n\nUtilisation de ggplot2\n# Installer et charger le package ggplot2\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)\n\n# Exemple de données\ndata &lt;- data.frame(x = rnorm(100), y = rnorm(100))\n\n# Tracer un nuage de points avec ggplot2\nggplot(data, aes(x = x, y = y)) +\n  geom_point() +\n  labs(title=\"Nuage de points avec ggplot2\", x=\"X\", y=\"Y\")\nCes deux méthodes vous permettent de créer des nuages de points, mais ggplot2 offre plus de flexibilité et de possibilités de personnalisation12.\nSi vous avez des questions spécifiques ou besoin d’aide avec un aspect particulier, n’hésitez pas à demander ! 😊",
+    "section": "Copilot",
+    "text": "Copilot\n\n\n\nCopilot\n\n\nPour tracer un nuage de points en R, vous pouvez utiliser la fonction plot() pour une méthode simple ou le package ggplot2 pour des visualisations plus avancées. Voici un exemple de chaque méthode :\n\nUtilisation de plot()\n# Exemple de données\nx &lt;- rnorm(100)\ny &lt;- rnorm(100)\n\n# Tracer un nuage de points simple\nplot(x, y, main=\"Nuage de points simple\", xlab=\"X\", ylab=\"Y\")\n\n\nUtilisation de ggplot2\n# Installer et charger le package ggplot2\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)\n\n# Exemple de données\ndata &lt;- data.frame(x = rnorm(100), y = rnorm(100))\n\n# Tracer un nuage de points avec ggplot2\nggplot(data, aes(x = x, y = y)) +\n  geom_point() +\n  labs(title=\"Nuage de points avec ggplot2\", x=\"X\", y=\"Y\")\nCes deux méthodes vous permettent de créer des nuages de points, mais ggplot2 offre plus de flexibilité et de possibilités de personnalisation12.\nSi vous avez des questions spécifiques ou besoin d’aide avec un aspect particulier, n’hésitez pas à demander ! 😊",
     "crumbs": [
       "Résultats et graphiques",
       "Tracer un nuage de points"
@@ -2573,11 +2573,11 @@
     ]
   },
   {
-    "objectID": "7_resultats_et_graphiques/R_histogramme.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
-    "href": "7_resultats_et_graphiques/R_histogramme.html#copilot-stylebackground-color-faa555-padding-20pxcopilot",
+    "objectID": "7_resultats_et_graphiques/R_histogramme.html#copilot",
+    "href": "7_resultats_et_graphiques/R_histogramme.html#copilot",
     "title": "Expérimentation des IA pour l'utilisation de logiciels statistiques",
-    "section": "Copilot {style=“background-color: #faa555; padding: 20px;”}",
-    "text": "Copilot {style=“background-color: #faa555; padding: 20px;”}\nPour créer un histogramme avec R, vous pouvez utiliser la fonction hist(). Voici un guide simple pour vous aider à démarrer :\n\nCharger les données : Assurez-vous que vos données sont chargées dans R. Par exemple, si vous avez un fichier CSV, vous pouvez utiliser read.csv() pour l’importer.\ndata &lt;- read.csv(\"votre_fichier.csv\")\nCréer un histogramme : Utilisez la fonction hist() en spécifiant la colonne de données que vous souhaitez visualiser.\nhist(data$colonne)\nPersonnaliser l’histogramme : Vous pouvez ajouter des titres, des labels et changer les couleurs.\nhist(data$colonne, main=\"Titre de l'histogramme\", xlab=\"Label X\", ylab=\"Label Y\", col=\"blue\")\nAjuster les intervalles : Vous pouvez définir le nombre d’intervalles (bins) avec l’argument breaks.\nhist(data$colonne, breaks=20)\n\nPour des visualisations plus avancées, vous pouvez utiliser le package ggplot2 :\nlibrary(ggplot2)\nggplot(data, aes(x=colonne)) + \n  geom_histogram(binwidth=1, fill=\"blue\", color=\"black\") +\n  labs(title=\"Titre de l'histogramme\", x=\"Label X\", y=\"Label Y\")\nCes étapes devraient vous aider à créer et personnaliser un histogramme dans R. Si vous avez des questions spécifiques ou besoin de plus de détails, n’hésitez pas à demander ! 😊",
+    "section": "Copilot",
+    "text": "Copilot\n\n\n\nCopilot\n\n\nPour créer un histogramme avec R, vous pouvez utiliser la fonction hist(). Voici un guide simple pour vous aider à démarrer :\n\nCharger les données : Assurez-vous que vos données sont chargées dans R. Par exemple, si vous avez un fichier CSV, vous pouvez utiliser read.csv() pour l’importer.\ndata &lt;- read.csv(\"votre_fichier.csv\")\nCréer un histogramme : Utilisez la fonction hist() en spécifiant la colonne de données que vous souhaitez visualiser.\nhist(data$colonne)\nPersonnaliser l’histogramme : Vous pouvez ajouter des titres, des labels et changer les couleurs.\nhist(data$colonne, main=\"Titre de l'histogramme\", xlab=\"Label X\", ylab=\"Label Y\", col=\"blue\")\nAjuster les intervalles : Vous pouvez définir le nombre d’intervalles (bins) avec l’argument breaks.\nhist(data$colonne, breaks=20)\n\nPour des visualisations plus avancées, vous pouvez utiliser le package ggplot2 :\nlibrary(ggplot2)\nggplot(data, aes(x=colonne)) + \n  geom_histogram(binwidth=1, fill=\"blue\", color=\"black\") +\n  labs(title=\"Titre de l'histogramme\", x=\"Label X\", y=\"Label Y\")\nCes étapes devraient vous aider à créer et personnaliser un histogramme dans R. Si vous avez des questions spécifiques ou besoin de plus de détails, n’hésitez pas à demander ! 😊",
     "crumbs": [
       "Résultats et graphiques",
       "Tracer un histogramme"
