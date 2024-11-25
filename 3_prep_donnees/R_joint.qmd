@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -110,6 +111,7 @@ Le choix de la méthode dépend de vos préférences et de vos besoins spécifiq
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 

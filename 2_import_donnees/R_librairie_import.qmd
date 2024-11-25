@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, plusieurs **librairies et fonctions** permettent d'importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :
@@ -157,6 +158,7 @@ Avec ces outils, vous pouvez facilement importer des données dans presque tous 
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour l'import de données en R, il existe plusieurs librairies et fonctions très utiles. Voici quelques-unes des plus couramment utilisées :

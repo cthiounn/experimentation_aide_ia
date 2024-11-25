@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, vous pouvez obtenir une répartition (ou fréquence) d'une variable quantitative ou qualitative de différentes manières, en utilisant des fonctions adaptées à chaque type de donnée.
@@ -116,6 +117,7 @@ Cela vous donnera une visualisation graphique des fréquences pour chaque catég
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour obtenir une répartition ou fréquence d'une variable en R, vous pouvez utiliser différentes fonctions selon le type de variable (quantitative ou qualitative). Voici quelques exemples :

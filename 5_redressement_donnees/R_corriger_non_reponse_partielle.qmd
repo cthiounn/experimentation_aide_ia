@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 La **non-réponse partielle** sous R (par exemple, des valeurs manquantes dans un jeu de données) peut être gérée de différentes manières selon le contexte et les objectifs de l'analyse. Voici les principales stratégies pour corriger ou traiter ces valeurs manquantes :
@@ -110,6 +111,7 @@ N'hésitez pas à préciser votre problème pour que je vous propose une solutio
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour corriger la non-réponse partielle sous R, vous pouvez utiliser plusieurs méthodes d'imputation. Voici quelques-unes des plus courantes :

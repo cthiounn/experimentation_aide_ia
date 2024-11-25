@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -68,6 +69,7 @@ Avec ces étapes, vous pouvez facilement importer des fichiers ODS dans R pour v
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour importer un fichier ODS en R, vous pouvez utiliser le package `readODS`. Voici les étapes à suivre :

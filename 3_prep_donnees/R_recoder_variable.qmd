@@ -9,6 +9,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, vous pouvez recoder une variable de plusieurs façons, en fonction du type de modification que vous souhaitez apporter. Voici quelques méthodes courantes pour recoder une variable.
@@ -73,6 +74,7 @@ Le choix de la méthode dépend de la complexité du recodage que vous souhaitez
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour recoder une variable en R, vous pouvez utiliser plusieurs fonctions et packages selon vos besoins. Voici quelques méthodes courantes :

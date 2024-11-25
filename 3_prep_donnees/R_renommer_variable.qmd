@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, pour renommer une variable (ou une colonne dans un jeu de données), vous pouvez utiliser plusieurs méthodes selon le contexte. Voici quelques-unes des approches les plus courantes :
@@ -80,6 +81,7 @@ Chaque méthode est adaptée à des situations spécifiques selon que vous trava
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour renommer une variable en R, vous pouvez utiliser la fonction `rename()` du package `dplyr`. Voici un exemple simple :

@@ -10,10 +10,11 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](img/ChatGPT.PNG)
 
 
 ----
 
-![Copilot](img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](img/copilot.PNG)
 

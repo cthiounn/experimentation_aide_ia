@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour calculer les quartiles d'une variable sous R, vous pouvez utiliser la fonction `quantile()`. Voici comment procéder, avec des exemples concrets :
@@ -86,6 +87,7 @@ Ces étapes vous permettent de calculer et de visualiser les quartiles d'une var
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 

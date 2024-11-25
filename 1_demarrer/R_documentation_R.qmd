@@ -9,6 +9,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 R est un langage de programmation et un environnement très utilisé pour les statistiques, l'analyse de données et la science des données. Pour débuter avec R, voici une documentation structurée qui inclut les bases et des ressources utiles.
@@ -155,6 +156,7 @@ Si vous avez des questions spécifiques, n'hésitez pas à demander ! 😊
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Bien sûr ! Voici quelques ressources pour vous aider à débuter avec R :

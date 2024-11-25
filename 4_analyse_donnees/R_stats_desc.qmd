@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour obtenir des statistiques descriptives d'une variable en R, vous pouvez utiliser plusieurs fonctions de base. Voici quelques exemples pour vous guider :
@@ -103,6 +104,7 @@ Ces fonctions vous permettront d'obtenir rapidement des statistiques descriptive
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour obtenir les statistiques descriptives d'une variable en R, vous pouvez utiliser plusieurs fonctions. Voici quelques-unes des plus courantes :

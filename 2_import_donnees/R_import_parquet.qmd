@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -97,6 +98,7 @@ Avec ces méthodes, vous serez en mesure de lire et manipuler efficacement des f
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour importer un fichier Parquet en R, vous pouvez utiliser le package `arrow`, qui est spécialement conçu pour manipuler ce type de fichier. Voici un exemple de code pour lire un fichier Parquet :

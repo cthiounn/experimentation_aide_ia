@@ -9,6 +9,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Les données manquantes (ou **NA** en R) sont un défi fréquent lors de l'analyse de données. Il existe plusieurs approches pour gérer les données manquantes en fonction de la situation et des objectifs d'analyse. Voici différentes stratégies à adopter pour traiter les **NA** en R :
@@ -109,6 +110,7 @@ Le choix de la méthode dépend du type de données, de la proportion des valeur
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Gérer les données manquantes en R est une tâche courante et il existe plusieurs méthodes pour les traiter. Voici quelques approches courantes :

@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Après avoir importé des données en R, il y a plusieurs étapes courantes que vous pouvez suivre pour analyser, nettoyer et explorer vos données. Voici un guide des étapes que vous pouvez suivre :
@@ -129,6 +130,7 @@ Ces étapes vous permettent d'obtenir une meilleure compréhension des données 
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Après avoir importé des données en R, il y a plusieurs étapes que vous pouvez suivre pour les analyser et les visualiser :

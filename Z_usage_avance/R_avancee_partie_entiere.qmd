@@ -11,6 +11,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, vous pouvez obtenir la partie entière d'un nombre (la partie avant la virgule, c'est-à-dire l'entier inférieur ou égal au nombre) en utilisant plusieurs fonctions. Voici quelques-unes des méthodes les plus courantes :
@@ -44,6 +45,7 @@ Pour obtenir strictement la partie entière, les fonctions `floor` et `trunc` so
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 En R, la fonction `floor()` est utilisée pour obtenir la partie entière d'un nombre. Voici un exemple de code :
@@ -197,7 +199,7 @@ Ce script permet de contourner les limitations d'Arrow pour certaines opération
 
 ----
 
-![Copilot](img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](img/copilot.PNG)
 
 
 Pour obtenir la partie entière d'un nombre représenté sous format string dans R, vous pouvez utiliser la fonction `as.integer()`. Cependant, cette fonction convertit le string en un nombre entier seulement si le string est déjà un nombre. Si le string contient des caractères non numériques ou des décimales, vous devez d'abord le convertir en un nombre à virgule flottante avec `as.numeric()` puis utiliser `floor()` pour obtenir la partie entière. Voici comment vous pouvez le faire:

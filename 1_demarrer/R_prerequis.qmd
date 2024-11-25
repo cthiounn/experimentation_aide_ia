@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour coder en **R**, voici ce que vous devez installer : 
@@ -75,6 +76,7 @@ Une fois tout cela prêt, vous pouvez commencer à coder en R ! 😊
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour coder en R, voici ce que vous devez installer :

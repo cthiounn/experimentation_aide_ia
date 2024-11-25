@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, vous pouvez obtenir la liste de tous les noms de variables dans l'environnement de travail (workspace) en utilisant différentes méthodes. Voici quelques approches :
@@ -62,6 +63,7 @@ Ces méthodes vous permettront d'afficher les noms de toutes les variables défi
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour obtenir tous les noms de variables dans un environnement R, vous pouvez utiliser la fonction `ls()`. Voici un exemple simple :

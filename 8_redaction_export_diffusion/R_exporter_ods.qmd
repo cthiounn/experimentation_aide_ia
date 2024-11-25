@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Exporter un fichier au format **ODS** (OpenDocument Spreadsheet) avec R peut être fait grâce à des packages comme `readODS` ou `openxlsx`. Voici les étapes pour utiliser ces options :
@@ -79,6 +80,7 @@ Si vous cherchez une solution purement R, `readODS` est le choix recommandé.
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour exporter des données en format ODS (OpenDocument Spreadsheet) avec R, vous pouvez utiliser le package `readODS`. Voici un exemple simple :

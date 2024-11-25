@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Tracer un nuage de points en R est simple grâce à la fonction **`plot()`** ou des bibliothèques comme **`ggplot2`**. Voici des exemples pour chaque méthode.
@@ -83,7 +84,7 @@ Ces outils offrent beaucoup de flexibilité pour des visualisations simples ou a
 
 ----
 
-![Copilot](../img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](../img/copilot.PNG)
 
 Pour tracer un nuage de points en R, vous pouvez utiliser la fonction `plot()` pour une méthode simple ou le package `ggplot2` pour des visualisations plus avancées. Voici un exemple de chaque méthode :
 

@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 L'analyse d'une variable quantitative en R comprend plusieurs étapes clés pour explorer, résumer et interpréter les données. Voici un guide structuré des différentes méthodes que vous pouvez utiliser :
@@ -151,6 +152,7 @@ En suivant ces étapes, vous serez en mesure d'analyser efficacement une variabl
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour analyser une variable quantitative en R, vous pouvez suivre plusieurs étapes. Voici un guide de base :

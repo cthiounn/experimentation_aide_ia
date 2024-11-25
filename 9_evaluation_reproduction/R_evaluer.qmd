@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -133,6 +134,7 @@ En fonction de votre question spécifique, je peux fournir des scripts ou analys
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour évaluer un résultat statistique avec R, vous pouvez suivre plusieurs étapes en fonction du type d'analyse que vous souhaitez réaliser. Voici quelques étapes de base pour commencer :

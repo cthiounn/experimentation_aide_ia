@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l'objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :
@@ -93,6 +94,7 @@ Le choix entre ces méthodes dépend de votre préférence personnelle ou du con
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Créer un filtre en R est assez simple et peut être fait de plusieurs manières, selon ce que vous souhaitez filtrer. Voici un exemple de base pour filtrer un dataframe en utilisant le package `dplyr` :

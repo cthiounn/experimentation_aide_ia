@@ -11,6 +11,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Importer un fichier SAS en **R** peut se faire de plusieurs manières en fonction des outils disponibles. Voici quelques méthodes courantes :
@@ -112,6 +113,7 @@ Assurez-vous d’avoir le bon chemin d’accès au fichier, en tenant compte des
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour importer un fichier SAS en R, vous pouvez utiliser le package **haven**. Voici les étapes à suivre :

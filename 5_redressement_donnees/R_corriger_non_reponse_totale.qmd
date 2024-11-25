@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :
@@ -50,6 +51,7 @@ Si vous avez des questions spécifiques ou besoin d'aide avec votre code, n'hés
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour corriger la non-réponse totale sous R, vous pouvez utiliser la méthode de repondération. Voici un exemple de code pour appliquer cette méthode :

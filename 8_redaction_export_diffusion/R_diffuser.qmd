@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Diffuser un résultat avec R signifie souvent présenter ou communiquer des données, des graphiques, ou des résultats d’analyse d’une manière qui soit facilement compréhensible et accessible aux autres. Voici les étapes clés pour diffuser un résultat avec R :
@@ -78,13 +79,12 @@ title: "Analyse des résultats"
 output: html_document
 ---
 
-```
 # Charger les données
 data <- data.frame(x = 1:10, y = rnorm(10))
 
 # Visualiser un graphique
 plot(data$x, data$y)
-```
+
 ```
 
 Pour générer un rapport, installez le package `rmarkdown` :
@@ -132,6 +132,7 @@ Avec ces outils, vous pouvez adapter la diffusion de vos résultats selon votre 
 
 ----
 
+## Copilot {style="background-color: #f8f8ff; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour diffuser un résultat avec R, vous pouvez utiliser plusieurs méthodes en fonction de vos besoins. Voici quelques options courantes :

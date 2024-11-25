@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Faire une analyse de données en R implique plusieurs étapes clés, de la préparation des données à la modélisation et l'interprétation des résultats. Voici un guide général pour réaliser une analyse de données en R :
@@ -172,6 +173,7 @@ Cette approche couvre les bases de l'analyse de données en R, mais selon vos be
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour faire une analyse de données en R, voici les étapes principales :

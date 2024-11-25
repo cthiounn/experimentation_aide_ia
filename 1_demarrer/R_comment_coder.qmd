@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 **Coder en R** consiste à utiliser ce langage de programmation principalement conçu pour l’analyse de données, les statistiques et les visualisations. Voici une introduction aux bases de la programmation en R.
@@ -162,6 +163,7 @@ Avec de la pratique, vous serez capable de gérer efficacement vos données et d
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour commencer à coder en R, voici quelques étapes de base :

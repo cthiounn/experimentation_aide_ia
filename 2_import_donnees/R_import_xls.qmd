@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -219,6 +220,7 @@ Vous pouvez aussi explorer d'autres packages comme **`xlsx`**, mais ceux mention
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour importer un fichier Excel (.xls ou .xlsx) en R, vous pouvez utiliser le package `readxl`. Voici comment procéder :

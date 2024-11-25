@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Faire une analyse économétrique avec **R** nécessite plusieurs étapes, allant de la formulation du problème à l'interprétation des résultats. Voici un guide structuré pour réaliser cette analyse :
@@ -148,6 +149,7 @@ En suivant ces étapes, vous serez en mesure de réaliser une analyse économét
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour réaliser une analyse économétrique avec R, voici les étapes principales :

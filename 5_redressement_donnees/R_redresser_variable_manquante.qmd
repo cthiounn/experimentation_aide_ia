@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour redresser des données manquantes dans une variable en **R**, plusieurs approches sont disponibles, selon la nature des données et des hypothèses que vous pouvez faire. Voici les étapes et les méthodes les plus courantes :
@@ -127,6 +128,7 @@ Ces méthodes sont à choisir en fonction du contexte, des hypothèses et des ob
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour redresser des données manquantes dans R, il existe plusieurs méthodes en fonction de ce que vous souhaitez faire avec ces données. Voici quelques approches courantes :

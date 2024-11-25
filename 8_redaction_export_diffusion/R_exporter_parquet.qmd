@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Exporter des données en **Parquet** avec R peut être fait en utilisant des bibliothèques comme **arrow** ou **sparklyr**, qui permettent de travailler avec des fichiers Parquet, un format binaire optimisé pour la performance et la compression.
@@ -110,6 +111,7 @@ Avec ces approches, vous pouvez facilement exporter des fichiers en Parquet dans
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour exporter des données en format Parquet avec R, vous pouvez utiliser le package `arrow`. Voici un exemple simple pour vous guider :

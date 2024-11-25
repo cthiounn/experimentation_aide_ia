@@ -9,6 +9,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 L'interprétation des résultats d'une **régression logistique** avec R peut être réalisée à l'aide d'une combinaison d'outils, de packages et de techniques. Voici un guide structuré des étapes et des outils :
@@ -121,6 +122,7 @@ Ces outils vous permettent de construire, analyser et interpréter une régressi
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour interpréter les résultats d'une régression logistique avec R, vous pouvez utiliser plusieurs outils et fonctions. Voici quelques étapes et outils clés :

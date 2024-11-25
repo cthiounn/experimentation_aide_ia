@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, répondre signifie écrire une commande ou une instruction dans le langage R, souvent en réponse à une question ou à un problème donné. Voici comment vous pourriez procéder selon le contexte :
@@ -68,6 +69,7 @@ Si vous avez une question ou un exemple précis, n'hésitez pas à le partager p
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour rééchantillonner (ou repondérer) des données en R, vous pouvez utiliser la fonction `replicate()` ou des techniques de bootstrap. Voici un exemple simple de rééchantillonnage avec la fonction `sample()` :

@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -114,6 +115,7 @@ L'approche exacte dépend du contexte de votre analyse et de la nature de vos do
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour corriger les erreurs de non-réponse en R, il est essentiel de comprendre les différents types d'erreurs et comment les gérer. Voici quelques méthodes courantes :

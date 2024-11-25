@@ -9,6 +9,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -77,6 +78,7 @@ En suivant ces étapes et en utilisant ces ressources, vous serez bien équipé 
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour bien démarrer en R, voici quelques étapes que vous pouvez suivre :

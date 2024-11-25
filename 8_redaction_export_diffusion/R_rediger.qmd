@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil très puissant qui permet de combiner texte, code R, et résultats dans un seul document. Voici un guide étape par étape pour créer un rapport avec R :
@@ -140,6 +141,7 @@ En cliquant sur **Knit**, vous obtiendrez un rapport contenant du texte, des ana
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil puissant et flexible qui permet de combiner du texte, du code R, et des résultats (comme des graphiques et des tableaux) dans un même document. Voici les étapes de base pour commencer :

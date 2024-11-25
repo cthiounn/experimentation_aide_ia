@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour tracer une droite avec **R**, vous pouvez utiliser la fonction `abline()` ou tracer une droite personnalisée en utilisant `curve()` ou les commandes de base comme `plot()` et `lines()`. Voici quelques approches :
@@ -71,6 +72,7 @@ Ces méthodes sont simples et adaptées selon votre besoin spécifique. Si vous 
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour tracer une droite avec R, vous pouvez utiliser la fonction `plot()` pour créer un graphique de base, puis ajouter une droite avec la fonction `abline()`. Voici un exemple simple :

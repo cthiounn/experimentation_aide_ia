@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour analyser une variable qualitative en R, vous pouvez utiliser plusieurs méthodes qui permettent de résumer et d'explorer les données de manière efficace. Voici les étapes de base pour analyser une variable qualitative en R :
@@ -99,6 +100,7 @@ En résumé, pour analyser une variable qualitative en R, vous pouvez commencer 
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Pour analyser une variable qualitative en R, vous pouvez utiliser plusieurs fonctions et techniques. Voici quelques étapes courantes :

@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Rechercher une chaîne de caractères sous R peut se faire à l'aide de plusieurs fonctions, selon vos besoins. Voici quelques-unes des méthodes les plus courantes :
@@ -108,6 +109,7 @@ Ces méthodes vous permettront de rechercher et de manipuler des chaînes de car
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 

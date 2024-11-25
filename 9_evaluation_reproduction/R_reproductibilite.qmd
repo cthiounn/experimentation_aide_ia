@@ -10,6 +10,7 @@ Prompt :
 
 ----
 
+## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Assurer la **reproductibilité** des résultats en R est crucial pour garantir que vos analyses peuvent être reproduites et vérifiées par vous-même ou d'autres personnes à l'avenir. Voici les meilleures pratiques pour y parvenir :
@@ -130,6 +131,7 @@ En suivant ces étapes, vous maximisez la reproductibilité de vos analyses en R
 
 ----
 
+## Copilot {style="background-color: #faa555; padding: 20px;"}
 ![Copilot](../img/copilot.PNG)
 
 Assurer la reproductibilité de vos résultats en R est essentiel pour garantir la transparence et la fiabilité de vos analyses. Voici quelques bonnes pratiques pour y parvenir :
