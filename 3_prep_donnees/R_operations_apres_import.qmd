@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Après avoir importé des données en R, il y a plusieurs étapes courantes que vous pouvez suivre pour analyser, nettoyer et explorer vos données. Voici un guide des étapes que vous pouvez suivre :

@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Faire une analyse économétrique avec **R** nécessite plusieurs étapes, allant de la formulation du problème à l'interprétation des résultats. Voici un guide structuré pour réaliser cette analyse :

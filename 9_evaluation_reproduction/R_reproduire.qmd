@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Reproduire un résultat statistique avec R implique plusieurs étapes clés pour s'assurer que les analyses sont correctement exécutées et les résultats cohérents avec les attentes. Voici une procédure générale pour y parvenir :

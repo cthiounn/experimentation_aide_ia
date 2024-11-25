@@ -9,7 +9,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 R est un langage de programmation et un environnement très utilisé pour les statistiques, l'analyse de données et la science des données. Pour débuter avec R, voici une documentation structurée qui inclut les bases et des ressources utiles.

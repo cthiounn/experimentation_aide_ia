@@ -11,7 +11,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Importer un fichier SAS en **R** peut se faire de plusieurs manières en fonction des outils disponibles. Voici quelques méthodes courantes :

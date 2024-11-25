@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, répondre signifie écrire une commande ou une instruction dans le langage R, souvent en réponse à une question ou à un problème donné. Voici comment vous pourriez procéder selon le contexte :

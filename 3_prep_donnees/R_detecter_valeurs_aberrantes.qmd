@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour détecter les données aberrantes (ou **outliers**) en R, plusieurs méthodes statistiques et graphiques peuvent être utilisées. Voici quelques-unes des approches courantes :

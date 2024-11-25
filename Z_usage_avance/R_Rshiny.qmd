@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Créer une application R Shiny implique de maîtriser le langage **R** et d'utiliser le framework **Shiny** pour créer une interface web interactive. Voici un guide étape par étape pour coder une application Shiny :

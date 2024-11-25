@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour importer un fichier CSV en **R**, vous pouvez utiliser plusieurs fonctions adaptées à vos besoins et à la structure du fichier. Voici les étapes générales pour importer un fichier CSV :

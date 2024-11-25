@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 La **non-réponse partielle** sous R (par exemple, des valeurs manquantes dans un jeu de données) peut être gérée de différentes manières selon le contexte et les objectifs de l'analyse. Voici les principales stratégies pour corriger ou traiter ces valeurs manquantes :

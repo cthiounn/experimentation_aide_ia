@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 
@@ -54,7 +54,8 @@ Ces deux méthodes permettent de regrouper les données par une ou plusieurs col
 
 ----
 
-## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](../img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}
+![Copilot](../img/copilot.PNG)
 
 Pour créer une table d'agrégat avec R, vous pouvez utiliser la fonction `aggregate()` ou les fonctions du package `dplyr`. Voici un exemple simple avec les deux méthodes :
 

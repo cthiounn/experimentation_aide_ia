@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 La régression linéaire en R peut être effectuée de manière simple à l’aide de la fonction `lm()` (Linear Model). Voici les étapes générales pour réaliser une régression linéaire en R :
@@ -103,7 +103,8 @@ Cette méthodologie couvre les bases de la régression linéaire en R. Pour des 
 
 ----
 
-## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](../img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}
+![Copilot](../img/copilot.PNG)
 
 Pour effectuer une régression linéaire en R, vous pouvez suivre ces étapes :
 

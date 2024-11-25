@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour créer un filtre en R, cela dépend du type de données que vous souhaitez filtrer et de l'objectif du filtre. Voici les différentes façons de filtrer des données dans R, en fonction de différents cas :

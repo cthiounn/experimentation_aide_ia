@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 L'analyse d'une variable quantitative en R comprend plusieurs étapes clés pour explorer, résumer et interpréter les données. Voici un guide structuré des différentes méthodes que vous pouvez utiliser :

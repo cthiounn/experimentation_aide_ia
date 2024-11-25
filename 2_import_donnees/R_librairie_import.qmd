@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, plusieurs **librairies et fonctions** permettent d'importer différents types de données selon le format du fichier. Voici un aperçu des principales options selon les besoins :

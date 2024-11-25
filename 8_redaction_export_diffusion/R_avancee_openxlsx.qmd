@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 `openxlsx` est un package R très pratique pour créer, lire et modifier des fichiers Excel. Si tu souhaites exporter des résultats vers un fichier Excel avec `openxlsx`, voici comment procéder :

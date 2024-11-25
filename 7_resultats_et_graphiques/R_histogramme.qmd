@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Créer un histogramme avec **R** est simple grâce à la fonction `hist()` qui fait partie des fonctions de base du langage. Voici un guide pas à pas pour créer un histogramme :
@@ -111,7 +111,8 @@ Essayez ces exemples pour explorer les différentes options disponibles ! 😊
 
 ----
 
-## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](../img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}
+![Copilot](../img/copilot.PNG)
 
 Pour créer un histogramme avec R, vous pouvez utiliser la fonction `hist()`. Voici un guide simple pour vous aider à démarrer :
 

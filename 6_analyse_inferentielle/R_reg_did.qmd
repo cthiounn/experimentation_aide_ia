@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 L’analyse par **différences de différences** (ou **difference-in-differences**, DID) est une méthode utilisée en économétrie pour évaluer l'impact d'une intervention ou d'un traitement. Cette méthode compare les changements dans un groupe traité à ceux observés dans un groupe non traité avant et après l'intervention. Voici un guide étape par étape pour effectuer une analyse DID avec **R**.

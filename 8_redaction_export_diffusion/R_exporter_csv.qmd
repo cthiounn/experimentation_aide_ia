@@ -11,7 +11,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Exporter des données en CSV avec **R** est une tâche courante et simple grâce aux fonctions de base et aux packages spécialisés. Voici plusieurs méthodes que vous pouvez utiliser :
@@ -109,7 +109,8 @@ Avec ces méthodes, vous pouvez facilement exporter des données en CSV selon vo
 
 ----
 
-## Copilot {style="background-color: #faa555; padding: 20px;"}![Copilot](../img/copilot.PNG)
+## Copilot {style="background-color: #faa555; padding: 20px;"}
+![Copilot](../img/copilot.PNG)
 
 Pour exporter des données en CSV avec R, vous pouvez utiliser la fonction `write.csv()`. Voici un exemple simple :
 

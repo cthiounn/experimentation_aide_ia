@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 La régression logistique sous R est un outil statistique permettant de modéliser une variable dépendante binaire (ayant deux modalités, comme 0/1, vrai/faux) en fonction de variables explicatives. Voici les étapes pour effectuer une régression logistique sous R :

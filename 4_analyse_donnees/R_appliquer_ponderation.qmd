@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour appliquer des pondérations en R, plusieurs approches peuvent être utilisées en fonction du contexte (par exemple, pondérer les données dans des calculs statistiques, effectuer des régressions pondérées, etc.). Voici les différentes façons d'appliquer des pondérations dans des scénarios typiques en R :

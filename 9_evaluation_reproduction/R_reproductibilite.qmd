@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Assurer la **reproductibilité** des résultats en R est crucial pour garantir que vos analyses peuvent être reproduites et vérifiées par vous-même ou d'autres personnes à l'avenir. Voici les meilleures pratiques pour y parvenir :

@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, pour renommer une variable (ou une colonne dans un jeu de données), vous pouvez utiliser plusieurs méthodes selon le contexte. Voici quelques-unes des approches les plus courantes :

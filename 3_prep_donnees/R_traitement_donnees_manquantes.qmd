@@ -9,7 +9,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Les données manquantes (ou **NA** en R) sont un défi fréquent lors de l'analyse de données. Il existe plusieurs approches pour gérer les données manquantes en fonction de la situation et des objectifs d'analyse. Voici différentes stratégies à adopter pour traiter les **NA** en R :

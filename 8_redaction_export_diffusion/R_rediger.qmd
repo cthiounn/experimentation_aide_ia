@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Pour rédiger un rapport avec R, vous pouvez utiliser **R Markdown**, un outil très puissant qui permet de combiner texte, code R, et résultats dans un seul document. Voici un guide étape par étape pour créer un rapport avec R :

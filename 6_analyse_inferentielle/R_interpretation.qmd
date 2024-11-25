@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Interpréter les résultats économétriques dans R nécessite une combinaison d'outils et de techniques pour comprendre les sorties des modèles, évaluer leur qualité, et en tirer des conclusions. Voici une liste des outils et approches utiles :

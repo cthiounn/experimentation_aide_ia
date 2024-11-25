@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 Diffuser un résultat avec R signifie souvent présenter ou communiquer des données, des graphiques, ou des résultats d’analyse d’une manière qui soit facilement compréhensible et accessible aux autres. Voici les étapes clés pour diffuser un résultat avec R :

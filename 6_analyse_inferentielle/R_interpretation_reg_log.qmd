@@ -9,7 +9,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 L'interprétation des résultats d'une **régression logistique** avec R peut être réalisée à l'aide d'une combinaison d'outils, de packages et de techniques. Voici un guide structuré des étapes et des outils :

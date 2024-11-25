@@ -10,7 +10,7 @@ Prompt :
 
 ----
 
-## ChatGPT {style="background-color: #f0f8ff; padding: 20px;"}
+## ChatGPT {style="background-color: #69bdd2; padding: 20px;"}
 ![ChatGPT](../img/ChatGPT.PNG)
 
 En R, il est possible de combiner plusieurs graphiques dans une seule visualisation de différentes manières, selon vos besoins et les bibliothèques utilisées. Voici un aperçu des approches les plus courantes :
