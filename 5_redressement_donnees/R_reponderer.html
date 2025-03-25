@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,12 +68,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-88b9f24238093d7ede9e821d28d5c74f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ab6b8b7d8618fd52021f453d175ef30d.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -624,18 +624,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#repondération" id="toc-repondération" class="nav-link active" data-scroll-target="#repondération">Repondération</a></li>
   <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt">ChatGPT</a>
   <ul class="collapse">
-  <li><a href="#interagir-avec-la-console" id="toc-interagir-avec-la-console" class="nav-link" data-scroll-target="#interagir-avec-la-console">1. <strong>Interagir avec la console</strong></a></li>
-  <li><a href="#écrire-une-fonction-pour-une-réponse-réutilisable" id="toc-écrire-une-fonction-pour-une-réponse-réutilisable" class="nav-link" data-scroll-target="#écrire-une-fonction-pour-une-réponse-réutilisable">2. <strong>Écrire une fonction pour une réponse réutilisable</strong></a></li>
-  <li><a href="#répondre-à-une-question-statistique-ou-mathématique" id="toc-répondre-à-une-question-statistique-ou-mathématique" class="nav-link" data-scroll-target="#répondre-à-une-question-statistique-ou-mathématique">3. <strong>Répondre à une question statistique ou mathématique</strong></a></li>
-  <li><a href="#utiliser-des-packages-pour-des-questions-spécifiques" id="toc-utiliser-des-packages-pour-des-questions-spécifiques" class="nav-link" data-scroll-target="#utiliser-des-packages-pour-des-questions-spécifiques">4. <strong>Utiliser des packages pour des questions spécifiques</strong></a></li>
-  <li><a href="#créer-un-script-pour-une-réponse-structurée" id="toc-créer-un-script-pour-une-réponse-structurée" class="nav-link" data-scroll-target="#créer-un-script-pour-une-réponse-structurée">5. <strong>Créer un script pour une réponse structurée</strong></a></li>
+  <li><a href="#utiliser-des-facteurs-de-pondération" id="toc-utiliser-des-facteurs-de-pondération" class="nav-link" data-scroll-target="#utiliser-des-facteurs-de-pondération">1. <strong>Utiliser des facteurs de pondération</strong></a></li>
+  <li><a href="#repondérer-à-laide-de-la-méthode-de-raking-calage-sur-marges" id="toc-repondérer-à-laide-de-la-méthode-de-raking-calage-sur-marges" class="nav-link" data-scroll-target="#repondérer-à-laide-de-la-méthode-de-raking-calage-sur-marges">2. <strong>Repondérer à l’aide de la méthode de raking (Calage sur marges)</strong></a></li>
+  <li><a href="#repondérer-en-normalisant-les-poids" id="toc-repondérer-en-normalisant-les-poids" class="nav-link" data-scroll-target="#repondérer-en-normalisant-les-poids">3. <strong>Repondérer en normalisant les poids</strong></a></li>
   </ul></li>
   <li><a href="#copilot" id="toc-copilot" class="nav-link" data-scroll-target="#copilot">Copilot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_redresser_variable_manquante.html">Redressement des données</a></li><li class="breadcrumb-item"><a href="../5_redressement_donnees/R_reponderer.html">Repondérer</a></li></ol></nav></header>
 
 
 
@@ -665,29 +663,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>ChatGPT</figcaption>
 </figure>
 </div>
-<p>En R, répondre signifie écrire une commande ou une instruction dans le langage R, souvent en réponse à une question ou à un problème donné. Voici comment vous pourriez procéder selon le contexte :</p>
-<section id="interagir-avec-la-console" class="level3">
-<h3 class="anchored" data-anchor-id="interagir-avec-la-console">1. <strong>Interagir avec la console</strong></h3>
-<ul>
-<li>Vous pouvez simplement taper une commande ou une fonction dans la console R. Par exemple : <code>R      x &lt;- 5  # Assigner une valeur      y &lt;- 10      somme &lt;- x + y  # Faire une opération      print(somme)  # Afficher le résultat</code> Cela répond à une question sur la somme de deux nombres.</li>
-</ul>
+<p>En <strong>R</strong>, la “repondération” signifie ajuster les poids d’un ensemble de données pondérées pour compenser des biais d’échantillonnage ou assurer la représentativité d’une population.</p>
+<section id="utiliser-des-facteurs-de-pondération" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-des-facteurs-de-pondération">1. <strong>Utiliser des facteurs de pondération</strong></h3>
+<p>Si vous avez un facteur de pondération initial ( w_0 ) et que vous devez ajuster les poids en fonction d’une nouvelle distribution ( w_n ), vous pouvez repondérer avec :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>poids_reponderes <span class="ot">&lt;-</span> df<span class="sc">$</span>poids_initiaux <span class="sc">*</span> facteur_repond</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Où <code>facteur_repond</code> est le ratio entre l’ancienne et la nouvelle pondération.</p>
+<hr>
 </section>
-<section id="écrire-une-fonction-pour-une-réponse-réutilisable" class="level3">
-<h3 class="anchored" data-anchor-id="écrire-une-fonction-pour-une-réponse-réutilisable">2. <strong>Écrire une fonction pour une réponse réutilisable</strong></h3>
-<p>Si vous souhaitez répondre de manière structurée, vous pouvez écrire une fonction. Par exemple, pour calculer la somme de deux nombres : <code>R    addition &lt;- function(a, b) {      return(a + b)    }    resultat &lt;- addition(5, 10)    print(resultat)</code></p>
+<section id="repondérer-à-laide-de-la-méthode-de-raking-calage-sur-marges" class="level3">
+<h3 class="anchored" data-anchor-id="repondérer-à-laide-de-la-méthode-de-raking-calage-sur-marges">2. <strong>Repondérer à l’aide de la méthode de raking (Calage sur marges)</strong></h3>
+<p>Utilisez le package <strong>survey</strong> pour ajuster les poids :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la conception de l'enquête avec les poids initiaux</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weights =</span> <span class="sc">~</span>poids_initiaux, <span class="at">data =</span> df)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Repondération avec les nouvelles marges (ex: sexe, âge, région)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>marges <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexe =</span> <span class="fu">c</span>(<span class="at">H =</span> <span class="fl">0.48</span>, <span class="at">F =</span> <span class="fl">0.52</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="at">Jeune =</span> <span class="fl">0.3</span>, <span class="at">Adulte =</span> <span class="fl">0.5</span>, <span class="at">Senior =</span> <span class="fl">0.2</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>design_reponderé <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(design, <span class="sc">~</span>sexe <span class="sc">+</span> age, <span class="at">population =</span> marges)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraction des poids ajustés</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>poids_reponderes <span class="ot">&lt;-</span> <span class="fu">weights</span>(design_reponderé)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="répondre-à-une-question-statistique-ou-mathématique" class="level3">
-<h3 class="anchored" data-anchor-id="répondre-à-une-question-statistique-ou-mathématique">3. <strong>Répondre à une question statistique ou mathématique</strong></h3>
-<p>Si la question est plus complexe, par exemple calculer une moyenne ou une régression : <code>R    # Calculer une moyenne    donnees &lt;- c(5, 10, 15, 20)    moyenne &lt;- mean(donnees)    print(moyenne)</code></p>
-</section>
-<section id="utiliser-des-packages-pour-des-questions-spécifiques" class="level3">
-<h3 class="anchored" data-anchor-id="utiliser-des-packages-pour-des-questions-spécifiques">4. <strong>Utiliser des packages pour des questions spécifiques</strong></h3>
-<p>Si une réponse implique un outil plus avancé, comme des graphiques ou des analyses statistiques, vous pourriez charger un package et exécuter les commandes nécessaires : <code>R    library(ggplot2)    donnees &lt;- data.frame(x = 1:10, y = 1:10)    ggplot(donnees, aes(x, y)) + geom_point()</code></p>
-</section>
-<section id="créer-un-script-pour-une-réponse-structurée" class="level3">
-<h3 class="anchored" data-anchor-id="créer-un-script-pour-une-réponse-structurée">5. <strong>Créer un script pour une réponse structurée</strong></h3>
-<p>Si la réponse est longue ou doit être répétée, vous pouvez enregistrer vos commandes dans un fichier <code>.R</code> : - Créez un fichier, par exemple <code>script.R</code> : <code>R      x &lt;- 5      y &lt;- 10      print(x + y)</code> - Puis exécutez-le avec : <code>R      source("script.R")</code></p>
-<p>Si vous avez une question ou un exemple précis, n’hésitez pas à le partager pour une réponse plus adaptée ! 😊</p>
+<section id="repondérer-en-normalisant-les-poids" class="level3">
+<h3 class="anchored" data-anchor-id="repondérer-en-normalisant-les-poids">3. <strong>Repondérer en normalisant les poids</strong></h3>
+<p>Si vous voulez normaliser les nouveaux poids pour qu’ils somment à la taille de l’échantillon :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>poids_reponderes <span class="ot">&lt;-</span> df<span class="sc">$</span>poids_initiaux <span class="sc">*</span> <span class="fu">sum</span>(df<span class="sc">$</span>poids_initiaux) <span class="sc">/</span> <span class="fu">sum</span>(df<span class="sc">$</span>poids_reponderes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela garantit que la somme des poids reste cohérente.</p>
+<hr>
+<p>💡 <strong>Conclusion</strong><br>
+La méthode dépend du contexte :<br>
+- Si vous avez un facteur d’ajustement, appliquez-le directement.<br>
+- Pour une repondération plus avancée, utilisez <code>calibrate()</code> du package <strong>survey</strong>.<br>
+- Assurez-vous que la somme des poids soit correcte après ajustement.</p>
+<p>Besoin d’un exemple plus spécifique ? 😊</p>
 <hr>
 </section>
 </section>
@@ -700,32 +715,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Pour rééchantillonner (ou repondérer) des données en R, vous pouvez utiliser la fonction <code>replicate()</code> ou des techniques de bootstrap. Voici un exemple simple de rééchantillonnage avec la fonction <code>sample()</code> :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rééchantillonnage avec remplacement</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>resample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="at">size =</span> <span class="fu">length</span>(data), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le résultat</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de données</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rééchantillonnage avec remplacement</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>resample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="at">size =</span> <span class="fu">length</span>(data), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le résultat</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Cela vous donnera un nouvel échantillon de vos données d’origine, avec remplacement. Si vous avez besoin de techniques plus avancées, comme le bootstrap, vous pouvez utiliser le package <code>boot</code> :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package boot si nécessaire</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"boot"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de statistique à appliquer</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>statistic <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> data[indices]</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(d))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Appliquer le bootstrap</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> data, <span class="at">statistic =</span> statistic, <span class="at">R =</span> <span class="dv">1000</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les résultats</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package boot si nécessaire</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"boot"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction de statistique à appliquer</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>statistic <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> data[indices]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(d))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Appliquer le bootstrap</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> data, <span class="at">statistic =</span> statistic, <span class="at">R =</span> <span class="dv">1000</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les résultats</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ces exemples devraient vous aider à démarrer avec le rééchantillonnage en R. Si vous avez des questions spécifiques ou besoin d’aide supplémentaire, n’hésitez pas à demander <img src="https://r.developpez.com/tutoriels/cours-complet-programmation-r/.png" class="img-fluid" alt="1"><a href="https://r.developpez.com/tutoriels/r/introduction/">2</a></p>
 
 
@@ -958,8 +973,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1070,7 +1083,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
